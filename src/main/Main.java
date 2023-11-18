@@ -5,13 +5,14 @@ import checker.CheckerConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import fileio.input.LibraryInput;
+import fileio.input.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -74,6 +75,43 @@ public final class Main {
         ArrayNode outputs = objectMapper.createArrayNode();
 
         // TODO add your implementation
+        ArrayList<UserInput> userInputArrayList = library.getUsers();
+        ArrayList<Users> users = new ArrayList<>();
+        for (UserInput input : userInputArrayList) {
+            Users user = new Users(input.getUsername(), input.getAge(), input.getCity());
+            users.add(user);
+            System.out.println(user.getUsername());
+        }
+        System.out.println();
+
+        ArrayList<SongInput> songInputArrayList = library.getSongs();
+        ArrayList<Songs> songs = new ArrayList<>();
+        for (SongInput input: songInputArrayList) {
+            Songs song = new Songs(input.getName(), input.getDuration(), input.getAlbum(), input.getTags(),
+                                    input.getLyrics(), input.getGenre(), input.getReleaseYear(), input.getArtist());
+            songs.add(song);
+            System.out.println(song.getName());
+        }
+        System.out.println();
+
+        ArrayList<PodcastInput> podcastInputArrayList = library.getPodcasts();
+        ArrayList<Podcasts> podcasts = new ArrayList<>();
+
+        for (PodcastInput input: podcastInputArrayList) {
+            ArrayList<EpisodeInput> episodeInputArrayList = input.getEpisodes();
+            ArrayList<Episodes> episodes = new ArrayList<>();
+
+            for (EpisodeInput episodeInput : episodeInputArrayList) {
+                Episodes episode = new Episodes(episodeInput.getName(), episodeInput.getDuration(),
+                        episodeInput.getDescription());
+                episodes.add(episode);
+            }
+
+            Podcasts podcast = new Podcasts(input.getName(), input.getName(), episodes);
+            podcasts.add(podcast);
+            System.out.println(podcast.getEpisodes());
+        }
+
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(new File(filePathOutput), outputs);

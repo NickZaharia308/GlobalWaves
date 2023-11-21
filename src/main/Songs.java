@@ -1,8 +1,11 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Songs {
+    // "Default" fields
     private String name;
     private int duration;
     private String album;
@@ -10,6 +13,13 @@ public class Songs {
     private String lyrics, genre;
     private int releaseYear;
     private String artist;
+
+    // Added fields - used for each user
+    private int remainedTime;
+    private int playTimestamp = -1;
+    private boolean isPaused = true;
+    // Added fields - used globally
+    Map<String, Boolean> userLikesMap = new HashMap<>();
 
     public Songs(String name, int duration, String album, ArrayList<String> tags, String lyrics, String genre,
                  int releaseYear, String artist) {
@@ -21,6 +31,21 @@ public class Songs {
         this.genre = genre;
         this.releaseYear = releaseYear;
         this.artist = artist;
+    }
+
+    // Copy constructor
+    public Songs(Songs original) {
+        this.name = original.name;
+        this.duration = original.duration;
+        this.album = original.album;
+
+        // Copying ArrayList using a copy constructor or a constructor that accepts a Collection
+        this.tags = new ArrayList<>(original.tags);
+
+        this.lyrics = original.lyrics;
+        this.genre = original.genre;
+        this.releaseYear = original.releaseYear;
+        this.artist = original.artist;
     }
 
     public String getName() {
@@ -85,5 +110,37 @@ public class Songs {
 
     public void setArtist(String artist) {
         this.artist = artist;
+    }
+
+    public int getRemainedTime() {
+        return remainedTime;
+    }
+
+    public void setRemainedTime(int remainedTime) {
+        this.remainedTime = remainedTime;
+    }
+
+    public int getPlayTimestamp() {
+        return playTimestamp;
+    }
+
+    public void setPlayTimestamp(int playTimestamp) {
+        this.playTimestamp = playTimestamp;
+    }
+
+    public boolean isPaused() {
+        return isPaused;
+    }
+
+    public void setPaused(boolean paused) {
+        isPaused = paused;
+    }
+
+    public Map<String, Boolean> getUserLikesMap() {
+        return userLikesMap;
+    }
+
+    public void setUserLikesMap(Map<String, Boolean> userLikesMap) {
+        this.userLikesMap = userLikesMap;
     }
 }

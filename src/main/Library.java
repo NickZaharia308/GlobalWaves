@@ -6,6 +6,7 @@ public class Library {
     private ArrayList<Users> users;
     private ArrayList<Songs> songs;
     private ArrayList<Podcasts> podcasts;
+    private ArrayList<Playlists> playlists;
 
     public ArrayList<Users> getUsers() {
         return users;
@@ -29,5 +30,13 @@ public class Library {
 
     public void setPodcasts(ArrayList<Podcasts> podcasts) {
         this.podcasts = podcasts;
+    }
+
+    public ArrayList<Playlists> getPlaylists() {
+        return playlists;
+    }
+
+    public void setPlaylists(ArrayList<Playlists> playlists) {
+        this.playlists = playlists;
     }
 }

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Select extends Command{
+public class Select extends Command {
     private String message;
 
     public void returnSelect (Command command, Library library) {
@@ -24,7 +24,22 @@ public class Select extends Command{
                     message = "The selected ID is too high.";
                 } else {
                     LinkedList<String> searchResults = user.getSearchResults();
-                    message = "Successfully selected " + searchResults.get(itemNumber - 1) + ".";
+                    String selectedSong = searchResults.get(itemNumber - 1);
+
+                    // Finding the selected song and adding it to user
+                    ArrayList<Songs> songs = library.getSongs();
+                    for (Songs song : songs) {
+                        if (song.getName().equals(selectedSong)) {
+                            user.setSelectedSong(song);
+                            break;
+                        }
+                    }
+                    if (user.getSelectedSong() == null)
+                        return;
+                    message = "Successfully selected " + user.getSelectedSong().getName() + ".";
+                    user.setSearchResults(null);
+                    user.setNoOfSearchResults(-1);
+                    user.setSomethingSelected(true);
                 }
                 break;
             }

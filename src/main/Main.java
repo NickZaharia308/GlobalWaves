@@ -123,6 +123,10 @@ public final class Main {
         }
         // Setting the Library's podcasts
         myLibrary.setPodcasts(podcasts);
+
+        ArrayList<Playlists> playlists = new ArrayList<>();
+        myLibrary.setPlaylists(playlists);
+
         LinkedList<Command> commands = objectMapper.readValue(new File(CheckerConstants.TESTS_PATH + filePathInput), new TypeReference<LinkedList<Command>>(){});
 
         // Iterating through commands
@@ -160,7 +164,71 @@ public final class Main {
                 outputs.add(resultNode);
 
             } else if (Objects.equals(command.getCommand(), "load")) {
+                Load load = new Load();
+                load.returnLoad(command, myLibrary);
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", load.getCommand());
+                resultNode.put("user", load.getUsername());
+                resultNode.put("timestamp", load.getTimestamp());
+                resultNode.put("message", load.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "status")) {
+                Status status = new Status();
+                status.returnStatus(command, myLibrary);
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", status.getCommand());
+                resultNode.put("user", status.getUsername());
+                resultNode.put("timestamp", status.getTimestamp());
 
+                ObjectNode statsNode = objectMapper.createObjectNode();
+                statsNode.put("name", status.getTrackName());
+                statsNode.put("remainedTime", status.getRemainedTime());
+                if (status.isRepeat()) {
+                    statsNode.put("repeat", "Repeat");
+                } else {
+                    statsNode.put("repeat", "No Repeat");
+                }
+                statsNode.put("shuffle", status.isShuffle());
+                statsNode.put("paused", status.isPaused());
+                resultNode.set("stats", statsNode);
+                outputs.add(resultNode);
+
+            } else if (Objects.equals(command.getCommand(), "playPause")) {
+                PlayPause playPause = new PlayPause();
+                playPause.returnPlayPause(command, myLibrary);
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", playPause.getCommand());
+                resultNode.put("user", playPause.getUsername());
+                resultNode.put("timestamp", playPause.getTimestamp());
+                resultNode.put("message", playPause.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "createPlaylist")) {
+                CreatePlaylist createPlaylist = new CreatePlaylist();
+                createPlaylist.returnCreatePlaylist(command, myLibrary);
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", createPlaylist.getCommand());
+                resultNode.put("user", createPlaylist.getUsername());
+                resultNode.put("timestamp", createPlaylist.getTimestamp());
+                resultNode.put("message", createPlaylist.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "addRemoveInPlaylist")) {
+                AddRemoveInPlaylist addRemoveInPlaylist = new AddRemoveInPlaylist();
+                addRemoveInPlaylist.returnAddRemoveInPlaylist(command, myLibrary);
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", addRemoveInPlaylist.getCommand());
+                resultNode.put("user", addRemoveInPlaylist.getUsername());
+                resultNode.put("timestamp", addRemoveInPlaylist.getTimestamp());
+                resultNode.put("message", addRemoveInPlaylist.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "like")) {
+                Like like = new Like();
+                like.returnLike(command, myLibrary);
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", like.getCommand());
+                resultNode.put("user", like.getUsername());
+                resultNode.put("timestamp", like.getTimestamp());
+                resultNode.put("message", like.getMessage());
+                outputs.add(resultNode);
             }
         }
 

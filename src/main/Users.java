@@ -1,19 +1,35 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Users {
+
+    // "Default" fields
     private String username;
     private int age;
     private String city;
+
+    // Added fields
+    private Songs selectedSong = null;
     private LinkedList<String> searchResults = null;
     private int noOfSearchResults = -1;
+    private boolean isSomethingSelected = false;
+    private boolean isSomethingLoaded = false;
+    private Track trackType = null;
+    private ArrayList<Songs> likedSongs = new ArrayList<>();
+
+    enum Track {
+        SONG, PLAYLIST, PODCAST
+    }
+
 
     public Users(String username, int age, String city) {
         this.username = username;
         this.age = age;
         this.city = city;
     }
+
 
     public String getUsername() {
         return username;
@@ -38,6 +54,13 @@ public class Users {
     public void setCity(String city) {
         this.city = city;
     }
+    public Songs getSelectedSong() {
+        return selectedSong;
+    }
+
+    public void setSelectedSong(Songs selectedSong) {
+        this.selectedSong = new Songs(selectedSong);
+    }
 
     public LinkedList<String> getSearchResults() {
         return searchResults;
@@ -53,5 +76,37 @@ public class Users {
 
     public void setNoOfSearchResults(int noOfSearchResults) {
         this.noOfSearchResults = noOfSearchResults;
+    }
+
+    public boolean isSomethingSelected() {
+        return isSomethingSelected;
+    }
+
+    public void setSomethingSelected(boolean somethingSelected) {
+        isSomethingSelected = somethingSelected;
+    }
+
+    public boolean isSomethingLoaded() {
+        return isSomethingLoaded;
+    }
+
+    public void setSomethingLoaded(boolean somethingLoaded) {
+        isSomethingLoaded = somethingLoaded;
+    }
+
+    public Track getTrackType() {
+        return trackType;
+    }
+
+    public void setTrackType(Track trackType) {
+        this.trackType = trackType;
+    }
+
+    public ArrayList<Songs> getLikedSongs() {
+        return likedSongs;
+    }
+
+    public void setLikedSongs(ArrayList<Songs> likedSongs) {
+        this.likedSongs = likedSongs;
     }
 }

@@ -14,27 +14,26 @@ public class PlayPause extends Command {
         ArrayList<Users> users = library.getUsers();
         for (Users user : users) {
             if (user.getUsername().equals(command.getUsername())) {
-                Songs playerSong = user.getSelectedSong();
-                if (playerSong.getPlayTimestamp() == -1) {
+                if (user.getMusicPlayer().getPlayTimestamp() == -1) {
                     message = "Please load a source before attempting to pause or resume playback.";
                 } else {
-                    if (playerSong.isPaused()) {
+                    if (user.getMusicPlayer().isPaused()) {
                         message = "Playback resumed successfully.";
-                        playerSong.setPaused(false);
-                        playerSong.setPlayTimestamp(command.getTimestamp());
+                        user.getMusicPlayer().setPaused(false);
+                        user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
 
                     } else {
                         message = "Playback paused successfully.";
-                        playerSong.setPaused(true);
+                        user.getMusicPlayer().setPaused(true);
 
                         // Computing the time elapsed until pause
-                        int playTimestamp = playerSong.getPlayTimestamp();
+                        int playTimestamp = user.getMusicPlayer().getPlayTimestamp();
                         int timestamp = command.getTimestamp();
-                        int leftTime = playerSong.getRemainedTime() + playTimestamp - timestamp;
+                        int leftTime = user.getMusicPlayer().getRemainedTime() + playTimestamp - timestamp;
 
                         // Modifying the remaining time for a track accordingly
-                        playerSong.setPlayTimestamp(timestamp);
-                        playerSong.setRemainedTime(leftTime);
+                        user.getMusicPlayer().setPlayTimestamp(timestamp);
+                        user.getMusicPlayer().setRemainedTime(leftTime);
                     }
                 }
                 break;

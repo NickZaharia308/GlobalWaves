@@ -11,7 +11,7 @@ public class Users {
     private String city;
 
     // Added fields
-    private Songs selectedSong = null;
+    MusicPlayer musicPlayer = null;
     private LinkedList<String> searchResults = null;
     private int noOfSearchResults = -1;
     private boolean isSomethingSelected = false;
@@ -54,12 +54,13 @@ public class Users {
     public void setCity(String city) {
         this.city = city;
     }
-    public Songs getSelectedSong() {
-        return selectedSong;
+
+    public MusicPlayer getMusicPlayer() {
+        return musicPlayer;
     }
 
-    public void setSelectedSong(Songs selectedSong) {
-        this.selectedSong = new Songs(selectedSong);
+    public void setMusicPlayer(MusicPlayer musicPlayer) {
+        this.musicPlayer = musicPlayer;
     }
 
     public LinkedList<String> getSearchResults() {

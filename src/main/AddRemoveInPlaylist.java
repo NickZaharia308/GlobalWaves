@@ -40,10 +40,10 @@ public class AddRemoveInPlaylist extends Command {
 
         Playlists playlist = library.getPlaylists().get(playlistId - 1);
         // If the playlist is public or the owner is the user itself
-        if (playlist.getVisibilty().equals("public") || playlist.getOwner().equals(user.getUsername())) {
+        if (playlist.getVisibility().equals("public") || playlist.getOwner().equals(user.getUsername())) {
             ArrayList<Songs> songs = playlist.getSongs();
 
-            Songs songToCheck = user.getSelectedSong();
+            Songs songToCheck = user.getMusicPlayer().getSong();
             if (!songs.contains(songToCheck)) {
                 songs.add(songToCheck);
                 message = "Successfully added to playlist.";

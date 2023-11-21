@@ -26,18 +26,18 @@ public class Like extends Command {
         }
 
         // If the loaded source is not a song
-        if (user.getTrackType() != Users.Track.SONG) {
+        if (user.getMusicPlayer().getSong() == null) {
             message = "Loaded source is not a song.";
             return;
         }
 
         // Finding the song in Songs collection
         ArrayList<Songs> songs = library.getSongs();
-        Songs UserSong = user.getSelectedSong();
+        Songs UserSong = user.getMusicPlayer().getSong();
         for (Songs song: songs) {
             if (song.getName().equals(UserSong.getName())) {
                 // If the user liked the song, remove the song from liked songs
-                if (UserSong.userLikesMap.containsKey(user.getUsername())) {
+                if (UserSong.getUserLikesMap().containsKey(user.getUsername()) && UserSong.getUserLikesMap().get(user.getUsername())) {
                     // Remove the like from the HashMap
                     song.getUserLikesMap().put(user.getUsername(), false);
 
@@ -58,7 +58,7 @@ public class Like extends Command {
 
                     // Add the song to liked playlist
                     ArrayList<Songs> likedSongs = user.getLikedSongs();
-                    likedSongs.add(user.getSelectedSong());
+                    likedSongs.add(user.getMusicPlayer().getSong());
 
                     setMessage("Like registered successfully.");
                 }

@@ -81,6 +81,10 @@ public final class Main {
         ArrayNode outputs = objectMapper.createArrayNode();
 
         // TODO add your implementation
+//        if (!filePathInput.equals("test04_like_create_addRemove_error.json"))
+//            return;
+        Playlists.noOfPlaylists = 0;
+
         Library myLibrary = new Library();
 
         // Getting the 'UserInput' ArrayList and transferring it in my ArrayList
@@ -228,6 +232,57 @@ public final class Main {
                 resultNode.put("user", like.getUsername());
                 resultNode.put("timestamp", like.getTimestamp());
                 resultNode.put("message", like.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "showPlaylists")) {
+                ShowPlaylists showPlaylists = new ShowPlaylists();
+                showPlaylists.returnShowPlaylists(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", showPlaylists.getCommand());
+                resultNode.put("user", showPlaylists.getUsername());
+                resultNode.put("timestamp", showPlaylists.getTimestamp());
+
+                ArrayNode resultsArrayNode = resultNode.putArray("result");
+                ArrayList<Playlists> userPlaylists = showPlaylists.getPlaylists();
+
+                for (Playlists playlist : userPlaylists) {
+                    ObjectNode playlistNode = objectMapper.createObjectNode();
+                    playlistNode.put("name", playlist.getName());
+
+                    ArrayNode songsArrayNode = playlistNode.putArray("songs");
+
+                    for (Songs song : playlist.getSongs()) {
+                        if (song != null) {
+                            songsArrayNode.add(song.getName());
+                        }
+                    }
+
+                    playlistNode.put("visibility", playlist.getVisibility());
+                    playlistNode.put("followers", playlist.getFollowers());
+
+                    resultsArrayNode.add(playlistNode);
+                }
+
+                resultNode.set("result", resultsArrayNode);
+                outputs.add(resultNode);
+
+            } else if (Objects.equals(command.getCommand(), "showPreferredSongs")) {
+                ShowPreferredSongs showPreferredSongs = new ShowPreferredSongs();
+                showPreferredSongs.returnShowPreferredSongs(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", showPreferredSongs.getCommand());
+                resultNode.put("user", showPreferredSongs.getUsername());
+                resultNode.put("timestamp", showPreferredSongs.getTimestamp());
+
+                ArrayNode resultsArrayNode = resultNode.putArray("result");
+                ArrayList<Songs> likedSongs = showPreferredSongs.getLikedSongs();
+
+                for (Songs song : likedSongs) {
+                    resultsArrayNode.add(song.getName());
+                }
+
+                resultNode.set("result", resultsArrayNode);
                 outputs.add(resultNode);
             }
         }

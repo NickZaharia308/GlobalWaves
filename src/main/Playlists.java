@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Playlists {
     private String name;
     private ArrayList<Songs> songs = null;
-    private String visibilty;
+    private String visibility;
     private int followers;
     private String owner;
     private int ID;
@@ -14,7 +14,7 @@ public class Playlists {
     public Playlists (String name, String owner) {
         this.name = name;
         this.songs = new ArrayList<>();
-        this.visibilty = "public";
+        this.visibility = "public";
         this.followers = 0;
         this.owner = owner;
         noOfPlaylists++;
@@ -37,12 +37,12 @@ public class Playlists {
         this.songs = songs;
     }
 
-    public String getVisibilty() {
-        return visibilty;
+    public String getVisibility() {
+        return visibility;
     }
 
-    public void setVisibilty(String visibilty) {
-        this.visibilty = visibilty;
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
     }
 
     public int getFollowers() {

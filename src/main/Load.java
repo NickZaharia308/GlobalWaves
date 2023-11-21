@@ -18,13 +18,31 @@ public class Load extends Command {
                 } else {
                     message = "Playback loaded successfully.";
                     user.setSomethingLoaded(true);
-
+                    user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
+                    user.getMusicPlayer().setPaused(false);
                     // Setup for when a song is played by a user
-                    user.setTrackType(Users.Track.SONG);
-                    Songs playerSong = user.getSelectedSong();
-                    playerSong.setPlayTimestamp(command.getTimestamp());
-                    playerSong.setPaused(false);
-                    playerSong.setRemainedTime(playerSong.getDuration());
+                    if (user.getTrackType() == Users.Track.SONG) {
+                        Songs playerSong = user.getMusicPlayer().getSong();
+
+                        user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
+                    } else if (user.getTrackType() == Users.Track.PLAYLIST) {
+                        if (user.getMusicPlayer().getPlaylist().getSongs().isEmpty())
+                            continue;
+                        // Get the first song from that playlist
+                        Songs playerSong = user.getMusicPlayer().getPlaylist().getSongs().get(0);
+
+                        user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
+                        // Set the first song on the player
+                        user.getMusicPlayer().setSong(playerSong);
+                    } else {
+                        // Get the first episode from the podcast
+                        Episodes playerEpisode = user.getMusicPlayer().getPodcast().getEpisodes().get(0);
+
+                        user.getMusicPlayer().setRemainedTime(playerEpisode.getDuration());
+                        // Set the first episode on the player
+                        user.getMusicPlayer().setEpisode(playerEpisode);
+                    }
+                    user.setSomethingSelected(false);
                 }
                 break;
             }

@@ -13,6 +13,18 @@ public class Podcasts {
         this.episodes = episodes;
     }
 
+    // Copy constructor
+    public Podcasts(Podcasts otherPodcast) {
+        this.name = otherPodcast.name;
+        this.owner = otherPodcast.owner;
+
+        // Create a new ArrayList and copy the episodes
+        this.episodes = new ArrayList<>();
+        for (Episodes episode : otherPodcast.episodes) {
+            this.episodes.add(new Episodes(episode));
+        }
+    }
+
     public String getName() {
         return name;
     }

@@ -58,7 +58,7 @@ public class Search extends Command {
 
                 if (filters.has("genre")) {
                     String genre = filters.get("genre").asText();
-                    matchesAllFilters &= song.getGenre().toLowerCase().equals(genre);
+                    matchesAllFilters &= song.getGenre().equalsIgnoreCase(genre);
                 }
 
                 if (filters.has("releaseYear")) {
@@ -116,6 +116,28 @@ public class Search extends Command {
                     break;
                 }
             }
+        } else if (Objects.equals(command.getType(), "playlist")) {
+            ArrayList<Playlists> playlists = library.getPlaylists();
+            for (Playlists playlist : playlists) {
+                boolean matchesAllFilters = true;
+
+                if (filters.has("name")) {
+                    String substring = filters.get("name").asText();
+                    matchesAllFilters &= playlist.getName().startsWith(substring);
+                }
+
+                if (filters.has("owner")) {
+                    String owner = filters.get("owner").asText();
+                    matchesAllFilters &= Objects.equals(playlist.getOwner(), owner);
+                }
+
+                if (matchesAllFilters && noOfResults < 5) {
+                    noOfResults++;
+                    this.results.add(playlist.getName());
+                } else if (noOfResults == 5) {
+                    break;
+                }
+            }
         }
 
         this.message = "Search returned " + noOfResults + " results";
@@ -126,6 +148,28 @@ public class Search extends Command {
             if (user.getUsername().equals(command.getUsername())) {
                 user.setNoOfSearchResults(noOfResults);
                 user.setSearchResults(results);
+
+                // Checking if the search interrupts an episode
+                if (user.getMusicPlayer() != null && user.getTrackType() == Users.Track.PODCAST
+                    &&  user.getMusicPlayer().getEpisode() != null) {
+                    // Computing the remaining time for a track
+                    int playTimestamp = user.getMusicPlayer().getPlayTimestamp();
+                    int timestamp = command.getTimestamp();
+                    int leftTime = user.getMusicPlayer().getEpisode().getRemainingTime() + playTimestamp - timestamp;
+                    user.getMusicPlayer().getEpisode().setRemainingTime(leftTime);
+                }
+
+                // Canceling the MusicPlayer (loader)
+                user.setSomethingLoaded(false);
+
+                // Setting the type of search (song, playlist, podcast)
+                if (Objects.equals(command.getType(), "song")) {
+                    user.setTrackType(Users.Track.SONG);
+                } else if (Objects.equals(command.getType(), "podcast")) {
+                    user.setTrackType(Users.Track.PODCAST);
+                } else {
+                    user.setTrackType(Users.Track.PLAYLIST);
+                }
             }
         }
 

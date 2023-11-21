@@ -14,12 +14,8 @@ public class Songs {
     private int releaseYear;
     private String artist;
 
-    // Added fields - used for each user
-    private int remainedTime;
-    private int playTimestamp = -1;
-    private boolean isPaused = true;
-    // Added fields - used globally
-    Map<String, Boolean> userLikesMap = new HashMap<>();
+    // Added fields
+    private Map<String, Boolean> userLikesMap = new HashMap<>();
 
     public Songs(String name, int duration, String album, ArrayList<String> tags, String lyrics, String genre,
                  int releaseYear, String artist) {
@@ -110,30 +106,6 @@ public class Songs {
 
     public void setArtist(String artist) {
         this.artist = artist;
-    }
-
-    public int getRemainedTime() {
-        return remainedTime;
-    }
-
-    public void setRemainedTime(int remainedTime) {
-        this.remainedTime = remainedTime;
-    }
-
-    public int getPlayTimestamp() {
-        return playTimestamp;
-    }
-
-    public void setPlayTimestamp(int playTimestamp) {
-        this.playTimestamp = playTimestamp;
-    }
-
-    public boolean isPaused() {
-        return isPaused;
-    }
-
-    public void setPaused(boolean paused) {
-        isPaused = paused;
     }
 
     public Map<String, Boolean> getUserLikesMap() {

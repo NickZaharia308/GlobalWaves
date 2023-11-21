@@ -24,19 +24,60 @@ public class Select extends Command {
                     message = "The selected ID is too high.";
                 } else {
                     LinkedList<String> searchResults = user.getSearchResults();
-                    String selectedSong = searchResults.get(itemNumber - 1);
 
-                    // Finding the selected song and adding it to user
-                    ArrayList<Songs> songs = library.getSongs();
-                    for (Songs song : songs) {
-                        if (song.getName().equals(selectedSong)) {
-                            user.setSelectedSong(song);
-                            break;
-                        }
+                    // Creating the musicPlayer if it doesn't exist
+                    MusicPlayer musicPlayer = user.getMusicPlayer();
+                    if (user.getMusicPlayer() == null) {
+                        musicPlayer = new MusicPlayer();
                     }
-                    if (user.getSelectedSong() == null)
-                        return;
-                    message = "Successfully selected " + user.getSelectedSong().getName() + ".";
+
+                    // If the track is a song
+                    if (user.getTrackType() == Users.Track.SONG) {
+                        String selectedSong = searchResults.get(itemNumber - 1);
+
+                        // Finding the selected song and adding it to user
+                        ArrayList<Songs> songs = library.getSongs();
+                        for (Songs song : songs) {
+                            if (song.getName().equals(selectedSong)) {
+                                musicPlayer.setSong(song);
+                                user.setMusicPlayer(musicPlayer);
+                                break;
+                            }
+                        }
+
+                        message = "Successfully selected " + user.getMusicPlayer().getSong().getName() + ".";
+                    } else if (user.getTrackType() == Users.Track.PLAYLIST) {
+                        String selectedPlaylist = searchResults.get(itemNumber - 1);
+
+                        // Finding the selected playlist and adding it to user
+                        ArrayList<Playlists> playlists = library.getPlaylists();
+                        for (Playlists playlist : playlists) {
+                            if (playlist.getName().equals(selectedPlaylist)) {
+                                musicPlayer.setPlaylist(playlist);
+                                user.setMusicPlayer(musicPlayer);
+                                break;
+                            }
+                        }
+                        if (user.getMusicPlayer().getPlaylist() == null)
+                            return;
+                        message = "Successfully selected " + user.getMusicPlayer().getPlaylist().getName() + ".";
+                    } else if (user.getTrackType() == Users.Track.PODCAST) {
+                        String selectedPodcast = searchResults.get(itemNumber - 1);
+
+                        // Finding the selected podcast and adding it to user
+                        if (musicPlayer.getPodcasts() == null)
+                            musicPlayer.setPodcasts(library.getPodcasts());
+
+                        for (Podcasts podcast : musicPlayer.getPodcasts()) {
+                            if (podcast.getName().equals(selectedPodcast)) {
+                                musicPlayer.setPodcast(podcast);
+                                user.setMusicPlayer(musicPlayer);
+                                break;
+                            }
+                        }
+
+                        message = "Successfully selected " + user.getMusicPlayer().getPodcast().getName() + ".";
+                    }
                     user.setSearchResults(null);
                     user.setNoOfSearchResults(-1);
                     user.setSomethingSelected(true);

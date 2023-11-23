@@ -37,7 +37,7 @@ public class Like extends Command {
         for (Songs song: songs) {
             if (song.getName().equals(UserSong.getName())) {
                 // If the user liked the song, remove the song from liked songs
-                if (UserSong.getUserLikesMap().containsKey(user.getUsername()) && UserSong.getUserLikesMap().get(user.getUsername())) {
+                if (song.getUserLikesMap().containsKey(user.getUsername()) && song.getUserLikesMap().get(user.getUsername())) {
                     // Remove the like from the HashMap
                     song.getUserLikesMap().put(user.getUsername(), false);
 

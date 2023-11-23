@@ -38,20 +38,28 @@ public class AddRemoveInPlaylist extends Command {
             return;
         }
 
-        Playlists playlist = library.getPlaylists().get(playlistId - 1);
-        // If the playlist is public or the owner is the user itself
-        if (playlist.getVisibility().equals("public") || playlist.getOwner().equals(user.getUsername())) {
-            ArrayList<Songs> songs = playlist.getSongs();
-
-            Songs songToCheck = user.getMusicPlayer().getSong();
-            if (!songs.contains(songToCheck)) {
-                songs.add(songToCheck);
-                message = "Successfully added to playlist.";
-
-            } else {
-                songs.remove(songToCheck);
-                message = "Successfully removed from playlist.";
+        ArrayList<Playlists> playlists = library.getPlaylists();
+        Playlists playlist = null;
+        for (Playlists playlistToFind: playlists) {
+            // If the ID matches and the playlist's owner is the user itself
+            if (playlistToFind.getOwner().equals(user.getUsername()) && playlistToFind.getUsersID() == command.getPlaylistId()) {
+                playlist = playlistToFind;
+                break;
             }
+        }
+
+        if (playlist == null)
+            return;
+        ArrayList<Songs> songs = playlist.getSongs();
+
+        Songs songToCheck = user.getMusicPlayer().getSong();
+        if (!songs.contains(songToCheck)) {
+            songs.add(songToCheck);
+            message = "Successfully added to playlist.";
+
+        } else {
+            songs.remove(songToCheck);
+            message = "Successfully removed from playlist.";
         }
 
     }

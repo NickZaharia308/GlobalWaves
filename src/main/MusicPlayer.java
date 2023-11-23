@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class MusicPlayer {
     private Songs song = null;
     private Playlists playlist = null;
+
+    private Playlists playlistsShuffled = null;
     private ArrayList<Podcasts> podcasts = null;
 
     private Podcasts podcast = null;
@@ -12,6 +14,9 @@ public class MusicPlayer {
     boolean isPaused = true;
     private int remainedTime;
     private int playTimestamp = -1;
+    private int repeatMode = 0;
+
+    private boolean isShuffled = false;
 
     public Songs getSong() {
         return song;
@@ -85,5 +90,33 @@ public class MusicPlayer {
 
     public void setPlayTimestamp(int playTimestamp) {
         this.playTimestamp = playTimestamp;
+    }
+
+    public int getRepeatMode() {
+        return repeatMode;
+    }
+
+    public void setRepeatMode(int repeatMode) {
+        if (repeatMode == 3) {
+            this.repeatMode = 0;
+            return;
+        }
+        this.repeatMode = repeatMode;
+    }
+
+    public Playlists getPlaylistsShuffled() {
+        return playlistsShuffled;
+    }
+
+    public void setPlaylistsShuffled(Playlists playlistsShuffled) {
+        this.playlistsShuffled = playlistsShuffled;
+    }
+
+    public boolean isShuffled() {
+        return isShuffled;
+    }
+
+    public void setShuffled(boolean shuffled) {
+        isShuffled = shuffled;
     }
 }

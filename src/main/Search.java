@@ -53,7 +53,7 @@ public class Search extends Command {
 
                 if (filters.has("lyrics")) {
                     String lyrics = filters.get("lyrics").asText();
-                    matchesAllFilters &= song.getLyrics().toLowerCase().contains(lyrics);
+                    matchesAllFilters &= song.getLyrics().toLowerCase().contains(lyrics.toLowerCase());
                 }
 
                 if (filters.has("genre")) {
@@ -129,6 +129,9 @@ public class Search extends Command {
                 if (filters.has("owner")) {
                     String owner = filters.get("owner").asText();
                     matchesAllFilters &= Objects.equals(playlist.getOwner(), owner);
+                } else {
+                    // If the searched playlist is public
+                    matchesAllFilters &= playlist.getVisibility().equals("public");
                 }
 
                 if (matchesAllFilters && noOfResults < 5) {

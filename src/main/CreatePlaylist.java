@@ -22,7 +22,7 @@ public class CreatePlaylist extends Command {
         }
 
         // Creating the new playlist
-        Playlists playlist = new Playlists(playlistName, username);
+        Playlists playlist = new Playlists(playlistName, username, library);
         playlists.add(playlist);
         message = "Playlist created successfully.";
     }

@@ -43,6 +43,7 @@ public class Load extends Command {
                         user.getMusicPlayer().setEpisode(playerEpisode);
                     }
                     user.setSomethingSelected(false);
+                    user.getMusicPlayer().setRepeatMode(0);
                 }
                 break;
             }

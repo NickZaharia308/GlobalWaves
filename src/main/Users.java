@@ -18,6 +18,7 @@ public class Users {
     private boolean isSomethingLoaded = false;
     private Track trackType = null;
     private ArrayList<Songs> likedSongs = new ArrayList<>();
+    private int noOfPlaylists = 0;
 
     enum Track {
         SONG, PLAYLIST, PODCAST
@@ -109,5 +110,13 @@ public class Users {
 
     public void setLikedSongs(ArrayList<Songs> likedSongs) {
         this.likedSongs = likedSongs;
+    }
+
+    public int getNoOfPlaylists() {
+        return noOfPlaylists;
+    }
+
+    public void setNoOfPlaylists(int noOfPlaylists) {
+        this.noOfPlaylists = noOfPlaylists;
     }
 }

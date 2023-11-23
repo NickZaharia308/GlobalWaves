@@ -115,4 +115,8 @@ public class Songs {
     public void setUserLikesMap(Map<String, Boolean> userLikesMap) {
         this.userLikesMap = userLikesMap;
     }
+
+    public long getNumberOfLikes() {
+        return userLikesMap.values().stream().filter(Boolean::booleanValue).count();
+    }
 }

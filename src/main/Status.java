@@ -6,7 +6,9 @@ import java.util.LinkedList;
 public class Status extends Command {
     private String trackName;
     private int remainedTime;
-    private boolean repeat, shuffle, paused;
+    private boolean shuffle, paused;
+    private int repeat;
+    private String repeatMessage;
 
     public void returnStatus (Command command, Library library) {
         super.setCommand(command.getCommand());
@@ -39,11 +41,44 @@ public class Status extends Command {
                                 user.getMusicPlayer().setRemainedTime(leftTime);
                                 setRemainedTime(leftTime);
                             } else {
-                                setTrackName("");
-                                user.getMusicPlayer().setPaused(true);
+                                // Repeat once
+                                if (user.getMusicPlayer().getRepeatMode() == 1) {
+                                    leftTime += playerSong.getDuration();
+                                    if (leftTime > 0) {
+                                        setTrackName(playerSong.getName());
+                                        user.getMusicPlayer().setSong(playerSong);
+                                        user.getMusicPlayer().setPlayTimestamp(timestamp);
+                                        user.getMusicPlayer().setRemainedTime(leftTime);
+                                        setRemainedTime(leftTime);
 
-                                setRemainedTime(0);
-                                user.getMusicPlayer().setRemainedTime(0);
+                                    } else {
+                                        setTrackName("");
+                                        user.getMusicPlayer().setPaused(true);
+
+                                        setRemainedTime(0);
+                                        user.getMusicPlayer().setRemainedTime(0);
+                                    }
+                                    // Reset the repeat mode
+                                    user.getMusicPlayer().setRepeatMode(0);
+
+                                    // Repeat infinite times
+                                } else if (user.getMusicPlayer().getRepeatMode() == 2) {
+                                    while (leftTime < 0) {
+                                        leftTime += playerSong.getDuration();
+                                    }
+                                    setTrackName(playerSong.getName());
+                                    user.getMusicPlayer().setSong(playerSong);
+                                    user.getMusicPlayer().setPlayTimestamp(timestamp);
+                                    user.getMusicPlayer().setRemainedTime(leftTime);
+                                    setRemainedTime(leftTime);
+                                } else {
+                                    setTrackName("");
+                                    user.getMusicPlayer().setPaused(true);
+
+                                    setRemainedTime(0);
+                                    user.getMusicPlayer().setRemainedTime(0);
+                                    user.setSomethingLoaded(false);
+                                }
                             }
                         } else if (user.getMusicPlayer().isPaused()) {
                             int leftTime = user.getMusicPlayer().getRemainedTime();
@@ -71,12 +106,33 @@ public class Status extends Command {
                                 user.getMusicPlayer().setRemainedTime(leftTime);
                                 setRemainedTime(leftTime);
                             } else {
+                                // If the repeat mode is "repeat current song"
+                                if (user.getMusicPlayer().getRepeatMode() == 2) {
+                                    while (leftTime < 0) {
+                                        leftTime += playerSong.getDuration();
+                                    }
+                                    setTrackName(playerSong.getName());
+                                    user.getMusicPlayer().setSong(playerSong);
+                                    user.getMusicPlayer().setPlayTimestamp(timestamp);
+                                    user.getMusicPlayer().setRemainedTime(leftTime);
+                                    setRemainedTime(leftTime);
+
+                                    repeatMessage(user.getMusicPlayer().getRepeatMode(), user.getTrackType());
+                                    continue;
+                                }
+
                                 int index = user.getMusicPlayer().getPlaylist().getSongs().indexOf(playerSong);
                                 Songs currentSong = playerSong;
-                                while(index < user.getMusicPlayer().getPlaylist().getSongs().size() - 1 && leftTime < 0) {
+                                while(index < user.getMusicPlayer().getPlaylist().getSongs().size() - 1 && leftTime <= 0) {
                                     index++;
                                     currentSong = user.getMusicPlayer().getPlaylist().getSongs().get(index);
                                     leftTime += currentSong.getDuration();
+
+                                    // if the repeat mode is "repeat all and we reached the last song
+                                    if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime < 0
+                                        && index == user.getMusicPlayer().getPlaylist().getSongs().size() - 1) {
+                                        index = -1;
+                                    }
                                 }
                                 if (leftTime > 0) {
                                     setTrackName(currentSong.getName());
@@ -90,6 +146,7 @@ public class Status extends Command {
 
                                     setRemainedTime(0);
                                     user.getMusicPlayer().setRemainedTime(0);
+                                    user.setSomethingLoaded(false);
                                 }
                             }
                         } else if (user.getMusicPlayer().isPaused()) {
@@ -122,10 +179,14 @@ public class Status extends Command {
                                 // Get the whole podcast and find the next episode where "leftTIme > 0"
                                 int index = user.getMusicPlayer().getPodcast().getEpisodes().indexOf(playerEpisode);
                                 Episodes currentEpisode = playerEpisode;
-                                while(index < user.getMusicPlayer().getPodcast().getEpisodes().size() - 1 && leftTime < 0) {
+                                while(index < user.getMusicPlayer().getPodcast().getEpisodes().size() - 1 && leftTime <= 0) {
                                     index++;
                                     currentEpisode = user.getMusicPlayer().getPodcast().getEpisodes().get(index);
                                     leftTime += currentEpisode.getRemainingTime();
+                                    // If all the episodes finished, reset the episodes
+                                    if (index == user.getMusicPlayer().getPodcast().getEpisodes().size() - 1) {
+                                        user.getMusicPlayer().getPodcast().resetEpisodes(user.getMusicPlayer().getPodcast());
+                                    }
                                 }
                                 if (leftTime > 0) {
                                     setTrackName(currentEpisode.getName());
@@ -140,6 +201,7 @@ public class Status extends Command {
 
                                     setRemainedTime(0);
                                     user.getMusicPlayer().setRemainedTime(0);
+                                    user.setSomethingLoaded(false);
                                 }
                             }
                         } else if (user.getMusicPlayer().isPaused()) {
@@ -181,20 +243,55 @@ public class Status extends Command {
                     else
                         setPaused(false);
 
-                    setRepeat(false);
-                    setShuffle(false);
+                    setRepeat(user.getMusicPlayer().getRepeatMode());
+                    repeatMessage(user.getMusicPlayer().getRepeatMode(), user.getTrackType());
+
+                    if (user.getMusicPlayer().isShuffled())
+                        setShuffle(true);
+                    else
+                        setShuffle(false);
                 } else {
                     // Nothing is loaded in users loader
                     setTrackName("");
                     setPaused(true);
                     setRemainedTime(0);
-                    setRepeat(false);
+                    setRepeat(0);
+                    repeatMessage(getRepeat(), user.getTrackType());
                     setShuffle(false);
                 }
                 break;
             }
         }
 
+    }
+
+    // Method used for setting a message according to the status of repeat
+    void repeatMessage(int repeatMode, Users.Track track) {
+        if (track== Users.Track.PLAYLIST) {
+            switch (repeatMode) {
+                case 1:
+                    setRepeatMessage("Repeat All");
+                    break;
+                case 2:
+                    setRepeatMessage("Repeat Current Song");
+                    break;
+                default:
+                    setRepeatMessage("No Repeat");
+                    break;
+            }
+        } else {
+            switch (repeatMode) {
+                case 1:
+                    setRepeatMessage("Repeat Once");
+                    break;
+                case 2:
+                    setRepeatMessage("Repeat Infinite");
+                    break;
+                default:
+                    setRepeatMessage("No Repeat");
+                    break;
+            }
+        }
     }
 
     public String getTrackName() {
@@ -213,18 +310,17 @@ public class Status extends Command {
         this.remainedTime = remainedTime;
     }
 
-    public boolean isRepeat() {
+    public int getRepeat() {
         return repeat;
     }
 
-    public void setRepeat(boolean repeat) {
+    public void setRepeat(int repeat) {
         this.repeat = repeat;
     }
 
     public boolean isShuffle() {
         return shuffle;
     }
-
     public void setShuffle(boolean shuffle) {
         this.shuffle = shuffle;
     }
@@ -235,5 +331,13 @@ public class Status extends Command {
 
     public void setPaused(boolean paused) {
         this.paused = paused;
+    }
+
+    public String getRepeatMessage() {
+        return repeatMessage;
+    }
+
+    public void setRepeatMessage(String repeatMessage) {
+        this.repeatMessage = repeatMessage;
     }
 }

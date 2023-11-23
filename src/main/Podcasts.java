@@ -25,6 +25,13 @@ public class Podcasts {
         }
     }
 
+    // Method that resets the podcast episode to full time (replay podcast)
+    public void resetEpisodes (Podcasts podcast) {
+        for (Episodes episode : podcast.getEpisodes()) {
+            episode.setRemainingTime(episode.getDuration());
+        }
+    }
+
     public String getName() {
         return name;
     }

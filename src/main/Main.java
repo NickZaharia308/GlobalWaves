@@ -187,11 +187,7 @@ public final class Main {
                 ObjectNode statsNode = objectMapper.createObjectNode();
                 statsNode.put("name", status.getTrackName());
                 statsNode.put("remainedTime", status.getRemainedTime());
-                if (status.isRepeat()) {
-                    statsNode.put("repeat", "Repeat");
-                } else {
-                    statsNode.put("repeat", "No Repeat");
-                }
+                statsNode.put("repeat", status.getRepeatMessage());
                 statsNode.put("shuffle", status.isShuffle());
                 statsNode.put("paused", status.isPaused());
                 resultNode.set("stats", statsNode);
@@ -279,6 +275,120 @@ public final class Main {
                 ArrayList<Songs> likedSongs = showPreferredSongs.getLikedSongs();
 
                 for (Songs song : likedSongs) {
+                    resultsArrayNode.add(song.getName());
+                }
+
+                resultNode.set("result", resultsArrayNode);
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "repeat")) {
+                Repeat repeat = new Repeat();
+                repeat.returnRepeat(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", repeat.getCommand());
+                resultNode.put("user", repeat.getUsername());
+                resultNode.put("timestamp", repeat.getTimestamp());
+                resultNode.put("message", repeat.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "shuffle")) {
+                Shuffle shuffle = new Shuffle();
+                shuffle.returnShuffle(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", shuffle.getCommand());
+                resultNode.put("user", shuffle.getUsername());
+                resultNode.put("timestamp", shuffle.getTimestamp());
+                resultNode.put("message", shuffle.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "next")) {
+                Next next = new Next();
+                next.returnNext(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", next.getCommand());
+                resultNode.put("user", next.getUsername());
+                resultNode.put("timestamp", next.getTimestamp());
+                resultNode.put("message", next.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "prev")) {
+                Prev prev = new Prev();
+                prev.returnPrev(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", prev.getCommand());
+                resultNode.put("user", prev.getUsername());
+                resultNode.put("timestamp", prev.getTimestamp());
+                resultNode.put("message", prev.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "forward")) {
+                Forward forward = new Forward();
+                forward.returnForward(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", forward.getCommand());
+                resultNode.put("user", forward.getUsername());
+                resultNode.put("timestamp", forward.getTimestamp());
+                resultNode.put("message", forward.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "backward")) {
+                Backward backward = new Backward();
+                backward.returnBackward(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", backward.getCommand());
+                resultNode.put("user", backward.getUsername());
+                resultNode.put("timestamp", backward.getTimestamp());
+                resultNode.put("message", backward.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "follow")) {
+                FollowPlaylist followPlaylist = new FollowPlaylist();
+                followPlaylist.returnFollowPlaylist(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", followPlaylist.getCommand());
+                resultNode.put("user", followPlaylist.getUsername());
+                resultNode.put("timestamp", followPlaylist.getTimestamp());
+                resultNode.put("message", followPlaylist.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "switchVisibility")) {
+                SwitchVisibility switchVisibility = new SwitchVisibility();
+                switchVisibility.returnSwitchVisibility(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", switchVisibility.getCommand());
+                resultNode.put("user", switchVisibility.getUsername());
+                resultNode.put("timestamp", switchVisibility.getTimestamp());
+                resultNode.put("message", switchVisibility.getMessage());
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "getTop5Playlists")) {
+                GetTop5Playlists getTop5Playlists = new GetTop5Playlists();
+                getTop5Playlists.returnGetTop5Playlists(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", getTop5Playlists.getCommand());
+                resultNode.put("timestamp", getTop5Playlists.getTimestamp());
+
+                ArrayNode resultsArrayNode = resultNode.putArray("result");
+                ArrayList<Playlists> top5Playlists = getTop5Playlists.getPlaylists();
+
+                for (Playlists playlist : top5Playlists) {
+                    resultsArrayNode.add(playlist.getName());
+                }
+
+                resultNode.set("result", resultsArrayNode);
+                outputs.add(resultNode);
+            } else if (Objects.equals(command.getCommand(), "getTop5Songs")) {
+                GetTop5Songs getTop5Songs = new GetTop5Songs();
+                getTop5Songs.returnGetTop5Songs(command, myLibrary);
+
+                ObjectNode resultNode = objectMapper.createObjectNode();
+                resultNode.put("command", getTop5Songs.getCommand());
+                resultNode.put("timestamp", getTop5Songs.getTimestamp());
+
+                ArrayNode resultsArrayNode = resultNode.putArray("result");
+                ArrayList<Songs> top5Songs = getTop5Songs.getSongs();
+
+                for (Songs song : top5Songs) {
                     resultsArrayNode.add(song.getName());
                 }
 

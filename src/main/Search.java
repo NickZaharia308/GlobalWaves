@@ -129,6 +129,8 @@ public class Search extends Command {
                 if (filters.has("owner")) {
                     String owner = filters.get("owner").asText();
                     matchesAllFilters &= Objects.equals(playlist.getOwner(), owner);
+                    if (!playlist.getOwner().equals(command.getUsername()))
+                        matchesAllFilters &= playlist.getVisibility().equals("public");
                 } else {
                     // If the searched playlist is public
                     matchesAllFilters &= playlist.getVisibility().equals("public");

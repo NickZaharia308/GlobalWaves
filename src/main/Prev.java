@@ -19,11 +19,15 @@ public class Prev extends Command {
             }
         }
 
+        Status status = new Status();
+        status.returnStatus(command, library);
+
         // If there is nothing loaded
         if (!user.isSomethingLoaded()) {
             setMessage("Please load a source before returning to the previous track.");
             return;
         }
+        user.getMusicPlayer().setPaused(false);
 
         Users.Track track = user.getTrackType();
         switch (track) {

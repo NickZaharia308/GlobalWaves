@@ -30,38 +30,33 @@ public class Like extends Command {
             message = "Loaded source is not a song.";
             return;
         }
+        Status status = new Status();
+        status.returnStatus(command, library);
 
         // Finding the song in Songs collection
         ArrayList<Songs> songs = library.getSongs();
         Songs UserSong = user.getMusicPlayer().getSong();
+        ArrayList<Songs> likedSongs = user.getLikedSongs();
         for (Songs song: songs) {
             if (song.getName().equals(UserSong.getName())) {
-                // If the user liked the song, remove the song from liked songs
-                if (song.getUserLikesMap().containsKey(user.getUsername()) && song.getUserLikesMap().get(user.getUsername())) {
-                    // Remove the like from the HashMap
-                    song.getUserLikesMap().put(user.getUsername(), false);
-
-                    // Remove the song from the liked playlist
-                    ArrayList<Songs> likedSongs = user.getLikedSongs();
-                    for (Songs song2 : likedSongs) {
-                        if (song2.getName().equals(UserSong.getName())) {
-                            likedSongs.remove(song2);
-                            break;
-                        }
+                for (Songs song2 : likedSongs) {
+                    if (song2.getName().equals(UserSong.getName())) {
+                        // Remove the like from the HashMap
+                        song.getUserLikesMap().put(user.getUsername(), false);
+                        // Remove the song from the liked playlist
+                        likedSongs.remove(song2);
+                        setMessage("Unlike registered successfully.");
+                        return;
                     }
-                    setMessage("Unlike registered successfully.");
-
-                // The user likes the songs, now
-                } else {
-                    // Add the player's like in the HashMap
-                    song.getUserLikesMap().put(user.getUsername(), true);
-
-                    // Add the song to liked playlist
-                    ArrayList<Songs> likedSongs = user.getLikedSongs();
-                    likedSongs.add(user.getMusicPlayer().getSong());
-
-                    setMessage("Like registered successfully.");
                 }
+                // Add the player's like in the HashMap
+                song.getUserLikesMap().put(user.getUsername(), true);
+
+                // Add the song to liked playlist
+                likedSongs.add(song);
+
+                setMessage("Like registered successfully.");
+                break;
             }
         }
 

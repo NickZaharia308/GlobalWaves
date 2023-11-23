@@ -20,6 +20,7 @@ public class FollowPlaylist extends Command {
             }
         }
 
+
         // If there is nothing loaded
         if (!user.isSomethingSelected()) {
             setMessage("Please select a source before following or unfollowing.");

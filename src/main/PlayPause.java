@@ -11,10 +11,12 @@ public class PlayPause extends Command {
         super.setUsername(command.getUsername());
         super.setTimestamp(command.getTimestamp());
 
+        Status status = new Status();
+        status.returnStatus(command, library);
         ArrayList<Users> users = library.getUsers();
         for (Users user : users) {
             if (user.getUsername().equals(command.getUsername())) {
-                if (user.getMusicPlayer().getPlayTimestamp() == -1) {
+                if (!user.isSomethingLoaded()) {
                     message = "Please load a source before attempting to pause or resume playback.";
                 } else {
                     if (user.getMusicPlayer().isPaused()) {

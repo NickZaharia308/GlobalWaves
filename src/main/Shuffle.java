@@ -54,7 +54,6 @@ public class Shuffle extends Command {
         } else {
             user.getMusicPlayer().setShuffled(false);
 
-
             // Set the value for playlist to the original playlist
             user.getMusicPlayer().setPlaylist(user.getMusicPlayer().getPlaylistsShuffled());
             setMessage("Shuffle function deactivated successfully.");

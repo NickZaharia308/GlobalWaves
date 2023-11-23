@@ -18,6 +18,9 @@ public class Next extends Command {
             }
         }
 
+        Status status = new Status();
+        status.returnStatus(command, library);
+
         // If there is nothing loaded
         if (!user.isSomethingLoaded()) {
             setMessage("Please load a source before skipping to the next track.");
@@ -30,11 +33,11 @@ public class Next extends Command {
             user.getMusicPlayer().getEpisode().setRemainingTime(0);
         }
 
-        Status status = new Status();
         status.returnStatus(command, library);
 
         if (user.getMusicPlayer().getRemainedTime() == 0) {
             user.setSomethingLoaded(false);
+            setMessage("Please load a source before skipping to the next track.");
         } else if (user.getTrackType() == Users.Track.SONG || user.getTrackType() == Users.Track.PLAYLIST) {
             setMessage("Skipped to next track successfully. The current track is " + user.getMusicPlayer().getSong().getName() + ".");
         } else if (user.getTrackType() == Users.Track.PODCAST) {

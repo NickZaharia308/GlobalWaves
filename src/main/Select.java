@@ -19,9 +19,13 @@ public class Select extends Command {
         for (Users user : users) {
             if (user.getUsername().equals(command.getUsername())) {
                 if (user.getNoOfSearchResults() == -1) {
+                    user.setSomethingSelected(false);
                     message = "Please conduct a search before making a selection.";
+                    return;
                 } else if (itemNumber > user.getNoOfSearchResults()) {
+                    user.setSomethingSelected(false);
                     message = "The selected ID is too high.";
+                    return;
                 } else {
                     LinkedList<String> searchResults = user.getSearchResults();
 

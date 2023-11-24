@@ -1,122 +1,197 @@
 package main;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/**
+ * The Users class represents a user in the system.
+ */
 public class Users {
 
     // "Default" fields
+    @Getter
     private String username;
+    @Getter
     private int age;
+    @Getter
     private String city;
 
     // Added fields
-    MusicPlayer musicPlayer = null;
+    @Getter
+    private MusicPlayer musicPlayer = null;
+    @Getter
     private LinkedList<String> searchResults = null;
+    @Getter
     private int noOfSearchResults = -1;
     private boolean isSomethingSelected = false;
     private boolean isSomethingLoaded = false;
+    @Getter
     private Track trackType = null;
+    @Getter
     private ArrayList<Songs> likedSongs = new ArrayList<>();
+    @Getter
     private int noOfPlaylists = 0;
 
+    /**
+     * Default constructor for the Users class.
+     * Creates an instance of Users with default values or initializes fields to null.
+     */
+    public Users() {
+        // Implementation details, if necessary
+    }
+
+    /**
+     * Enumeration representing different types of tracks.
+     */
     enum Track {
         SONG, PLAYLIST, PODCAST
     }
 
-
-    public Users(String username, int age, String city) {
+    /**
+     * Constructs a new Users object with the specified username, age, and city.
+     *
+     * @param username The username of the user.
+     * @param age      The age of the user.
+     * @param city     The city where the user resides.
+     */
+    public Users(final String username, final int age, final String city) {
         this.username = username;
         this.age = age;
         this.city = city;
     }
 
-
-    public String getUsername() {
-        return username;
+    /**
+     * Gets a user with the specified name from the list of users.
+     *
+     * @param users The list of users.
+     * @param name  The name of the user to retrieve.
+     * @return The user with the specified name, or null if not found.
+     */
+    public Users getUser(final ArrayList<Users> users, final String name) {
+        for (Users user : users) {
+            if (user.getUsername().equals(name)) {
+                return user;
+            }
+        }
+        return null;
     }
 
-    public void setUsername(String username) {
+    /**
+     * Sets the username of the user.
+     *
+     * @param username The new username.
+     */
+    public void setUsername(final String username) {
         this.username = username;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
+    /**
+     * Sets the age of the user.
+     *
+     * @param age The new age.
+     */
+    public void setAge(final int age) {
         this.age = age;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
+    /**
+     * Sets the city of the user.
+     *
+     * @param city The new city.
+     */
+    public void setCity(final String city) {
         this.city = city;
     }
 
-    public MusicPlayer getMusicPlayer() {
-        return musicPlayer;
-    }
-
-    public void setMusicPlayer(MusicPlayer musicPlayer) {
+    /**
+     * Sets the music player for the user.
+     *
+     * @param musicPlayer The music player.
+     */
+    public void setMusicPlayer(final MusicPlayer musicPlayer) {
         this.musicPlayer = musicPlayer;
     }
 
-    public LinkedList<String> getSearchResults() {
-        return searchResults;
-    }
-
-    public void setSearchResults(LinkedList<String> searchResults) {
+    /**
+     * Sets the search results for the user.
+     *
+     * @param searchResults The search results.
+     */
+    public void setSearchResults(final LinkedList<String> searchResults) {
         this.searchResults = searchResults;
     }
 
-    public int getNoOfSearchResults() {
-        return noOfSearchResults;
-    }
-
-    public void setNoOfSearchResults(int noOfSearchResults) {
+    /**
+     * Sets the number of search results for the user.
+     *
+     * @param noOfSearchResults The number of search results.
+     */
+    public void setNoOfSearchResults(final int noOfSearchResults) {
         this.noOfSearchResults = noOfSearchResults;
     }
 
+    /**
+     * Checks if something is selected for the user.
+     *
+     * @return True if something is selected, false otherwise.
+     */
     public boolean isSomethingSelected() {
         return isSomethingSelected;
     }
 
-    public void setSomethingSelected(boolean somethingSelected) {
+    /**
+     * Sets whether something is selected for the user.
+     *
+     * @param somethingSelected True if something is selected, false otherwise.
+     */
+    public void setSomethingSelected(final boolean somethingSelected) {
         isSomethingSelected = somethingSelected;
     }
 
+    /**
+     * Checks if something is loaded for the user.
+     *
+     * @return True if something is loaded, false otherwise.
+     */
     public boolean isSomethingLoaded() {
         return isSomethingLoaded;
     }
 
-    public void setSomethingLoaded(boolean somethingLoaded) {
+    /**
+     * Sets whether something is loaded for the user.
+     *
+     * @param somethingLoaded True if something is loaded, false otherwise.
+     */
+    public void setSomethingLoaded(final boolean somethingLoaded) {
         isSomethingLoaded = somethingLoaded;
     }
 
-    public Track getTrackType() {
-        return trackType;
-    }
-
-    public void setTrackType(Track trackType) {
+    /**
+     * Sets the track type for the user.
+     *
+     * @param trackType The track type.
+     */
+    public void setTrackType(final Track trackType) {
         this.trackType = trackType;
     }
 
-    public ArrayList<Songs> getLikedSongs() {
-        return likedSongs;
-    }
-
-    public void setLikedSongs(ArrayList<Songs> likedSongs) {
+    /**
+     * Sets the list of liked songs for the user.
+     *
+     * @param likedSongs The list of liked songs.
+     */
+    public void setLikedSongs(final ArrayList<Songs> likedSongs) {
         this.likedSongs = likedSongs;
     }
 
-    public int getNoOfPlaylists() {
-        return noOfPlaylists;
-    }
-
-    public void setNoOfPlaylists(int noOfPlaylists) {
+    /**
+     * Sets the number of playlists for the user.
+     *
+     * @param noOfPlaylists The number of playlists.
+     */
+    public void setNoOfPlaylists(final int noOfPlaylists) {
         this.noOfPlaylists = noOfPlaylists;
     }
 }

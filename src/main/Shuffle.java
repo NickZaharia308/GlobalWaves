@@ -1,23 +1,28 @@
 package main;
 
-import java.util.ArrayList;
+import lombok.Getter;
 
+/**
+ * Represents a command to shuffle the songs in a playlist.
+ */
+@Getter
 public class Shuffle extends Command {
     private String message;
 
-    public void returnShuffle (Command command, Library library) {
+    /**
+     * Shuffles the songs in a playlist based on the specified seed.
+     *
+     * @param command The command containing user-specific information, timestamp, and request
+     *                details.
+     * @param library The library containing playlists and user information.
+     */
+    public void returnShuffle(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
         super.setTimestamp(command.getTimestamp());
 
-        ArrayList<Users> users = library.getUsers();
-        Users user = users.get(1);
-        for (Users user1 : users) {
-            if (user1.getUsername().equals(command.getUsername())) {
-                user = user1;
-                break;
-            }
-        }
+        Users user = new Users();
+        user = user.getUser(library.getUsers(), command.getUsername());
 
         Status status = new Status();
         status.returnStatus(command, library);
@@ -34,7 +39,7 @@ public class Shuffle extends Command {
             return;
         }
 
-        int seed = command.getSeed();
+        final int seed = command.getSeed();
         if (!user.getMusicPlayer().isShuffled()) {
             user.getMusicPlayer().setShuffled(true);
 
@@ -58,13 +63,14 @@ public class Shuffle extends Command {
             user.getMusicPlayer().setPlaylist(user.getMusicPlayer().getPlaylistsShuffled());
             setMessage("Shuffle function deactivated successfully.");
         }
-
-    }
-    public String getMessage() {
-        return message;
     }
 
-    public void setMessage(String message) {
+    /**
+     * Sets the message associated with the execution of the command.
+     *
+     * @param message The message to be set.
+     */
+    public void setMessage(final String message) {
         this.message = message;
     }
 }

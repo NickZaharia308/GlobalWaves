@@ -1,23 +1,24 @@
 package main;
 
-import java.util.ArrayList;
+import lombok.Getter;
 
+@Getter
 public class Prev extends Command {
     private String message;
 
-    public void returnPrev (Command command, Library library) {
+    /**
+     * Returns to the previous track in the user's music player.
+     *
+     * @param command  The command containing information about the previous track operation.
+     * @param library  The library containing playlists, songs, and user information.
+     */
+    public void returnPrev(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
         super.setTimestamp(command.getTimestamp());
 
-        ArrayList<Users> users = library.getUsers();
-        Users user = users.get(1);
-        for (Users user1 : users) {
-            if (user1.getUsername().equals(command.getUsername())) {
-                user = user1;
-                break;
-            }
-        }
+        Users user = new Users();
+        user = user.getUser(library.getUsers(), command.getUsername());
 
         Status status = new Status();
         status.returnStatus(command, library);
@@ -33,22 +34,26 @@ public class Prev extends Command {
         switch (track) {
             case SONG:
                 // Replay the song from the start
-                user.getMusicPlayer().setRemainedTime(user.getMusicPlayer().getSong().getDuration());
+                user.getMusicPlayer().setRemainedTime(user.getMusicPlayer().getSong().
+                     getDuration());
                 user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
-                setMessage("Returned to previous track successfully. The current track is " + user.getMusicPlayer().getSong().getName() + ".");
+                setMessage("Returned to previous track successfully. The current track is "
+                            + user.getMusicPlayer().getSong().getName() + ".");
                 break;
 
             case PLAYLIST:
                 Playlists currentPlaylist = user.getMusicPlayer().getPlaylist();
                 Songs currentSong = user.getMusicPlayer().getSong();
 
-                if (currentPlaylist.getSongs().isEmpty())
+                if (currentPlaylist.getSongs().isEmpty()) {
                     return;
+                }
                 // If the song is the first in the playlist
                 if (currentSong.getName().equals(currentPlaylist.getSongs().get(0).getName())) {
                     user.getMusicPlayer().setRemainedTime(currentSong.getDuration());
                     user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
-                    setMessage("Returned to previous track successfully. The current track is " + currentSong.getName() + ".");
+                    setMessage("Returned to previous track successfully. The current track is "
+                                + currentSong.getName() + ".");
                     break;
                 }
 
@@ -62,11 +67,13 @@ public class Prev extends Command {
                     user.getMusicPlayer().setSong(currentSong);
                     user.getMusicPlayer().setRemainedTime(currentSong.getDuration());
                     user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
-                    setMessage("Returned to previous track successfully. The current track is " + currentSong.getName() + ".");
+                    setMessage("Returned to previous track successfully. The current track is "
+                                + currentSong.getName() + ".");
                 } else {
                     user.getMusicPlayer().setRemainedTime(currentSong.getDuration());
                     user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
-                    setMessage("Returned to previous track successfully. The current track is " + currentSong.getName() + ".");
+                    setMessage("Returned to previous track successfully. The current track is "
+                                + currentSong.getName() + ".");
                 }
                 break;
 
@@ -75,12 +82,14 @@ public class Prev extends Command {
                 Episodes currentEpisode = user.getMusicPlayer().getEpisode();
 
                 // If the episode is the first in the podcast
-                if (currentEpisode.getName().equals(currentPodcast.getEpisodes().get(0).getName())) {
+                if (currentEpisode.getName().equals(currentPodcast.getEpisodes().get(0).
+                                                    getName())) {
                     user.getMusicPlayer().setRemainedTime(currentEpisode.getDuration());
                     currentEpisode.setRemainingTime(currentEpisode.getDuration());
 
                     user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
-                    setMessage("Returned to previous track successfully. The current track is " + currentEpisode.getName() + ".");
+                    setMessage("Returned to previous track successfully. The current track is "
+                                + currentEpisode.getName() + ".");
                     break;
                 }
 
@@ -95,26 +104,30 @@ public class Prev extends Command {
                     user.getMusicPlayer().setEpisode(currentEpisode);
                     user.getMusicPlayer().setRemainedTime(currentEpisode.getDuration());
                     user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
-                    setMessage("Returned to previous track successfully. The current track is " + currentEpisode.getName() + ".");
+                    setMessage("Returned to previous track successfully. The current track is "
+                                + currentEpisode.getName() + ".");
                 } else {
                     user.getMusicPlayer().setRemainedTime(currentEpisode.getDuration());
                     currentEpisode.setRemainingTime(currentEpisode.getDuration());
 
                     user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
-                    setMessage("Returned to previous track successfully. The current track is " + currentEpisode.getName() + ".");
+                    setMessage("Returned to previous track successfully. The current track is "
+                                + currentEpisode.getName() + ".");
                 }
                 break;
 
             default:
                 break;
         }
-
-    }
-    public String getMessage() {
-        return message;
     }
 
-    public void setMessage(String message) {
+    /**
+     * Sets the message for the previous track operation.
+     *
+     * @param message  The message to be set.
+     */
+    public void setMessage(final String message) {
         this.message = message;
     }
 }
+

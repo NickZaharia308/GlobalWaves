@@ -1,42 +1,79 @@
 package main;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 
-public class Library {
+/**
+ * The Library class represents a library of users, songs, podcasts, and playlists.
+ * It follows the Singleton pattern to ensure only one instance exists in the application.
+ */
+@Getter
+public final class Library {
+    private static Library instance;
+
     private ArrayList<Users> users;
     private ArrayList<Songs> songs;
     private ArrayList<Podcasts> podcasts;
     private ArrayList<Playlists> playlists;
 
-    public ArrayList<Users> getUsers() {
-        return users;
+    /**
+     * Private constructor to prevent external instantiation.
+     * Initializes the lists for users, songs, podcasts, and playlists.
+     */
+    private Library() {
+        this.users = new ArrayList<>();
+        this.songs = new ArrayList<>();
+        this.podcasts = new ArrayList<>();
+        this.playlists = new ArrayList<>();
     }
 
-    public void setUsers(ArrayList<Users> users) {
+    /**
+     * Returns the singleton instance of the Library class.
+     * If the instance does not exist, it creates a new one.
+     *
+     * @return The singleton instance of the Library class.
+     */
+    public static Library getInstance() {
+        if (instance == null) {
+            instance = new Library();
+        }
+        return instance;
+    }
+
+    /**
+     * Sets the list of users in the library.
+     *
+     * @param users The list of users to set.
+     */
+    public void setUsers(final ArrayList<Users> users) {
         this.users = users;
     }
 
-    public ArrayList<Songs> getSongs() {
-        return songs;
-    }
-
-    public void setSongs(ArrayList<Songs> songs) {
+    /**
+     * Sets the list of songs in the library.
+     *
+     * @param songs The list of songs to set.
+     */
+    public void setSongs(final ArrayList<Songs> songs) {
         this.songs = songs;
     }
 
-    public ArrayList<Podcasts> getPodcasts() {
-        return podcasts;
-    }
-
-    public void setPodcasts(ArrayList<Podcasts> podcasts) {
+    /**
+     * Sets the list of podcasts in the library.
+     *
+     * @param podcasts The list of podcasts to set.
+     */
+    public void setPodcasts(final ArrayList<Podcasts> podcasts) {
         this.podcasts = podcasts;
     }
 
-    public ArrayList<Playlists> getPlaylists() {
-        return playlists;
-    }
-
-    public void setPlaylists(ArrayList<Playlists> playlists) {
+    /**
+     * Sets the list of playlists in the library.
+     *
+     * @param playlists The list of playlists to set.
+     */
+    public void setPlaylists(final ArrayList<Playlists> playlists) {
         this.playlists = playlists;
     }
 }

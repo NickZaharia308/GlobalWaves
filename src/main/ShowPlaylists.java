@@ -1,10 +1,25 @@
 package main;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 
+/**
+ * Represents a command to retrieve and display user-specific playlists (playlists created by user)
+ */
+@Getter
 public class ShowPlaylists extends Command {
-    ArrayList<Playlists> playlists;
-    public void returnShowPlaylists (Command command, Library library) {
+
+    private ArrayList<Playlists> retrievedPlaylists;
+
+    /**
+     * Sets the command, username, and timestamp based on the provided command.
+     * Retrieves the user's created playlists (Sets the local parameter).
+     *
+     * @param command  The command containing user information.
+     * @param library  The library containing user data and playlists.
+     */
+    public void returnShowPlaylists(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
         super.setTimestamp(command.getTimestamp());
@@ -17,14 +32,15 @@ public class ShowPlaylists extends Command {
                 userPlaylist.add(playlist);
             }
         }
-        setPlaylists(userPlaylist);
+        setRetrievedPlaylists(userPlaylist);
     }
 
-    public ArrayList<Playlists> getPlaylists() {
-        return playlists;
-    }
-
-    public void setPlaylists(ArrayList<Playlists> playlists) {
-        this.playlists = playlists;
+    /**
+     * Sets the playlists for the command.
+     *
+     * @param retrievedPlaylists The playlists to be set.
+     */
+    public void setRetrievedPlaylists(final ArrayList<Playlists> retrievedPlaylists) {
+        this.retrievedPlaylists = retrievedPlaylists;
     }
 }

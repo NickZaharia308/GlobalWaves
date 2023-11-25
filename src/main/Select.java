@@ -71,7 +71,8 @@ public class Select extends Command {
                     }
                 }
 
-                setMessage("Successfully selected " + user.getMusicPlayer().getSong().getName() + ".");
+                setMessage("Successfully selected " + user.getMusicPlayer().getSong().getName()
+                            + ".");
             } else if (user.getTrackType() == Users.Track.PLAYLIST) {
                 String selectedPlaylist = searchResults.get(itemNumber - 1);
 
@@ -87,7 +88,8 @@ public class Select extends Command {
                 if (user.getMusicPlayer().getPlaylist() == null) {
                     return;
                 }
-                setMessage("Successfully selected " + user.getMusicPlayer().getPlaylist().getName() + ".");
+                setMessage("Successfully selected " + user.getMusicPlayer().getPlaylist().getName()
+                            + ".");
             } else if (user.getTrackType() == Users.Track.PODCAST) {
                 String selectedPodcast = searchResults.get(itemNumber - 1);
 
@@ -103,7 +105,8 @@ public class Select extends Command {
                     }
                 }
 
-                setMessage("Successfully selected " + user.getMusicPlayer().getPodcast().getName() + ".");
+                setMessage("Successfully selected " + user.getMusicPlayer().getPodcast().getName()
+                            + ".");
             }
             user.setSearchResults(null);
             user.setNoOfSearchResults(-1);

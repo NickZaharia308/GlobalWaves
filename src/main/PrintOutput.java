@@ -3,6 +3,8 @@ package main;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -11,6 +13,7 @@ import java.util.Objects;
 /**
  * Represents a utility class for printing output based on different commands.
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PrintOutput {
 
     /**
@@ -125,7 +128,7 @@ public class PrintOutput {
             resultNode.put("timestamp", showPlaylists.getTimestamp());
 
             ArrayNode resultsArrayNode = resultNode.putArray("result");
-            ArrayList<Playlists> userPlaylists = showPlaylists.getPlaylists();
+            ArrayList<Playlists> userPlaylists = showPlaylists.getRetrievedPlaylists();
 
             for (Playlists playlist : userPlaylists) {
                 ObjectNode playlistNode = objectMapper.createObjectNode();

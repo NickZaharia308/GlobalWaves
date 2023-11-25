@@ -1,0 +1,6 @@
+Starting audit...
+[ERROR] /home/student/IdeaProjects/etapa1/./src/main/PrintOutput.java:16:1: Utility classes should not have a public or default constructor. [HideUtilityClassConstructor]
+[ERROR] /home/student/IdeaProjects/etapa1/./src/main/PrintOutput.java:27:5: Method length is 260 lines (max allowed is 150). [MethodLength]
+[ERROR] /home/student/IdeaProjects/etapa1/./src/main/Status.java:28:5: Method length is 330 lines (max allowed is 150). [MethodLength]
+Audit done.
+Checkstyle ends with 3 errors.

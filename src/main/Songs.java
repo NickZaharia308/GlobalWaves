@@ -35,8 +35,9 @@ public class Songs {
      * @param releaseYear The release year of the song.
      * @param artist      The artist who performed the song.
      */
-    public Songs(final String name, final int duration, final String album, final ArrayList<String> tags,
-                 final String lyrics, final String genre, final int releaseYear, final String artist) {
+    public Songs(final String name, final int duration, final String album,
+                 final ArrayList<String> tags, final String lyrics, final String genre,
+                 final int releaseYear, final String artist) {
         this.name = name;
         this.duration = duration;
         this.album = album;

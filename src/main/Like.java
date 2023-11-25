@@ -1,33 +1,43 @@
 package main;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 
+/**
+ * Represents a command to like or unlike the currently loaded song.
+ */
+@Getter
 public class Like extends Command {
+
     private String message;
-    public void returnLike (Command command, Library library) {
+
+    /**
+     * Sets the command, username, and timestamp based on the provided command.
+     * Likes or unlikes the currently loaded song based on the user's action.
+     * Every song has a HashMap with the users and likes (true or false)
+     *
+     * @param command  The command containing user information.
+     * @param library  The library containing user data and tracks.
+     */
+    public void returnLike(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
         super.setTimestamp(command.getTimestamp());
 
         // Finding the user
-        ArrayList<Users> users = library.getUsers();
-        Users user = null;
-        for (Users user1 : users) {
-            if (user1.getUsername().equals(command.getUsername())) {
-                user = user1;
-                break;
-            }
-        }
+        Users user = new Users();
+        user = user.getUser(library.getUsers(), command.getUsername());
 
         // If there is nothing loaded
         if (!user.isSomethingLoaded()) {
-            message = "Please load a source before liking or unliking.";
+            setMessage("Please load a source before liking or unliking.");
             return;
         }
 
         // If the loaded source is not a song
         if (user.getMusicPlayer().getSong() == null) {
-            message = "Loaded source is not a song.";
+            setMessage("Loaded source is not a song.");
             return;
         }
         Status status = new Status();
@@ -35,12 +45,12 @@ public class Like extends Command {
 
         // Finding the song in Songs collection
         ArrayList<Songs> songs = library.getSongs();
-        Songs UserSong = user.getMusicPlayer().getSong();
+        Songs userSong = user.getMusicPlayer().getSong();
         ArrayList<Songs> likedSongs = user.getLikedSongs();
-        for (Songs song: songs) {
-            if (song.getName().equals(UserSong.getName())) {
+        for (Songs song : songs) {
+            if (song.getName().equals(userSong.getName())) {
                 for (Songs song2 : likedSongs) {
-                    if (song2.getName().equals(UserSong.getName())) {
+                    if (song2.getName().equals(userSong.getName())) {
                         // Remove the like from the HashMap
                         song.getUserLikesMap().put(user.getUsername(), false);
                         // Remove the song from the liked playlist
@@ -52,23 +62,21 @@ public class Like extends Command {
                 // Add the player's like in the HashMap
                 song.getUserLikesMap().put(user.getUsername(), true);
 
-                // Add the song to liked playlist
+                // Add the song to the liked playlist
                 likedSongs.add(song);
 
                 setMessage("Like registered successfully.");
                 break;
             }
         }
-
-
-
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
+    /**
+     * Sets the message for the command.
+     *
+     * @param message The message to be set.
+     */
+    public void setMessage(final String message) {
         this.message = message;
     }
 }

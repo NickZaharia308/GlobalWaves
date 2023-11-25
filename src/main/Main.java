@@ -5,14 +5,23 @@ import checker.CheckerConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.core.type.TypeReference;
+import fileio.input.EpisodeInput;
 import fileio.input.LibraryInput;
+import fileio.input.PodcastInput;
+import fileio.input.SongInput;
+import fileio.input.UserInput;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Objects;
+
+
 
 /**
  * The entry point to this homework. It runs the checker that tests your implentation.
@@ -74,6 +83,67 @@ public final class Main {
         ArrayNode outputs = objectMapper.createArrayNode();
 
         // TODO add your implementation
+
+        Playlists.setNoOfPlaylists(0);
+
+        Library myLibrary = Library.getInstance();
+
+        // Getting the 'UserInput' ArrayList and transferring it in my ArrayList
+        ArrayList<UserInput> userInputArrayList = library.getUsers();
+        ArrayList<Users> users = new ArrayList<>();
+        for (UserInput input : userInputArrayList) {
+            Users user = new Users(input.getUsername(), input.getAge(), input.getCity());
+            users.add(user);
+        }
+        // Setting the Library's users
+        myLibrary.setUsers(users);
+
+        // Getting the 'SongInput' ArrayList and transferring it in my ArrayList
+        ArrayList<SongInput> songInputArrayList = library.getSongs();
+        ArrayList<Songs> songs = new ArrayList<>();
+        for (SongInput input: songInputArrayList) {
+            Songs song = new Songs(input.getName(), input.getDuration(),
+                                    input.getAlbum(), input.getTags(),
+                                    input.getLyrics(), input.getGenre(),
+                                    input.getReleaseYear(), input.getArtist());
+            songs.add(song);
+        }
+        // Setting the Library's songs
+        myLibrary.setSongs(songs);
+
+        // Getting the 'PodcastInput' ArrayList and transferring it in my ArrayList
+        ArrayList<PodcastInput> podcastInputArrayList = library.getPodcasts();
+        ArrayList<Podcasts> podcasts = new ArrayList<>();
+        for (PodcastInput input: podcastInputArrayList) {
+            // Getting the 'EpisodeInput' ArrayList and transferring it in my ArrayList
+            ArrayList<EpisodeInput> episodeInputArrayList = input.getEpisodes();
+            ArrayList<Episodes> episodes = new ArrayList<>();
+            for (EpisodeInput episodeInput : episodeInputArrayList) {
+                Episodes episode = new Episodes(episodeInput.getName(), episodeInput.getDuration(),
+                        episodeInput.getDescription());
+                episodes.add(episode);
+            }
+
+            // Creating the podcast itself, now that I have the array of episodes
+            Podcasts podcast = new Podcasts(input.getName(), input.getOwner(), episodes);
+            podcasts.add(podcast);
+        }
+        // Setting the Library's podcasts
+        myLibrary.setPodcasts(podcasts);
+
+        ArrayList<Playlists> playlists = new ArrayList<>();
+        myLibrary.setPlaylists(playlists);
+
+        LinkedList<Command> commands = objectMapper.readValue(
+        new File(CheckerConstants.TESTS_PATH
+        + filePathInput), new TypeReference<LinkedList<Command>>() { });
+
+        // Iterating through commands
+        for (Command command: commands) {
+            PrintOutput.printOutput(outputs, objectMapper, command, myLibrary);
+        }
+
+        // Code ends here
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(new File(filePathOutput), outputs);

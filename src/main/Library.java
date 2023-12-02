@@ -1,11 +1,16 @@
 package main;
 
 import lombok.Getter;
+import userEntities.Users;
+import userEntities.audio.Album;
+import userEntities.audio.Playlists;
+import userEntities.audio.Podcasts;
+import userEntities.audio.Songs;
 
 import java.util.ArrayList;
 
 /**
- * The Library class represents a library of users, songs, podcasts, and playlists.
+ * The Library class represents a library of users, songs, albums, podcasts, and playlists.
  * It follows the Singleton pattern to ensure only one instance exists in the application.
  */
 @Getter
@@ -16,6 +21,7 @@ public final class Library {
     private ArrayList<Songs> songs;
     private ArrayList<Podcasts> podcasts;
     private ArrayList<Playlists> playlists;
+    private ArrayList<Album> albums;
 
     /**
      * Private constructor to prevent external instantiation.
@@ -26,6 +32,7 @@ public final class Library {
         this.songs = new ArrayList<>();
         this.podcasts = new ArrayList<>();
         this.playlists = new ArrayList<>();
+        this.albums = new ArrayList<>();
     }
 
     /**
@@ -75,5 +82,9 @@ public final class Library {
      */
     public void setPlaylists(final ArrayList<Playlists> playlists) {
         this.playlists = playlists;
+    }
+
+    public void setAlbums(ArrayList<Album> albums) {
+        this.albums = albums;
     }
 }

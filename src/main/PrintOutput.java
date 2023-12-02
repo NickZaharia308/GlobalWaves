@@ -3,8 +3,28 @@ package main;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import commands.Command;
+import commands.admin.AddUser;
+import commands.admin.ShowAlbums;
+import commands.page.PrintCurrentPage;
+import commands.searchBar.Load;
+import commands.searchBar.Search;
+import commands.searchBar.Select;
+import commands.users.*;
+import commands.users.artist.AddAlbum;
+import commands.users.playlists.CreatePlaylist;
+import commands.users.playlists.FollowPlaylist;
+import commands.users.playlists.ShowPlaylists;
+import commands.users.playlists.SwitchVisibility;
+import commands.statistics.GetOnlineUsers;
+import commands.statistics.GetTop5Playlists;
+import commands.statistics.GetTop5Songs;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import userEntities.Users;
+import userEntities.audio.Album;
+import userEntities.audio.Playlists;
+import userEntities.audio.Songs;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -25,7 +45,7 @@ public class PrintOutput {
      * @param myLibrary     The library containing playlists, songs, and user information.
      */
     public static void printOutput(final ArrayNode outputs, final ObjectMapper objectMapper,
-                                    final Command command, final Library myLibrary) {
+                                   final Command command, final Library myLibrary) {
         if (Objects.equals(command.getCommand(), "search")) {
             Search search = new Search();
             search.returnSearch(command, myLibrary);
@@ -282,6 +302,90 @@ public class PrintOutput {
             }
 
             resultNode.set("result", resultsArrayNode);
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "switchConnectionStatus")) {
+            SwitchConnectionStatus switchConnectionStatus = new SwitchConnectionStatus();
+            switchConnectionStatus.returnSwitchConnectionStatus(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", switchConnectionStatus.getCommand());
+            resultNode.put("user", switchConnectionStatus.getUsername());
+            resultNode.put("timestamp", switchConnectionStatus.getTimestamp());
+            resultNode.put("message", switchConnectionStatus.getMessage());
+            outputs.add(resultNode);
+
+        } else if (Objects.equals(command.getCommand(), "getOnlineUsers")) {
+            GetOnlineUsers getOnlineUsers = new GetOnlineUsers();
+            ArrayList<Users> onlineUsers = getOnlineUsers.returnGetOnlineUsers(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", getOnlineUsers.getCommand());
+            resultNode.put("timestamp", getOnlineUsers.getTimestamp());
+
+            ArrayNode resultsArrayNode = resultNode.putArray("result");
+
+            for (Users user : onlineUsers) {
+                resultsArrayNode.add(user.getUsername());
+            }
+
+            resultNode.set("result", resultsArrayNode);
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "addUser")) {
+            AddUser addUser = new AddUser();
+            addUser.returnAddUser(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", addUser.getCommand());
+            resultNode.put("user", addUser.getUsername());
+            resultNode.put("timestamp", addUser.getTimestamp());
+            resultNode.put("message", addUser.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "addAlbum")) {
+            AddAlbum addAlbum = new AddAlbum();
+            addAlbum.returnAddAlbum(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", addAlbum.getCommand());
+            resultNode.put("user", addAlbum.getUsername());
+            resultNode.put("timestamp", addAlbum.getTimestamp());
+            resultNode.put("message", addAlbum.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "showAlbums")) {
+            ShowAlbums showAlbums = new ShowAlbums();
+            ArrayList<Album> albums = showAlbums.returnShowAlbum(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", showAlbums.getCommand());
+            resultNode.put("user", showAlbums.getUsername());
+            resultNode.put("timestamp", showAlbums.getTimestamp());
+
+            ArrayNode resultsArrayNode = resultNode.putArray("result");
+            for (Album album : albums) {
+                ObjectNode albumNode = objectMapper.createObjectNode();
+                albumNode.put("name", album.getName());
+
+                ArrayNode songsArrayNode = albumNode.putArray("songs");
+
+                for (Songs song : album.getSongs()) {
+                    if (song != null) {
+                        songsArrayNode.add(song.getName());
+                    }
+                }
+
+                resultsArrayNode.add(albumNode);
+            }
+
+            resultNode.set("result", resultsArrayNode);
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "printCurrentPage")) {
+            PrintCurrentPage printCurrentPage = new PrintCurrentPage();
+            printCurrentPage.returnPrintCurrentPage(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", printCurrentPage.getCommand());
+            resultNode.put("user", printCurrentPage.getUsername());
+            resultNode.put("timestamp", printCurrentPage.getTimestamp());
+            resultNode.put("message", printCurrentPage.getMessage());
             outputs.add(resultNode);
         }
     }

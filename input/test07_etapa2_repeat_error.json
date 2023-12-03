@@ -68,14 +68,6 @@
     ]
   },
   {
-    "command": "addUser",
-    "timestamp": 30,
-    "type": "user",
-    "username": "rhythmicrider58",
-    "age": 34,
-    "city": "Portland"
-  },
-  {
     "command": "search",
     "username": "emily30",
     "timestamp": 1000,
@@ -101,16 +93,6 @@
     "timestamp": 1120
   },
   {
-    "command": "search",
-    "username": "rhythmicrider58",
-    "timestamp": 1170,
-    "type": "song",
-    "filters": {
-      "name": "S",
-      "genre": "Rap"
-    }
-  },
-  {
     "command": "status",
     "username": "emily30",
     "timestamp": 1190
@@ -131,12 +113,6 @@
     "timestamp": 2000
   },
   {
-    "command": "select",
-    "username": "rhythmicrider58",
-    "timestamp": 2050,
-    "itemNumber": 5
-  },
-  {
     "command": "status",
     "username": "emily30",
     "timestamp": 2100
@@ -145,11 +121,6 @@
     "command": "repeat",
     "username": "emily30",
     "timestamp": 2135
-  },
-  {
-    "command": "load",
-    "username": "rhythmicrider58",
-    "timestamp": 2185
   },
   {
     "command": "status",
@@ -169,32 +140,6 @@
     "command": "repeat",
     "username": "emily30",
     "timestamp": 2290
-  },
-  {
-    "command": "like",
-    "username": "rhythmicrider58",
-    "timestamp": 2295
-  },
-  {
-    "command": "repeat",
-    "username": "rhythmicrider58",
-    "timestamp": 2480
-  },
-  {
-    "command" : "forward",
-    "username" : "rhythmicrider58",
-    "timestamp" : 2555
-  },
-  {
-    "command": "changePage",
-    "username": "rhythmicrider58",
-    "timestamp": 2755,
-    "nextPage": "LikedContent"
-  },
-  {
-    "command": "deleteUser",
-    "username": "melodymaster",
-    "timestamp": 2760
   },
   {
     "command": "load",
@@ -228,15 +173,6 @@
     "itemNumber": 1
   },
   {
-    "command": "search",
-    "username": "rhythmicrider58",
-    "timestamp": 3190,
-    "type": "playlist",
-    "filters": {
-      "name": "My"
-    }
-  },
-  {
     "command": "load",
     "username": "emily30",
     "timestamp": 3195
@@ -250,12 +186,6 @@
     "command": "status",
     "username": "emily30",
     "timestamp": 3220
-  },
-  {
-    "command": "select",
-    "username": "rhythmicrider58",
-    "timestamp": 3225,
-    "itemNumber": 1
   },
   {
     "command": "addRemoveInPlaylist",
@@ -278,11 +208,6 @@
     "timestamp": 3270
   },
   {
-    "command": "follow",
-    "username": "rhythmicrider58",
-    "timestamp": 3285
-  },
-  {
     "command": "select",
     "username": "emily30",
     "timestamp": 3290,
@@ -294,48 +219,14 @@
     "timestamp": 3295
   },
   {
-    "command": "printCurrentPage",
-    "username": "rhythmicrider58",
-    "timestamp": 3300
-  },
-  {
     "command": "status",
     "username": "emily30",
     "timestamp": 3310
   },
   {
-    "command": "changePage",
-    "username": "rhythmicrider58",
-    "timestamp": 3320,
-    "nextPage": "Home"
-  },
-  {
     "command": "repeat",
     "username": "emily30",
     "timestamp": 3335
-  },
-  {
-    "command": "deleteUser",
-    "username": "melodymaster",
-    "timestamp": 3335
-  },
-  {
-    "command": "search",
-    "username": "rhythmicrider58",
-    "timestamp": 3380,
-    "type": "song",
-    "filters": {
-      "name": "Vibrant Echoes"
-    }
-  },
-  {
-    "command": "search",
-    "username": "rhythmicrider58",
-    "timestamp": 3395,
-    "type": "song",
-    "filters": {
-      "name": "Shape of You"
-    }
   },
   {
     "command": "status",
@@ -349,39 +240,13 @@
     "playlistName": "My favourite songs"
   },
   {
-    "command": "select",
-    "username": "rhythmicrider58",
-    "timestamp": 3410,
-    "itemNumber": 1
-  },
-  {
     "command": "repeat",
     "username": "emily30",
     "timestamp": 3435
   },
   {
-    "command": "showPlaylists",
+    "command": "status",
     "username": "emily30",
-    "timestamp": 3438
-  },
-  {
-    "command": "load",
-    "username": "rhythmicrider58",
-    "timestamp": 3440
-  },
-  {
-    "command": "deleteUser",
-    "username": "emily30",
-    "timestamp": 3443
-  },
-  {
-    "command": "like",
-    "username": "rhythmicrider58",
-    "timestamp": 3445
-  },
-  {
-    "command": "printCurrentPage",
-    "username": "rhythmicrider58",
-    "timestamp": 7000
+    "timestamp": 3450
   }
 ]

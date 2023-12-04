@@ -8,6 +8,7 @@ import userEntities.Users;
 import userEntities.audio.Playlists;
 import userEntities.audio.Podcasts;
 import userEntities.audio.Songs;
+import userEntities.specialEntities.PageMenu;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -60,6 +61,8 @@ public class Search extends Command {
             searchPodcasts(library, filters);
         } else if (Objects.equals(command.getType(), "playlist")) {
             searchPlaylists(library, filters, command);
+        } else if (Objects.equals(command.getType(), "artist")) {
+            searchArtist(library, filters);
         }
 
         updateResultsAndMessage(library, command);
@@ -178,6 +181,31 @@ public class Search extends Command {
         }
     }
 
+    private void searchArtist(final Library library, final JsonNode filters) {
+        ArrayList<Users> users = library.getUsers();
+        for (Users user : users) {
+            boolean matchesAllFilters = true;
+
+            // Check if the name matches
+            if (filters.has("name")) {
+                String substring = filters.get("name").asText();
+                matchesAllFilters &= user.getUsername().startsWith(substring);
+            }
+
+            // Check if it is an artist
+            matchesAllFilters &= user.getUserType() == Users.UserType.ARTIST;
+
+            if (matchesAllFilters && noOfResults < maxSearches) {
+                noOfResults++;
+                this.results.add(user.getUsername());
+            } else if (noOfResults == maxSearches) {
+                break;
+            }
+        }
+    }
+
+
+
     /**
      * Updates the search results and message based on the performed search.
      * This method is called after the search is completed to set the message,
@@ -219,8 +247,11 @@ public class Search extends Command {
             user.setTrackType(Users.Track.SONG);
         } else if (Objects.equals(command.getType(), "podcast")) {
             user.setTrackType(Users.Track.PODCAST);
-        } else {
+        } else if (Objects.equals(command.getType(), "playlist")){
             user.setTrackType(Users.Track.PLAYLIST);
+        } else if (Objects.equals(command.getType(), "artist")) {
+            user.getPageMenu().setCurrentPage(PageMenu.Page.ARTISTPAGE);
+            user.setPageSearched(true);
         }
     }
 

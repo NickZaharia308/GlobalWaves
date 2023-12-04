@@ -33,6 +33,22 @@
 }, {
   "command" : "search",
   "user" : "alice22",
+  "timestamp" : 55,
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, {
+  "command" : "select",
+  "user" : "alice22",
+  "timestamp" : 57,
+  "message" : "The selected ID is too high."
+}, {
+  "command" : "printCurrentPage",
+  "user" : "alice22",
+  "timestamp" : 58,
+  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[]"
+}, {
+  "command" : "search",
+  "user" : "alice22",
   "timestamp" : 60,
   "message" : "Search returned 1 results",
   "results" : [ "TED Radio Hour" ]
@@ -52,7 +68,7 @@
   "timestamp" : 73,
   "stats" : {
     "name" : "The Power of Design",
-    "remainedTime" : 3061,
+    "remainedTime" : 3055,
     "repeat" : "No Repeat",
     "shuffle" : false,
     "paused" : false
@@ -184,6 +200,11 @@
     "shuffle" : false,
     "paused" : false
   }
+}, {
+  "command" : "printCurrentPage",
+  "user" : "alice22",
+  "timestamp" : 3275,
+  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "status",
   "user" : "alice22",

@@ -3,6 +3,7 @@ package commands.searchBar;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
+import userEntities.MusicPlayer;
 import userEntities.Users;
 import userEntities.audio.Episodes;
 import userEntities.audio.Songs;
@@ -39,6 +40,7 @@ public class Load extends Command {
         if (!user.isSomethingSelected()) {
             setMessage("Please select a source before attempting to load.");
         } else {
+
             setMessage("Playback loaded successfully.");
             user.setSomethingLoaded(true);
             user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());

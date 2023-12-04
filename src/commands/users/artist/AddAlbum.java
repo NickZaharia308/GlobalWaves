@@ -66,15 +66,20 @@ public class AddAlbum extends Command {
 
             Songs song = new Songs(name, duration, album, tags, lyrics, genre, releaseYear, owner);
 
-            // Add the song in album and in library
+            // Add the song in album
             albumSongs.add(song);
-            library.getSongs().add(song);
+
         }
 
         // Verify if a song appears twice
         if (hasDuplicateSongs(albumSongs)) {
             setMessage(this.getUsername() + " has the same song at least twice in this album.");
             return;
+        }
+
+        // If there are no duplicates, add the songs to the library too
+        for (Songs addedSong : albumSongs) {
+            library.getSongs().add(addedSong);
         }
 
         Album newAlbum = new Album(this.name, this.releaseYear, this.description, albumSongs, this.username);

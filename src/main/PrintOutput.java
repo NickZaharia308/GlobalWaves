@@ -12,6 +12,8 @@ import commands.searchBar.Search;
 import commands.searchBar.Select;
 import commands.users.*;
 import commands.users.artist.AddAlbum;
+import commands.users.artist.AddEvent;
+import commands.users.artist.AddMerch;
 import commands.users.playlists.CreatePlaylist;
 import commands.users.playlists.FollowPlaylist;
 import commands.users.playlists.ShowPlaylists;
@@ -386,6 +388,26 @@ public class PrintOutput {
             resultNode.put("user", printCurrentPage.getUsername());
             resultNode.put("timestamp", printCurrentPage.getTimestamp());
             resultNode.put("message", printCurrentPage.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "addEvent")) {
+            AddEvent addEvent = new AddEvent();
+            addEvent.returnAddEvent(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", addEvent.getCommand());
+            resultNode.put("user", addEvent.getUsername());
+            resultNode.put("timestamp", addEvent.getTimestamp());
+            resultNode.put("message", addEvent.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "addMerch")) {
+            AddMerch addMerch = new AddMerch();
+            addMerch.returnAddMerch(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", addMerch.getCommand());
+            resultNode.put("user", addMerch.getUsername());
+            resultNode.put("timestamp", addMerch.getTimestamp());
+            resultNode.put("message", addMerch.getMessage());
             outputs.add(resultNode);
         }
     }

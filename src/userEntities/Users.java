@@ -3,6 +3,7 @@ package userEntities;
 import lombok.Getter;
 import userEntities.audio.Playlists;
 import userEntities.audio.Songs;
+import userEntities.specialEntities.PageMenu;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -46,6 +47,12 @@ public class Users {
 
     @Getter
     private ArrayList<Playlists> followedPlaylists = new ArrayList<>();
+    @Getter
+    private PageMenu pageMenu = new PageMenu();
+    @Getter
+    private String currentPage;
+    @Getter
+    private boolean pageSearched = false;
 
     /**
      * Default constructor for the Users class.
@@ -222,5 +229,17 @@ public class Users {
 
     public void setFollowedPlaylists(ArrayList<Playlists> followedPlaylists) {
         this.followedPlaylists = followedPlaylists;
+    }
+
+    public void setPageMenu(PageMenu currentPage) {
+        this.pageMenu = currentPage;
+    }
+
+    public void setCurrentPage(String currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    public void setPageSearched(boolean pageSearched) {
+        this.pageSearched = pageSearched;
     }
 }

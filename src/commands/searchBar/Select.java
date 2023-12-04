@@ -5,6 +5,7 @@ import lombok.Getter;
 import main.Library;
 import userEntities.MusicPlayer;
 import userEntities.Users;
+import userEntities.audio.Album;
 import userEntities.audio.Playlists;
 import userEntities.audio.Podcasts;
 import userEntities.audio.Songs;
@@ -69,6 +70,9 @@ public class Select extends Command {
             } else {
                 pageSearched(user, library, itemNumber);
                 user.setSomethingSelected(false);
+
+                // No track will play if we select a page
+                user.setTrackType(null);
             }
 
             user.setSearchResults(null);
@@ -136,6 +140,23 @@ public class Select extends Command {
 
             setMessage("Successfully selected " + user.getMusicPlayer().getPodcast().getName()
                     + ".");
+        } else if (user.getTrackType() == Users.Track.ALBUM) {
+            String selectedAlbum = searchResults.get(itemNumber - 1);
+
+            // Finding the selected album and adding it to user
+            ArrayList<Album> albums = library.getAlbums();
+            for (Album album : albums) {
+                if (album.getName().equals(selectedAlbum)) {
+                    musicPlayer.setAlbum(album);
+                    user.setMusicPlayer(musicPlayer);
+                    break;
+                }
+            }
+            if (user.getMusicPlayer().getAlbum() == null) {
+                return;
+            }
+            setMessage("Successfully selected " + user.getMusicPlayer().getAlbum().getName()
+                    + ".");
         }
     }
 
@@ -147,6 +168,10 @@ public class Select extends Command {
             String selectedArtist = searchResults.get(itemNumber - 1);
             user.getPageMenu().setArtistPage(user, library, selectedArtist);
             setMessage("Successfully selected " + selectedArtist +"'s page.");
+        } else if (user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE) {
+            String selectedHost = searchResults.get(itemNumber - 1);
+            user.getPageMenu().setHostPage(user, library, selectedHost);
+            setMessage("Successfully selected " + selectedHost +"'s page.");
         }
     }
 

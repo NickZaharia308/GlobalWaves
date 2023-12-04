@@ -5,15 +5,19 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import commands.Command;
 import commands.admin.AddUser;
+import commands.admin.DeleteUser;
 import commands.admin.ShowAlbums;
 import commands.page.PrintCurrentPage;
 import commands.searchBar.Load;
 import commands.searchBar.Search;
 import commands.searchBar.Select;
+import commands.statistics.GetAllUsers;
 import commands.users.*;
 import commands.users.artist.AddAlbum;
 import commands.users.artist.AddEvent;
 import commands.users.artist.AddMerch;
+import commands.users.host.AddAnnouncement;
+import commands.users.host.AddPodcast;
 import commands.users.playlists.CreatePlaylist;
 import commands.users.playlists.FollowPlaylist;
 import commands.users.playlists.ShowPlaylists;
@@ -408,6 +412,52 @@ public class PrintOutput {
             resultNode.put("user", addMerch.getUsername());
             resultNode.put("timestamp", addMerch.getTimestamp());
             resultNode.put("message", addMerch.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "getAllUsers")) {
+            GetAllUsers getAllUsers = new GetAllUsers();
+            ArrayList<Users> allUsers = getAllUsers.returnGetAllUsers(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", getAllUsers.getCommand());
+            resultNode.put("timestamp", getAllUsers.getTimestamp());
+
+            ArrayNode resultsArrayNode = resultNode.putArray("result");
+
+            for (Users user : allUsers) {
+                resultsArrayNode.add(user.getUsername());
+            }
+
+            resultNode.set("result", resultsArrayNode);
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "deleteUser")) {
+            DeleteUser deleteUser = new DeleteUser();
+            deleteUser.returnDeleteUser(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", deleteUser.getCommand());
+            resultNode.put("user", deleteUser.getUsername());
+            resultNode.put("timestamp", deleteUser.getTimestamp());
+            resultNode.put("message", deleteUser.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "addPodcast")) {
+            AddPodcast addPodcast = new AddPodcast();
+            addPodcast.returnAddPodcast(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", addPodcast.getCommand());
+            resultNode.put("user", addPodcast.getUsername());
+            resultNode.put("timestamp", addPodcast.getTimestamp());
+            resultNode.put("message", addPodcast.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "addAnnouncement")) {
+            AddAnnouncement addAnnouncement = new AddAnnouncement();
+            addAnnouncement.returnAddMerch(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", addAnnouncement.getCommand());
+            resultNode.put("user", addAnnouncement.getUsername());
+            resultNode.put("timestamp", addAnnouncement.getTimestamp());
+            resultNode.put("message", addAnnouncement.getMessage());
             outputs.add(resultNode);
         }
     }

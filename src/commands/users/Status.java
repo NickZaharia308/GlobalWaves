@@ -49,7 +49,8 @@ public class Status extends Command {
                 return;
             }
 
-            if (user.getTrackType() == Users.Track.SONG || user.getTrackType() == Users.Track.PLAYLIST) {
+            if (user.getTrackType() == Users.Track.SONG || user.getTrackType() == Users.Track.PLAYLIST
+                || user.getTrackType() == Users.Track.ALBUM) {
                 if (user.getMusicPlayer().getSong() == null) {
                     return;
                 }
@@ -281,7 +282,7 @@ public class Status extends Command {
                         }
                     }
                 }
-            } else {
+            } else if (user.getTrackType() == Users.Track.PODCAST){
                 // Podcast case
                 Episodes playerEpisode = user.getMusicPlayer().getEpisode();
 
@@ -370,6 +371,141 @@ public class Status extends Command {
 
                             setRemainedTime(0);
                             user.getMusicPlayer().setRemainedTime(0);
+                        }
+                    }
+                }
+            } else if (user.getTrackType() == Users.Track.ALBUM) {
+                Songs playerSong = user.getMusicPlayer().getSong();
+
+                if (user.getMusicPlayer().getSong() == null) {
+                    return;
+                }
+                setTrackName(playerSong.getName());
+                if (user.getMusicPlayer().getPlayTimestamp() == -1) {
+                    setRemainedTime(user.getMusicPlayer().getRemainedTime());
+                } else if (!user.getMusicPlayer().isPaused()) {
+                    // Computing the remaining time for a track
+                    int playTimestamp = user.getMusicPlayer().getPlayTimestamp();
+                    int timestamp = command.getTimestamp();
+                    int leftTime = user.getMusicPlayer().getRemainedTime() + playTimestamp
+                            - timestamp;
+
+                    // If the remaining time > 0, set the value to it, else set the value to 0
+                    if (leftTime > 0) {
+                        user.getMusicPlayer().setPlayTimestamp(timestamp);
+                        user.getMusicPlayer().setRemainedTime(leftTime);
+                        setRemainedTime(leftTime);
+                    } else {
+                        // If the repeat mode is "repeat current song"
+                        if (user.getMusicPlayer().getRepeatMode() == 2) {
+                            while (leftTime <= 0) {
+                                leftTime += playerSong.getDuration();
+                            }
+                            setTrackName(playerSong.getName());
+                            user.getMusicPlayer().setSong(playerSong);
+                            user.getMusicPlayer().setPlayTimestamp(timestamp);
+                            user.getMusicPlayer().setRemainedTime(leftTime);
+                            setRemainedTime(leftTime);
+
+                            repeatMessage(user.getMusicPlayer().getRepeatMode(),
+                                    user.getTrackType());
+                        }
+
+                        int index = user.getMusicPlayer().getAlbum().getSongs().
+                                indexOf(playerSong);
+                        Songs currentSong = playerSong;
+                        while (index < user.getMusicPlayer().getAlbum().getSongs().size() - 1
+                                && leftTime <= 0) {
+                            index++;
+                            currentSong = user.getMusicPlayer().getAlbum().getSongs()
+                                    .get(index);
+                            leftTime += currentSong.getDuration();
+
+                            // if the repeat mode is "repeat all and we reached the last song
+                            if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime <= 0
+                                    && index == user.getMusicPlayer().getAlbum().getSongs().size()
+                                    - 1) {
+                                index = -1;
+                            }
+                        }
+                        // if the repeat mode is "repeat all and we reached the last song
+                        if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime <= 0
+                                && index == user.getMusicPlayer().getAlbum().getSongs().
+                                size() - 1) {
+                            currentSong = user.getMusicPlayer().getAlbum().getSongs().get(0);
+                            leftTime += currentSong.getDuration();
+                        }
+                        if (leftTime > 0) {
+                            setTrackName(currentSong.getName());
+                            user.getMusicPlayer().setSong(currentSong);
+                            user.getMusicPlayer().setPlayTimestamp(timestamp);
+                            user.getMusicPlayer().setRemainedTime(leftTime);
+                            setRemainedTime(leftTime);
+                        } else {
+                            setTrackName("");
+                            user.getMusicPlayer().setPaused(true);
+
+                            setRemainedTime(0);
+                            user.getMusicPlayer().setRemainedTime(0);
+                            user.setSomethingLoaded(false);
+                        }
+                    }
+                } else if (user.getMusicPlayer().isPaused()) {
+                    int timestamp = command.getTimestamp();
+                    int leftTime = user.getMusicPlayer().getRemainedTime();
+
+                    if (leftTime > 0) {
+                        user.getMusicPlayer().setPlayTimestamp(timestamp);
+                        user.getMusicPlayer().setRemainedTime(leftTime);
+                        setRemainedTime(leftTime);
+                    } else {
+                        // If the repeat mode is "repeat current song"
+                        if (user.getMusicPlayer().getRepeatMode() == 2) {
+                            while (leftTime < 0) {
+                                leftTime += playerSong.getDuration();
+                            }
+                            setTrackName(playerSong.getName());
+                            user.getMusicPlayer().setSong(playerSong);
+                            user.getMusicPlayer().setPlayTimestamp(timestamp);
+                            user.getMusicPlayer().setRemainedTime(leftTime);
+                            setRemainedTime(leftTime);
+                            setPaused(false);
+
+                            repeatMessage(user.getMusicPlayer().getRepeatMode(),
+                                    user.getTrackType());
+                        }
+
+                        int index = user.getMusicPlayer().getAlbum().getSongs().
+                                indexOf(playerSong);
+                        Songs currentSong = playerSong;
+                        while (index < user.getMusicPlayer().getAlbum().getSongs().size() - 1
+                                && leftTime <= 0) {
+                            index++;
+                            currentSong = user.getMusicPlayer().getAlbum().getSongs()
+                                    .get(index);
+                            leftTime += currentSong.getDuration();
+
+                            // if the repeat mode is "repeat all and we reached the last song
+                            if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime < 0
+                                    && index == user.getMusicPlayer().getAlbum().getSongs()
+                                    .size() - 1) {
+                                index = -1;
+                            }
+                        }
+                        if (leftTime > 0) {
+                            setTrackName(currentSong.getName());
+                            user.getMusicPlayer().setSong(currentSong);
+                            user.getMusicPlayer().setPaused(false);
+                            user.getMusicPlayer().setPlayTimestamp(timestamp);
+                            user.getMusicPlayer().setRemainedTime(leftTime);
+                            setRemainedTime(leftTime);
+                        } else {
+                            setTrackName("");
+                            user.getMusicPlayer().setPaused(true);
+
+                            setRemainedTime(0);
+                            user.getMusicPlayer().setRemainedTime(0);
+                            user.setSomethingLoaded(false);
                         }
                     }
                 }

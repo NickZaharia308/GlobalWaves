@@ -5,6 +5,7 @@ import commands.Command;
 import lombok.Getter;
 import main.Library;
 import userEntities.Users;
+import userEntities.audio.Album;
 import userEntities.audio.Playlists;
 import userEntities.audio.Podcasts;
 import userEntities.audio.Songs;
@@ -63,6 +64,10 @@ public class Search extends Command {
             searchPlaylists(library, filters, command);
         } else if (Objects.equals(command.getType(), "artist")) {
             searchArtist(library, filters);
+        } else if (Objects.equals(command.getType(), "album")) {
+            searchAlbum(library, filters);
+        } else if (Objects.equals(command.getType(), "host")) {
+            searchHost(library, filters);
         }
 
         updateResultsAndMessage(library, command);
@@ -204,7 +209,55 @@ public class Search extends Command {
         }
     }
 
+    private void searchAlbum(final Library library, final JsonNode filters) {
+        ArrayList<Album> albums = library.getAlbums();
+        for (Album album : albums) {
+            boolean matchesAllFilters = true;
+            if (filters.has("name")) {
+                String substring = filters.get("name").asText();
+                matchesAllFilters &= album.getName().startsWith(substring);
+            }
+            if (filters.has("owner")) {
+                String owner = filters.get("owner").asText();
+                matchesAllFilters &= album.getOwner().startsWith(owner);
+            }
 
+            if (filters.has("description")) {
+                String description = filters.get("description").asText();
+                matchesAllFilters &= album.getDescription().startsWith(description);
+            }
+
+            if (matchesAllFilters && noOfResults < maxSearches) {
+                noOfResults++;
+                this.results.add(album.getName());
+            } else if (noOfResults == maxSearches) {
+                break;
+            }
+        }
+    }
+
+    private void searchHost(final Library library, final JsonNode filters) {
+        ArrayList<Users> users = library.getUsers();
+        for (Users user : users) {
+            boolean matchesAllFilters = true;
+
+            // Check if the name matches
+            if (filters.has("name")) {
+                String substring = filters.get("name").asText();
+                matchesAllFilters &= user.getUsername().startsWith(substring);
+            }
+
+            // Check if it is an artist
+            matchesAllFilters &= user.getUserType() == Users.UserType.HOST;
+
+            if (matchesAllFilters && noOfResults < maxSearches) {
+                noOfResults++;
+                this.results.add(user.getUsername());
+            } else if (noOfResults == maxSearches) {
+                break;
+            }
+        }
+    }
 
     /**
      * Updates the search results and message based on the performed search.
@@ -225,8 +278,8 @@ public class Search extends Command {
         if (user == null)
             return;
 
-        user.setNoOfSearchResults(noOfResults);
-        user.setSearchResults(results);
+        user.setNoOfSearchResults(this.noOfResults);
+        user.setSearchResults(this.results);
 
         // Checking if the search interrupts an episode
         if (user.getMusicPlayer() != null && user.getTrackType() == Users.Track.PODCAST
@@ -249,8 +302,13 @@ public class Search extends Command {
             user.setTrackType(Users.Track.PODCAST);
         } else if (Objects.equals(command.getType(), "playlist")){
             user.setTrackType(Users.Track.PLAYLIST);
+        } else if (Objects.equals(command.getType(), "album")) {
+            user.setTrackType(Users.Track.ALBUM);
         } else if (Objects.equals(command.getType(), "artist")) {
             user.getPageMenu().setCurrentPage(PageMenu.Page.ARTISTPAGE);
+            user.setPageSearched(true);
+        } else if (Objects.equals(command.getType(), "host")) {
+            user.getPageMenu().setCurrentPage(PageMenu.Page.HOSTPAGE);
             user.setPageSearched(true);
         }
     }

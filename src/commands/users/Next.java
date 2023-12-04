@@ -53,7 +53,8 @@ public class Next extends Command {
             user.setSomethingLoaded(false);
             setMessage("Please load a source before skipping to the next track.");
         } else if (user.getTrackType() == Users.Track.SONG || user.getTrackType()
-                                                            == Users.Track.PLAYLIST) {
+                                                            == Users.Track.PLAYLIST
+                    || user.getTrackType() == Users.Track.ALBUM) {
             setMessage("Skipped to next track successfully. The current track is "
                     + user.getMusicPlayer().getSong().getName() + ".");
         } else if (user.getTrackType() == Users.Track.PODCAST) {

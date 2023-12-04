@@ -1,10 +1,7 @@
 package userEntities;
 
 import lombok.Getter;
-import userEntities.audio.Episodes;
-import userEntities.audio.Playlists;
-import userEntities.audio.Podcasts;
-import userEntities.audio.Songs;
+import userEntities.audio.*;
 
 import java.util.ArrayList;
 
@@ -19,6 +16,8 @@ public class MusicPlayer {
 
     private Playlists playlistsShuffled = null;
     private ArrayList<Podcasts> podcasts = null;
+
+    private Album album = null;
 
     private Podcasts podcast = null;
     private Episodes episode = null;
@@ -161,6 +160,10 @@ public class MusicPlayer {
      */
     public void setShuffled(final boolean shuffled) {
         isShuffled = shuffled;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
     }
 }
 

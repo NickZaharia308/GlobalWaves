@@ -4,10 +4,7 @@ import commands.Command;
 import lombok.Getter;
 import main.Library;
 import userEntities.Users;
-import userEntities.audio.Episodes;
-import userEntities.audio.Playlists;
-import userEntities.audio.Podcasts;
-import userEntities.audio.Songs;
+import userEntities.audio.*;
 
 @Getter
 public class Prev extends Command {
@@ -120,6 +117,42 @@ public class Prev extends Command {
                     user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
                     setMessage("Returned to previous track successfully. The current track is "
                                 + currentEpisode.getName() + ".");
+                }
+                break;
+
+            case ALBUM:
+                Album currentAlbum = user.getMusicPlayer().getAlbum();
+                currentSong = user.getMusicPlayer().getSong();
+
+                if (currentAlbum.getSongs().isEmpty()) {
+                    return;
+                }
+                // If the song is the first in the album
+                if (currentSong.getName().equals(currentAlbum.getSongs().get(0).getName())) {
+                    user.getMusicPlayer().setRemainedTime(currentSong.getDuration());
+                    user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
+                    setMessage("Returned to previous track successfully. The current track is "
+                            + currentSong.getName() + ".");
+                    break;
+                }
+
+                // If not a single second has passed (Song at start)
+                if (currentSong.getDuration() == user.getMusicPlayer().getRemainedTime()) {
+                    // Get the previous song
+                    int position = currentAlbum.getSongs().indexOf(currentSong);
+                    currentSong = currentAlbum.getSongs().get(position - 1);
+
+                    // Set the new song on the MusicPlayer
+                    user.getMusicPlayer().setSong(currentSong);
+                    user.getMusicPlayer().setRemainedTime(currentSong.getDuration());
+                    user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
+                    setMessage("Returned to previous track successfully. The current track is "
+                            + currentSong.getName() + ".");
+                } else {
+                    user.getMusicPlayer().setRemainedTime(currentSong.getDuration());
+                    user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
+                    setMessage("Returned to previous track successfully. The current track is "
+                            + currentSong.getName() + ".");
                 }
                 break;
 

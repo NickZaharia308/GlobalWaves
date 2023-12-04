@@ -22,9 +22,9 @@ public class AddUser extends Command {
 
         // If the user already exists
         Users user = new Users();
-        user = user.getUser(allUsers, getUsername());
+        user = user.getUser(allUsers, this.getUsername());
         if (user != null) {
-            setMessage("The username " + getUsername() + " is already taken.");
+            setMessage("The username " + this.getUsername() + " is already taken.");
             return;
         }
 

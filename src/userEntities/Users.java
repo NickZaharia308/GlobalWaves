@@ -66,7 +66,7 @@ public class Users {
      * Enumeration representing different types of tracks.
      */
     public enum Track {
-        SONG, PLAYLIST, PODCAST
+        SONG, PLAYLIST, PODCAST, ALBUM
     }
 
     public enum UserType {

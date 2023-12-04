@@ -61,13 +61,23 @@ public class Load extends Command {
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
                 // Set the first song on the player
                 user.getMusicPlayer().setSong(playerSong);
-            } else {
+            } else if (user.getTrackType() == Users.Track.PODCAST) {
                 // Get the first episode from the podcast
                 Episodes playerEpisode = user.getMusicPlayer().getPodcast().getEpisodes().get(0);
 
                 user.getMusicPlayer().setRemainedTime(playerEpisode.getDuration());
                 // Set the first episode on the player
                 user.getMusicPlayer().setEpisode(playerEpisode);
+            } else if (user.getTrackType() == Users.Track.ALBUM) {
+                if (user.getMusicPlayer().getAlbum().getSongs().isEmpty()) {
+                    return;
+                }
+                // Get the first song from that album
+                Songs playerSong = user.getMusicPlayer().getAlbum().getSongs().get(0);
+
+                user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
+                // Set the first song on the player
+                user.getMusicPlayer().setSong(playerSong);
             }
             user.setSomethingSelected(false);
             user.getMusicPlayer().setRepeatMode(0);

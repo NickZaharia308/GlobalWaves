@@ -3,6 +3,7 @@ package userEntities.specialEntities;
 import lombok.Getter;
 import main.Library;
 import userEntities.Artist;
+import userEntities.Host;
 import userEntities.Users;
 import userEntities.audio.Playlists;
 import userEntities.audio.Songs;
@@ -97,6 +98,22 @@ public class PageMenu {
             return;
 
         user.setCurrentPage(artist.toString());
+    }
+
+    public void setHostPage(Users user, Library library, String hostName) {
+        Host host = null;
+        for (Users searchedHost : library.getUsers()) {
+            // If the user has the host's name and the user is a host
+            if (searchedHost.getUsername().equals(hostName) && searchedHost.getUserType() == Users.UserType.HOST) {
+                host = (Host) searchedHost;
+                break;
+            }
+        }
+
+        if (host == null)
+            return;
+
+        user.setCurrentPage(host.toString());
     }
 
     public void setCurrentPage(Page currentPage) {

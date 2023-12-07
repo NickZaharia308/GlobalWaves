@@ -48,7 +48,7 @@ public class AddRemoveInPlaylist extends Command {
         }
 
         // If the loaded source is not a song
-        if (user.getTrackType() != Users.Track.SONG) {
+        if (user.getTrackType() == Users.Track.PODCAST) {
             setMessage("The loaded source is not a song.");
             return;
         }

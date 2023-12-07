@@ -184,6 +184,10 @@ public class Status extends Command {
                                         user.getTrackType());
                         }
 
+                        // !!
+                        if (user.getMusicPlayer().getPlaylist() == null)
+                            return;
+
                         int index = user.getMusicPlayer().getPlaylist().getSongs().
                                 indexOf(playerSong);
                         Songs currentSong = playerSong;
@@ -217,6 +221,7 @@ public class Status extends Command {
                         } else {
                             setTrackName("");
                             user.getMusicPlayer().setPaused(true);
+                            user.getMusicPlayer().setShuffled(false);
 
                             setRemainedTime(0);
                             user.getMusicPlayer().setRemainedTime(0);
@@ -247,6 +252,10 @@ public class Status extends Command {
                             repeatMessage(user.getMusicPlayer().getRepeatMode(),
                                           user.getTrackType());
                         }
+
+                        // !!
+                        if (user.getMusicPlayer().getPlaylist() == null)
+                            return;
 
                         int index = user.getMusicPlayer().getPlaylist().getSongs().
                                 indexOf(playerSong);
@@ -444,6 +453,7 @@ public class Status extends Command {
                         } else {
                             setTrackName("");
                             user.getMusicPlayer().setPaused(true);
+                            user.getMusicPlayer().setShuffled(false);
 
                             setRemainedTime(0);
                             user.getMusicPlayer().setRemainedTime(0);

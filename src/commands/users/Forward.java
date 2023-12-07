@@ -30,6 +30,10 @@ public class Forward extends Command {
         Users user = new Users();
         user = user.getUser(library.getUsers(), command.getUsername());
 
+        // Update the user's current MusicPlayer
+        Status status = new Status();
+        status.returnStatus(command, library);
+
         // If there is nothing loaded
         if (!user.isSomethingLoaded()) {
             setMessage("Please load a source before attempting to forward.");

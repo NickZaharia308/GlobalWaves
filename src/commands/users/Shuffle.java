@@ -4,6 +4,7 @@ import commands.Command;
 import lombok.Getter;
 import main.Library;
 import userEntities.Users;
+import userEntities.audio.Album;
 import userEntities.audio.Playlists;
 
 /**
@@ -37,15 +38,27 @@ public class Shuffle extends Command {
             return;
         }
 
-        // If the loaded source is not a song
-        if (!(user.getTrackType() == Users.Track.PLAYLIST)) {
-            setMessage("The loaded source is not a playlist.");
+        // If the loaded source is not a playlist nor an album
+        if (!(user.getTrackType() == Users.Track.PLAYLIST ||
+                user.getTrackType() == Users.Track.ALBUM)) {
+            setMessage("The loaded source is not a playlist or an album.");
             return;
         }
 
+        if (user.getTrackType() == Users.Track.PLAYLIST) {
+            shufflePlaylist(command, user);
+        } else if (user.getTrackType() == Users.Track.ALBUM) {
+            shuffleAlbum(command, user);
+        }
+    }
+
+    private void shufflePlaylist (Command command, Users user) {
         final int seed = command.getSeed();
         if (!user.getMusicPlayer().isShuffled()) {
             user.getMusicPlayer().setShuffled(true);
+
+            if (user.getMusicPlayer().getPlaylist() == null)
+                return;
 
             Playlists originalPlaylist = user.getMusicPlayer().getPlaylist();
             Playlists shuffledPlaylist = new Playlists(originalPlaylist, seed);
@@ -65,6 +78,33 @@ public class Shuffle extends Command {
 
             // Set the value for playlist to the original playlist
             user.getMusicPlayer().setPlaylist(user.getMusicPlayer().getPlaylistsShuffled());
+            setMessage("Shuffle function deactivated successfully.");
+        }
+    }
+
+    private void shuffleAlbum (Command command, Users user) {
+        final int seed = command.getSeed();
+        if (!user.getMusicPlayer().isShuffled()) {
+            user.getMusicPlayer().setShuffled(true);
+
+            Album originalAlbum = user.getMusicPlayer().getAlbum();
+            Album shuffledAlbum = new Album(originalAlbum, seed);
+            user.getMusicPlayer().setAlbumShuffled(shuffledAlbum);
+
+            // Swap values
+            Album temp = originalAlbum;
+            originalAlbum = shuffledAlbum;
+            shuffledAlbum = temp;
+
+            user.getMusicPlayer().setAlbum(originalAlbum);
+            user.getMusicPlayer().setAlbumShuffled(shuffledAlbum);
+
+            setMessage("Shuffle function activated successfully.");
+        } else {
+            user.getMusicPlayer().setShuffled(false);
+
+            // Set the value for album to the original album
+            user.getMusicPlayer().setAlbum(user.getMusicPlayer().getAlbumShuffled());
             setMessage("Shuffle function deactivated successfully.");
         }
     }

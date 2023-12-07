@@ -215,10 +215,15 @@
   "timestamp" : 930,
   "message" : "audiosage was successfully deleted."
 }, {
+  "command" : "changePage",
+  "user" : "soundseeker21",
+  "timestamp" : 955,
+  "message" : "soundseeker21 accessed Home successfully."
+}, {
   "command" : "deleteUser",
   "user" : "melodicwanderer",
   "timestamp" : 960,
-  "message" : "melodicwanderer was successfully deleted."
+  "message" : "melodicwanderer can't be deleted."
 }, {
   "command" : "repeat",
   "user" : "carol19",
@@ -230,10 +235,15 @@
   "timestamp" : 975,
   "message" : "The username sonicpainter doesn't exist."
 }, {
+  "command" : "removePodcast",
+  "user" : "musicmaven",
+  "timestamp" : 980,
+  "message" : "musicmaven can't delete this podcast."
+}, {
   "command" : "deleteUser",
   "user" : "audiosage",
   "timestamp" : 1100,
-  "message" : "audiosage was successfully deleted."
+  "message" : "The username audiosage doesn't exist."
 }, {
   "command" : "select",
   "user" : "david27",
@@ -248,12 +258,12 @@
   "command" : "deleteUser",
   "user" : "musicmaven",
   "timestamp" : 6900,
-  "message" : "musicmaven was successfully deleted."
+  "message" : "musicmaven can't be deleted."
 }, {
   "command" : "repeat",
   "user" : "carol19",
   "timestamp" : 7200,
-  "message" : "Repeat mode changed to repeat current song."
+  "message" : "Please load a source before setting the repeat status."
 }, {
   "command" : "deleteUser",
   "user" : "sonicpainter",
@@ -268,12 +278,17 @@
   "command" : "deleteUser",
   "user" : "melodicwanderer",
   "timestamp" : 7855,
-  "message" : "melodicwanderer was successfully deleted."
+  "message" : "The username melodicwanderer doesn't exist."
 }, {
   "command" : "deleteUser",
   "user" : "sonicpainter",
   "timestamp" : 7860,
   "message" : "The username sonicpainter doesn't exist."
+}, {
+  "command" : "changePage",
+  "user" : "david27",
+  "timestamp" : 7885,
+  "message" : "david27 accessed Home successfully."
 }, {
   "command" : "deleteUser",
   "user" : "sonicpainter",
@@ -283,5 +298,5 @@
   "command" : "printCurrentPage",
   "user" : "bob35",
   "timestamp" : 7900,
-  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[Playlist bengos]"
+  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[]"
 } ]

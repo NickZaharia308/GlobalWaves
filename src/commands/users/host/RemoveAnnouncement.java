@@ -10,10 +10,10 @@ import userEntities.specialEntities.Announcement;
 import java.util.ArrayList;
 
 @Getter
-public class AddAnnouncement extends Command {
+public class RemoveAnnouncement extends Command {
     private String message;
 
-    public void returnAddAnnouncement(final Command command, final Library library) {
+    public void returnRemoveAnnouncement(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
         super.setTimestamp(command.getTimestamp());
@@ -34,19 +34,25 @@ public class AddAnnouncement extends Command {
         Host host = (Host) user;
 
         ArrayList<Announcement> announcements = host.getAnnouncements();
-
+        Announcement announcementToDelete = null;
         for (Announcement announcement : announcements) {
             if (announcement.getName().equals(command.getName())) {
-                setMessage(this.getUsername() + " has already added an announcement with this name.");
-                return;
+                announcementToDelete = announcement;
+                break;
             }
         }
 
-        // Create the new announcement and add it to the host's announcement array
-        Announcement announcement = new Announcement(command.getName(), command.getDescription());
-        host.getAnnouncements().add(announcement);
-        setMessage(this.getUsername() + " has successfully added new announcement.");
+        // If there is no announcement with the given name
+        if (announcementToDelete == null) {
+            setMessage(this.getUsername() + " has no announcement with the given name.");
+            return;
+        }
+
+        // Delete announcement
+        host.getAnnouncements().remove(announcementToDelete);
+        setMessage(this.getUsername() + " has successfully deleted the announcement.");
     }
+
 
     public void setMessage(String message) {
         this.message = message;

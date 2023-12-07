@@ -42,13 +42,17 @@ public class Host extends Users {
                 if (podcast == podcasts.get(0)) {
                     builder.append("[").append(podcast.getName()).append(":\n\t");
                 } else {
-                    builder.append(", ");
+                    builder.append("\n, ").append(podcast.getName()).append(":\n\t");
                 }
 
                 // Append episodes for the current podcast
                 for (Episodes episode : podcast.getEpisodes()) {
                     if (episode == podcast.getEpisodes().get(0)) {
                         builder.append("[").append(episode.getName()).append(" - ").append(episode.getDescription());
+                    } else if (episode == podcast.getEpisodes().get(podcast.getEpisodes().size() - 1) &&
+                                podcast == podcasts.get(podcasts.size() - 1)) {
+                        builder.append(", ").append(episode.getName()).append(" - ").append(episode.getDescription());
+                        builder.append("]\n");
                     } else {
                         builder.append(", ").append(episode.getName()).append(" - ").append(episode.getDescription());
                     }
@@ -65,9 +69,10 @@ public class Host extends Users {
         } else {
             for (Announcement announcement : announcements) {
                 if (announcement == announcements.get(0)) {
-                    builder.append("[").append(announcement.getName()).append(" - ").append(announcement.getDescription());
+                    builder.append("[").append(announcement.getName()).append(":\n\t").append(announcement.getDescription());
+                    builder.append("\n");
                 } else {
-                    builder.append(", ").append(announcement.getName()).append(" - ").append(announcement.getDescription());
+                    builder.append(", ").append(announcement.getName()).append(":\n\t").append(announcement.getDescription());
                 }
             }
             builder.append("]");

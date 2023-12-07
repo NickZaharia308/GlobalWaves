@@ -7,17 +7,19 @@ import commands.Command;
 import commands.admin.AddUser;
 import commands.admin.DeleteUser;
 import commands.admin.ShowAlbums;
+import commands.admin.ShowPodcasts;
+import commands.page.ChangePage;
 import commands.page.PrintCurrentPage;
 import commands.searchBar.Load;
 import commands.searchBar.Search;
 import commands.searchBar.Select;
 import commands.statistics.GetAllUsers;
 import commands.users.*;
-import commands.users.artist.AddAlbum;
-import commands.users.artist.AddEvent;
-import commands.users.artist.AddMerch;
+import commands.users.artist.*;
 import commands.users.host.AddAnnouncement;
 import commands.users.host.AddPodcast;
+import commands.users.host.RemoveAnnouncement;
+import commands.users.host.RemovePodcast;
 import commands.users.playlists.CreatePlaylist;
 import commands.users.playlists.FollowPlaylist;
 import commands.users.playlists.ShowPlaylists;
@@ -28,9 +30,7 @@ import commands.statistics.GetTop5Songs;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import userEntities.Users;
-import userEntities.audio.Album;
-import userEntities.audio.Playlists;
-import userEntities.audio.Songs;
+import userEntities.audio.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -451,13 +451,90 @@ public class PrintOutput {
             outputs.add(resultNode);
         } else if (Objects.equals(command.getCommand(), "addAnnouncement")) {
             AddAnnouncement addAnnouncement = new AddAnnouncement();
-            addAnnouncement.returnAddMerch(command, myLibrary);
+            addAnnouncement.returnAddAnnouncement(command, myLibrary);
 
             ObjectNode resultNode = objectMapper.createObjectNode();
             resultNode.put("command", addAnnouncement.getCommand());
             resultNode.put("user", addAnnouncement.getUsername());
             resultNode.put("timestamp", addAnnouncement.getTimestamp());
             resultNode.put("message", addAnnouncement.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "removeAnnouncement")) {
+            RemoveAnnouncement removeAnnouncement = new RemoveAnnouncement();
+            removeAnnouncement.returnRemoveAnnouncement(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", removeAnnouncement.getCommand());
+            resultNode.put("user", removeAnnouncement.getUsername());
+            resultNode.put("timestamp", removeAnnouncement.getTimestamp());
+            resultNode.put("message", removeAnnouncement.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "showPodcasts")) {
+            ShowPodcasts showPodcasts = new ShowPodcasts();
+            ArrayList<Podcasts> podcasts = showPodcasts.returnShowPodcasts(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", showPodcasts.getCommand());
+            resultNode.put("user", showPodcasts.getUsername());
+            resultNode.put("timestamp", showPodcasts.getTimestamp());
+
+            ArrayNode resultsArrayNode = resultNode.putArray("result");
+            for (Podcasts podcast : podcasts) {
+                ObjectNode podcastNode = objectMapper.createObjectNode();
+                podcastNode.put("name", podcast.getName());
+
+                ArrayNode episodesArrayNode = podcastNode.putArray("episodes");
+
+                for (Episodes episode : podcast.getEpisodes()) {
+                    if (episode != null) {
+                        episodesArrayNode.add(episode.getName());
+                    }
+                }
+
+                resultsArrayNode.add(podcastNode);
+            }
+
+            resultNode.set("result", resultsArrayNode);
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "removeAlbum")){
+            RemoveAlbum removeAlbum = new RemoveAlbum();
+            removeAlbum.returnRemoveAlbum(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", removeAlbum.getCommand());
+            resultNode.put("user", removeAlbum.getUsername());
+            resultNode.put("timestamp", removeAlbum.getTimestamp());
+            resultNode.put("message", removeAlbum.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "changePage")) {
+            ChangePage changePage = new ChangePage();
+            changePage.returnChangePage(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", changePage.getCommand());
+            resultNode.put("user", changePage.getUsername());
+            resultNode.put("timestamp", changePage.getTimestamp());
+            resultNode.put("message", changePage.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "removePodcast")) {
+            RemovePodcast removePodcast = new RemovePodcast();
+            removePodcast.returnRemovePodcast(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", removePodcast.getCommand());
+            resultNode.put("user", removePodcast.getUsername());
+            resultNode.put("timestamp", removePodcast.getTimestamp());
+            resultNode.put("message", removePodcast.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "removeEvent")) {
+            RemoveEvent removeEvent = new RemoveEvent();
+            removeEvent.returnRemoveEvent(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", removeEvent.getCommand());
+            resultNode.put("user", removeEvent.getUsername());
+            resultNode.put("timestamp", removeEvent.getTimestamp());
+            resultNode.put("message", removeEvent.getMessage());
             outputs.add(resultNode);
         }
     }

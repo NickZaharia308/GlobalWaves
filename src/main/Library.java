@@ -87,4 +87,12 @@ public final class Library {
     public void setAlbums(ArrayList<Album> albums) {
         this.albums = albums;
     }
+
+    public void reset() {
+        users = new ArrayList<>();
+        songs = new ArrayList<>();
+        podcasts = new ArrayList<>();
+        playlists = new ArrayList<>();
+        albums = new ArrayList<>();
+    }
 }

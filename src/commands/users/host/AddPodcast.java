@@ -69,7 +69,7 @@ public class AddPodcast extends Command {
 
         Podcasts newPodcast = new Podcasts(this.name, this.username, podcastEpisodes);
 
-        // Adding the podcast to both the library and the artist
+        // Adding the podcast to both the library and the host
         library.getPodcasts().add(newPodcast);
         host.getPodcasts().add(newPodcast);
 
@@ -99,7 +99,9 @@ public class AddPodcast extends Command {
         ArrayList<Users> users = library.getUsers();
         for (Users user : users) {
             if (user.getMusicPlayer() != null && user.getMusicPlayer().getPodcasts() != null) {
-                user.getMusicPlayer().getPodcasts().add(podcast);
+                // Create a new Podcast so they do not interfere
+                Podcasts newPodcast = new Podcasts(podcast);
+                user.getMusicPlayer().getPodcasts().add(newPodcast);
             }
         }
     }

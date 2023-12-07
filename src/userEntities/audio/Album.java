@@ -3,6 +3,8 @@ package userEntities.audio;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 @Getter
 public class Album {
@@ -19,6 +21,29 @@ public class Album {
         this.description = description;
         this.songs = songs;
         this.owner = username;
+    }
+
+    // Copy constructor
+    public Album(final Album original, final long seed) {
+        this.name = original.name;
+        this.releaseYear = original.releaseYear;
+        this.description = original.description;
+        this.owner = original.owner;
+
+        this.songs = new ArrayList<>(original.songs);
+        shuffleSongs(seed);
+    }
+
+    /**
+     * Helper method to shuffle songs with a given seed.
+     *
+     * @param seed The seed used for shuffling songs.
+     */
+    private void shuffleSongs(final long seed) {
+        if (this.songs != null) {
+            Random random = new Random(seed);
+            Collections.shuffle(this.songs, random);
+        }
     }
 
     public void setName(String name) {

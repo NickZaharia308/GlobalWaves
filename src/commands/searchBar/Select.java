@@ -68,7 +68,7 @@ public class Select extends Command {
                 trackSearched(user, library, itemNumber);
                 user.setSomethingSelected(true);
             } else {
-                pageSearched(user, library, itemNumber);
+                pageSearched(user, itemNumber);
                 user.setSomethingSelected(false);
 
                 // No track will play if we select a page
@@ -160,18 +160,16 @@ public class Select extends Command {
         }
     }
 
-    private void pageSearched(Users user, Library library, int itemNumber) {
+    private void pageSearched(Users user, int itemNumber) {
 
         LinkedList<String> searchResults = user.getSearchResults();
+        String pageOwner = searchResults.get(itemNumber - 1);
+        user.getPageMenu().setPageOwnerName(searchResults.get(itemNumber - 1));
 
         if (user.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE) {
-            String selectedArtist = searchResults.get(itemNumber - 1);
-            user.getPageMenu().setArtistPage(user, library, selectedArtist);
-            setMessage("Successfully selected " + selectedArtist +"'s page.");
+            setMessage("Successfully selected " + pageOwner +"'s page.");
         } else if (user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE) {
-            String selectedHost = searchResults.get(itemNumber - 1);
-            user.getPageMenu().setHostPage(user, library, selectedHost);
-            setMessage("Successfully selected " + selectedHost +"'s page.");
+            setMessage("Successfully selected " + pageOwner +"'s page.");
         }
     }
 

@@ -14,18 +14,23 @@ import java.util.ArrayList;
 public class PageMenu {
     Page currentPage = Page.HOMEPAGE;
     private final int maxShowed = 5;
+    private String pageOwnerName;
 
     public enum Page {
         HOMEPAGE, LIKEDCONTENTPAGE, ARTISTPAGE, HOSTPAGE
     }
 
 
-    public void setPage(Users user) {
+    public void setPage(Users user, Library library, String name) {
         Page usersCurrentPage = user.getPageMenu().currentPage;
-        if (usersCurrentPage == Page.HOMEPAGE) {
+        if (usersCurrentPage == Page.HOMEPAGE || user.getUsername().equals(name)) {
             createHomepage(user);
         } else if (usersCurrentPage == Page.LIKEDCONTENTPAGE) {
             createLikedContentPage(user);
+        } else if (usersCurrentPage == Page.ARTISTPAGE) {
+            setArtistPage(user, library, name);
+        } else if (usersCurrentPage == Page.HOSTPAGE) {
+            setHostPage(user, library, name);
         }
     }
 
@@ -120,4 +125,7 @@ public class PageMenu {
         this.currentPage = currentPage;
     }
 
+    public void setPageOwnerName(String pageOwnerName) {
+        this.pageOwnerName = pageOwnerName;
+    }
 }

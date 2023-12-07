@@ -5,8 +5,11 @@ import commands.users.Status;
 import lombok.Getter;
 import main.Library;
 import userEntities.Artist;
+import userEntities.Host;
 import userEntities.Users;
 import userEntities.audio.Album;
+import userEntities.audio.Playlists;
+import userEntities.audio.Podcasts;
 import userEntities.audio.Songs;
 
 import java.util.ArrayList;
@@ -36,9 +39,29 @@ public class DeleteUser extends Command {
             return;
         }
 
+        if (user.getUserType() == Users.UserType.NORMAL && deleteUser(command, library)) {
+            return;
+        }
+
+        if (user.getUserType() == Users.UserType.HOST && deleteHost(command, library)) {
+            return;
+        }
+
         if (user.getUserType() == Users.UserType.ARTIST) {
             deleteEverythingFromArtist(user, library);
         }
+
+        if (user.getUserType() == Users.UserType.NORMAL) {
+            deleteEverythingFromUser(user, library);
+            deleteUserFromEverywhere(user, library);
+        }
+
+        if (user.getUserType() == Users.UserType.HOST) {
+            deleteEverythingFromHost(user, library);
+        }
+
+        // Remove the user
+        library.getUsers().remove(user);
         setMessage(this.getUsername() + " was successfully deleted.");
     }
 
@@ -123,8 +146,115 @@ public class DeleteUser extends Command {
             }
         }
 
-        // Remove the artist
-        library.getUsers().remove(artist);
+    }
+
+    private boolean deleteUser(Command command, final Library library) {
+        ArrayList<Users> allUsers= library.getUsers();
+
+        Users user = new Users();
+        user = user.getUser(allUsers, this.getUsername());
+
+        // Search through all users
+        for (Users currentUser : allUsers) {
+            Status status = new Status();
+            command.setUsername(currentUser.getUsername());
+            status.returnStatus(command, library);
+
+            // If the user has a playlist loaded
+            if (currentUser.isSomethingLoaded() &&
+                currentUser.getTrackType() == Users.Track.PLAYLIST) {
+
+                // If the owner of the playlist is the user himself
+                if (currentUser.getMusicPlayer().getPlaylist().getOwner().equals(user.getUsername())) {
+                    setMessage(user.getUsername() + " can't be deleted.");
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private void deleteEverythingFromUser(Users user, Library library) {
+
+        // Delete the user's playlists from the library
+        ArrayList<Playlists> allPlaylists = library.getPlaylists();
+        Iterator<Playlists> playlistIterator = allPlaylists.iterator();
+        while (playlistIterator.hasNext()) {
+            Playlists playlist = playlistIterator.next();
+
+            // Remove the playlist
+            if (playlist.getOwner().equals(user.getUsername())) {
+
+                // Iterate through the users that follow the playlist and remove the playlist
+                for (Map.Entry<String, Boolean> entry : playlist.getUserFollowMap().entrySet()) {
+                    String userName = entry.getKey();
+                    Users currentUser = new Users();
+                    currentUser = currentUser.getUser(library.getUsers(), userName);
+                    currentUser.getFollowedPlaylists().remove(playlist);
+                }
+
+                playlistIterator.remove();
+            }
+        }
+    }
+
+    private void deleteUserFromEverywhere(Users user, Library library) {
+
+        // Lambda expressions that removes the user's like from songs and its follow from playlists
+        library.getSongs().forEach(song -> song.getUserLikesMap().remove(user.getUsername()));
+
+        library.getPlaylists().forEach(playlist -> playlist.getUserFollowMap().
+                                                    remove((user.getUsername())));
+        library.getPlaylists().forEach(playlist -> playlist.setFollowers
+                                                    (playlist.getFollowers() - 1));
+    }
+
+
+    private boolean deleteHost (Command command, final Library library) {
+        ArrayList<Users> allUsers= library.getUsers();
+
+        Users user = new Users();
+        user = user.getUser(allUsers, this.getUsername());
+
+        Host host = (Host) user;
+
+        // Search through all users
+        for (Users currentUser : allUsers) {
+//            Status status = new Status();
+//            command.setUsername(currentUser.getUsername());
+//            status.returnStatus(command, library);
+
+
+            // If the user has a podcast loaded
+            if (currentUser.isSomethingLoaded() &&
+                currentUser.getTrackType() == Users.Track.PODCAST) {
+
+                // If the owner of the podcast is the host himself
+                if (currentUser.getMusicPlayer().getPodcast().getOwner().equals(host.getUsername())) {
+                    setMessage(host.getUsername() + " can't be deleted.");
+                    return true;
+
+                }
+            }
+        }
+        return false;
+    }
+
+    private void deleteEverythingFromHost (Users user, Library library) {
+        Host host = (Host) user;
+
+        // Delete the host's albums from the library
+
+        ArrayList<Podcasts> allPodcasts = library.getPodcasts();
+        Iterator<Podcasts> podcastIterator = allPodcasts.iterator();
+        while (podcastIterator.hasNext()) {
+            Podcasts podcast = podcastIterator.next();
+            if (podcast.getOwner().equals(host.getUsername())) {
+                podcastIterator.remove();
+            }
+        }
+
     }
 
     public void setMessage(String message) {

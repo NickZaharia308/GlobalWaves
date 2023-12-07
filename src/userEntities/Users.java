@@ -83,6 +83,9 @@ public class Users {
         this.username = username;
         this.age = age;
         this.city = city;
+
+        // Set the current page to home
+        this.getPageMenu().setPageOwnerName(username);
     }
 
     /**

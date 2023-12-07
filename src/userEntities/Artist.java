@@ -40,11 +40,20 @@ public class Artist extends Users {
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder("Albums:\n");
+        StringBuilder builder = new StringBuilder();
 
-        // Append each album name to the string
-        for (Album album : albums) {
-            builder.append("\t[").append(album.getName()).append("]\n");
+        // Album section
+        builder.append("Albums:\n\t");
+        if (albums.isEmpty()) {
+            builder.append("[]\n");
+        } else {
+            for (Album album : albums) {
+                if (album == albums.get(0)) {
+                    builder.append("[").append(album.getName()).append("]\n");
+                } else {
+                    builder.append(", ").append(album.getName()).append("]\n");
+                }
+            }
         }
 
         // Merch section
@@ -58,21 +67,28 @@ public class Artist extends Users {
                             .append(":\n\t").append(merch.getDescription());
                 } else {
                     builder.append(", ").append(merch.getName()).append(" - ").append(merch.getPrice())
-                            .append(":\n\t").append(merch.getDescription()).append("]");
+                            .append(":\n\t").append(merch.getDescription());
                 }
             }
+            builder.append("]");
         }
 
         // Events section
+
         builder.append("\n\nEvents:\n\t");
-        for (Event event : events) {
-            if (event == events.get(0)) {
-                builder.append("[").append(event.getName()).append(" - ").append(event.getDate())
-                        .append(":\n\t").append(event.getDescription());
-            } else {
-                builder.append(", ").append(event.getName()).append(" - ").append(event.getDate())
-                        .append(":\n\t").append(event.getDescription()).append("]");
+        if (events.isEmpty()) {
+            builder.append("[]");
+        } else {
+            for (Event event : events) {
+                if (event == events.get(0)) {
+                    builder.append("[").append(event.getName()).append(" - ").append(event.getDate());
+                    builder.append(":\n\t").append(event.getDescription());
+                } else {
+                    builder.append(", ").append(event.getName()).append(" - ").append(event.getDate());
+                    builder.append(":\n\t").append(event.getDescription());
+                }
             }
+            builder.append("]");
         }
 
         return builder.toString();

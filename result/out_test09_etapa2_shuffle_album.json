@@ -104,6 +104,11 @@
   "message" : "Search returned 1 results",
   "results" : [ "Elevate" ]
 }, {
+  "command" : "removeAlbum",
+  "user" : "Ed Sheeran",
+  "timestamp" : 375,
+  "message" : "The username Ed Sheeran doesn't exist."
+}, {
   "command" : "select",
   "user" : "bob35",
   "timestamp" : 390,
@@ -127,7 +132,12 @@
   "command" : "printCurrentPage",
   "user" : "david27",
   "timestamp" : 430,
-  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[]\n\nEvents:\n\t[Event1 - 01-01-2022:\n\tPrimul Event adaugat!"
+  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[]\n\nEvents:\n\t[Event1 - 01-01-2022:\n\tPrimul Event adaugat!]"
+}, {
+  "command" : "removeAlbum",
+  "user" : "melodymaster",
+  "timestamp" : 430,
+  "message" : "melodymaster doesn't have an album with the given name."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -169,7 +179,7 @@
   "command" : "shuffle",
   "user" : "bob35",
   "timestamp" : 440,
-  "message" : "The loaded source is not a playlist."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "bob35",
@@ -178,7 +188,7 @@
     "name" : "Vibrant Echoes",
     "remainedTime" : 237,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -201,10 +211,10 @@
   "user" : "bob35",
   "timestamp" : 1000,
   "stats" : {
-    "name" : "Retro Rhythms",
-    "remainedTime" : 203,
+    "name" : "Digital Dreams",
+    "remainedTime" : 243,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -212,6 +222,11 @@
   "user" : "carol19",
   "timestamp" : 1115,
   "message" : "Like registered successfully."
+}, {
+  "command" : "removeAlbum",
+  "user" : "melodymaster",
+  "timestamp" : 1200,
+  "message" : "melodymaster can't delete this album."
 }, {
   "command" : "search",
   "user" : "carol19",
@@ -234,6 +249,11 @@
   "user" : "carol19",
   "timestamp" : 2435,
   "message" : "Successfully selected My playlist."
+}, {
+  "command" : "removeEvent",
+  "user" : "melodymaster",
+  "timestamp" : 2440,
+  "message" : "melodymaster deleted the event successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -351,6 +371,11 @@
     "paused" : false
   }
 }, {
+  "command" : "removeAlbum",
+  "user" : "melodymaster",
+  "timestamp" : 3000,
+  "message" : "melodymaster deleted the album successfully."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 3250,
@@ -362,6 +387,11 @@
     "paused" : false
   }
 }, {
+  "command" : "changePage",
+  "user" : "carol19",
+  "timestamp" : 3251,
+  "message" : "carol19 accessed LikedContent successfully."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 3600,
@@ -369,7 +399,7 @@
     "name" : "",
     "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : true
   }
 }, {
@@ -392,7 +422,7 @@
   "command" : "printCurrentPage",
   "user" : "david27",
   "timestamp" : 3900,
-  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[]\n\nEvents:\n\t[Event1 - 01-01-2022:\n\tPrimul Event adaugat!"
+  "message" : "Albums:\n\t[]\n\nMerch:\n\t[Merch1 - 100:\n\tPrimul Merch adaugat!]\n\nEvents:\n\t[Event2 - 05-02-2021:\n\tAl doilea Event adaugat!]"
 }, {
   "command" : "status",
   "user" : "bob35",
@@ -435,21 +465,21 @@
   "command" : "shuffle",
   "user" : "bob35",
   "timestamp" : 4360,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "printCurrentPage",
   "user" : "david27",
   "timestamp" : 4400,
-  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[]\n\nEvents:\n\t[Event1 - 01-01-2022:\n\tPrimul Event adaugat!"
+  "message" : "Albums:\n\t[]\n\nMerch:\n\t[Merch1 - 100:\n\tPrimul Merch adaugat!]\n\nEvents:\n\t[Event2 - 05-02-2021:\n\tAl doilea Event adaugat!]"
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 4410,
   "stats" : {
-    "name" : "Retro Rhythms",
-    "remainedTime" : 163,
+    "name" : "Elevate",
+    "remainedTime" : 168,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -457,27 +487,27 @@
   "user" : "bob35",
   "timestamp" : 4750,
   "stats" : {
-    "name" : "Elevate",
-    "remainedTime" : 48,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "printCurrentPage",
   "user" : "carol19",
   "timestamp" : 5000,
-  "message" : "Liked songs:\n\t[Digital Dreams]\n\nFollowed playlists:\n\t[My playlist]"
+  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[My playlist - bob35]"
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 5100,
   "stats" : {
-    "name" : "Hustle Hard",
-    "remainedTime" : 175,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "showPlaylists",
@@ -485,7 +515,7 @@
   "timestamp" : 6000,
   "result" : [ {
     "name" : "My playlist",
-    "songs" : [ "Retro Rhythms", "Elevate", "I Don't Wanna Live Forever", "Hustle Hard", "Begin Again" ],
+    "songs" : [ "Elevate", "I Don't Wanna Live Forever", "Hustle Hard", "Begin Again" ],
     "visibility" : "public",
     "followers" : 1
   } ]

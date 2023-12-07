@@ -26,7 +26,7 @@ public class PrintCurrentPage extends Command {
             return;
         }
 
-        user.getPageMenu().setPage(user);
+        user.getPageMenu().setPage(user, library, user.getPageMenu().getPageOwnerName());
         setMessage(user.getCurrentPage());
     }
 

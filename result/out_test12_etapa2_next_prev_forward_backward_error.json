@@ -149,8 +149,8 @@
   "command" : "search",
   "user" : "emily30",
   "timestamp" : 2000,
-  "message" : "Search returned 3 results",
-  "results" : [ "Harmonic Horizons", "Harmonic Horizons 2", "Harmonic Horizons" ]
+  "message" : "Search returned 1 results",
+  "results" : [ "Harmonic Horizons" ]
 }, {
   "command" : "forward",
   "user" : "emily30",
@@ -186,7 +186,7 @@
   "command" : "forward",
   "user" : "emily30",
   "timestamp" : 3520,
-  "message" : "The loaded source is not a podcast."
+  "message" : "Please load a source before attempting to forward."
 }, {
   "command" : "status",
   "user" : "emily30",

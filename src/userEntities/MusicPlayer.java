@@ -12,13 +12,14 @@ import java.util.ArrayList;
 @Getter
 public class MusicPlayer {
     private Songs song = null;
-    private Playlists playlist = null;
 
+    private Playlists playlist = null;
     private Playlists playlistsShuffled = null;
-    private ArrayList<Podcasts> podcasts = null;
 
     private Album album = null;
+    private Album albumShuffled = null;
 
+    private ArrayList<Podcasts> podcasts = null;
     private Podcasts podcast = null;
     private Episodes episode = null;
 
@@ -164,6 +165,10 @@ public class MusicPlayer {
 
     public void setAlbum(Album album) {
         this.album = album;
+    }
+
+    public void setAlbumShuffled(Album albumShuffled) {
+        this.albumShuffled = albumShuffled;
     }
 }
 

@@ -49,6 +49,12 @@ public class Prev extends Command {
                 Playlists currentPlaylist = user.getMusicPlayer().getPlaylist();
                 Songs currentSong = user.getMusicPlayer().getSong();
 
+
+                // !!
+                if (currentPlaylist == null) {
+                    return;
+                }
+
                 if (currentPlaylist.getSongs().isEmpty()) {
                     return;
                 }

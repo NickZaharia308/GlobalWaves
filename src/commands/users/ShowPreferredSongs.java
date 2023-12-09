@@ -30,7 +30,7 @@ public class ShowPreferredSongs extends Command {
         Users user = new Users();
         user = user.getUser(library.getUsers(), command.getUsername());
 
-        setLikedSongs(user.getLikedSongs());
+        setLikedSongs(new ArrayList<>(user.getLikedSongs()));
     }
 
     /**

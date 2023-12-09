@@ -61,7 +61,8 @@ public class Like extends Command {
         Songs userSong = user.getMusicPlayer().getSong();
         ArrayList<Songs> likedSongs = user.getLikedSongs();
         for (Songs song : songs) {
-            if (song.getName().equals(userSong.getName())) {
+            if (song.getName().equals(userSong.getName()) &&
+                song.getArtist().equals(userSong.getArtist())) {
                 for (Songs song2 : likedSongs) {
                     if (song2.getName().equals(userSong.getName())) {
                         // Remove the like from the HashMap

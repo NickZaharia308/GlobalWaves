@@ -26,6 +26,7 @@ import commands.users.playlists.ShowPlaylists;
 import commands.users.playlists.SwitchVisibility;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import userEntities.Artist;
 import userEntities.Users;
 import userEntities.audio.*;
 
@@ -548,6 +549,22 @@ public class PrintOutput {
                 resultsArrayNode.add(album.getName());
             }
 
+            resultNode.set("result", resultsArrayNode);
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "getTop5Artists")) {
+            GetTop5Artists getTop5Artists = new GetTop5Artists();
+            getTop5Artists.returnGetTop5Artists(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", getTop5Artists.getCommand());
+            resultNode.put("timestamp", getTop5Artists.getTimestamp());
+
+            ArrayNode resultsArrayNode = resultNode.putArray("result");
+            ArrayList<Artist> top5Artists = getTop5Artists.getTopArtist();
+
+            for (Artist artist : top5Artists) {
+                resultsArrayNode.add(artist.getUsername());
+            }
             resultNode.set("result", resultsArrayNode);
             outputs.add(resultNode);
         }

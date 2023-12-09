@@ -28,15 +28,14 @@ public class Repeat extends Command {
         if (user == null)
             return;
 
+        // Update the status before changing the repeat mode
+        Status updateStatus = new Status();
+        updateStatus.returnStatus(command, library);
 
         if (!user.isSomethingLoaded()) {
             setMessage("Please load a source before setting the repeat status.");
             return;
         }
-
-        // Update the status before changing the repeat mode
-        Status updateStatus = new Status();
-        updateStatus.returnStatus(command, library);
 
         // Incrementing the status of RepeatMode variable (0->1->2->0)
         user.getMusicPlayer().setRepeatMode(user.getMusicPlayer().getRepeatMode() + 1);

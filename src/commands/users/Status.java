@@ -254,7 +254,7 @@ public class Status extends Command {
                     } else {
                         // If the repeat mode is "repeat current song"
                         if (user.getMusicPlayer().getRepeatMode() == 2) {
-                            while (leftTime < 0) {
+                            while (leftTime <= 0) {
                                 leftTime += playerSong.getDuration();
                             }
                             setTrackName(playerSong.getName());
@@ -569,7 +569,7 @@ public class Status extends Command {
      * @param track      The current track type (song, playlist, or podcast).
      */
     void repeatMessage(final int repeatMode, final Users.Track track) {
-        if (track == Users.Track.PLAYLIST) {
+        if (track == Users.Track.PLAYLIST || track == Users.Track.ALBUM) {
             switch (repeatMode) {
                 case 1:
                     setRepeatMessage("Repeat All");

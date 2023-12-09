@@ -45,19 +45,20 @@ public class Artist extends Users {
         // Album section
         builder.append("Albums:\n\t");
         if (albums.isEmpty()) {
-            builder.append("[]\n");
+            builder.append("[]");
         } else {
             for (Album album : albums) {
                 if (album == albums.get(0)) {
-                    builder.append("[").append(album.getName()).append("]\n");
+                    builder.append("[").append(album.getName());
                 } else {
-                    builder.append(", ").append(album.getName()).append("]\n");
+                    builder.append(", ").append(album.getName());
                 }
             }
+            builder.append("]");
         }
 
         // Merch section
-        builder.append("\nMerch:\n\t");
+        builder.append("\n\nMerch:\n\t");
         if (merchandise.isEmpty()) {
             builder.append("[]");
         } else {

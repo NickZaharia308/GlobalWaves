@@ -9,6 +9,7 @@ import userEntities.audio.Playlists;
 import userEntities.audio.Songs;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 @Getter
 public class PageMenu {
@@ -35,7 +36,7 @@ public class PageMenu {
     }
 
     private void createHomepage(Users user) {
-        ArrayList<Songs> likedSongs = user.getLikedSongs();
+        ArrayList<Songs> likedSongs = sortLikedSongs(user.getLikedSongs());
         ArrayList<Playlists> followedPlaylists = user.getFollowedPlaylists();
 
         final int maxSongs = Math.min(likedSongs.size(), maxShowed);
@@ -119,6 +120,12 @@ public class PageMenu {
             return;
 
         user.setCurrentPage(host.toString());
+    }
+
+    private ArrayList<Songs> sortLikedSongs(final ArrayList<Songs> likedSongs) {
+        ArrayList<Songs> sortedSongs = new ArrayList<>(likedSongs);
+        sortedSongs.sort(Comparator.comparingLong(Songs::getNumberOfLikes).reversed());
+        return sortedSongs;
     }
 
     public void setCurrentPage(Page currentPage) {

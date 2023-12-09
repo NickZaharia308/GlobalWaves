@@ -305,9 +305,17 @@ public class Search extends Command {
         } else if (Objects.equals(command.getType(), "album")) {
             user.setTrackType(Users.Track.ALBUM);
         } else if (Objects.equals(command.getType(), "artist")) {
+            // No page found, keep the previous one
+            if (noOfResults == 0) {
+                return;
+            }
             user.getPageMenu().setCurrentPage(PageMenu.Page.ARTISTPAGE);
             user.setPageSearched(true);
         } else if (Objects.equals(command.getType(), "host")) {
+            // No page found, keep the previous one
+            if (noOfResults == 0) {
+                return;
+            }
             user.getPageMenu().setCurrentPage(PageMenu.Page.HOSTPAGE);
             user.setPageSearched(true);
         }

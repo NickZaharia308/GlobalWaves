@@ -76,12 +76,22 @@ public class RemoveAlbum extends Command {
             }
 
             // Iterate through songs of the album and check if one song is loaded
-            if (user.isSomethingLoaded() && (user.getTrackType() == Users.Track.SONG
-                    || user.getTrackType() == Users.Track.PLAYLIST)) {
+            if (user.isSomethingLoaded() && user.getTrackType() == Users.Track.SONG) {
                 for (Songs song : albumToDelete.getSongs()) {
                     // If the name of the album song is the name of the song that user has on track
                     if (song.getName().equals(user.getMusicPlayer().getSong().getName())) {
                         return true;
+                    }
+                }
+            }
+
+            // Iterate through songs of the playlist and check if one song is also in album
+            if (user.isSomethingLoaded() && user.getTrackType() == Users.Track.PLAYLIST) {
+                for (Songs songPlaylist : user.getMusicPlayer().getPlaylist().getSongs()) {
+                    for (Songs song : albumToDelete.getSongs()) {
+                        if (song.getName().equals(songPlaylist.getName())) {
+                            return true;
+                        }
                     }
                 }
             }
@@ -112,37 +122,11 @@ public class RemoveAlbum extends Command {
             }
         }
 
-        // Delete all album songs from users' currentPlaylists
         ArrayList<Users> allUsers = library.getUsers();
-
         for (Users user : allUsers) {
-            if (user.isSomethingLoaded() && user.getTrackType() == Users.Track.PLAYLIST) {
-                // Current Playlist
-                removeSongsFromPlaylist(user.getMusicPlayer().getPlaylist(), albumToDelete.getSongs());
-
-                // Shuffled Playlist
-                removeSongsFromPlaylist(user.getMusicPlayer().getPlaylistsShuffled(), albumToDelete.getSongs());
-            }
-
             removeSongFromLikedSongs(user.getLikedSongs(), albumToDelete.getSongs());
         }
 
-    }
-
-    // Helper method to remove songs from a playlist
-    private void removeSongsFromPlaylist(Playlists playlist, ArrayList<Songs> songsToRemove) {
-        Iterator<Songs> playlistSongIterator = playlist.getSongs().iterator();
-
-        while (playlistSongIterator.hasNext()) {
-            Songs playlistSong = playlistSongIterator.next();
-
-            for (Songs song : songsToRemove) {
-                // If the name of the album song is the name of the song that user has in the playlist
-                if (song.getName().equals(playlistSong.getName())) {
-                    playlistSongIterator.remove();
-                }
-            }
-        }
     }
 
     // Helper method to remove songs from the liked songs of a user

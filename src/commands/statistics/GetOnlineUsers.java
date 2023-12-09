@@ -15,7 +15,7 @@ public class GetOnlineUsers extends Command {
         ArrayList<Users> allUsers = library.getUsers();
 
         for (Users user : allUsers) {
-            if (user.isOnline()) {
+            if (user.isOnline() && user.getUserType() == Users.UserType.NORMAL) {
                 onlineUsers.add(user);
             }
         }

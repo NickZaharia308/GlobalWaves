@@ -45,6 +45,7 @@ public class Load extends Command {
             user.setSomethingLoaded(true);
             user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
             user.getMusicPlayer().setPaused(false);
+            user.getMusicPlayer().setShuffled(false);
 
             // Setup for when a song is played by a user
             if (user.getTrackType() == Users.Track.SONG) {

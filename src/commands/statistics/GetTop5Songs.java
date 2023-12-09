@@ -14,7 +14,6 @@ import java.util.Comparator;
 @Getter
 public class GetTop5Songs extends Command {
 
-    private String message;
     private final ArrayList<Songs> topSongs = new ArrayList<>();
     private final int maxSongs = 5;
 
@@ -41,14 +40,5 @@ public class GetTop5Songs extends Command {
         for (int i = 0; i < topCount; i++) {
             topSongs.add(songsTopFive.get(i));
         }
-    }
-
-    /**
-     * Sets the message for the command.
-     *
-     * @param message The message to be set.
-     */
-    public void setMessage(final String message) {
-        this.message = message;
     }
 }

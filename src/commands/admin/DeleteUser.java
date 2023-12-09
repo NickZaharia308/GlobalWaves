@@ -11,6 +11,7 @@ import userEntities.audio.Album;
 import userEntities.audio.Playlists;
 import userEntities.audio.Podcasts;
 import userEntities.audio.Songs;
+import userEntities.specialEntities.PageMenu;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -106,6 +107,28 @@ public class DeleteUser extends Command {
                         return true;
                     }
                 }
+            }
+
+
+            // If the user has a playlist with a song from the artist's album
+            if (currentUser.getTrackType() == Users.Track.PLAYLIST && currentUser.isSomethingLoaded()) {
+
+                // If one of the songs owner from the current playlist is the artist
+                boolean hasSongFromArtistAlbum = currentUser.getMusicPlayer().getPlaylist().getSongs().stream()
+                        .anyMatch(song -> song.getArtist().equals(artist.getUsername()));
+
+                // If the playlist has a song from the artist's album
+                if (hasSongFromArtistAlbum) {
+                    setMessage(artist.getUsername() + " can't be deleted.");
+                    return true;
+                }
+            }
+
+            // If a user has the artist's page selected
+            if (currentUser.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE &&
+                    currentUser.getPageMenu().getPageOwnerName().equals(artist.getUsername())) {
+                setMessage(artist.getUsername() + " can't be deleted.");
+                return true;
             }
         }
 
@@ -221,14 +244,14 @@ public class DeleteUser extends Command {
 
         // Search through all users
         for (Users currentUser : allUsers) {
-//            Status status = new Status();
-//            command.setUsername(currentUser.getUsername());
-//            status.returnStatus(command, library);
+            Status status = new Status();
+            command.setUsername(currentUser.getUsername());
+            status.returnStatus(command, library);
 
 
-            // If the user has a podcast loaded
-            if (currentUser.isSomethingLoaded() &&
-                currentUser.getTrackType() == Users.Track.PODCAST) {
+            // If the user has a podcast started
+            if (currentUser.getMusicPlayer() != null &&
+                currentUser.getMusicPlayer().getPodcast() != null) {
 
                 // If the owner of the podcast is the host himself
                 if (currentUser.getMusicPlayer().getPodcast().getOwner().equals(host.getUsername())) {
@@ -236,6 +259,13 @@ public class DeleteUser extends Command {
                     return true;
 
                 }
+            }
+
+            // If a user has the host's page selected
+            if (currentUser.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE &&
+                currentUser.getPageMenu().getPageOwnerName().equals(host.getUsername())) {
+                setMessage(host.getUsername() + " can't be deleted.");
+                return true;
             }
         }
         return false;

@@ -4914,11 +4914,11 @@
   "command" : "switchConnectionStatus",
   "user" : "barmstrong",
   "timestamp" : 5419,
-  "message" : "barmstrong has changed status successfully."
+  "message" : "barmstrong is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 5419,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "barmstrong", "nancymontgomery", "conniealvarez", "jenningsbeth", "charlesgarcia" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "alice22",
@@ -5013,11 +5013,11 @@
   "command" : "switchConnectionStatus",
   "user" : "barmstrong",
   "timestamp" : 5730,
-  "message" : "barmstrong has changed status successfully."
+  "message" : "barmstrong is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 5730,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "nancymontgomery", "conniealvarez", "jenningsbeth", "charlesgarcia" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "bob35",
@@ -5112,11 +5112,11 @@
   "command" : "switchConnectionStatus",
   "user" : "barmstrong",
   "timestamp" : 6041,
-  "message" : "barmstrong has changed status successfully."
+  "message" : "barmstrong is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 6041,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "barmstrong", "nancymontgomery", "conniealvarez", "jenningsbeth", "charlesgarcia" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "deleteUser",
   "user" : "cbutler",
@@ -5201,11 +5201,11 @@
   "user" : "david27",
   "timestamp" : 6347,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 232,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "switchConnectionStatus",
@@ -5216,11 +5216,11 @@
   "command" : "switchConnectionStatus",
   "user" : "barmstrong",
   "timestamp" : 6352,
-  "message" : "barmstrong has changed status successfully."
+  "message" : "barmstrong is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 6352,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "nancymontgomery", "conniealvarez", "jenningsbeth", "charlesgarcia" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "david27",
@@ -5315,11 +5315,11 @@
   "command" : "switchConnectionStatus",
   "user" : "barmstrong",
   "timestamp" : 6663,
-  "message" : "barmstrong has changed status successfully."
+  "message" : "barmstrong is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 6663,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "barmstrong", "nancymontgomery", "conniealvarez", "jenningsbeth", "charlesgarcia" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "emily30",
@@ -5414,11 +5414,11 @@
   "command" : "switchConnectionStatus",
   "user" : "barmstrong",
   "timestamp" : 6974,
-  "message" : "barmstrong has changed status successfully."
+  "message" : "barmstrong is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 6974,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "nancymontgomery", "conniealvarez", "jenningsbeth", "charlesgarcia" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "frank21",
@@ -5513,11 +5513,11 @@
   "command" : "switchConnectionStatus",
   "user" : "barmstrong",
   "timestamp" : 7285,
-  "message" : "barmstrong has changed status successfully."
+  "message" : "barmstrong is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 7285,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "barmstrong", "nancymontgomery", "conniealvarez", "jenningsbeth", "charlesgarcia" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "grace25",
@@ -5612,11 +5612,11 @@
   "command" : "switchConnectionStatus",
   "user" : "barmstrong",
   "timestamp" : 7596,
-  "message" : "barmstrong has changed status successfully."
+  "message" : "barmstrong is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 7596,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "nancymontgomery", "conniealvarez", "jenningsbeth", "charlesgarcia" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "henry26",
@@ -5711,11 +5711,11 @@
   "command" : "switchConnectionStatus",
   "user" : "barmstrong",
   "timestamp" : 7907,
-  "message" : "barmstrong has changed status successfully."
+  "message" : "barmstrong is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 7907,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "barmstrong", "nancymontgomery", "conniealvarez", "jenningsbeth", "charlesgarcia" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "irene33",
@@ -5810,11 +5810,11 @@
   "command" : "switchConnectionStatus",
   "user" : "barmstrong",
   "timestamp" : 8218,
-  "message" : "barmstrong has changed status successfully."
+  "message" : "barmstrong is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 8218,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "nancymontgomery", "conniealvarez", "jenningsbeth", "charlesgarcia" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "jack29",
@@ -6265,7 +6265,7 @@
     "name" : "Whatever You Need",
     "remainedTime" : 112,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6276,7 +6276,7 @@
     "name" : "Whatever You Need",
     "remainedTime" : 112,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6314,7 +6314,7 @@
     "name" : "Angie",
     "remainedTime" : 175,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : true
   }
 }, {
@@ -6335,7 +6335,7 @@
     "name" : "Blank Space",
     "remainedTime" : 231,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6356,7 +6356,7 @@
     "name" : "Start Me Up",
     "remainedTime" : 114,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6462,7 +6462,7 @@
     "name" : "Whatever You Need",
     "remainedTime" : 12,
     "repeat" : "Repeat All",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6499,14 +6499,14 @@
     "name" : "Angie",
     "remainedTime" : 175,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
   "command" : "shuffle",
   "user" : "irene33",
   "timestamp" : 8969,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "irene33",
@@ -6515,7 +6515,7 @@
     "name" : "Blank Space",
     "remainedTime" : 131,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -6531,7 +6531,7 @@
     "name" : "Start Me Up",
     "remainedTime" : 14,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6632,7 +6632,7 @@
     "name" : "Stairway to Heaven",
     "remainedTime" : 394,
     "repeat" : "Repeat Current Song",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6664,7 +6664,7 @@
     "name" : "Stairway to Heaven",
     "remainedTime" : 482,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6676,25 +6676,14 @@
   "command" : "next",
   "user" : "irene33",
   "timestamp" : 9069,
-  "message" : "Please load a source before skipping to the next track."
+  "message" : "Skipped to next track successfully. The current track is Sad But True."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 9069,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
-  }
-}, {
-  "command" : "status",
-  "user" : "jack29",
-  "timestamp" : 9079,
-  "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 146,
+    "name" : "Sad But True",
+    "remainedTime" : 324,
     "repeat" : "No Repeat",
     "shuffle" : true,
     "paused" : false
@@ -6707,7 +6696,18 @@
     "name" : "Delicate",
     "remainedTime" : 146,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "status",
+  "user" : "jack29",
+  "timestamp" : 9079,
+  "stats" : {
+    "name" : "Delicate",
+    "remainedTime" : 146,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6808,7 +6808,7 @@
     "name" : "Stairway to Heaven",
     "remainedTime" : 294,
     "repeat" : "Repeat Current Song",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6851,24 +6851,24 @@
     "name" : "Angie",
     "remainedTime" : 273,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
   "command" : "shuffle",
   "user" : "irene33",
   "timestamp" : 9169,
-  "message" : "Please load a source before using the shuffle function."
+  "message" : "Shuffle function deactivated successfully."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 9169,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Sad But True",
+    "remainedTime" : 224,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "switchVisibility",
@@ -6883,7 +6883,7 @@
     "name" : "Delicate",
     "remainedTime" : 46,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6894,7 +6894,7 @@
     "name" : "Delicate",
     "remainedTime" : 46,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7000,7 +7000,7 @@
     "name" : "Stairway to Heaven",
     "remainedTime" : 194,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7032,7 +7032,7 @@
     "name" : "Angie",
     "remainedTime" : 273,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7044,17 +7044,17 @@
   "command" : "shuffle",
   "user" : "irene33",
   "timestamp" : 9269,
-  "message" : "Please load a source before using the shuffle function."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 9269,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Sad But True",
+    "remainedTime" : 124,
     "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "like",
@@ -7069,7 +7069,7 @@
     "name" : "Paint It Black",
     "remainedTime" : 148,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7182,7 +7182,7 @@
     "name" : "Whatever You Need",
     "remainedTime" : 210,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7214,7 +7214,7 @@
     "name" : "Angie",
     "remainedTime" : 173,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7225,24 +7225,24 @@
     "name" : "Angie",
     "remainedTime" : 173,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
   "command" : "prev",
   "user" : "irene33",
   "timestamp" : 9369,
-  "message" : "Please load a source before returning to the previous track."
+  "message" : "Returned to previous track successfully. The current track is Sad But True."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 9369,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Sad But True",
+    "remainedTime" : 324,
     "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "switchVisibility",
@@ -7262,7 +7262,7 @@
     "name" : "Paint It Black",
     "remainedTime" : 48,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7373,7 +7373,7 @@
     "name" : "Whatever You Need",
     "remainedTime" : 110,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7405,7 +7405,7 @@
     "name" : "Angie",
     "remainedTime" : 273,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7417,17 +7417,17 @@
   "command" : "next",
   "user" : "irene33",
   "timestamp" : 9469,
-  "message" : "Please load a source before skipping to the next track."
+  "message" : "Skipped to next track successfully. The current track is Begin Again."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 9469,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Begin Again",
+    "remainedTime" : 238,
     "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "switchVisibility",
@@ -7447,7 +7447,7 @@
     "name" : "The Man",
     "remainedTime" : 138,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7554,7 +7554,7 @@
     "name" : "Whatever You Need",
     "remainedTime" : 10,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7565,7 +7565,7 @@
     "name" : "Whatever You Need",
     "remainedTime" : 10,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7597,34 +7597,23 @@
     "name" : "Angie",
     "remainedTime" : 173,
     "repeat" : "Repeat All",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
   "command" : "shuffle",
   "user" : "irene33",
   "timestamp" : 9569,
-  "message" : "Please load a source before using the shuffle function."
+  "message" : "Shuffle function deactivated successfully."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 9569,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Begin Again",
+    "remainedTime" : 138,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
-  }
-}, {
-  "command" : "status",
-  "user" : "jack29",
-  "timestamp" : 9579,
-  "stats" : {
-    "name" : "The Man",
-    "remainedTime" : 38,
-    "repeat" : "No Repeat",
-    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7635,7 +7624,18 @@
     "name" : "The Man",
     "remainedTime" : 38,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
+    "paused" : false
+  }
+}, {
+  "command" : "status",
+  "user" : "jack29",
+  "timestamp" : 9579,
+  "stats" : {
+    "name" : "The Man",
+    "remainedTime" : 38,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7727,7 +7727,7 @@
   "command" : "shuffle",
   "user" : "frank21",
   "timestamp" : 9639,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "frank21",
@@ -7736,7 +7736,7 @@
     "name" : "Stairway to Heaven",
     "remainedTime" : 392,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7768,7 +7768,7 @@
     "name" : "Angie",
     "remainedTime" : 73,
     "repeat" : "Repeat All",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7776,28 +7776,28 @@
   "user" : "irene33",
   "timestamp" : 9669,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Begin Again",
+    "remainedTime" : 38,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 9669,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Begin Again",
+    "remainedTime" : 38,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "shuffle",
   "user" : "jack29",
   "timestamp" : 9679,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "jack29",
@@ -7806,7 +7806,7 @@
     "name" : "Blank Space",
     "remainedTime" : 169,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7898,21 +7898,21 @@
   "command" : "prev",
   "user" : "frank21",
   "timestamp" : 9739,
-  "message" : null
+  "message" : "Returned to previous track successfully. The current track is Stairway to Heaven."
 }, {
   "command" : "prev",
   "user" : "frank21",
   "timestamp" : 9739,
-  "message" : null
+  "message" : "Returned to previous track successfully. The current track is Stairway to Heaven."
 }, {
   "command" : "status",
   "user" : "frank21",
   "timestamp" : 9739,
   "stats" : {
     "name" : "Stairway to Heaven",
-    "remainedTime" : 292,
+    "remainedTime" : 482,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7949,34 +7949,23 @@
     "name" : "Stairway to Heaven",
     "remainedTime" : 455,
     "repeat" : "Repeat All",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : true
   }
 }, {
   "command" : "shuffle",
   "user" : "irene33",
   "timestamp" : 9769,
-  "message" : "Please load a source before using the shuffle function."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 9769,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Big Pimpin'",
+    "remainedTime" : 222,
     "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
-  }
-}, {
-  "command" : "status",
-  "user" : "jack29",
-  "timestamp" : 9779,
-  "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 69,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7987,7 +7976,18 @@
     "name" : "Blank Space",
     "remainedTime" : 69,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
+    "paused" : false
+  }
+}, {
+  "command" : "status",
+  "user" : "jack29",
+  "timestamp" : 9779,
+  "stats" : {
+    "name" : "Blank Space",
+    "remainedTime" : 69,
+    "repeat" : "No Repeat",
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -8097,9 +8097,9 @@
   "timestamp" : 9839,
   "stats" : {
     "name" : "Stairway to Heaven",
-    "remainedTime" : 192,
+    "remainedTime" : 382,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -8127,7 +8127,7 @@
   "command" : "shuffle",
   "user" : "henry26",
   "timestamp" : 9859,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "henry26",
@@ -8136,39 +8136,39 @@
     "name" : "Stairway to Heaven",
     "remainedTime" : 455,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
   "command" : "playPause",
   "user" : "irene33",
   "timestamp" : 9869,
-  "message" : "Please load a source before attempting to pause or resume playback."
+  "message" : "Playback paused successfully."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 9869,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Big Pimpin'",
+    "remainedTime" : 122,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
   "command" : "prev",
   "user" : "jack29",
   "timestamp" : 9879,
-  "message" : null
+  "message" : "Returned to previous track successfully. The current track is Delicate."
 }, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 9879,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
+    "name" : "Delicate",
+    "remainedTime" : 232,
+    "repeat" : "No Repeat",
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -8267,9 +8267,9 @@
   "timestamp" : 9939,
   "stats" : {
     "name" : "Stairway to Heaven",
-    "remainedTime" : 192,
+    "remainedTime" : 382,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -8306,34 +8306,23 @@
     "name" : "Stairway to Heaven",
     "remainedTime" : 455,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
   "command" : "playPause",
   "user" : "irene33",
   "timestamp" : 9969,
-  "message" : "Please load a source before attempting to pause or resume playback."
+  "message" : "Playback resumed successfully."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 9969,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Big Pimpin'",
+    "remainedTime" : 122,
     "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
-  }
-}, {
-  "command" : "status",
-  "user" : "jack29",
-  "timestamp" : 9979,
-  "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -8341,10 +8330,21 @@
   "user" : "jack29",
   "timestamp" : 9979,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
+    "name" : "Delicate",
+    "remainedTime" : 132,
+    "repeat" : "No Repeat",
+    "shuffle" : true,
+    "paused" : false
+  }
+}, {
+  "command" : "status",
+  "user" : "jack29",
+  "timestamp" : 9979,
+  "stats" : {
+    "name" : "Delicate",
+    "remainedTime" : 132,
+    "repeat" : "No Repeat",
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -8441,17 +8441,17 @@
   "command" : "next",
   "user" : "frank21",
   "timestamp" : 10039,
-  "message" : "Please load a source before skipping to the next track."
+  "message" : "Skipped to next track successfully. The current track is Whatever You Need."
 }, {
   "command" : "status",
   "user" : "frank21",
   "timestamp" : 10039,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Whatever You Need",
+    "remainedTime" : 210,
     "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "prev",
@@ -8477,7 +8477,7 @@
     "name" : "Stairway to Heaven",
     "remainedTime" : 455,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -8488,7 +8488,7 @@
     "name" : "Stairway to Heaven",
     "remainedTime" : 455,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -8500,16 +8500,16 @@
   "command" : "playPause",
   "user" : "irene33",
   "timestamp" : 10069,
-  "message" : "Please load a source before attempting to pause or resume playback."
+  "message" : "Playback paused successfully."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 10069,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Big Pimpin'",
+    "remainedTime" : 22,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -8522,10 +8522,10 @@
   "user" : "jack29",
   "timestamp" : 10079,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
+    "name" : "Delicate",
+    "remainedTime" : 32,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -8673,7 +8673,7 @@
     "name" : "Stairway to Heaven",
     "remainedTime" : 455,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -8681,10 +8681,10 @@
   "user" : "irene33",
   "timestamp" : 10169,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Big Pimpin'",
+    "remainedTime" : 22,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -8692,10 +8692,10 @@
   "user" : "irene33",
   "timestamp" : 10169,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Big Pimpin'",
+    "remainedTime" : 22,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -8708,10 +8708,10 @@
   "user" : "jack29",
   "timestamp" : 10179,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
+    "name" : "Money Trees",
+    "remainedTime" : 319,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -8841,30 +8841,30 @@
   "command" : "next",
   "user" : "henry26",
   "timestamp" : 10259,
-  "message" : "Please load a source before skipping to the next track."
+  "message" : "Skipped to next track successfully. The current track is Paint It Black."
 }, {
   "command" : "status",
   "user" : "henry26",
   "timestamp" : 10259,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "name" : "Paint It Black",
+    "remainedTime" : 202,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "shuffle",
   "user" : "irene33",
   "timestamp" : 10269,
-  "message" : "Please load a source before using the shuffle function."
+  "message" : "Shuffle function deactivated successfully."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 10269,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Big Pimpin'",
+    "remainedTime" : 22,
     "repeat" : "No Repeat",
     "shuffle" : false,
     "paused" : true
@@ -8879,11 +8879,11 @@
   "user" : "jack29",
   "timestamp" : 10279,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
-    "paused" : false
+    "name" : "Money Trees",
+    "remainedTime" : 219,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
+    "paused" : true
   }
 }, {
   "command" : "changePage",
@@ -9443,7 +9443,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10369,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -9484,7 +9484,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10369,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -9494,7 +9494,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10369,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -10053,7 +10053,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10469,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -10094,7 +10094,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10469,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Melody Echo - leslie27, Paradox Echo - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Melody Echo - leslie27, Paradox Echo - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -10104,7 +10104,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10469,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -10663,7 +10663,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10569,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Melody Echo - leslie27, Paradox Echo - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Melody Echo - leslie27, Paradox Echo - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -10704,7 +10704,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10569,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -10714,7 +10714,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10569,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -11273,7 +11273,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10669,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -11314,7 +11314,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10669,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -11324,7 +11324,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10669,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -11883,7 +11883,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10769,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -11924,7 +11924,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10769,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -11934,7 +11934,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10769,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -12493,7 +12493,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10869,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -12534,7 +12534,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10869,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -12544,7 +12544,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10869,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -13103,7 +13103,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10969,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -13144,7 +13144,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10969,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -13154,7 +13154,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 10969,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -13713,7 +13713,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11069,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -13754,7 +13754,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11069,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Soul - jacobdean, Utopia Harmony - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Soul - jacobdean, Utopia Harmony - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -13764,7 +13764,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11069,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -14323,7 +14323,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11169,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Soul - jacobdean, Utopia Harmony - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Soul - jacobdean, Utopia Harmony - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -14364,7 +14364,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11169,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Soul - jacobdean, Utopia Harmony - jacobdean, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Soul - jacobdean, Utopia Harmony - jacobdean, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -14374,7 +14374,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11169,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -14933,7 +14933,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11269,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Soul - jacobdean, Utopia Harmony - jacobdean, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Soul - jacobdean, Utopia Harmony - jacobdean, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -14974,7 +14974,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11269,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -14984,7 +14984,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11269,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -15543,7 +15543,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11369,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -15584,7 +15584,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11369,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -15594,7 +15594,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11369,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -16153,7 +16153,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11469,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -16194,7 +16194,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11469,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -16204,7 +16204,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11469,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -16763,7 +16763,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11569,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -16804,7 +16804,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11569,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -16814,7 +16814,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11569,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -17373,7 +17373,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11669,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -17414,7 +17414,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11669,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -17424,7 +17424,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11669,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "alice22",
@@ -17983,7 +17983,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11769,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Serendipity Serendipity - jacobdean, Melody Sunset - jacobdean, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -18024,7 +18024,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11769,
-  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Blank Space - Taylor Swift, Night Utopia - leslie27, Celestial Harmony - leslie27, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade - cbutler, The Man - Taylor Swift, Money Trees - Kendrick Lamar, Night Utopia - leslie27, Celestial Harmony - leslie27, Heart Bliss - cbutler, Pinnacle Euphoria - cbutler, Celestial Lullaby - leslie27, Harmonize Eclipse - leslie27, Love Love - barmstrong, Soul Love - barmstrong]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "jack29",
@@ -18034,7 +18034,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11769,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -18394,7 +18394,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11859,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -18754,7 +18754,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 11959,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -19114,7 +19114,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 12059,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -19474,7 +19474,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 12159,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -19834,7 +19834,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 12259,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -20194,7 +20194,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 12359,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -20554,7 +20554,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 12459,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -20914,7 +20914,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 12559,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -21274,7 +21274,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 12659,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -21634,7 +21634,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 12759,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -21994,7 +21994,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 12859,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -22354,7 +22354,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 12959,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -22714,7 +22714,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 13059,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -23074,7 +23074,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 13159,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -23434,7 +23434,7 @@
   "command" : "printCurrentPage",
   "user" : "jack29",
   "timestamp" : 13259,
-  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Blank Space, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Adventure Cascade, The Man, Money Trees, Night Utopia, Celestial Harmony]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -26034,7 +26034,7 @@
   "command" : "showPreferredSongs",
   "user" : "jack29",
   "timestamp" : 14849,
-  "result" : [ "Adventure Cascade", "The Man", "Blank Space", "Night Utopia", "Celestial Harmony", "Heart Bliss", "Pinnacle Euphoria", "Celestial Lullaby", "Harmonize Eclipse", "Love Love", "Soul Love" ]
+  "result" : [ "Adventure Cascade", "The Man", "Money Trees", "Night Utopia", "Celestial Harmony", "Heart Bliss", "Pinnacle Euphoria", "Celestial Lullaby", "Harmonize Eclipse", "Love Love", "Soul Love" ]
 }, {
   "command" : "getAllUsers",
   "timestamp" : 14849,
@@ -26047,4 +26047,8 @@
   "command" : "getTop5Songs",
   "timestamp" : 14849,
   "result" : [ "Utopia Harmony", "Celestial Soul", "Ethereal Rapture", "Whirlwind Whirlwind", "Night Utopia" ]
+}, {
+  "command" : "getTop5Albums",
+  "timestamp" : 14849,
+  "result" : [ "Bad Guide", "Electric Harmonies", "Bad Hood", "Teen Dreams", "Groovy Revolution" ]
 } ]

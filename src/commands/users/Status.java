@@ -43,7 +43,7 @@ public class Status extends Command {
         if (user == null)
             return;
 
-        if (!user.isOnline()) {
+        if (!user.isOnline() && user.isSomethingLoaded()) {
 
             if (user.getMusicPlayer() == null) {
                 return;
@@ -77,10 +77,7 @@ public class Status extends Command {
             setRepeat(user.getMusicPlayer().getRepeatMode());
             repeatMessage(getRepeat(), user.getTrackType());
 
-            return;
-        }
-
-        if (user.isSomethingLoaded()) {
+        } else if (user.isSomethingLoaded() && user.getMusicPlayer() != null) {
             if (user.getTrackType() == Users.Track.SONG) {
                 Songs playerSong = user.getMusicPlayer().getSong();
 
@@ -211,7 +208,25 @@ public class Status extends Command {
                                 size() - 1) {
                             currentSong = user.getMusicPlayer().getPlaylist().getSongs().get(0);
                             leftTime += currentSong.getDuration();
+                            index = -1;
+
+                            // Repeat the songs
+                            while (index < user.getMusicPlayer().getPlaylist().getSongs().size() - 1 &&
+                                    leftTime <= 0) {
+                                index++;
+                                currentSong = user.getMusicPlayer().getPlaylist().getSongs()
+                                        .get(index);
+                                leftTime += currentSong.getDuration();
+
+                                // if the repeat mode is "repeat all and we reached the last song
+                                if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime <= 0
+                                        && index == user.getMusicPlayer().getPlaylist().getSongs().size()
+                                        - 1) {
+                                    index = -1;
+                                }
+                            }
                         }
+
                         if (leftTime > 0) {
                             setTrackName(currentSong.getName());
                             user.getMusicPlayer().setSong(currentSong);

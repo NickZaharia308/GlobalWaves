@@ -23,11 +23,14 @@ public class SwitchConnectionStatus extends Command {
             return;
         }
 
+        if (user.getUserType() != Users.UserType.NORMAL) {
+            setMessage(super.getUsername() + " is not a normal user.");
+            return;
+        }
+
         if (user.isOnline()) {
-            if (user.getMusicPlayer() != null) {
-                Status status = new Status();
-                status.returnStatus(command, library);
-            }
+            Status status = new Status();
+            status.returnStatus(command, library);
 
             user.setOnline(false);
         } else {

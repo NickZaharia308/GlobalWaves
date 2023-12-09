@@ -4867,11 +4867,11 @@
   "user" : "alice22",
   "timestamp" : 5415,
   "stats" : {
-    "name" : "Bohemian Rhapsody",
-    "remainedTime" : 355,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "switchConnectionStatus",
@@ -4882,11 +4882,11 @@
   "command" : "switchConnectionStatus",
   "user" : "jsimpson",
   "timestamp" : 5420,
-  "message" : "jsimpson has changed status successfully."
+  "message" : "jsimpson is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 5420,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "jsimpson", "barmstrong", "charlesgarcia", "john99", "jenningsbeth", "fwebb", "matthewporter" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "alice22",
@@ -4966,11 +4966,11 @@
   "user" : "bob35",
   "timestamp" : 5726,
   "stats" : {
-    "name" : "Begin Again",
-    "remainedTime" : 238,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "switchConnectionStatus",
@@ -4981,11 +4981,11 @@
   "command" : "switchConnectionStatus",
   "user" : "jsimpson",
   "timestamp" : 5731,
-  "message" : "jsimpson has changed status successfully."
+  "message" : "jsimpson is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 5731,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "barmstrong", "charlesgarcia", "john99", "jenningsbeth", "fwebb", "matthewporter" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "bob35",
@@ -5065,11 +5065,11 @@
   "user" : "carol19",
   "timestamp" : 6037,
   "stats" : {
-    "name" : "Don't",
-    "remainedTime" : 219,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "switchConnectionStatus",
@@ -5080,11 +5080,11 @@
   "command" : "switchConnectionStatus",
   "user" : "jsimpson",
   "timestamp" : 6042,
-  "message" : "jsimpson has changed status successfully."
+  "message" : "jsimpson is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 6042,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "jsimpson", "barmstrong", "charlesgarcia", "john99", "jenningsbeth", "fwebb", "matthewporter" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "carol19",
@@ -5164,11 +5164,11 @@
   "user" : "david27",
   "timestamp" : 6348,
   "stats" : {
-    "name" : "Love Story",
-    "remainedTime" : 236,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "switchConnectionStatus",
@@ -5179,11 +5179,11 @@
   "command" : "switchConnectionStatus",
   "user" : "jsimpson",
   "timestamp" : 6353,
-  "message" : "jsimpson has changed status successfully."
+  "message" : "jsimpson is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 6353,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "barmstrong", "charlesgarcia", "john99", "jenningsbeth", "fwebb", "matthewporter" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "david27",
@@ -5278,11 +5278,11 @@
   "command" : "switchConnectionStatus",
   "user" : "jsimpson",
   "timestamp" : 6664,
-  "message" : "jsimpson has changed status successfully."
+  "message" : "jsimpson is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 6664,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "jsimpson", "barmstrong", "charlesgarcia", "john99", "jenningsbeth", "fwebb", "matthewporter" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "emily30",
@@ -5377,11 +5377,11 @@
   "command" : "switchConnectionStatus",
   "user" : "jsimpson",
   "timestamp" : 6975,
-  "message" : "jsimpson has changed status successfully."
+  "message" : "jsimpson is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 6975,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "barmstrong", "charlesgarcia", "john99", "jenningsbeth", "fwebb", "matthewporter" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "frank21",
@@ -5476,11 +5476,11 @@
   "command" : "switchConnectionStatus",
   "user" : "jsimpson",
   "timestamp" : 7286,
-  "message" : "jsimpson has changed status successfully."
+  "message" : "jsimpson is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 7286,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "jsimpson", "barmstrong", "charlesgarcia", "john99", "jenningsbeth", "fwebb", "matthewporter" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "grace25",
@@ -5560,11 +5560,11 @@
   "user" : "henry26",
   "timestamp" : 7592,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 232,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "switchConnectionStatus",
@@ -5575,11 +5575,11 @@
   "command" : "switchConnectionStatus",
   "user" : "jsimpson",
   "timestamp" : 7597,
-  "message" : "jsimpson has changed status successfully."
+  "message" : "jsimpson is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 7597,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "barmstrong", "charlesgarcia", "john99", "jenningsbeth", "fwebb", "matthewporter" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "henry26",
@@ -5674,11 +5674,11 @@
   "command" : "switchConnectionStatus",
   "user" : "jsimpson",
   "timestamp" : 7908,
-  "message" : "jsimpson has changed status successfully."
+  "message" : "jsimpson is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 7908,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "jsimpson", "barmstrong", "charlesgarcia", "john99", "jenningsbeth", "fwebb", "matthewporter" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "irene33",
@@ -5758,11 +5758,11 @@
   "user" : "jack29",
   "timestamp" : 8214,
   "stats" : {
-    "name" : "Start Me Up",
-    "remainedTime" : 212,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "switchConnectionStatus",
@@ -5773,11 +5773,11 @@
   "command" : "switchConnectionStatus",
   "user" : "jsimpson",
   "timestamp" : 8219,
-  "message" : "jsimpson has changed status successfully."
+  "message" : "jsimpson is not a normal user."
 }, {
   "command" : "getOnlineUsers",
   "timestamp" : 8219,
-  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "barmstrong", "charlesgarcia", "john99", "jenningsbeth", "fwebb", "matthewporter" ]
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29" ]
 }, {
   "command" : "shuffle",
   "user" : "jack29",
@@ -6212,7 +6212,7 @@
     "name" : "Start Me Up",
     "remainedTime" : 114,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : true
   }
 }, {
@@ -6244,7 +6244,7 @@
     "name" : "Start Me Up",
     "remainedTime" : 212,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6276,7 +6276,7 @@
     "name" : "The Man",
     "remainedTime" : 92,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : true
   }
 }, {
@@ -6384,7 +6384,7 @@
     "name" : "Start Me Up",
     "remainedTime" : 114,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : true
   }
 }, {
@@ -6421,7 +6421,7 @@
     "name" : "Delicate",
     "remainedTime" : 232,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6448,7 +6448,7 @@
     "name" : "The Man",
     "remainedTime" : 92,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : true
   }
 }, {
@@ -6459,7 +6459,7 @@
     "name" : "The Man",
     "remainedTime" : 92,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : true
   }
 }, {
@@ -6560,7 +6560,7 @@
     "name" : "Start Me Up",
     "remainedTime" : 114,
     "repeat" : "Repeat All",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : true
   }
 }, {
@@ -6583,7 +6583,7 @@
   "command" : "shuffle",
   "user" : "grace25",
   "timestamp" : 9050,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "grace25",
@@ -6592,7 +6592,7 @@
     "name" : "Delicate",
     "remainedTime" : 132,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -6624,7 +6624,7 @@
     "name" : "The Man",
     "remainedTime" : 190,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6716,7 +6716,7 @@
   "command" : "shuffle",
   "user" : "emily30",
   "timestamp" : 9130,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "emily30",
@@ -6725,7 +6725,7 @@
     "name" : "Start Me Up",
     "remainedTime" : 114,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -6763,7 +6763,7 @@
     "name" : "Delicate",
     "remainedTime" : 32,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -6800,7 +6800,7 @@
     "name" : "The Man",
     "remainedTime" : 190,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -6893,16 +6893,16 @@
   "command" : "prev",
   "user" : "emily30",
   "timestamp" : 9230,
-  "message" : null
+  "message" : "Returned to previous track successfully. The current track is Start Me Up."
 }, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 9230,
   "stats" : {
     "name" : "Start Me Up",
-    "remainedTime" : 114,
+    "remainedTime" : 212,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -6939,7 +6939,7 @@
     "name" : "Delicate",
     "remainedTime" : 32,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -6971,7 +6971,7 @@
     "name" : "The Man",
     "remainedTime" : 90,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7060,9 +7060,9 @@
   "timestamp" : 9330,
   "stats" : {
     "name" : "Start Me Up",
-    "remainedTime" : 14,
+    "remainedTime" : 112,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7071,9 +7071,9 @@
   "timestamp" : 9330,
   "stats" : {
     "name" : "Start Me Up",
-    "remainedTime" : 14,
+    "remainedTime" : 112,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7108,10 +7108,10 @@
   "user" : "grace25",
   "timestamp" : 9350,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
+    "name" : "Money Trees",
+    "remainedTime" : 319,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7148,7 +7148,7 @@
     "name" : "Delicate",
     "remainedTime" : 222,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : true
   }
 }, {
@@ -7245,17 +7245,17 @@
   "command" : "next",
   "user" : "emily30",
   "timestamp" : 9430,
-  "message" : "Please load a source before skipping to the next track."
+  "message" : "Skipped to next track successfully. The current track is Love Story."
 }, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 9430,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "name" : "Love Story",
+    "remainedTime" : 236,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "switchVisibility",
@@ -7289,10 +7289,10 @@
   "user" : "grace25",
   "timestamp" : 9450,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
+    "name" : "Money Trees",
+    "remainedTime" : 219,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7300,10 +7300,10 @@
   "user" : "grace25",
   "timestamp" : 9450,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
+    "name" : "Money Trees",
+    "remainedTime" : 219,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7341,7 +7341,7 @@
     "name" : "Delicate",
     "remainedTime" : 232,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7428,16 +7428,16 @@
   "command" : "playPause",
   "user" : "emily30",
   "timestamp" : 9530,
-  "message" : "Please load a source before attempting to pause or resume playback."
+  "message" : "Playback paused successfully."
 }, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 9530,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
+    "name" : "Love Story",
+    "remainedTime" : 136,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -7470,16 +7470,16 @@
   "command" : "prev",
   "user" : "grace25",
   "timestamp" : 9550,
-  "message" : null
+  "message" : "Returned to previous track successfully. The current track is Money Trees."
 }, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 9550,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
+    "name" : "Money Trees",
+    "remainedTime" : 387,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7506,7 +7506,7 @@
     "name" : "Delicate",
     "remainedTime" : 132,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7517,7 +7517,7 @@
     "name" : "Delicate",
     "remainedTime" : 132,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7615,17 +7615,17 @@
   "command" : "playPause",
   "user" : "emily30",
   "timestamp" : 9630,
-  "message" : "Please load a source before attempting to pause or resume playback."
+  "message" : "Playback resumed successfully."
 }, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 9630,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "name" : "Love Story",
+    "remainedTime" : 136,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "status",
@@ -7659,10 +7659,10 @@
   "user" : "grace25",
   "timestamp" : 9650,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
+    "name" : "Money Trees",
+    "remainedTime" : 287,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7670,10 +7670,10 @@
   "user" : "grace25",
   "timestamp" : 9650,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
+    "name" : "Money Trees",
+    "remainedTime" : 287,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -7705,7 +7705,7 @@
     "name" : "Delicate",
     "remainedTime" : 32,
     "repeat" : "Repeat All",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7809,22 +7809,22 @@
   "command" : "prev",
   "user" : "emily30",
   "timestamp" : 9730,
-  "message" : "Please load a source before returning to the previous track."
+  "message" : "Returned to previous track successfully. The current track is Love Story."
 }, {
   "command" : "prev",
   "user" : "emily30",
   "timestamp" : 9730,
-  "message" : "Please load a source before returning to the previous track."
+  "message" : "Returned to previous track successfully. The current track is Start Me Up."
 }, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 9730,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "name" : "Start Me Up",
+    "remainedTime" : 212,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "like",
@@ -7846,15 +7846,15 @@
   "command" : "shuffle",
   "user" : "grace25",
   "timestamp" : 9750,
-  "message" : null
+  "message" : "Shuffle function deactivated successfully."
 }, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 9750,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 0,
-    "repeat" : null,
+    "name" : "Money Trees",
+    "remainedTime" : 187,
+    "repeat" : "Repeat All",
     "shuffle" : false,
     "paused" : false
   }
@@ -7887,7 +7887,7 @@
     "name" : "Gimme Shelter",
     "remainedTime" : 203,
     "repeat" : "Repeat Current Song",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
@@ -7974,17 +7974,17 @@
   "command" : "like",
   "user" : "emily30",
   "timestamp" : 9830,
-  "message" : "Please load a source before liking or unliking."
+  "message" : "Unlike registered successfully."
 }, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 9830,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "name" : "Start Me Up",
+    "remainedTime" : 112,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "switchVisibility",
@@ -8022,11 +8022,11 @@
   "user" : "grace25",
   "timestamp" : 9850,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 0,
-    "repeat" : null,
+    "name" : "Money Trees",
+    "remainedTime" : 87,
+    "repeat" : "Repeat All",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "switchVisibility",
@@ -8053,7 +8053,7 @@
   "command" : "shuffle",
   "user" : "irene33",
   "timestamp" : 9870,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "irene33",
@@ -8062,7 +8062,7 @@
     "name" : "Gimme Shelter",
     "remainedTime" : 103,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -8154,17 +8154,17 @@
   "command" : "prev",
   "user" : "emily30",
   "timestamp" : 9930,
-  "message" : "Please load a source before returning to the previous track."
+  "message" : "Returned to previous track successfully. The current track is Start Me Up."
 }, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 9930,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "name" : "Start Me Up",
+    "remainedTime" : 212,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "status",
@@ -8192,17 +8192,17 @@
   "command" : "shuffle",
   "user" : "grace25",
   "timestamp" : 9950,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 9950,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 0,
-    "repeat" : null,
-    "shuffle" : false,
-    "paused" : false
+    "name" : "Money Trees",
+    "remainedTime" : 87,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
+    "paused" : true
   }
 }, {
   "command" : "next",
@@ -8224,21 +8224,21 @@
   "command" : "prev",
   "user" : "irene33",
   "timestamp" : 9970,
-  "message" : null
+  "message" : "Returned to previous track successfully. The current track is Gimme Shelter."
 }, {
   "command" : "prev",
   "user" : "irene33",
   "timestamp" : 9970,
-  "message" : null
+  "message" : "Returned to previous track successfully. The current track is Gimme Shelter."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 9970,
   "stats" : {
     "name" : "Gimme Shelter",
-    "remainedTime" : 3,
+    "remainedTime" : 271,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -8330,17 +8330,17 @@
   "command" : "next",
   "user" : "emily30",
   "timestamp" : 10030,
-  "message" : "Please load a source before skipping to the next track."
+  "message" : "Skipped to next track successfully. The current track is Love Story."
 }, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 10030,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "name" : "Love Story",
+    "remainedTime" : 236,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "switchVisibility",
@@ -8367,17 +8367,17 @@
   "command" : "next",
   "user" : "grace25",
   "timestamp" : 10050,
-  "message" : "Please load a source before skipping to the next track."
+  "message" : "Skipped to next track successfully. The current track is Start Me Up."
 }, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 10050,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "name" : "Start Me Up",
+    "remainedTime" : 212,
+    "repeat" : "Repeat All",
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "repeat",
@@ -8406,9 +8406,9 @@
   "timestamp" : 10070,
   "stats" : {
     "name" : "Gimme Shelter",
-    "remainedTime" : 174,
+    "remainedTime" : 171,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -8506,17 +8506,17 @@
   "command" : "shuffle",
   "user" : "emily30",
   "timestamp" : 10130,
-  "message" : "Please load a source before using the shuffle function."
+  "message" : "Shuffle function deactivated successfully."
 }, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 10130,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
+    "name" : "Love Story",
+    "remainedTime" : 136,
+    "repeat" : "Repeat All",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "status",
@@ -8544,17 +8544,17 @@
   "command" : "repeat",
   "user" : "grace25",
   "timestamp" : 10150,
-  "message" : "Please load a source before setting the repeat status."
+  "message" : "Repeat mode changed to repeat current song."
 }, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 10150,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "name" : "Start Me Up",
+    "remainedTime" : 112,
+    "repeat" : "Repeat Current Song",
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "switchVisibility",
@@ -8581,17 +8581,17 @@
   "command" : "next",
   "user" : "irene33",
   "timestamp" : 10170,
-  "message" : "Please load a source before skipping to the next track."
+  "message" : "Skipped to next track successfully. The current track is The Man."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 10170,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "name" : "The Man",
+    "remainedTime" : 190,
+    "repeat" : "Repeat Current Song",
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "switchVisibility",
@@ -8688,22 +8688,22 @@
   "user" : "emily30",
   "timestamp" : 10230,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
+    "name" : "Love Story",
+    "remainedTime" : 36,
+    "repeat" : "Repeat All",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 10230,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
+    "name" : "Love Story",
+    "remainedTime" : 36,
+    "repeat" : "Repeat All",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "switchVisibility",
@@ -8735,17 +8735,17 @@
   "command" : "shuffle",
   "user" : "grace25",
   "timestamp" : 10250,
-  "message" : "Please load a source before using the shuffle function."
+  "message" : "Shuffle function deactivated successfully."
 }, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 10250,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
+    "name" : "Start Me Up",
+    "remainedTime" : 12,
+    "repeat" : "Repeat Current Song",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "repeat",
@@ -8767,17 +8767,17 @@
   "command" : "next",
   "user" : "irene33",
   "timestamp" : 10270,
-  "message" : "Please load a source before skipping to the next track."
+  "message" : "Skipped to next track successfully. The current track is The Man."
 }, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 10270,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
+    "name" : "The Man",
+    "remainedTime" : 190,
+    "repeat" : "Repeat Current Song",
+    "shuffle" : true,
+    "paused" : false
   }
 }, {
   "command" : "status",
@@ -9054,7 +9054,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10320,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -9095,7 +9095,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10320,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -9105,7 +9105,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10320,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Night Aurora, Sunset Celestial]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Night Aurora, Sunset Celestial]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -9664,7 +9664,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10420,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -9705,7 +9705,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10420,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -9715,7 +9715,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10420,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Night Aurora, Sunset Celestial]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Night Aurora, Sunset Celestial]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -10274,7 +10274,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10520,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -10315,7 +10315,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10520,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -10325,7 +10325,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10520,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Night Aurora, Sunset Celestial, Adventure Rhythm]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Night Aurora, Sunset Celestial, Adventure Rhythm, Pandora Utopia]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -10884,7 +10884,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10620,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -10925,7 +10925,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10620,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -10935,7 +10935,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10620,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Night Aurora, Sunset Celestial, Adventure Rhythm]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Night Aurora, Sunset Celestial, Adventure Rhythm, Pandora Utopia]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -11494,7 +11494,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10720,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -11535,7 +11535,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10720,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -11545,7 +11545,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10720,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Night Aurora, Sunset Celestial, Adventure Rhythm]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Night Aurora, Sunset Celestial, Adventure Rhythm, Pandora Utopia]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -12104,7 +12104,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10820,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -12145,7 +12145,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10820,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -12155,7 +12155,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10820,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Night Aurora, Sunset Celestial, Adventure Rhythm]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Night Aurora, Sunset Celestial, Adventure Rhythm, Pandora Utopia]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -12714,7 +12714,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10920,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -12755,7 +12755,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10920,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -12765,7 +12765,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 10920,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Night Aurora, Sunset Celestial, Adventure Rhythm]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Night Aurora, Sunset Celestial, Adventure Rhythm, Pandora Utopia]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -13324,7 +13324,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11020,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Adventure Rhythm - jacobdean, Pandora Utopia - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -13365,7 +13365,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11020,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -13375,7 +13375,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11020,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Night Aurora, Sunset Celestial, Crescendo Twilight]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Night Aurora, Sunset Celestial, Crescendo Twilight, Odyssey Reflection]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -13934,7 +13934,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11120,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -13975,7 +13975,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11120,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -13985,7 +13985,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11120,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Night Aurora, Sunset Celestial, Crescendo Twilight]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Night Aurora, Sunset Celestial, Crescendo Twilight, Odyssey Reflection]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -14544,7 +14544,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11220,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -14585,7 +14585,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11220,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -14595,7 +14595,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11220,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Night Aurora, Sunset Celestial, Crescendo Twilight]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Night Aurora, Sunset Celestial, Crescendo Twilight, Odyssey Reflection]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -15154,7 +15154,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11320,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Night Aurora - mccarthyluis, Sunset Celestial - mccarthyluis, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -15195,7 +15195,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11320,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -15205,7 +15205,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11320,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -15764,7 +15764,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11420,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -15805,7 +15805,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11420,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -15815,7 +15815,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11420,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -16374,7 +16374,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11520,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -16415,7 +16415,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11520,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -16425,7 +16425,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11520,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -16984,7 +16984,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11620,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -17025,7 +17025,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11620,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -17035,7 +17035,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11620,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -17594,7 +17594,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11720,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -17635,7 +17635,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11720,
-  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Start Me Up - The Rolling Stones, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture - jacobdean, Crescendo Twilight - jacobdean, Odyssey Reflection - jacobdean, Starlight Rapture - glester, Pinnacle Cascade - glester, Whisper Rapture - jsimpson, Heart Dance - jsimpson, Dream Bliss - amanda16, Bliss Sunset - amanda16, Soul Pandora - jacobdean, Adventure Infinity - jacobdean, Harmony Love - jsimpson, Harmony Pandora - cbutler]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "emily30",
@@ -17645,7 +17645,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11720,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "changePage",
   "user" : "frank21",
@@ -18130,7 +18130,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11810,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -18490,7 +18490,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 11910,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -18850,7 +18850,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 12010,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -19210,7 +19210,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 12110,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -19570,7 +19570,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 12210,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -19930,7 +19930,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 12310,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -20290,7 +20290,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 12410,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -20650,7 +20650,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 12510,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -21010,7 +21010,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 12610,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -21370,7 +21370,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 12710,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -21730,7 +21730,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 12810,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -22090,7 +22090,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 12910,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -22450,7 +22450,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 13010,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -22810,7 +22810,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 13110,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -23170,7 +23170,7 @@
   "command" : "printCurrentPage",
   "user" : "emily30",
   "timestamp" : 13210,
-  "message" : "Liked songs:\n\t[Harmony Rapture, Start Me Up, Crescendo Twilight, Odyssey Reflection, Starlight Rapture]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Harmony Rapture, Crescendo Twilight, Odyssey Reflection, Starlight Rapture, Pinnacle Cascade]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -25850,7 +25850,7 @@
   "command" : "showPreferredSongs",
   "user" : "emily30",
   "timestamp" : 14800,
-  "result" : [ "Harmony Rapture", "Start Me Up", "Crescendo Twilight", "Odyssey Reflection", "Starlight Rapture", "Pinnacle Cascade", "Whisper Rapture", "Heart Dance", "Dream Bliss", "Bliss Sunset", "Soul Pandora", "Adventure Infinity", "Harmony Love", "Harmony Pandora" ]
+  "result" : [ "Harmony Rapture", "Crescendo Twilight", "Odyssey Reflection", "Starlight Rapture", "Pinnacle Cascade", "Whisper Rapture", "Heart Dance", "Dream Bliss", "Bliss Sunset", "Soul Pandora", "Adventure Infinity", "Harmony Love", "Harmony Pandora" ]
 }, {
   "command" : "showPlaylists",
   "user" : "frank21",
@@ -25963,4 +25963,8 @@
   "command" : "getTop5Songs",
   "timestamp" : 14850,
   "result" : [ "Soul Pandora", "Adventure Infinity", "Starlight Rapture", "Pinnacle Cascade", "Heart Utopia" ]
+}, {
+  "command" : "getTop5Albums",
+  "timestamp" : 14850,
+  "result" : [ "Breezy View", "Bad Dirt", "Dynamic Dirt", "Teen Revolution", "Groovy Harmonies" ]
 } ]

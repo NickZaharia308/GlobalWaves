@@ -13,7 +13,7 @@ import commands.page.PrintCurrentPage;
 import commands.searchBar.Load;
 import commands.searchBar.Search;
 import commands.searchBar.Select;
-import commands.statistics.GetAllUsers;
+import commands.statistics.*;
 import commands.users.*;
 import commands.users.artist.*;
 import commands.users.host.AddAnnouncement;
@@ -24,9 +24,6 @@ import commands.users.playlists.CreatePlaylist;
 import commands.users.playlists.FollowPlaylist;
 import commands.users.playlists.ShowPlaylists;
 import commands.users.playlists.SwitchVisibility;
-import commands.statistics.GetOnlineUsers;
-import commands.statistics.GetTop5Playlists;
-import commands.statistics.GetTop5Songs;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import userEntities.Users;
@@ -535,6 +532,23 @@ public class PrintOutput {
             resultNode.put("user", removeEvent.getUsername());
             resultNode.put("timestamp", removeEvent.getTimestamp());
             resultNode.put("message", removeEvent.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "getTop5Albums")) {
+            GetTop5Albums getTop5Albums = new GetTop5Albums();
+            getTop5Albums.returnGetTop5Albums(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", getTop5Albums.getCommand());
+            resultNode.put("timestamp", getTop5Albums.getTimestamp());
+
+            ArrayNode resultsArrayNode = resultNode.putArray("result");
+            ArrayList<Album> top5Albums = getTop5Albums.getTopAlbums();
+
+            for (Album album : top5Albums) {
+                resultsArrayNode.add(album.getName());
+            }
+
+            resultNode.set("result", resultsArrayNode);
             outputs.add(resultNode);
         }
     }

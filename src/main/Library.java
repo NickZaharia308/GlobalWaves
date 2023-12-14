@@ -1,5 +1,6 @@
 package main;
 
+import commands.page.Observer;
 import lombok.Getter;
 import userEntities.Users;
 import userEntities.audio.Album;
@@ -8,6 +9,8 @@ import userEntities.audio.Podcasts;
 import userEntities.audio.Songs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The Library class represents a library of users, songs, albums, podcasts, and playlists.
@@ -22,6 +25,7 @@ public final class Library {
     private ArrayList<Podcasts> podcasts;
     private ArrayList<Playlists> playlists;
     private ArrayList<Album> albums;
+    private Map<String, ArrayList<Observer>> observersMap;
 
     /**
      * Private constructor to prevent external instantiation.
@@ -33,6 +37,7 @@ public final class Library {
         this.podcasts = new ArrayList<>();
         this.playlists = new ArrayList<>();
         this.albums = new ArrayList<>();
+        this.observersMap = new HashMap<>();
     }
 
     /**
@@ -88,11 +93,16 @@ public final class Library {
         this.albums = albums;
     }
 
+    public void setObserversMap(Map<String, ArrayList<Observer>> observersMap) {
+        this.observersMap = observersMap;
+    }
+
     public void reset() {
         users = new ArrayList<>();
         songs = new ArrayList<>();
         podcasts = new ArrayList<>();
         playlists = new ArrayList<>();
         albums = new ArrayList<>();
+        observersMap = new HashMap<>();
     }
 }

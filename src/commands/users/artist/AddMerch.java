@@ -1,6 +1,7 @@
 package commands.users.artist;
 
 import commands.Command;
+import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
 import userEntities.Artist;
@@ -51,6 +52,11 @@ public class AddMerch extends Command {
         // Create the new merch and add it to the artist's merch array
         Merch merch = new Merch(command.getName(), command.getDescription(), command.getPrice());
         artist.getMerchandise().add(merch);
+
+        // Notify the observers
+        Subject subject = new Subject();
+        subject.notifyObservers(artist.getUsername());
+
         setMessage(this.getUsername() + " has added new merchandise successfully.");
     }
 

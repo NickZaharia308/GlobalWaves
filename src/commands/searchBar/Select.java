@@ -1,6 +1,7 @@
 package commands.searchBar;
 
 import commands.Command;
+import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
 import userEntities.MusicPlayer;
@@ -164,12 +165,18 @@ public class Select extends Command {
 
         LinkedList<String> searchResults = user.getSearchResults();
         String pageOwner = searchResults.get(itemNumber - 1);
-        user.getPageMenu().setPageOwnerName(searchResults.get(itemNumber - 1));
+        user.getPageMenu().setPageOwnerName(pageOwner);
 
-        if (user.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE) {
+
+
+        if (user.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE ||
+            user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE) {
             setMessage("Successfully selected " + pageOwner +"'s page.");
-        } else if (user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE) {
-            setMessage("Successfully selected " + pageOwner +"'s page.");
+
+            // Adding the user as an "Observer" to artist or host (Subject)
+            Subject subject = new Subject();
+            subject.addObserver(pageOwner, user);
+            subject.notifyObservers(pageOwner);
         }
     }
 

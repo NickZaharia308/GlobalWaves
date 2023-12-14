@@ -1,6 +1,7 @@
 package commands.users.host;
 
 import commands.Command;
+import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
 import userEntities.Host;
@@ -45,6 +46,11 @@ public class AddAnnouncement extends Command {
         // Create the new announcement and add it to the host's announcement array
         Announcement announcement = new Announcement(command.getName(), command.getDescription());
         host.getAnnouncements().add(announcement);
+
+        // Notify the observers
+        Subject subject = new Subject();
+        subject.notifyObservers(host.getUsername());
+
         setMessage(this.getUsername() + " has successfully added new announcement.");
     }
 

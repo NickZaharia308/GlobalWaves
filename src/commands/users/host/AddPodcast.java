@@ -3,6 +3,7 @@ package commands.users.host;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import commands.Command;
+import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
 import userEntities.Artist;
@@ -75,6 +76,10 @@ public class AddPodcast extends Command {
 
         // Adding the podcast to each user
         addPodcastToUsers(library, newPodcast);
+
+        // Notify the observers
+        Subject subject = new Subject();
+        subject.notifyObservers(host.getUsername());
 
         setMessage(this.getUsername() + " has added new podcast successfully.");
     }

@@ -4,10 +4,7 @@ import commands.Command;
 import lombok.Getter;
 import main.Library;
 import userEntities.Users;
-import userEntities.audio.Playlists;
-import userEntities.audio.Songs;
-
-import java.util.ArrayList;
+import userEntities.specialEntities.PageMenu;
 
 @Getter
 public class PrintCurrentPage extends Command {
@@ -26,7 +23,13 @@ public class PrintCurrentPage extends Command {
             return;
         }
 
-        user.getPageMenu().setPage(user, library, user.getPageMenu().getPageOwnerName());
+        // If the page is HOMEPAGE or LIKEDCONTENTPAGE, the page has to be created
+        if (user.getPageMenu().getCurrentPage() == PageMenu.Page.HOMEPAGE ||
+            user.getPageMenu().getCurrentPage() == PageMenu.Page.LIKEDCONTENTPAGE ||
+            user.getPageMenu().getPageOwnerName().equals(user.getUsername())) {
+            user.getPageMenu().setPage(user, library, user.getPageMenu().getPageOwnerName());
+        }
+
         setMessage(user.getCurrentPage());
     }
 

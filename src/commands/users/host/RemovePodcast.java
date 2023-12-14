@@ -1,6 +1,7 @@
 package commands.users.host;
 
 import commands.Command;
+import commands.page.Subject;
 import commands.users.Status;
 import lombok.Getter;
 import main.Library;
@@ -53,6 +54,11 @@ public class RemovePodcast extends Command {
         }
 
         host.getPodcasts().remove(podcastToDelete);
+
+        // Notify the observers
+        Subject subject = new Subject();
+        subject.notifyObservers(host.getUsername());
+
         setMessage(this.getUsername() +" deleted the podcast successfully.");
     }
 

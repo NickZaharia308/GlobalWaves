@@ -2,6 +2,7 @@ package commands.searchBar;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import commands.Command;
+import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
 import userEntities.Users;
@@ -294,6 +295,15 @@ public class Search extends Command {
 
         // Canceling the MusicPlayer (loader)
         user.setSomethingLoaded(false);
+
+        // Remove the User (Observer) from the host / artist (Subject) if the user searched another page
+        // and had previously a host page or an artist page
+        if ((user.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE ||
+            user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE) &&
+            (Objects.equals(command.getType(), "artist") || Objects.equals(command.getType(), "host"))) {
+            Subject subject = new Subject();
+            subject.removeObserver(user.getPageMenu().getPageOwnerName(), user);
+        }
 
         // Setting the type of search (song, playlist, podcast)
         if (Objects.equals(command.getType(), "song")) {

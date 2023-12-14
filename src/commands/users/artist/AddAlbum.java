@@ -3,6 +3,7 @@ package commands.users.artist;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import commands.Command;
+import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
 import userEntities.Artist;
@@ -68,7 +69,6 @@ public class AddAlbum extends Command {
 
             // Add the song in album
             albumSongs.add(song);
-
         }
 
         // Verify if a song appears twice
@@ -87,6 +87,10 @@ public class AddAlbum extends Command {
         // Adding the album to both the library and the artist
         library.getAlbums().add(newAlbum);
         artist.getAlbums().add(newAlbum);
+
+        // Notify the observers
+        Subject subject = new Subject();
+        subject.notifyObservers(artist.getUsername());
 
         setMessage(this.getUsername() + " has added new album successfully.");
     }

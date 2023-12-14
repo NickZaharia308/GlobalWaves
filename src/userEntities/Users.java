@@ -1,6 +1,8 @@
 package userEntities;
 
+import commands.page.Observer;
 import lombok.Getter;
+import main.Library;
 import userEntities.audio.Playlists;
 import userEntities.audio.Songs;
 import userEntities.specialEntities.PageMenu;
@@ -11,7 +13,7 @@ import java.util.LinkedList;
 /**
  * The Users class represents a user in the system.
  */
-public class Users {
+public class Users implements Observer {
 
     // "Default" fields
     @Getter
@@ -244,5 +246,10 @@ public class Users {
 
     public void setPageSearched(boolean pageSearched) {
         this.pageSearched = pageSearched;
+    }
+
+    @Override
+    public void update(Library library) {
+        this.getPageMenu().setPage(this, library, this.getPageMenu().getPageOwnerName());
     }
 }

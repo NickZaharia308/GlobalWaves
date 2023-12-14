@@ -33,6 +33,7 @@ public class Host extends Users {
 
     @Override
     public String toString() {
+        // Podcasts section
         StringBuilder builder = new StringBuilder("Podcasts:\n\t");
 
         if (podcasts.isEmpty()) {
@@ -62,7 +63,7 @@ public class Host extends Users {
             }
         }
 
-        // Announcements section (Assuming announcements is a field in the class)
+        // Announcements section
         builder.append("\n\nAnnouncements:\n\t");
         if (announcements.isEmpty()) {
             builder.append("[]");

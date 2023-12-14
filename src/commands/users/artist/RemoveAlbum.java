@@ -1,6 +1,7 @@
 package commands.users.artist;
 
 import commands.Command;
+import commands.page.Subject;
 import commands.users.Shuffle;
 import commands.users.Status;
 import lombok.Getter;
@@ -57,6 +58,11 @@ public class RemoveAlbum extends Command {
 
         removeSongsFromEverywhere(library, command, albumToDelete);
         artist.getAlbums().remove(albumToDelete);
+
+        // Notify the observers
+        Subject subject = new Subject();
+        subject.notifyObservers(artist.getUsername());
+
         setMessage(this.getUsername() +" deleted the album successfully.");
     }
 

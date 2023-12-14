@@ -1,15 +1,29 @@
 package commands.users;
 
 import commands.Command;
-import commands.users.Status;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
+import user.entities.Users;
 
+/**
+ * The {@code SwitchConnectionStatus} class represents a command to switch the online
+ * status of a normal user.
+ * It extends the {@link Command} class and is used to process and execute commands
+ * related to changing the connection status of a normal user.
+ * The class includes methods to validate the input command, toggle the online status of the user,
+ * and update the play timestamp if the user is switching to online status.
+ */
 @Getter
 public class SwitchConnectionStatus extends Command {
     private String message;
 
+    /**
+     * Processes the input command to switch the online status of a normal user
+     *
+     * @param command The command containing information about the user and the
+     * operation to be performed.
+     * @param library The main library containing information about users and entities.
+     */
     public void returnSwitchConnectionStatus(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
@@ -31,7 +45,6 @@ public class SwitchConnectionStatus extends Command {
         if (user.isOnline()) {
             Status status = new Status();
             status.returnStatus(command, library);
-
             user.setOnline(false);
         } else {
             user.setOnline(true);
@@ -44,7 +57,13 @@ public class SwitchConnectionStatus extends Command {
         setMessage(super.getUsername() + " has changed status successfully.");
     }
 
-    public void setMessage(String message) {
+    /**
+     * Sets the message indicating the result of the switch connection status operation.
+     *
+     * @param message The message to be set.
+     */
+    public void setMessage(final String message) {
         this.message = message;
     }
 }
+

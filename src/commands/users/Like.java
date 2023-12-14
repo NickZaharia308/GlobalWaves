@@ -3,8 +3,8 @@ package commands.users;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
-import userEntities.audio.Songs;
+import user.entities.Users;
+import user.entities.audio.files.Songs;
 
 import java.util.ArrayList;
 
@@ -33,10 +33,6 @@ public class Like extends Command {
         Users user = new Users();
         user = user.getUser(library.getUsers(), command.getUsername());
 
-        //!!!!!
-        if (user == null)
-            return;
-
         if (!user.isOnline()) {
             setMessage(user.getUsername() + " is offline.");
             return;
@@ -61,8 +57,8 @@ public class Like extends Command {
         Songs userSong = user.getMusicPlayer().getSong();
         ArrayList<Songs> likedSongs = user.getLikedSongs();
         for (Songs song : songs) {
-            if (song.getName().equals(userSong.getName()) &&
-                song.getArtist().equals(userSong.getArtist())) {
+            if (song.getName().equals(userSong.getName())
+                && song.getArtist().equals(userSong.getArtist())) {
                 for (Songs song2 : likedSongs) {
                     if (song2.getName().equals(userSong.getName())) {
                         // Remove the like from the HashMap

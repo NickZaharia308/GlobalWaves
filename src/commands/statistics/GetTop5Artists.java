@@ -3,19 +3,30 @@ package commands.statistics;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Artist;
-import userEntities.audio.Album;
-import userEntities.audio.Songs;
-import userEntities.Users;
+import user.entities.Artist;
+import user.entities.audio.files.Album;
+import user.entities.audio.files.Songs;
+import user.entities.Users;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 
+/**
+ * The GetTop5Artists class represents a command to retrieve a list of top artists
+ * based on the total number of likes.
+ * received by their albums. It extends the Command class.
+ */
 @Getter
 public class GetTop5Artists extends Command {
-    private final ArrayList<Artist> topArtist= new ArrayList<>();
+    private final ArrayList<Artist> topArtist = new ArrayList<>();
     private final int maxArtist = 5;
 
+    /**
+     * Retrieves a list of top artists based on the total number of likes received by their albums.
+     *
+     * @param command The command containing relevant details.
+     * @param library The library containing user and album information.
+     */
     public void returnGetTop5Artists(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
@@ -30,7 +41,8 @@ public class GetTop5Artists extends Command {
             for (Songs songAlbum : album.getSongs()) {
                 noOfLikes += songAlbum.getNumberOfLikes();
             }
-            GetTop5Albums.AlbumLikes newAlbumLikes = new GetTop5Albums.AlbumLikes(album, noOfLikes);
+            GetTop5Albums.AlbumLikes newAlbumLikes = new GetTop5Albums
+                                                    .AlbumLikes(album, noOfLikes);
             albumLikes.add(newAlbumLikes);
         }
 
@@ -66,20 +78,25 @@ public class GetTop5Artists extends Command {
                 break;
             }
         }
-
     }
 
-    // Helper class to store artist and the total number of likes
+    /**
+     * Helper class to store artist and the total number of likes.
+     */
     @Getter
     public static class ArtistLikes {
         private final Artist artist;
         private final int totalLikes;
 
-        public ArtistLikes(final Artist artist, int totalLikes) {
+        /**
+         * Constructs an ArtistLikes object with the specified artist and total likes.
+         *
+         * @param artist The artist associated with the likes.
+         * @param totalLikes The total number of likes received by the artist.
+         */
+        public ArtistLikes(final Artist artist, final int totalLikes) {
             this.artist = artist;
             this.totalLikes = totalLikes;
         }
-
     }
-
 }

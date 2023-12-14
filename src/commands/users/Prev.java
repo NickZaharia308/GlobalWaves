@@ -3,8 +3,12 @@ package commands.users;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
-import userEntities.audio.*;
+import user.entities.Users;
+import user.entities.audio.files.Album;
+import user.entities.audio.files.Episodes;
+import user.entities.audio.files.Playlists;
+import user.entities.audio.files.Podcasts;
+import user.entities.audio.files.Songs;
 
 @Getter
 public class Prev extends Command {
@@ -48,12 +52,6 @@ public class Prev extends Command {
             case PLAYLIST:
                 Playlists currentPlaylist = user.getMusicPlayer().getPlaylist();
                 Songs currentSong = user.getMusicPlayer().getSong();
-
-
-                // !!
-                if (currentPlaylist == null) {
-                    return;
-                }
 
                 if (currentPlaylist.getSongs().isEmpty()) {
                     return;

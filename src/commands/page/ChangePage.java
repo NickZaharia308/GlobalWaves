@@ -3,13 +3,24 @@ package commands.page;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
-import userEntities.specialEntities.PageMenu;
+import user.entities.Users;
+import user.entities.specialEntities.PageMenu;
 
+/**
+ * The ChangePage class represents a command to change the current page for a user.
+ * The user can choose from: Home page and Liked content page.
+ * It extends the Command class.
+ */
 @Getter
 public class ChangePage extends Command {
-    String message;
+    private String message;
 
+    /**
+     * Changes the current page for a user based on the provided command.
+     *
+     * @param command The command containing relevant details.
+     * @param library The library containing user information.
+     */
     public void returnChangePage(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setTimestamp(command.getTimestamp());
@@ -23,8 +34,8 @@ public class ChangePage extends Command {
             return;
         }
 
-        if (!(command.getNextPage().equals("Home") ||
-            command.getNextPage().equals("LikedContent"))) {
+        if (!(command.getNextPage().equals("Home")
+                || command.getNextPage().equals("LikedContent"))) {
             setMessage(this.getUsername() + " is trying to access a non-existent page.");
             return;
         }
@@ -38,7 +49,12 @@ public class ChangePage extends Command {
         setMessage(this.getUsername() + " accessed " + command.getNextPage() + " successfully.");
     }
 
-    public void setMessage(String message) {
+    /**
+     * Sets the message indicating the result of the page change.
+     *
+     * @param message The message to be set.
+     */
+    public void setMessage(final String message) {
         this.message = message;
     }
 }

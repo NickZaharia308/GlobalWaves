@@ -12,11 +12,11 @@ import fileio.input.LibraryInput;
 import fileio.input.PodcastInput;
 import fileio.input.SongInput;
 import fileio.input.UserInput;
-import userEntities.Users;
-import userEntities.audio.Episodes;
-import userEntities.audio.Playlists;
-import userEntities.audio.Podcasts;
-import userEntities.audio.Songs;
+import user.entities.Users;
+import user.entities.audio.files.Episodes;
+import user.entities.audio.files.Playlists;
+import user.entities.audio.files.Podcasts;
+import user.entities.audio.files.Songs;
 
 import java.io.File;
 import java.io.IOException;
@@ -82,7 +82,8 @@ public final class Main {
                               final String filePath2) throws IOException {
 
         ObjectMapper objectMapper = new ObjectMapper();
-        LibraryInput library = objectMapper.readValue(new File(CheckerConstants.TESTS_PATH + "library/library.json"), LibraryInput.class);
+        LibraryInput library = objectMapper.readValue(new File(CheckerConstants.TESTS_PATH
+                                                    + "library/library.json"), LibraryInput.class);
 
         ArrayNode outputs = objectMapper.createArrayNode();
 

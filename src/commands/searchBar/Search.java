@@ -5,12 +5,12 @@ import commands.Command;
 import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
-import userEntities.audio.Album;
-import userEntities.audio.Playlists;
-import userEntities.audio.Podcasts;
-import userEntities.audio.Songs;
-import userEntities.specialEntities.PageMenu;
+import user.entities.Users;
+import user.entities.audio.files.Album;
+import user.entities.audio.files.Playlists;
+import user.entities.audio.files.Podcasts;
+import user.entities.audio.files.Songs;
+import user.entities.specialEntities.PageMenu;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -34,7 +34,7 @@ public class Search extends Command {
      * The search is limited to a maximum number of results defined by {@code maxSearches}.
      *
      * @param command The search command containing filters and search parameters.
-     * @param library The library containing songs, podcasts, and playlists to search within.
+     * @param library The library containing songs, podcasts, albums and playlists to search within.
      */
     public final void returnSearch(final Command command, final Library library) {
         super.setCommand(command.getCommand());
@@ -45,9 +45,6 @@ public class Search extends Command {
         Users user = new Users();
         user = user.getUser(library.getUsers(), command.getUsername());
 
-        if (user == null) {
-            return;
-        }
 
         if (!user.isOnline()) {
             setMessage(user.getUsername() + " is offline.");
@@ -265,7 +262,7 @@ public class Search extends Command {
      * This method is called after the search is completed to set the message,
      * results, and additional user information.
      *
-     * @param library The library containing songs, podcasts, and playlists.
+     * @param library The library containing songs, podcasts, albums and playlists.
      * @param command The original search command.
      */
     private void updateResultsAndMessage(final Library library, final Command command) {
@@ -274,10 +271,6 @@ public class Search extends Command {
         // Finding the user and setting the 'noOfResults' and the 'results' list
         Users user = new Users();
         user = user.getUser(library.getUsers(), command.getUsername());
-
-        //!!!!!!!
-        if (user == null)
-            return;
 
         user.setNoOfSearchResults(this.noOfResults);
         user.setSearchResults(this.results);
@@ -296,11 +289,12 @@ public class Search extends Command {
         // Canceling the MusicPlayer (loader)
         user.setSomethingLoaded(false);
 
-        // Remove the User (Observer) from the host / artist (Subject) if the user searched another page
-        // and had previously a host page or an artist page
-        if ((user.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE ||
-            user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE) &&
-            (Objects.equals(command.getType(), "artist") || Objects.equals(command.getType(), "host"))) {
+        // Remove the User (Observer) from the host / artist (Subject) if the user
+        // searched another page and had previously a host page or an artist page
+        if ((user.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE
+            || user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE)
+            && (Objects.equals(command.getType(), "artist")
+                    || Objects.equals(command.getType(), "host"))) {
             Subject subject = new Subject();
             subject.removeObserver(user.getPageMenu().getPageOwnerName(), user);
         }
@@ -310,7 +304,7 @@ public class Search extends Command {
             user.setTrackType(Users.Track.SONG);
         } else if (Objects.equals(command.getType(), "podcast")) {
             user.setTrackType(Users.Track.PODCAST);
-        } else if (Objects.equals(command.getType(), "playlist")){
+        } else if (Objects.equals(command.getType(), "playlist")) {
             user.setTrackType(Users.Track.PLAYLIST);
         } else if (Objects.equals(command.getType(), "album")) {
             user.setTrackType(Users.Track.ALBUM);

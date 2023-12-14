@@ -6,19 +6,33 @@ import commands.Command;
 import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
-import userEntities.Artist;
-import userEntities.Users;
-import userEntities.audio.Album;
-import userEntities.audio.Songs;
+import user.entities.Artist;
+import user.entities.Users;
+import user.entities.audio.files.Album;
+import user.entities.audio.files.Songs;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The {@code AddAlbum} class represents a command to add a new album to an artist's
+ * profile and the library.
+ * It extends the {@link commands.Command} class and includes methods to validate and process
+ * the addition of an album.
+ * The class ensures that the album is not a duplicate and notifies observers (Users)
+ * after a successful addition.
+ */
 @Getter
 public class AddAlbum extends Command {
     private String message;
 
+    /**
+     * Adds a new album to the artist's profile and the library.
+     *
+     * @param command The command containing album information.
+     * @param library The library containing user and album data.
+     */
     public void returnAddAlbum(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
@@ -82,7 +96,8 @@ public class AddAlbum extends Command {
             library.getSongs().add(addedSong);
         }
 
-        Album newAlbum = new Album(this.name, this.releaseYear, this.description, albumSongs, this.username);
+        Album newAlbum = new Album(this.name, this.releaseYear, this.description,
+                                    albumSongs, this.username);
 
         // Adding the album to both the library and the artist
         library.getAlbums().add(newAlbum);
@@ -95,7 +110,13 @@ public class AddAlbum extends Command {
         setMessage(this.getUsername() + " has added new album successfully.");
     }
 
-    public boolean hasDuplicateSongs(ArrayList<Songs> albumSongs) {
+    /**
+     * Checks if there are duplicate songs in the given album.
+     *
+     * @param albumSongs The list of songs in the album.
+     * @return True if there are duplicate songs, false otherwise.
+     */
+    public boolean hasDuplicateSongs(final ArrayList<Songs> albumSongs) {
         Set<String> uniqueNames = new HashSet<>();
 
         for (Songs song : albumSongs) {
@@ -111,7 +132,12 @@ public class AddAlbum extends Command {
         return false;
     }
 
-    public void setMessage(String message) {
+    /**
+     * Sets the message for the current instance.
+     *
+     * @param message The message to be set.
+     */
+    public void setMessage(final String message) {
         this.message = message;
     }
 }

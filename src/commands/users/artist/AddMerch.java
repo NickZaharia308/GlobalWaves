@@ -4,17 +4,30 @@ import commands.Command;
 import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
-import userEntities.Artist;
-import userEntities.Users;
-import userEntities.specialEntities.Event;
-import userEntities.specialEntities.Merch;
+import user.entities.Artist;
+import user.entities.Users;
+import user.entities.specialEntities.Merch;
 
 import java.util.ArrayList;
 
+
+/**
+ * The {@code AddMerch} class represents a command to add merchandise to an artist's collection.
+ * It extends the {@link Command} class and is used to process and execute commands
+ * related to adding merchandise.
+ * The class includes methods to validate the input command, add new merchandise
+ * to the artist's collection and notify observers about the update.
+ */
 @Getter
 public class AddMerch extends Command {
     private String message;
 
+    /**
+     * Processes the input command to add merchandise and updates the artist's collection.
+     *
+     * @param command The command containing information about the merchandise to be added.
+     * @param library The main library containing information about users and entities.
+     */
     public void returnAddMerch(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
@@ -60,7 +73,13 @@ public class AddMerch extends Command {
         setMessage(this.getUsername() + " has added new merchandise successfully.");
     }
 
-    public void setMessage(String message) {
+    /**
+     * Sets the message indicating the result of the add merchandise operation.
+     *
+     * @param message The message to be set.
+     */
+    public void setMessage(final String message) {
         this.message = message;
     }
 }
+

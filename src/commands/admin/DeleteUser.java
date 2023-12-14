@@ -4,29 +4,39 @@ import commands.Command;
 import commands.users.Status;
 import lombok.Getter;
 import main.Library;
-import userEntities.Artist;
-import userEntities.Host;
-import userEntities.Users;
-import userEntities.audio.Album;
-import userEntities.audio.Playlists;
-import userEntities.audio.Podcasts;
-import userEntities.audio.Songs;
-import userEntities.specialEntities.PageMenu;
+import user.entities.Artist;
+import user.entities.Host;
+import user.entities.Users;
+import user.entities.audio.files.Album;
+import user.entities.audio.files.Playlists;
+import user.entities.audio.files.Podcasts;
+import user.entities.audio.files.Songs;
+import user.entities.specialEntities.PageMenu;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
+/**
+ * The DeleteUser class represents a command to delete a user
+ * and associated entities from the library.
+ */
 @Getter
 public class DeleteUser extends Command {
     private String message;
 
-    public void returnDeleteUser(Command command, final Library library) {
+    /**
+     * Deletes the specified user and associated entities from the library.
+     *
+     * @param command The command containing information about the requested operation.
+     * @param library The main library containing user and entity data.
+     */
+    public void returnDeleteUser(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setTimestamp(command.getTimestamp());
         super.setUsername(command.getUsername());
 
-        ArrayList<Users> allUsers= library.getUsers();
+        ArrayList<Users> allUsers = library.getUsers();
 
         // If the user doesn't exist
         Users user = new Users();
@@ -50,14 +60,10 @@ public class DeleteUser extends Command {
 
         if (user.getUserType() == Users.UserType.ARTIST) {
             deleteEverythingFromArtist(user, library);
-        }
-
-        if (user.getUserType() == Users.UserType.NORMAL) {
+        } else if (user.getUserType() == Users.UserType.NORMAL) {
             deleteEverythingFromUser(user, library);
             deleteUserFromEverywhere(user, library);
-        }
-
-        if (user.getUserType() == Users.UserType.HOST) {
+        } else if (user.getUserType() == Users.UserType.HOST) {
             deleteEverythingFromHost(user, library);
         }
 
@@ -66,8 +72,15 @@ public class DeleteUser extends Command {
         setMessage(this.getUsername() + " was successfully deleted.");
     }
 
-    private boolean deleteArtist (Command command, final Library library) {
-        ArrayList<Users> allUsers= library.getUsers();
+    /**
+     * Checks if the specified artist can be safely deleted.
+     *
+     * @param command The command containing information about the requested operation.
+     * @param library The main library containing user and entity data.
+     * @return True if the artist can't be deleted, false otherwise.
+     */
+    private boolean deleteArtist(final Command command, final Library library) {
+        ArrayList<Users> allUsers = library.getUsers();
 
         Users user = new Users();
         user = user.getUser(allUsers, this.getUsername());
@@ -80,12 +93,12 @@ public class DeleteUser extends Command {
             command.setUsername(currentUser.getUsername());
             status.returnStatus(command, library);
 
-
             // If the user has an album loaded
             if (currentUser.getTrackType() == Users.Track.ALBUM) {
 
                 // If the owner of the album is the artist himself
-                if (currentUser.getMusicPlayer().getAlbum().getOwner().equals(artist.getUsername())) {
+                if (currentUser.getMusicPlayer().getAlbum().getOwner()
+                    .equals(artist.getUsername())) {
 
                     // If the user has something from the album loaded
                     if (currentUser.isSomethingLoaded()) {
@@ -99,7 +112,8 @@ public class DeleteUser extends Command {
             if (currentUser.getTrackType() == Users.Track.SONG) {
 
                 // If the owner of the song is the artist himself
-                if (currentUser.getMusicPlayer().getSong().getArtist().equals(artist.getUsername())) {
+                if (currentUser.getMusicPlayer().getSong().getArtist()
+                    .equals(artist.getUsername())) {
 
                     // If the user has something from the album loaded
                     if (currentUser.isSomethingLoaded()) {
@@ -109,12 +123,13 @@ public class DeleteUser extends Command {
                 }
             }
 
-
             // If the user has a playlist with a song from the artist's album
-            if (currentUser.getTrackType() == Users.Track.PLAYLIST && currentUser.isSomethingLoaded()) {
+            if (currentUser.getTrackType() == Users.Track.PLAYLIST
+                && currentUser.isSomethingLoaded()) {
 
                 // If one of the songs owner from the current playlist is the artist
-                boolean hasSongFromArtistAlbum = currentUser.getMusicPlayer().getPlaylist().getSongs().stream()
+                boolean hasSongFromArtistAlbum = currentUser.getMusicPlayer().getPlaylist()
+                        .getSongs().stream()
                         .anyMatch(song -> song.getArtist().equals(artist.getUsername()));
 
                 // If the playlist has a song from the artist's album
@@ -125,8 +140,8 @@ public class DeleteUser extends Command {
             }
 
             // If a user has the artist's page selected
-            if (currentUser.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE &&
-                    currentUser.getPageMenu().getPageOwnerName().equals(artist.getUsername())) {
+            if (currentUser.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE
+                && currentUser.getPageMenu().getPageOwnerName().equals(artist.getUsername())) {
                 setMessage(artist.getUsername() + " can't be deleted.");
                 return true;
             }
@@ -135,7 +150,13 @@ public class DeleteUser extends Command {
         return false;
     }
 
-    private void deleteEverythingFromArtist (Users user, Library library) {
+    /**
+     * Deletes all songs and albums associated with the specified artist from the library.
+     *
+     * @param user    The artist user to be deleted.
+     * @param library The main library containing user and entity data.
+     */
+    private void deleteEverythingFromArtist(final Users user, final Library library) {
         Artist artist = (Artist) user;
 
         // Delete the artist's songs from the library
@@ -168,11 +189,18 @@ public class DeleteUser extends Command {
                 albumIterator.remove();
             }
         }
-
     }
 
-    private boolean deleteUser(Command command, final Library library) {
-        ArrayList<Users> allUsers= library.getUsers();
+    /**
+     * Deletes a user and related data if the user is of type normal.
+     * Checks if the user is the owner of any loaded playlist to prevent deletion.
+     *
+     * @param command The command containing information about the requested operation.
+     * @param library The main library containing user and entity data.
+     * @return True if the user can't be deleted, false otherwise.
+     */
+    private boolean deleteUser(final Command command, final Library library) {
+        ArrayList<Users> allUsers = library.getUsers();
 
         Users user = new Users();
         user = user.getUser(allUsers, this.getUsername());
@@ -184,21 +212,27 @@ public class DeleteUser extends Command {
             status.returnStatus(command, library);
 
             // If the user has a playlist loaded
-            if (currentUser.isSomethingLoaded() &&
-                currentUser.getTrackType() == Users.Track.PLAYLIST) {
+            if (currentUser.isSomethingLoaded()
+                && currentUser.getTrackType() == Users.Track.PLAYLIST) {
 
                 // If the owner of the playlist is the user himself
-                if (currentUser.getMusicPlayer().getPlaylist().getOwner().equals(user.getUsername())) {
+                if (currentUser.getMusicPlayer().getPlaylist().getOwner()
+                    .equals(user.getUsername())) {
                     setMessage(user.getUsername() + " can't be deleted.");
                     return true;
                 }
             }
         }
-
         return false;
     }
 
-    private void deleteEverythingFromUser(Users user, Library library) {
+    /**
+     * Deletes all playlists associated with the specified user from the library.
+     *
+     * @param user    The user to be deleted.
+     * @param library The main library containing user and entity data.
+     */
+    private void deleteEverythingFromUser(final Users user, final Library library) {
 
         // Delete the user's playlists from the library
         ArrayList<Playlists> allPlaylists = library.getPlaylists();
@@ -222,20 +256,34 @@ public class DeleteUser extends Command {
         }
     }
 
-    private void deleteUserFromEverywhere(Users user, Library library) {
+    /**
+     * Removes a user's like from songs and its follow from playlists.
+     *
+     * @param user    The user to be deleted.
+     * @param library The main library containing user and entity data.
+     */
+    private void deleteUserFromEverywhere(final Users user, final Library library) {
 
         // Lambda expressions that removes the user's like from songs and its follow from playlists
         library.getSongs().forEach(song -> song.getUserLikesMap().remove(user.getUsername()));
 
-        library.getPlaylists().forEach(playlist -> playlist.getUserFollowMap().
-                                                    remove((user.getUsername())));
-        library.getPlaylists().forEach(playlist -> playlist.setFollowers
-                                                    (playlist.getFollowers() - 1));
+        library.getPlaylists().forEach(playlist ->
+                playlist.getUserFollowMap().remove((user.getUsername())));
+
+        library.getPlaylists().forEach(playlist ->
+                playlist.setFollowers(playlist.getFollowers() - 1));
     }
 
 
-    private boolean deleteHost (Command command, final Library library) {
-        ArrayList<Users> allUsers= library.getUsers();
+    /**
+     * Checks if the specified host can be safely deleted.
+     *
+     * @param command The command containing information about the requested operation.
+     * @param library The main library containing user and entity data.
+     * @return True if the host can't be deleted, false otherwise.
+     */
+    private boolean deleteHost(final Command command, final Library library) {
+        ArrayList<Users> allUsers = library.getUsers();
 
         Users user = new Users();
         user = user.getUser(allUsers, this.getUsername());
@@ -250,11 +298,12 @@ public class DeleteUser extends Command {
 
 
             // If the user has a podcast started
-            if (currentUser.getMusicPlayer() != null &&
-                currentUser.getMusicPlayer().getPodcast() != null) {
+            if (currentUser.getMusicPlayer() != null
+                && currentUser.getMusicPlayer().getPodcast() != null) {
 
                 // If the owner of the podcast is the host himself
-                if (currentUser.getMusicPlayer().getPodcast().getOwner().equals(host.getUsername())) {
+                if (currentUser.getMusicPlayer().getPodcast().getOwner()
+                    .equals(host.getUsername())) {
                     setMessage(host.getUsername() + " can't be deleted.");
                     return true;
 
@@ -262,8 +311,8 @@ public class DeleteUser extends Command {
             }
 
             // If a user has the host's page selected
-            if (currentUser.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE &&
-                currentUser.getPageMenu().getPageOwnerName().equals(host.getUsername())) {
+            if (currentUser.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE
+                && currentUser.getPageMenu().getPageOwnerName().equals(host.getUsername())) {
                 setMessage(host.getUsername() + " can't be deleted.");
                 return true;
             }
@@ -271,11 +320,16 @@ public class DeleteUser extends Command {
         return false;
     }
 
-    private void deleteEverythingFromHost (Users user, Library library) {
+    /**
+     * Deletes all podcasts associated with the specified host from the library.
+     *
+     * @param user    The host user to be deleted.
+     * @param library The main library containing user and entity data.
+     */
+    private void deleteEverythingFromHost(final Users user, final Library library) {
         Host host = (Host) user;
 
-        // Delete the host's albums from the library
-
+        // Delete the host's podcasts from the library
         ArrayList<Podcasts> allPodcasts = library.getPodcasts();
         Iterator<Podcasts> podcastIterator = allPodcasts.iterator();
         while (podcastIterator.hasNext()) {
@@ -284,10 +338,14 @@ public class DeleteUser extends Command {
                 podcastIterator.remove();
             }
         }
-
     }
 
-    public void setMessage(String message) {
+    /**
+     * Sets the message related to the execution of the DeleteUser command.
+     *
+     * @param message The message to be set.
+     */
+    public void setMessage(final String message) {
         this.message = message;
     }
 }

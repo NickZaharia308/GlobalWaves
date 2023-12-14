@@ -2,22 +2,33 @@ package commands.users.artist;
 
 import commands.Command;
 import commands.page.Subject;
-import commands.users.Shuffle;
 import commands.users.Status;
 import lombok.Getter;
 import main.Library;
-import userEntities.Artist;
-import userEntities.Users;
-import userEntities.audio.Album;
-import userEntities.audio.Playlists;
-import userEntities.audio.Songs;
+import user.entities.Artist;
+import user.entities.Users;
+import user.entities.audio.files.Album;
+import user.entities.audio.files.Playlists;
+import user.entities.audio.files.Songs;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * The {@code RemoveAlbum} class represents a command to remove an album of an artist.
+ * It extends the {@code Command} class and is specific to artist-related operations.
+ * The class notifies observers (Users) after a successful removal.
+ */
 @Getter
 public class RemoveAlbum extends Command {
     private String message;
+
+    /**
+     * Processes the remove album command, removing the specified album for the artist user.
+     *
+     * @param command The command containing details about the album removal.
+     * @param library The main library containing user data.
+     */
     public void returnRemoveAlbum(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
@@ -27,11 +38,13 @@ public class RemoveAlbum extends Command {
         Users user = new Users();
         user = user.getUser(library.getUsers(), this.getUsername());
 
+        // Check if the user exists
         if (user == null) {
             setMessage("The username " + this.getUsername() + " doesn't exist.");
             return;
         }
 
+        // Check if the user is an artist
         if (user.getUserType() != Users.UserType.ARTIST) {
             setMessage(this.getUsername() + " is not an artist.");
             return;
@@ -39,6 +52,8 @@ public class RemoveAlbum extends Command {
 
         Artist artist = (Artist) user;
         Album albumToDelete = null;
+
+        // Find the album to delete
         for (Album album : artist.getAlbums()) {
             if (album.getName().equals(this.getName())) {
                 albumToDelete = album;
@@ -46,38 +61,50 @@ public class RemoveAlbum extends Command {
             }
         }
 
+        // If there is no album with the given name
         if (albumToDelete == null) {
             setMessage(this.getUsername() + " doesn't have an album with the given name.");
             return;
         }
 
+        // Check if the album is loaded for any user
         if (isAlbumLoaded(library, command, albumToDelete)) {
             setMessage(this.getUsername() + " can't delete this album.");
             return;
         }
 
-        removeSongsFromEverywhere(library, command, albumToDelete);
+        // Remove songs from everywhere and delete the album
+        removeSongsFromEverywhere(library, albumToDelete);
         artist.getAlbums().remove(albumToDelete);
 
         // Notify the observers
         Subject subject = new Subject();
         subject.notifyObservers(artist.getUsername());
 
-        setMessage(this.getUsername() +" deleted the album successfully.");
+        setMessage(this.getUsername() + " deleted the album successfully.");
     }
 
-    private boolean isAlbumLoaded(Library library, Command command, Album albumToDelete) {
-
+    /**
+     * Checks if the specified album is currently loaded by any user.
+     *
+     * @param library      The main library containing user data.
+     * @param command      The command containing details about the album removal.
+     * @param albumToDelete The album to be deleted.
+     * @return True if the album is currently loaded; false otherwise.
+     */
+    private boolean isAlbumLoaded(final Library library, final Command command,
+                                  final Album albumToDelete) {
         ArrayList<Users> allUsers = library.getUsers();
 
-        for (Users user: allUsers) {
+        for (Users user : allUsers) {
             Status status = new Status();
             command.setUsername(user.getUsername());
             status.returnStatus(command, library);
 
-            // If the user has an album loaded and the album is the album we want to delete
+            // If the user has the album loaded and it is the album we want to delete
             if (user.isSomethingLoaded() && user.getTrackType() == Users.Track.ALBUM
-                && user.getMusicPlayer().getAlbum().getName().equals(albumToDelete.getName())) {
+                    && user.getMusicPlayer().getAlbum().getName()
+                    .equals(albumToDelete.getName())) {
                 return true;
             }
 
@@ -91,7 +118,7 @@ public class RemoveAlbum extends Command {
                 }
             }
 
-            // Iterate through songs of the playlist and check if one song is also in album
+            // Iterate through songs of the playlist and check if one song is also in the album
             if (user.isSomethingLoaded() && user.getTrackType() == Users.Track.PLAYLIST) {
                 for (Songs songPlaylist : user.getMusicPlayer().getPlaylist().getSongs()) {
                     for (Songs song : albumToDelete.getSongs()) {
@@ -101,15 +128,21 @@ public class RemoveAlbum extends Command {
                     }
                 }
             }
-
         }
 
         return false;
     }
 
-    private void removeSongsFromEverywhere (Library library, Command command, Album albumToDelete) {
+    /**
+     * Removes songs from all playlists and liked songs that belong to the album being deleted.
+     *
+     * @param library      The main library containing user data.
+     * @param albumToDelete The album to be deleted.
+     */
+    private void removeSongsFromEverywhere(final Library library, final Album albumToDelete) {
         // Delete all album songs from playlists
         ArrayList<Playlists> allPlaylists = library.getPlaylists();
+
         // Search in all playlists
         for (Playlists playlist : allPlaylists) {
             // Create an iterator for the playlist songs
@@ -128,15 +161,21 @@ public class RemoveAlbum extends Command {
             }
         }
 
+        // Remove songs from liked songs of all users
         ArrayList<Users> allUsers = library.getUsers();
         for (Users user : allUsers) {
             removeSongFromLikedSongs(user.getLikedSongs(), albumToDelete.getSongs());
         }
-
     }
 
-    // Helper method to remove songs from the liked songs of a user
-    private void removeSongFromLikedSongs(ArrayList<Songs> likedSongs, ArrayList<Songs> songsToRemove) {
+    /**
+     * Helper method to remove songs from the liked songs of a user.
+     *
+     * @param likedSongs    The liked songs of the user.
+     * @param songsToRemove The songs to be removed from the liked songs.
+     */
+    private void removeSongFromLikedSongs(final ArrayList<Songs> likedSongs,
+                                          final ArrayList<Songs> songsToRemove) {
         Iterator<Songs> likedSongsIterator = likedSongs.iterator();
 
         while (likedSongsIterator.hasNext()) {
@@ -149,7 +188,12 @@ public class RemoveAlbum extends Command {
         }
     }
 
-    public void setMessage(String message) {
+    /**
+     * Sets the message for this RemoveAlbum instance.
+     *
+     * @param message The message to be set.
+     */
+    public void setMessage(final String message) {
         this.message = message;
     }
 }

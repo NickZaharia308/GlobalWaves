@@ -3,7 +3,7 @@ package commands.users;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
+import user.entities.Users;
 
 @Getter
 public class Repeat extends Command {
@@ -22,11 +22,6 @@ public class Repeat extends Command {
 
         Users user = new Users();
         user = user.getUser(library.getUsers(), command.getUsername());
-
-
-        //!!!!!
-        if (user == null)
-            return;
 
         // Update the status before changing the repeat mode
         Status updateStatus = new Status();

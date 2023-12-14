@@ -4,13 +4,13 @@ import commands.Command;
 import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
-import userEntities.MusicPlayer;
-import userEntities.Users;
-import userEntities.audio.Album;
-import userEntities.audio.Playlists;
-import userEntities.audio.Podcasts;
-import userEntities.audio.Songs;
-import userEntities.specialEntities.PageMenu;
+import user.entities.audio.MusicPlayer;
+import user.entities.Users;
+import user.entities.audio.files.Album;
+import user.entities.audio.files.Playlists;
+import user.entities.audio.files.Podcasts;
+import user.entities.audio.files.Songs;
+import user.entities.specialEntities.PageMenu;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -20,7 +20,7 @@ import java.util.LinkedList;
  * Represents a selection operation based on the provided command and updates the selected item
  * and message.
  * The selection is performed from the search results, and the type of the selected item can be a:
- * song, playlist, or podcast.
+ * song, playlist, podcast, album, or a page (Host page or Artist page).
  */
 @Getter
 public class Select extends Command {
@@ -35,10 +35,10 @@ public class Select extends Command {
     /**
      * Performs a selection based on the provided command and updates the selected item and message.
      * The selection is performed from the search results, and the type of the selected item can be
-     * a song, playlist, or podcast.
+     * a song, playlist, podcast, album, artist/host pages
      *
      * @param command The selection command containing the item number to be selected.
-     * @param library The library containing songs, playlists, and podcasts.
+     * @param library The library containing songs, playlists, and podcasts and also users.
      */
     public void returnSelect(final Command command, final Library library) {
         super.setCommand(command.getCommand());
@@ -49,10 +49,6 @@ public class Select extends Command {
 
         Users user = new Users();
         user = user.getUser(library.getUsers(), command.getUsername());
-
-        //!!!!!
-        if (user == null)
-            return;
 
         if (user.getNoOfSearchResults() == -1) {
             user.setSomethingSelected(false);
@@ -82,7 +78,14 @@ public class Select extends Command {
         }
     }
 
-    private void trackSearched(Users user, Library library, int itemNumber) {
+    /**
+     * Handles the selection of a song, playlist, podcast, or album based on the search results.
+     *
+     * @param user      The user performing the selection.
+     * @param library   The library containing songs, playlists, podcasts, and albums.
+     * @param itemNumber The number corresponding to the selected item in the search results.
+     */
+    private void trackSearched(final Users user, final Library library, final int itemNumber) {
         LinkedList<String> searchResults = user.getSearchResults();
 
         // Creating the musicPlayer if it doesn't exist
@@ -161,7 +164,13 @@ public class Select extends Command {
         }
     }
 
-    private void pageSearched(Users user, int itemNumber) {
+    /**
+     * Handles the selection of an artist or host page based on the search results.
+     *
+     * @param user      The user performing the selection.
+     * @param itemNumber The number corresponding to the selected item in the search results.
+     */
+    private void pageSearched(final Users user, final int itemNumber) {
 
         LinkedList<String> searchResults = user.getSearchResults();
         String pageOwner = searchResults.get(itemNumber - 1);
@@ -169,9 +178,9 @@ public class Select extends Command {
 
 
 
-        if (user.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE ||
-            user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE) {
-            setMessage("Successfully selected " + pageOwner +"'s page.");
+        if (user.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE
+                || user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE) {
+            setMessage("Successfully selected " + pageOwner + "'s page.");
 
             // Adding the user as an "Observer" to artist or host (Subject)
             Subject subject = new Subject();

@@ -4,16 +4,31 @@ import commands.Command;
 import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
-import userEntities.Host;
-import userEntities.Users;
-import userEntities.specialEntities.Announcement;
+import user.entities.Host;
+import user.entities.Users;
+import user.entities.specialEntities.Announcement;
 
 import java.util.ArrayList;
 
+/**
+ * The {@code RemoveAnnouncement} class represents a command to remove an announcement
+ * by a host.
+ * It extends the {@link Command} class and is used to process and execute commands
+ * related to removing announcements from the host's collection. The class includes methods
+ * to validate the input command, check if the announcement to be deleted exists, and remove
+ * the announcement from the host's collection.
+ */
 @Getter
 public class RemoveAnnouncement extends Command {
     private String message;
 
+    /**
+     * Processes the input command to remove an announcement by a host user and notifies observers.
+     *
+     * @param command The command containing information about the user and the operation
+     *                to be performed.
+     * @param library The main library containing information about users and entities.
+     */
     public void returnRemoveAnnouncement(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
@@ -59,8 +74,13 @@ public class RemoveAnnouncement extends Command {
         setMessage(this.getUsername() + " has successfully deleted the announcement.");
     }
 
-
-    public void setMessage(String message) {
+    /**
+     * Sets the message indicating the result of the remove announcement operation.
+     *
+     * @param message The message to be set.
+     */
+    public void setMessage(final String message) {
         this.message = message;
     }
 }
+

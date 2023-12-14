@@ -3,9 +3,9 @@ package commands.users;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
-import userEntities.audio.Playlists;
-import userEntities.audio.Songs;
+import user.entities.Users;
+import user.entities.audio.files.Playlists;
+import user.entities.audio.files.Songs;
 
 import java.util.ArrayList;
 
@@ -36,10 +36,6 @@ public class AddRemoveInPlaylist extends Command {
 
         Users user = new Users();
         user = user.getUser(library.getUsers(), command.getUsername());
-
-        //!!!!!
-        if (user == null)
-            return;
 
         // If there is nothing loaded
         if (!user.isSomethingLoaded()) {

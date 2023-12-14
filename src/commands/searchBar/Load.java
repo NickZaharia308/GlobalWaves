@@ -3,10 +3,9 @@ package commands.searchBar;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.MusicPlayer;
-import userEntities.Users;
-import userEntities.audio.Episodes;
-import userEntities.audio.Songs;
+import user.entities.Users;
+import user.entities.audio.files.Episodes;
+import user.entities.audio.files.Songs;
 
 /**
  * Represents a load operation based on the provided command and updates the playback status.
@@ -32,10 +31,6 @@ public class Load extends Command {
 
         Users user = new Users();
         user = user.getUser(library.getUsers(), command.getUsername());
-
-        //!!!!!
-        if (user == null)
-            return;
 
         if (!user.isSomethingSelected()) {
             setMessage("Please select a source before attempting to load.");

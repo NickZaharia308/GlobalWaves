@@ -3,7 +3,7 @@ package commands.statistics;
 import lombok.Getter;
 import commands.Command;
 import main.Library;
-import userEntities.audio.Playlists;
+import user.entities.audio.files.Playlists;
 
 import java.util.ArrayList;
 import java.util.Comparator;

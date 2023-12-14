@@ -3,8 +3,8 @@ package commands.users;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
-import userEntities.audio.Songs;
+import user.entities.Users;
+import user.entities.audio.files.Songs;
 
 import java.util.ArrayList;
 

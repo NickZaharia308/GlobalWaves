@@ -2,12 +2,25 @@ package commands.statistics;
 
 import commands.Command;
 import main.Library;
-import userEntities.Users;
+import user.entities.Users;
 
 import java.util.ArrayList;
 
+/**
+ * The GetAllUsers class represents a command to retrieve all users from the library.
+ * It extends the Command class and provides a method to categorize users based on their type.
+ */
 public class GetAllUsers extends Command {
 
+    /**
+     * Retrieves all users from the library and categorizes them into three lists based on
+     * their user type: normal users, artists, and hosts. Combines the lists into a single
+     * list and returns it.
+     *
+     * @param command The command containing information about the operation.
+     * @param library The library containing all user entities.
+     * @return An ArrayList containing all users categorized by their user type.
+     */
     public ArrayList<Users> returnGetAllUsers(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setTimestamp(command.getTimestamp());
@@ -35,5 +48,4 @@ public class GetAllUsers extends Command {
 
         return combinedList;
     }
-
 }

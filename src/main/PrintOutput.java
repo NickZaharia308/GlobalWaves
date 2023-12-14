@@ -13,9 +13,29 @@ import commands.page.PrintCurrentPage;
 import commands.searchBar.Load;
 import commands.searchBar.Search;
 import commands.searchBar.Select;
-import commands.statistics.*;
-import commands.users.*;
-import commands.users.artist.*;
+import commands.statistics.GetAllUsers;
+import commands.statistics.GetOnlineUsers;
+import commands.statistics.GetTop5Albums;
+import commands.statistics.GetTop5Artists;
+import commands.statistics.GetTop5Playlists;
+import commands.statistics.GetTop5Songs;
+import commands.users.AddRemoveInPlaylist;
+import commands.users.Backward;
+import commands.users.Forward;
+import commands.users.Like;
+import commands.users.Next;
+import commands.users.PlayPause;
+import commands.users.Prev;
+import commands.users.Repeat;
+import commands.users.ShowPreferredSongs;
+import commands.users.Shuffle;
+import commands.users.Status;
+import commands.users.SwitchConnectionStatus;
+import commands.users.artist.AddAlbum;
+import commands.users.artist.AddEvent;
+import commands.users.artist.AddMerch;
+import commands.users.artist.RemoveAlbum;
+import commands.users.artist.RemoveEvent;
 import commands.users.host.AddAnnouncement;
 import commands.users.host.AddPodcast;
 import commands.users.host.RemoveAnnouncement;
@@ -24,11 +44,14 @@ import commands.users.playlists.CreatePlaylist;
 import commands.users.playlists.FollowPlaylist;
 import commands.users.playlists.ShowPlaylists;
 import commands.users.playlists.SwitchVisibility;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-import userEntities.Artist;
-import userEntities.Users;
-import userEntities.audio.*;
+import lombok.experimental.UtilityClass;
+import user.entities.Artist;
+import user.entities.Users;
+import user.entities.audio.files.Album;
+import user.entities.audio.files.Episodes;
+import user.entities.audio.files.Playlists;
+import user.entities.audio.files.Podcasts;
+import user.entities.audio.files.Songs;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -37,7 +60,7 @@ import java.util.Objects;
 /**
  * Represents a utility class for printing output based on different commands.
  */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@UtilityClass
 public class PrintOutput {
 
     /**
@@ -494,7 +517,7 @@ public class PrintOutput {
 
             resultNode.set("result", resultsArrayNode);
             outputs.add(resultNode);
-        } else if (Objects.equals(command.getCommand(), "removeAlbum")){
+        } else if (Objects.equals(command.getCommand(), "removeAlbum")) {
             RemoveAlbum removeAlbum = new RemoveAlbum();
             removeAlbum.returnRemoveAlbum(command, myLibrary);
 

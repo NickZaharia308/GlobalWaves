@@ -3,9 +3,9 @@ package commands.users;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
-import userEntities.audio.Episodes;
-import userEntities.audio.Songs;
+import user.entities.Users;
+import user.entities.audio.files.Episodes;
+import user.entities.audio.files.Songs;
 
 @Getter
 /**
@@ -39,18 +39,14 @@ public class Status extends Command {
         user = user.getUser(library.getUsers(), command.getUsername());
 
 
-        //!!!!!
-        if (user == null)
-            return;
-
         if (!user.isOnline() && user.isSomethingLoaded()) {
 
             if (user.getMusicPlayer() == null) {
                 return;
             }
 
-            if (user.getTrackType() == Users.Track.SONG || user.getTrackType() == Users.Track.PLAYLIST
-                || user.getTrackType() == Users.Track.ALBUM) {
+            if (user.getTrackType() == Users.Track.SONG || user.getTrackType()
+                    == Users.Track.PLAYLIST || user.getTrackType() == Users.Track.ALBUM) {
                 if (user.getMusicPlayer().getSong() == null) {
                     return;
                 }
@@ -181,10 +177,6 @@ public class Status extends Command {
                                         user.getTrackType());
                         }
 
-                        // !!
-                        if (user.getMusicPlayer().getPlaylist() == null)
-                            return;
-
                         int index = user.getMusicPlayer().getPlaylist().getSongs().
                                 indexOf(playerSong);
                         Songs currentSong = playerSong;
@@ -211,8 +203,8 @@ public class Status extends Command {
                             index = -1;
 
                             // Repeat the songs
-                            while (index < user.getMusicPlayer().getPlaylist().getSongs().size() - 1 &&
-                                    leftTime <= 0) {
+                            while (index < user.getMusicPlayer().getPlaylist().getSongs().size()
+                                    - 1 && leftTime <= 0) {
                                 index++;
                                 currentSong = user.getMusicPlayer().getPlaylist().getSongs()
                                         .get(index);
@@ -220,8 +212,8 @@ public class Status extends Command {
 
                                 // if the repeat mode is "repeat all and we reached the last song
                                 if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime <= 0
-                                        && index == user.getMusicPlayer().getPlaylist().getSongs().size()
-                                        - 1) {
+                                        && index == user.getMusicPlayer().getPlaylist()
+                                        .getSongs().size() - 1) {
                                     index = -1;
                                 }
                             }
@@ -268,9 +260,6 @@ public class Status extends Command {
                                           user.getTrackType());
                         }
 
-                        // !!
-                        if (user.getMusicPlayer().getPlaylist() == null)
-                            return;
 
                         int index = user.getMusicPlayer().getPlaylist().getSongs().
                                 indexOf(playerSong);
@@ -306,7 +295,7 @@ public class Status extends Command {
                         }
                     }
                 }
-            } else if (user.getTrackType() == Users.Track.PODCAST){
+            } else if (user.getTrackType() == Users.Track.PODCAST) {
                 // Podcast case
                 Episodes playerEpisode = user.getMusicPlayer().getEpisode();
 

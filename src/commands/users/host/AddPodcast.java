@@ -1,27 +1,38 @@
 package commands.users.host;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 import commands.Command;
 import commands.page.Subject;
 import lombok.Getter;
 import main.Library;
-import userEntities.Artist;
-import userEntities.Host;
-import userEntities.Users;
-import userEntities.audio.Album;
-import userEntities.audio.Episodes;
-import userEntities.audio.Podcasts;
-import userEntities.audio.Songs;
+import user.entities.Host;
+import user.entities.Users;
+import user.entities.audio.files.Episodes;
+import user.entities.audio.files.Podcasts;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The {@code AddPodcast} class represents a command to add a podcast by a host.
+ * It extends the {@link Command} class and is used to process and execute commands
+ * related to adding podcasts to the host's collection. The class includes methods
+ * to validate the input command, check if a podcast with the same name already exists,
+ * add the new podcast to the host's collection, and notify observers. Additionally,
+ * it ensures that episodes in the podcast are unique.
+ */
 @Getter
 public class AddPodcast extends Command {
     private String message;
 
+    /**
+     * Processes the input command to add a podcast by a host user and notifies observers.
+     *
+     * @param command The command containing information about the user and
+     *                the operation to be performed.
+     * @param library The main library containing information about users and entities.
+     */
     public void returnAddPodcast(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());
@@ -84,7 +95,13 @@ public class AddPodcast extends Command {
         setMessage(this.getUsername() + " has added new podcast successfully.");
     }
 
-    public boolean hasDuplicateEpisodes(ArrayList<Episodes> podcastEpisodes) {
+    /**
+     * Checks if there are duplicate episodes in the provided list.
+     *
+     * @param podcastEpisodes The list of episodes to check for duplicates.
+     * @return {@code true} if duplicate episodes are found, {@code false} otherwise.
+     */
+    public boolean hasDuplicateEpisodes(final ArrayList<Episodes> podcastEpisodes) {
         Set<String> uniqueNames = new HashSet<>();
 
         for (Episodes episode : podcastEpisodes) {
@@ -100,7 +117,13 @@ public class AddPodcast extends Command {
         return false;
     }
 
-    public void addPodcastToUsers(final Library library, Podcasts podcast) {
+    /**
+     * Adds the podcast to the music player of each user in the library.
+     *
+     * @param library The main library containing information about users and entities.
+     * @param podcast The podcast to be added to users' music players.
+     */
+    public void addPodcastToUsers(final Library library, final Podcasts podcast) {
         ArrayList<Users> users = library.getUsers();
         for (Users user : users) {
             if (user.getMusicPlayer() != null && user.getMusicPlayer().getPodcasts() != null) {
@@ -111,7 +134,12 @@ public class AddPodcast extends Command {
         }
     }
 
-    public void setMessage(String message) {
+    /**
+     * Sets the message indicating the result of the add podcast operation.
+     *
+     * @param message The message to be set.
+     */
+    public void setMessage(final String message) {
         this.message = message;
     }
 }

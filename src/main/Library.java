@@ -2,11 +2,11 @@ package main;
 
 import commands.page.Observer;
 import lombok.Getter;
-import userEntities.Users;
-import userEntities.audio.Album;
-import userEntities.audio.Playlists;
-import userEntities.audio.Podcasts;
-import userEntities.audio.Songs;
+import user.entities.Users;
+import user.entities.audio.files.Album;
+import user.entities.audio.files.Playlists;
+import user.entities.audio.files.Podcasts;
+import user.entities.audio.files.Songs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -89,14 +89,27 @@ public final class Library {
         this.playlists = playlists;
     }
 
-    public void setAlbums(ArrayList<Album> albums) {
+    /**
+     * Sets the list of albums in the library.
+     *
+     * @param albums The list of albums to set.
+     */
+    public void setAlbums(final ArrayList<Album> albums) {
         this.albums = albums;
     }
 
-    public void setObserversMap(Map<String, ArrayList<Observer>> observersMap) {
+    /**
+     * Sets the observer map in the library.
+     *
+     * @param observersMap The observer map to set.
+     */
+    public void setObserversMap(final Map<String, ArrayList<Observer>> observersMap) {
         this.observersMap = observersMap;
     }
 
+    /**
+     * Resets the library by creating new instances of lists and maps.
+     */
     public void reset() {
         users = new ArrayList<>();
         songs = new ArrayList<>();

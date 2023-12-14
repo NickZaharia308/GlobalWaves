@@ -3,8 +3,8 @@ package commands.users;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
-import userEntities.audio.Episodes;
+import user.entities.Users;
+import user.entities.audio.files.Episodes;
 
 /**
  * Represents a command to rewind with 90 seconds the current podcast episode.

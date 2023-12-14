@@ -3,7 +3,7 @@ package commands.users;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
+import user.entities.Users;
 
 @Getter
 public class PlayPause extends Command {

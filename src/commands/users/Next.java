@@ -3,7 +3,7 @@ package commands.users;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
+import user.entities.Users;
 
 /**
  * Represents a command to skip to the next track in the user's playlist.

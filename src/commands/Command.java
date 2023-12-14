@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import lombok.Getter;
 
-import java.util.ArrayList;
-
 /**
  * The {@code Command} class represents a user command with various parameters.
  * It is used as a body for the rest of the Classes that have the fields of Command
@@ -115,44 +113,93 @@ public class Command {
         this.playlistId = playlistId;
     }
 
-
-    public void setAge(int age) {
+    /**
+     * Sets the age for the current instance.
+     *
+     * @param age The age to be set.
+     */
+    public void setAge(final int age) {
         this.age = age;
     }
 
-    public void setCity(String city) {
+    /**
+     * Sets the city for the current instance.
+     *
+     * @param city The city to be set.
+     */
+    public void setCity(final String city) {
         this.city = city;
     }
 
-    public void setName(String name) {
+    /**
+     * Sets the name for the current instance.
+     *
+     * @param name The name to be set.
+     */
+    public void setName(final String name) {
         this.name = name;
     }
 
-    public void setDescription(String description) {
+    /**
+     * Sets the description for the current instance.
+     *
+     * @param description The description to be set.
+     */
+    public void setDescription(final String description) {
         this.description = description;
     }
 
-    public void setSongs(ArrayNode songs) {
+    /**
+     * Sets the songs for the current instance.
+     *
+     * @param songs The songs to be set.
+     */
+    public void setSongs(final ArrayNode songs) {
         this.songs = songs;
     }
 
-    public void setEpisodes(ArrayNode episodes) {
+    /**
+     * Sets the episodes for the current instance.
+     *
+     * @param episodes The episodes to be set.
+     */
+    public void setEpisodes(final ArrayNode episodes) {
         this.episodes = episodes;
     }
 
-    public void setReleaseYear(int releaseYear) {
+    /**
+     * Sets the release year for the current instance.
+     *
+     * @param releaseYear The release year to be set.
+     */
+    public void setReleaseYear(final int releaseYear) {
         this.releaseYear = releaseYear;
     }
 
-    public void setDate(String date) {
+    /**
+     * Sets the date for the current instance.
+     *
+     * @param date The date to be set.
+     */
+    public void setDate(final String date) {
         this.date = date;
     }
 
-    public void setPrice(int price) {
+    /**
+     * Sets the price for the current instance.
+     *
+     * @param price The price to be set.
+     */
+    public void setPrice(final int price) {
         this.price = price;
     }
 
-    public void setNextPage(String nextPage) {
+    /**
+     * Sets the next page for the current instance.
+     *
+     * @param nextPage The next page to be set.
+     */
+    public void setNextPage(final String nextPage) {
         this.nextPage = nextPage;
     }
 }

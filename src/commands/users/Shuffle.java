@@ -3,9 +3,9 @@ package commands.users;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import userEntities.Users;
-import userEntities.audio.Album;
-import userEntities.audio.Playlists;
+import user.entities.Users;
+import user.entities.audio.files.Album;
+import user.entities.audio.files.Playlists;
 
 /**
  * Represents a command to shuffle the songs in a playlist.
@@ -39,8 +39,8 @@ public class Shuffle extends Command {
         }
 
         // If the loaded source is not a playlist nor an album
-        if (!(user.getTrackType() == Users.Track.PLAYLIST ||
-                user.getTrackType() == Users.Track.ALBUM)) {
+        if (!(user.getTrackType() == Users.Track.PLAYLIST
+                || user.getTrackType() == Users.Track.ALBUM)) {
             setMessage("The loaded source is not a playlist or an album.");
             return;
         }
@@ -52,13 +52,14 @@ public class Shuffle extends Command {
         }
     }
 
-    private void shufflePlaylist (Command command, Users user) {
+    private void shufflePlaylist(final Command command, final Users user) {
         final int seed = command.getSeed();
         if (!user.getMusicPlayer().isShuffled()) {
             user.getMusicPlayer().setShuffled(true);
 
-            if (user.getMusicPlayer().getPlaylist() == null)
+            if (user.getMusicPlayer().getPlaylist() == null) {
                 return;
+            }
 
             Playlists originalPlaylist = user.getMusicPlayer().getPlaylist();
             Playlists shuffledPlaylist = new Playlists(originalPlaylist, seed);
@@ -82,7 +83,7 @@ public class Shuffle extends Command {
         }
     }
 
-    private void shuffleAlbum (Command command, Users user) {
+    private void shuffleAlbum(final Command command, final Users user) {
         final int seed = command.getSeed();
         if (!user.getMusicPlayer().isShuffled()) {
             user.getMusicPlayer().setShuffled(true);

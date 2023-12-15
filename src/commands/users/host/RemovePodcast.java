@@ -69,6 +69,7 @@ public class RemovePodcast extends Command {
         }
 
         host.getPodcasts().remove(podcastToDelete);
+        library.getPodcasts().remove(podcastToDelete);
 
         // Notify the observers
         Subject subject = new Subject();

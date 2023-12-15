@@ -29,7 +29,7 @@ public final class Library {
 
     /**
      * Private constructor to prevent external instantiation.
-     * Initializes the lists for users, songs, podcasts, and playlists.
+     * Initializes the lists for users, songs, podcasts, playlists, albums and the observersMap.
      */
     private Library() {
         this.users = new ArrayList<>();

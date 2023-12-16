@@ -163,30 +163,12 @@ public class Users implements Observer {
     }
 
     /**
-     * Checks if something is selected for the user.
-     *
-     * @return True if something is selected, false otherwise.
-     */
-    public boolean isSomethingSelected() {
-        return isSomethingSelected;
-    }
-
-    /**
      * Sets whether something is selected for the user.
      *
      * @param somethingSelected True if something is selected, false otherwise.
      */
     public void setSomethingSelected(final boolean somethingSelected) {
         isSomethingSelected = somethingSelected;
-    }
-
-    /**
-     * Checks if something is loaded for the user.
-     *
-     * @return True if something is loaded, false otherwise.
-     */
-    public boolean isSomethingLoaded() {
-        return isSomethingLoaded;
     }
 
     /**

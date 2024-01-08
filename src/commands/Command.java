@@ -31,6 +31,8 @@ public class Command {
     protected String date;
     protected int price;
     protected String nextPage;
+    protected String recommendationType;
+
 
     /**
      * Sets the command for the current instance.

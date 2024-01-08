@@ -6,6 +6,8 @@ import user.entities.audio.files.Album;
 import user.entities.specialEntities.Event;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Represents an Artist entity in the music library system.
@@ -18,6 +20,7 @@ public class Artist extends Users {
     private ArrayList<Album> albums = new ArrayList<>();
     private ArrayList<Event> events = new ArrayList<>();
     private ArrayList<Merch> merchandise = new ArrayList<>();
+    private Map<String, Integer> topFans = new HashMap<>();
 
     /**
      * Constructs a new Artist object with the specified username, age, and city.

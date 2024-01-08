@@ -13,12 +13,7 @@ import commands.page.PrintCurrentPage;
 import commands.searchBar.Load;
 import commands.searchBar.Search;
 import commands.searchBar.Select;
-import commands.statistics.GetAllUsers;
-import commands.statistics.GetOnlineUsers;
-import commands.statistics.GetTop5Albums;
-import commands.statistics.GetTop5Artists;
-import commands.statistics.GetTop5Playlists;
-import commands.statistics.GetTop5Songs;
+import commands.statistics.*;
 import commands.users.AddRemoveInPlaylist;
 import commands.users.Backward;
 import commands.users.Forward;
@@ -55,6 +50,7 @@ import user.entities.audio.files.Songs;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -589,6 +585,49 @@ public class PrintOutput {
                 resultsArrayNode.add(artist.getUsername());
             }
             resultNode.set("result", resultsArrayNode);
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "wrapped")) {
+            Wrapped wrapped = new Wrapped();
+            wrapped.returnWrapped(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", wrapped.getCommand());
+            resultNode.put("user", wrapped.getUsername());
+            resultNode.put("timestamp", wrapped.getTimestamp());
+
+            ObjectNode resultObjectNode = objectMapper.createObjectNode();
+
+            ObjectNode topArtistsNode = objectMapper.createObjectNode();
+            for (Map.Entry<String, Integer> entry : wrapped.getTopArtists()) {
+                topArtistsNode.put(entry.getKey(), entry.getValue());
+            }
+            resultObjectNode.set("topArtists", topArtistsNode);
+
+            ObjectNode topGenresNode = objectMapper.createObjectNode();
+            for (Map.Entry<String, Integer> entry : wrapped.getTopGenres()) {
+                topGenresNode.put(entry.getKey(), entry.getValue());
+            }
+            resultObjectNode.set("topGenres", topGenresNode);
+
+            ObjectNode topSongsNode = objectMapper.createObjectNode();
+            for (Map.Entry<String, Integer> entry : wrapped.getTopSongs()) {
+                topSongsNode.put(entry.getKey(), entry.getValue());
+            }
+            resultObjectNode.set("topSongs", topSongsNode);
+
+            ObjectNode topAlbums = objectMapper.createObjectNode();
+            for (Map.Entry<String, Integer> entry : wrapped.getTopAlbums()) {
+                topAlbums.put(entry.getKey(), entry.getValue());
+            }
+            resultObjectNode.set("topAlbums", topAlbums);
+
+            ObjectNode topEpisodes = objectMapper.createObjectNode();
+            for (Map.Entry<String, Integer> entry : wrapped.getTopEpisodes()) {
+                topEpisodes.put(entry.getKey(), entry.getValue());
+            }
+            resultObjectNode.set("topEpisodes", topEpisodes);
+
+            resultNode.set("result", resultObjectNode);
             outputs.add(resultNode);
         }
     }

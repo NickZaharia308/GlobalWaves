@@ -3,6 +3,7 @@ package commands.searchBar;
 import com.fasterxml.jackson.databind.JsonNode;
 import commands.Command;
 import commands.page.Subject;
+import commands.statistics.Wrapped;
 import lombok.Getter;
 import main.Library;
 import user.entities.Users;
@@ -285,6 +286,10 @@ public class Search extends Command {
                             + playTimestamp - timestamp;
             user.getMusicPlayer().getEpisode().setRemainingTime(leftTime);
         }
+
+        // Update the Wrapped for user
+        Wrapped wrapped = new Wrapped();
+        wrapped.returnWrapped(command, library);
 
         // Canceling the MusicPlayer (loader)
         user.setSomethingLoaded(false);

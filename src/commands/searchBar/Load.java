@@ -47,6 +47,8 @@ public class Load extends Command {
                 Songs playerSong = user.getMusicPlayer().getSong();
 
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
+                // Update the maps for the user
+                updateMaps(playerSong, user);
             } else if (user.getTrackType() == Users.Track.PLAYLIST) {
                 if (user.getMusicPlayer().getPlaylist().getSongs().isEmpty()) {
                     return;
@@ -57,6 +59,8 @@ public class Load extends Command {
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
                 // Set the first song on the player
                 user.getMusicPlayer().setSong(playerSong);
+                // Update the maps for the user
+                updateMaps(playerSong, user);
             } else if (user.getTrackType() == Users.Track.PODCAST) {
                 // Get the first episode from the podcast
                 Episodes playerEpisode = user.getMusicPlayer().getPodcast().getEpisodes().get(0);
@@ -64,6 +68,8 @@ public class Load extends Command {
                 user.getMusicPlayer().setRemainedTime(playerEpisode.getDuration());
                 // Set the first episode on the player
                 user.getMusicPlayer().setEpisode(playerEpisode);
+                // Update the map for the episodes
+                updateTopEpisodes(playerEpisode, user);
             } else if (user.getTrackType() == Users.Track.ALBUM) {
                 if (user.getMusicPlayer().getAlbum().getSongs().isEmpty()) {
                     return;
@@ -74,6 +80,8 @@ public class Load extends Command {
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
                 // Set the first song on the player
                 user.getMusicPlayer().setSong(playerSong);
+                // Update the maps for the user
+                updateMaps(playerSong, user);
             }
             user.setSomethingSelected(false);
             user.getMusicPlayer().setRepeatMode(0);
@@ -96,6 +104,17 @@ public class Load extends Command {
      */
     public void setMessage(final String message) {
         this.message = message;
+    }
+
+    public void updateMaps(final Songs loadedSong, final Users user) {
+        user.getTopSongs().put(loadedSong.getName(), user.getTopSongs().getOrDefault(loadedSong.getName(), 0) + 1);
+        user.getTopGenres().put(loadedSong.getGenre(), user.getTopGenres().getOrDefault(loadedSong.getGenre(), 0) + 1);
+        user.getTopArtists().put(loadedSong.getArtist(), user.getTopArtists().getOrDefault(loadedSong.getArtist(), 0) + 1);
+        user.getTopAlbums().put(loadedSong.getAlbum(), user.getTopAlbums().getOrDefault(loadedSong.getAlbum(), 0) + 1);
+    }
+
+    public void updateTopEpisodes(final Episodes loadedEpisode, final Users user) {
+        user.getTopEpisodes().put(loadedEpisode.getName(), user.getTopEpisodes().getOrDefault(loadedEpisode.getName(), 0) + 1);
     }
 }
 

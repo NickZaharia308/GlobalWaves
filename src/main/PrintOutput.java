@@ -4,10 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import commands.Command;
-import commands.admin.AddUser;
-import commands.admin.DeleteUser;
-import commands.admin.ShowAlbums;
-import commands.admin.ShowPodcasts;
+import commands.admin.*;
 import commands.page.ChangePage;
 import commands.page.PrintCurrentPage;
 import commands.searchBar.Load;
@@ -597,37 +594,92 @@ public class PrintOutput {
 
             ObjectNode resultObjectNode = objectMapper.createObjectNode();
 
-            ObjectNode topArtistsNode = objectMapper.createObjectNode();
-            for (Map.Entry<String, Integer> entry : wrapped.getTopArtists()) {
-                topArtistsNode.put(entry.getKey(), entry.getValue());
+            if (wrapped.getUserType() == Users.UserType.NORMAL) {
+                ObjectNode topArtistsNode = objectMapper.createObjectNode();
+                for (Map.Entry<String, Integer> entry : wrapped.getTopArtists()) {
+                    topArtistsNode.put(entry.getKey(), entry.getValue());
+                }
+                resultObjectNode.set("topArtists", topArtistsNode);
             }
-            resultObjectNode.set("topArtists", topArtistsNode);
 
-            ObjectNode topGenresNode = objectMapper.createObjectNode();
-            for (Map.Entry<String, Integer> entry : wrapped.getTopGenres()) {
-                topGenresNode.put(entry.getKey(), entry.getValue());
+            if (wrapped.getUserType() == Users.UserType.NORMAL) {
+                ObjectNode topGenresNode = objectMapper.createObjectNode();
+                for (Map.Entry<String, Integer> entry : wrapped.getTopGenres()) {
+                    topGenresNode.put(entry.getKey(), entry.getValue());
+                }
+                resultObjectNode.set("topGenres", topGenresNode);
             }
-            resultObjectNode.set("topGenres", topGenresNode);
 
-            ObjectNode topSongsNode = objectMapper.createObjectNode();
-            for (Map.Entry<String, Integer> entry : wrapped.getTopSongs()) {
-                topSongsNode.put(entry.getKey(), entry.getValue());
+            if (wrapped.getUserType() == Users.UserType.NORMAL || wrapped.getUserType() == Users.UserType.ARTIST) {
+                ObjectNode topSongsNode = objectMapper.createObjectNode();
+                for (Map.Entry<String, Integer> entry : wrapped.getTopSongs()) {
+                    topSongsNode.put(entry.getKey(), entry.getValue());
+                }
+                resultObjectNode.set("topSongs", topSongsNode);
             }
-            resultObjectNode.set("topSongs", topSongsNode);
 
-            ObjectNode topAlbums = objectMapper.createObjectNode();
-            for (Map.Entry<String, Integer> entry : wrapped.getTopAlbums()) {
-                topAlbums.put(entry.getKey(), entry.getValue());
+            if (wrapped.getUserType() == Users.UserType.NORMAL || wrapped.getUserType() == Users.UserType.ARTIST) {
+                ObjectNode topAlbums = objectMapper.createObjectNode();
+                for (Map.Entry<String, Integer> entry : wrapped.getTopAlbums()) {
+                    topAlbums.put(entry.getKey(), entry.getValue());
+                }
+                resultObjectNode.set("topAlbums", topAlbums);
             }
-            resultObjectNode.set("topAlbums", topAlbums);
 
-            ObjectNode topEpisodes = objectMapper.createObjectNode();
-            for (Map.Entry<String, Integer> entry : wrapped.getTopEpisodes()) {
-                topEpisodes.put(entry.getKey(), entry.getValue());
+            if (wrapped.getUserType() == Users.UserType.NORMAL) {
+                ObjectNode topEpisodes = objectMapper.createObjectNode();
+                for (Map.Entry<String, Integer> entry : wrapped.getTopEpisodes()) {
+                    topEpisodes.put(entry.getKey(), entry.getValue());
+                }
+                resultObjectNode.set("topEpisodes", topEpisodes);
             }
-            resultObjectNode.set("topEpisodes", topEpisodes);
+
+            if (wrapped.getUserType() == Users.UserType.ARTIST) {
+                ArrayNode topFansArray = objectMapper.createArrayNode();
+                for (Map.Entry<String, Integer> entry : wrapped.getTopFans()) {
+                    topFansArray.add(entry.getKey());
+                }
+                resultObjectNode.set("topFans", topFansArray);
+            }
+
+            if (wrapped.getUserType() == Users.UserType.ARTIST) {
+                int count = 0;
+                for (Map.Entry<String, Boolean> entry : wrapped.getListeners()) {
+                    if (entry.getValue()) {
+                        count++;
+                    }
+                }
+                resultObjectNode.put("listeners", count);
+            }
 
             resultNode.set("result", resultObjectNode);
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "endProgram")) {
+            EndProgram endProgram = new EndProgram();
+            endProgram.returnEndProgram(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", endProgram.getCommand());
+
+            ArrayNode resultsArrayNode = resultNode.putArray("result");
+            ObjectNode artistsNode = objectMapper.createObjectNode();
+
+            for (Users user : myLibrary.getUsers()) {
+                if (user.getUserType() == Users.UserType.ARTIST) {
+                    Artist artist = (Artist) user;
+                    if (artist.hasTrueValue()) {
+                        ObjectNode artistInfoNode = objectMapper.createObjectNode();
+                        artistInfoNode.put("merchRevenue", artist.getMerchRevenue());
+                        artistInfoNode.put("mostProfitableSong", artist.getMostProfitableSong());
+                        artistInfoNode.put("ranking", artist.getRanking());
+                        artistInfoNode.put("songRevenue", artist.getSongRevenue());
+
+                        artistsNode.set(artist.getUsername(), artistInfoNode);
+                    }
+                }
+            }
+
+            resultNode.set("result", artistsNode);
             outputs.add(resultNode);
         }
     }

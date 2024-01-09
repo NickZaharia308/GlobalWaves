@@ -21,6 +21,11 @@ public class Artist extends Users {
     private ArrayList<Event> events = new ArrayList<>();
     private ArrayList<Merch> merchandise = new ArrayList<>();
     private Map<String, Integer> topFans = new HashMap<>();
+    private Map<String, Boolean> listeners = new HashMap<>();
+    private double merchRevenue;
+    private double songRevenue;
+    private int ranking = 1;
+    private String mostProfitableSong = new String("N/A");
 
     /**
      * Constructs a new Artist object with the specified username, age, and city.
@@ -123,5 +128,14 @@ public class Artist extends Users {
         }
 
         return builder.toString();
+    }
+
+    public boolean hasTrueValue() {
+        for (boolean value : listeners.values()) {
+            if (value) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -147,6 +147,9 @@ public final class Main {
         for (Command command: commands) {
             PrintOutput.printOutput(outputs, objectMapper, command, myLibrary);
         }
+        Command endProgram = new Command();
+        endProgram.setCommand("endProgram");
+        PrintOutput.printOutput(outputs, objectMapper, endProgram, myLibrary);
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(new File(filePath2), outputs);

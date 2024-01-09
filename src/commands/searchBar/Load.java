@@ -3,6 +3,7 @@ package commands.searchBar;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
+import user.entities.Artist;
 import user.entities.Users;
 import user.entities.audio.files.Episodes;
 import user.entities.audio.files.Songs;
@@ -48,7 +49,7 @@ public class Load extends Command {
 
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
                 // Update the maps for the user
-                updateMaps(playerSong, user);
+                updateMaps(playerSong, user, library);
             } else if (user.getTrackType() == Users.Track.PLAYLIST) {
                 if (user.getMusicPlayer().getPlaylist().getSongs().isEmpty()) {
                     return;
@@ -60,7 +61,7 @@ public class Load extends Command {
                 // Set the first song on the player
                 user.getMusicPlayer().setSong(playerSong);
                 // Update the maps for the user
-                updateMaps(playerSong, user);
+                updateMaps(playerSong, user, library);
             } else if (user.getTrackType() == Users.Track.PODCAST) {
                 // Get the first episode from the podcast
                 Episodes playerEpisode = user.getMusicPlayer().getPodcast().getEpisodes().get(0);
@@ -81,7 +82,7 @@ public class Load extends Command {
                 // Set the first song on the player
                 user.getMusicPlayer().setSong(playerSong);
                 // Update the maps for the user
-                updateMaps(playerSong, user);
+                updateMaps(playerSong, user, library);
             }
             user.setSomethingSelected(false);
             user.getMusicPlayer().setRepeatMode(0);
@@ -106,11 +107,19 @@ public class Load extends Command {
         this.message = message;
     }
 
-    public void updateMaps(final Songs loadedSong, final Users user) {
+    public void updateMaps(final Songs loadedSong, final Users user, final Library library) {
         user.getTopSongs().put(loadedSong.getName(), user.getTopSongs().getOrDefault(loadedSong.getName(), 0) + 1);
         user.getTopGenres().put(loadedSong.getGenre(), user.getTopGenres().getOrDefault(loadedSong.getGenre(), 0) + 1);
         user.getTopArtists().put(loadedSong.getArtist(), user.getTopArtists().getOrDefault(loadedSong.getArtist(), 0) + 1);
         user.getTopAlbums().put(loadedSong.getAlbum(), user.getTopAlbums().getOrDefault(loadedSong.getAlbum(), 0) + 1);
+
+        Users artistAsUser = user.getUser(library.getUsers(), loadedSong.getArtist());
+        artistAsUser.getTopSongs().put(loadedSong.getName(), artistAsUser.getTopSongs().getOrDefault(loadedSong.getName(), 0) + 1);
+        artistAsUser.getTopAlbums().put(loadedSong.getAlbum(), artistAsUser.getTopAlbums().getOrDefault(loadedSong.getAlbum(), 0) + 1);
+        // Cast to Artist
+        Artist artist = (Artist) artistAsUser;
+        artist.getListeners().put(user.getUsername(), true);
+        artist.getTopFans().put(user.getUsername(), artist.getTopFans().getOrDefault(user.getUsername(), 0) + 1);
     }
 
     public void updateTopEpisodes(final Episodes loadedEpisode, final Users user) {

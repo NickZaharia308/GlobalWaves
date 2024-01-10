@@ -26,6 +26,8 @@ public class Artist extends Users {
     private double songRevenue;
     private int ranking = 1;
     private String mostProfitableSong = new String("N/A");
+    private int addOnPlatformOrder;
+    private static int order = 0;
 
     /**
      * Constructs a new Artist object with the specified username, age, and city.
@@ -37,6 +39,8 @@ public class Artist extends Users {
     public Artist(final String username, final int age, final String city) {
         super(username, age, city);
         super.setOnline(false);
+        this.addOnPlatformOrder = order;
+        order++;
     }
 
     /**
@@ -138,4 +142,5 @@ public class Artist extends Users {
         }
         return false;
     }
+
 }

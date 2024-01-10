@@ -6,6 +6,7 @@ import commands.page.Subject;
 import commands.statistics.Wrapped;
 import lombok.Getter;
 import main.Library;
+import user.entities.Artist;
 import user.entities.Users;
 import user.entities.audio.files.Album;
 import user.entities.audio.files.Playlists;
@@ -13,9 +14,7 @@ import user.entities.audio.files.Podcasts;
 import user.entities.audio.files.Songs;
 import user.entities.specialEntities.PageMenu;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Objects;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,6 +28,7 @@ public class Search extends Command {
     private LinkedList<String> results;
     private int noOfResults = 0;
     private final int maxSearches = 5;
+    private ArrayList<Album> albumResult = new ArrayList<>();
 
     /**
      * Performs a search based on the provided command and updates the search results and message.
@@ -77,8 +77,8 @@ public class Search extends Command {
         for (Songs song : songs) {
             boolean matchesAllFilters = true;
             if (filters.has("name")) {
-                String substring = filters.get("name").asText();
-                matchesAllFilters &= song.getName().startsWith(substring);
+                String substring = filters.get("name").asText().toLowerCase();
+                matchesAllFilters &= song.getName().toLowerCase().startsWith(substring);
             }
             if (filters.has("album")) {
                 String album = filters.get("album").asText();
@@ -143,7 +143,7 @@ public class Search extends Command {
             boolean matchesAllFilters = true;
             if (filters.has("name")) {
                 String substring = filters.get("name").asText();
-                matchesAllFilters &= podcast.getName().startsWith(substring);
+                matchesAllFilters &= podcast.getName().toLowerCase().startsWith(substring);
             }
             if (filters.has("owner")) {
                 String owner = filters.get("owner").asText();
@@ -164,7 +164,7 @@ public class Search extends Command {
             boolean matchesAllFilters = true;
             if (filters.has("name")) {
                 String substring = filters.get("name").asText();
-                matchesAllFilters &= playlist.getName().startsWith(substring);
+                matchesAllFilters &= playlist.getName().toLowerCase().startsWith(substring);
             }
             if (filters.has("owner")) {
                 String owner = filters.get("owner").asText();
@@ -228,11 +228,13 @@ public class Search extends Command {
 
             if (matchesAllFilters && noOfResults < maxSearches) {
                 noOfResults++;
-                this.results.add(album.getName());
+                this.albumResult.add(album);
             } else if (noOfResults == maxSearches) {
                 break;
             }
         }
+        sortAlbums(library, this.albumResult);
+        this.results = extractAlbumNames(this.albumResult);
     }
 
     private void searchHost(final Library library, final JsonNode filters) {
@@ -370,5 +372,32 @@ public class Search extends Command {
                 // Handle the case when the operator is not > or <
                 return false;
         }
+    }
+
+    public static void sortAlbums(final Library myLibrary, List<Album> albums) {
+        Comparator<Album> albumComparator = Comparator
+                .comparing((Album album) -> {
+                    Artist owner = getArtistByUsername(myLibrary, album.getOwner());
+                    return owner != null ? owner.getAddOnPlatformOrder() : Long.MAX_VALUE;
+                })
+                .thenComparing(Album::getAddTimestamp);
+
+        albums.sort(albumComparator);
+    }
+
+    private static Artist getArtistByUsername(final Library library, final String username) {
+
+        Users user = new Users();
+        user = user.getUser(library.getUsers(), username);
+
+        return (Artist) user;
+    }
+
+    private static LinkedList<String> extractAlbumNames(List<Album> sortedAlbums) {
+        LinkedList<String> results = new LinkedList<>();
+        for (Album album : sortedAlbums) {
+            results.add(album.getName());
+        }
+        return results;
     }
 }

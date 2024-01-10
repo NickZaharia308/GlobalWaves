@@ -592,6 +592,12 @@ public class PrintOutput {
             resultNode.put("user", wrapped.getUsername());
             resultNode.put("timestamp", wrapped.getTimestamp());
 
+            if (wrapped.getMessage() != null) {
+                resultNode.put("message", wrapped.getMessage());
+                outputs.add(resultNode);
+                return;
+            }
+
             ObjectNode resultObjectNode = objectMapper.createObjectNode();
 
             if (wrapped.getUserType() == Users.UserType.NORMAL) {

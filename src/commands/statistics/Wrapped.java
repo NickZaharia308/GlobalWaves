@@ -4,6 +4,7 @@ import commands.Command;
 import commands.searchBar.Load;
 import commands.users.Status;
 import lombok.Getter;
+import lombok.Setter;
 import main.Library;
 import user.entities.Artist;
 import user.entities.Users;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @Getter
+@Setter
 public class Wrapped extends Command {
     private String message;
     private final int maxTop = 5;
@@ -40,6 +42,13 @@ public class Wrapped extends Command {
             userType = Users.UserType.ARTIST;
             Artist artist = (Artist) user;
 
+            // update the maps for all normal users of the platform
+            for (Users currentUser : library.getUsers()) {
+                if (currentUser.getUserType() == Users.UserType.NORMAL) {
+                    updateMapsForUsers(command, library, currentUser);
+                }
+            }
+
             topSongs = new ArrayList<>(artist.getTopSongs().entrySet());
             topAlbums = new ArrayList<>(artist.getTopAlbums().entrySet());
             topFans = new ArrayList<>(artist.getTopFans().entrySet());
@@ -52,6 +61,11 @@ public class Wrapped extends Command {
             return;
         }
         updateMapsForUsers(command, library, user);
+
+        if (user.getTopSongs().isEmpty()) {
+            setMessage("No data to show for user " + user.getUsername() + ".");
+            return;
+        }
 
         topArtists = new ArrayList<>(user.getTopArtists().entrySet());
         topGenres = new ArrayList<>(user.getTopGenres().entrySet());
@@ -77,34 +91,35 @@ public class Wrapped extends Command {
 
     private void updateMapsForUsers(final Command command, final Library library, Users user) {
         Load load = new Load();
+        if (user.getMusicPlayer() == null) {
+            return;
+        }
+        Songs oldSong = user.getMusicPlayer().getSong();
+
+        command.setUsername(user.getUsername());
         Status status = new Status();
         status.returnStatus(command, library);
 
         if (user.getTrackType() == Users.Track.ALBUM) {
-            Songs currentSong = user.getMusicPlayer().getSong();
 
             // if we haven't finish the album
             if (user.isSomethingLoaded()) {
-                load.updateMaps(currentSong, user, library);
-
-                for (Songs song : user.getMusicPlayer().getAlbum().getSongs()) {
-                    // if we reached current song break
-                    // else if it is the first song, don't add
-                    if (song.getName().equals(currentSong.getName())) {
-                        break;
-                    } else if (song != user.getMusicPlayer().getAlbum().getSongs().get(0)) {
-                        // add it to the maps
-                        load.updateMaps(song, user, library);
-                    }
+                Songs currentSong = user.getMusicPlayer().getSong();
+                ArrayList<Songs> songsToBeUpdated = new ArrayList<>(getSongsBetween(user.getMusicPlayer().getAlbum().getSongs(), oldSong, currentSong));
+                for (Songs song : songsToBeUpdated) {
+                    load.updateMaps(song, user, library);
                 }
             } else {
-                // we update for each song if we finished the album
-                for (Songs song : user.getMusicPlayer().getAlbum().getSongs()) {
-                    // update for each song, except the first one
-                    if (song != user.getMusicPlayer().getAlbum().getSongs().get(0)) {
-                        // add it to the maps
-                        load.updateMaps(song, user, library);
-                    }
+
+                if (user.getMusicPlayer().getAlbum() == null) {
+                    return;
+                }
+
+
+                Songs lastSong = user.getMusicPlayer().getAlbum().getSongs().get(user.getMusicPlayer().getAlbum().getSongs().size() - 1);
+                ArrayList<Songs> songsToBeUpdated = new ArrayList<>(getSongsBetween(user.getMusicPlayer().getAlbum().getSongs(), oldSong, lastSong));
+                for (Songs song : songsToBeUpdated) {
+                    load.updateMaps(song, user, library);
                 }
             }
         } else if (user.getTrackType() == Users.Track.PLAYLIST) {
@@ -135,6 +150,21 @@ public class Wrapped extends Command {
                     load.updateTopEpisodes(episode, user);
                 }
             }
+        }
+    }
+
+    // Method to get songs between two given songs
+    // Method to get songs between two given songs (exclusive)
+    private static List<Songs> getSongsBetween(List<Songs> songList, Songs song1, Songs song2) {
+        int startIndex = songList.indexOf(song1);
+        int endIndex = songList.indexOf(song2);
+
+        if (startIndex >= 0 && endIndex >= 0 && startIndex < endIndex) {
+            // Create a new list and add all songs between startIndex + 1 and endIndex
+            return new ArrayList<>(songList.subList(startIndex + 1, endIndex + 1));
+        } else {
+            // Handle the case where either song1 or song2 is not found in the list or startIndex is not less than endIndex
+            return new ArrayList<>();
         }
     }
 }

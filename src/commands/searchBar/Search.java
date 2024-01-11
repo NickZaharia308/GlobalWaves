@@ -226,15 +226,16 @@ public class Search extends Command {
                 matchesAllFilters &= album.getDescription().startsWith(description);
             }
 
-            if (matchesAllFilters && noOfResults < maxSearches) {
+            if (matchesAllFilters) {
                 noOfResults++;
                 this.albumResult.add(album);
-            } else if (noOfResults == maxSearches) {
-                break;
             }
         }
         sortAlbums(library, this.albumResult);
         this.results = extractAlbumNames(this.albumResult);
+        if (noOfResults > 5) {
+            noOfResults = 5;
+        }
     }
 
     private void searchHost(final Library library, final JsonNode filters) {
@@ -277,6 +278,9 @@ public class Search extends Command {
 
         user.setNoOfSearchResults(this.noOfResults);
         user.setSearchResults(this.results);
+        if (Objects.equals(command.getType(), "album")) {
+            user.setAlbumResults(albumResult);
+        }
 
         // Checking if the search interrupts an episode
         if (user.getMusicPlayer() != null && user.getTrackType() == Users.Track.PODCAST
@@ -380,7 +384,7 @@ public class Search extends Command {
                     Artist owner = getArtistByUsername(myLibrary, album.getOwner());
                     return owner != null ? owner.getAddOnPlatformOrder() : Long.MAX_VALUE;
                 })
-                .thenComparing(Album::getAddTimestamp);
+                .thenComparing(Album::getAddOrder);
 
         albums.sort(albumComparator);
     }
@@ -393,10 +397,16 @@ public class Search extends Command {
         return (Artist) user;
     }
 
-    private static LinkedList<String> extractAlbumNames(List<Album> sortedAlbums) {
+    private LinkedList<String> extractAlbumNames(List<Album> sortedAlbums) {
         LinkedList<String> results = new LinkedList<>();
+        int maxAlbums = 0;
         for (Album album : sortedAlbums) {
-            results.add(album.getName());
+            if (maxAlbums < this.maxSearches) {
+                results.add(album.getName());
+            } else {
+                break;
+            }
+            maxAlbums++;
         }
         return results;
     }

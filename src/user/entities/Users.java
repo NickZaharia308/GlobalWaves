@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import main.Library;
 import user.entities.audio.MusicPlayer;
+import user.entities.audio.files.Album;
 import user.entities.specialEntities.PageMenu;
 import user.entities.audio.files.Playlists;
 import user.entities.audio.files.Songs;
@@ -53,6 +54,9 @@ public class Users implements Observer {
     private Map<String, Integer> topSongs = new HashMap<>();
     private Map<String, Integer> topAlbums = new HashMap<>();
     private Map<String, Integer> topEpisodes = new HashMap<>();
+    private ArrayList<Album> albumResults = new ArrayList<>();
+    private boolean premium;
+    private Map<Songs, Integer> songsFromArtists = new HashMap<>();
 
 
     /**

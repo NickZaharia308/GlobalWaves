@@ -113,6 +113,10 @@ public class Load extends Command {
         user.getTopArtists().put(loadedSong.getArtist(), user.getTopArtists().getOrDefault(loadedSong.getArtist(), 0) + 1);
         user.getTopAlbums().put(loadedSong.getAlbum(), user.getTopAlbums().getOrDefault(loadedSong.getAlbum(), 0) + 1);
 
+        if (user.isPremium()) {
+            user.getSongsFromArtists().put(loadedSong, user.getSongsFromArtists().getOrDefault(loadedSong, 0) + 1);
+        }
+
         Users artistAsUser = user.getUser(library.getUsers(), loadedSong.getArtist());
         artistAsUser.getTopSongs().put(loadedSong.getName(), artistAsUser.getTopSongs().getOrDefault(loadedSong.getName(), 0) + 1);
         artistAsUser.getTopAlbums().put(loadedSong.getAlbum(), artistAsUser.getTopAlbums().getOrDefault(loadedSong.getAlbum(), 0) + 1);

@@ -1,6 +1,8 @@
 package user.entities;
 
 import lombok.Getter;
+import lombok.Setter;
+import user.entities.audio.files.Songs;
 import user.entities.specialEntities.Merch;
 import user.entities.audio.files.Album;
 import user.entities.specialEntities.Event;
@@ -15,6 +17,7 @@ import java.util.Map;
  * about albums, events and merchandise associated with the artist.
  */
 @Getter
+@Setter
 public class Artist extends Users {
 
     private ArrayList<Album> albums = new ArrayList<>();
@@ -28,6 +31,7 @@ public class Artist extends Users {
     private String mostProfitableSong = new String("N/A");
     private int addOnPlatformOrder;
     private static int order = 0;
+    private Map<Songs, Double> songsRevenues = new HashMap<>();
 
     /**
      * Constructs a new Artist object with the specified username, age, and city.

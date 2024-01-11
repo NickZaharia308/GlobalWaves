@@ -42,6 +42,11 @@ public class Wrapped extends Command {
             userType = Users.UserType.ARTIST;
             Artist artist = (Artist) user;
 
+            if (!artist.hasTrueValue()) {
+                setMessage("No data to show for artist " + artist.getUsername() + ".");
+                return;
+            }
+
             // update the maps for all normal users of the platform
             for (Users currentUser : library.getUsers()) {
                 if (currentUser.getUserType() == Users.UserType.NORMAL) {
@@ -114,7 +119,6 @@ public class Wrapped extends Command {
                 if (user.getMusicPlayer().getAlbum() == null) {
                     return;
                 }
-
 
                 Songs lastSong = user.getMusicPlayer().getAlbum().getSongs().get(user.getMusicPlayer().getAlbum().getSongs().size() - 1);
                 ArrayList<Songs> songsToBeUpdated = new ArrayList<>(getSongsBetween(user.getMusicPlayer().getAlbum().getSongs(), oldSong, lastSong));

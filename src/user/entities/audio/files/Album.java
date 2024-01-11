@@ -16,7 +16,8 @@ public class Album {
     private String description;
     private ArrayList<Songs> songs = null;
     private String owner;
-    private int addTimestamp;
+    private int addOrder;
+    private static int order = 1;
 
     /**
      * Constructs an Album object with the specified name,
@@ -29,13 +30,14 @@ public class Album {
      * @param username     The username of the owner (artist) of the album.
      */
     public Album(final String name, final int releaseYear, final String description,
-                 final ArrayList<Songs> songs, final String username, final int addTimestamp) {
+                 final ArrayList<Songs> songs, final String username) {
         this.name = name;
         this.releaseYear = releaseYear;
         this.description = description;
         this.songs = songs;
         this.owner = username;
-        this.addTimestamp = addTimestamp;
+        this.addOrder = order;
+        order++;
     }
 
     /**
@@ -113,7 +115,7 @@ public class Album {
         this.owner = owner;
     }
 
-    public void setAddTimestamp(int addTimestamp) {
-        this.addTimestamp = addTimestamp;
+    public void setAddOrder(int addOrder) {
+        this.addOrder = addOrder;
     }
 }

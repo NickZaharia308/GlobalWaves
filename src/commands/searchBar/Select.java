@@ -145,12 +145,12 @@ public class Select extends Command {
             setMessage("Successfully selected " + user.getMusicPlayer().getPodcast().getName()
                     + ".");
         } else if (user.getTrackType() == Users.Track.ALBUM) {
-            String selectedAlbum = searchResults.get(itemNumber - 1);
+            Album selectedAlbum = user.getAlbumResults().get(itemNumber - 1);
 
             // Finding the selected album and adding it to user
             ArrayList<Album> albums = library.getAlbums();
             for (Album album : albums) {
-                if (album.getName().equals(selectedAlbum)) {
+                if (album.equals(selectedAlbum)) {
                     musicPlayer.setAlbum(album);
                     user.setMusicPlayer(musicPlayer);
                     break;

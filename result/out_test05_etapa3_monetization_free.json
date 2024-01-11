@@ -2948,12 +2948,7 @@
   "command" : "wrapped",
   "user" : "Pink Floyd",
   "timestamp" : 17942,
-  "result" : {
-    "topSongs" : { },
-    "topAlbums" : { },
-    "topFans" : [ ],
-    "listeners" : 0
-  }
+  "message" : "No data to show for artist Pink Floyd."
 }, {
   "command" : "wrapped",
   "user" : "david27",

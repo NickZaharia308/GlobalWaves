@@ -97,7 +97,7 @@ public class AddAlbum extends Command {
         }
 
         Album newAlbum = new Album(this.name, this.releaseYear, this.description,
-                                    albumSongs, this.username, command.getTimestamp());
+                                    albumSongs, this.username);
 
         // Adding the album to both the library and the artist
         library.getAlbums().add(newAlbum);

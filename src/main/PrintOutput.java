@@ -670,18 +670,30 @@ public class PrintOutput {
             ArrayNode resultsArrayNode = resultNode.putArray("result");
             ObjectNode artistsNode = objectMapper.createObjectNode();
 
-            for (Users user : myLibrary.getUsers()) {
-                if (user.getUserType() == Users.UserType.ARTIST) {
-                    Artist artist = (Artist) user;
-                    if (artist.hasTrueValue()) {
-                        ObjectNode artistInfoNode = objectMapper.createObjectNode();
-                        artistInfoNode.put("merchRevenue", artist.getMerchRevenue());
-                        artistInfoNode.put("mostProfitableSong", artist.getMostProfitableSong());
-                        artistInfoNode.put("ranking", artist.getRanking());
-                        artistInfoNode.put("songRevenue", artist.getSongRevenue());
+//            for (Users user : myLibrary.getUsers()) {
+//                if (user.getUserType() == Users.UserType.ARTIST) {
+//                    Artist artist = (Artist) user;
+//                    if (artist.hasTrueValue()) {
+//                        ObjectNode artistInfoNode = objectMapper.createObjectNode();
+//                        artistInfoNode.put("merchRevenue", artist.getMerchRevenue());
+//                        artistInfoNode.put("mostProfitableSong", artist.getMostProfitableSong());
+//                        artistInfoNode.put("ranking", artist.getRanking());
+//                        artistInfoNode.put("songRevenue", artist.getSongRevenue());
+//
+//                        artistsNode.set(artist.getUsername(), artistInfoNode);
+//                    }
+//                }
+//            }
 
-                        artistsNode.set(artist.getUsername(), artistInfoNode);
-                    }
+            for (Artist artist : endProgram.getPlatformArtists()) {
+                if (artist.hasTrueValue()) {
+                    ObjectNode artistInfoNode = objectMapper.createObjectNode();
+                    artistInfoNode.put("merchRevenue", artist.getMerchRevenue());
+                    artistInfoNode.put("mostProfitableSong", artist.getMostProfitableSong());
+                    artistInfoNode.put("ranking", artist.getRanking());
+                    artistInfoNode.put("songRevenue", artist.getSongRevenue());
+
+                    artistsNode.set(artist.getUsername(), artistInfoNode);
                 }
             }
 

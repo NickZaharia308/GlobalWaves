@@ -70,6 +70,10 @@ public class Artist extends Users {
         this.merchandise = new ArrayList<>(merchandise);
     }
 
+    public void setRanking(final int ranking) {
+        this.ranking = ranking;
+    }
+
     /**
      * Overrides the toString method to provide a string representation of the Artist.
      * It is used in the command "PrintCurrentPage"

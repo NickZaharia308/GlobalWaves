@@ -8,6 +8,8 @@ import user.entities.Users;
 import user.entities.audio.files.Episodes;
 import user.entities.audio.files.Songs;
 
+import java.util.LinkedList;
+
 /**
  * Represents a load operation based on the provided command and updates the playback status.
  * The load operation depends on the user's previous selection, and it can load a song, playlist,
@@ -42,12 +44,14 @@ public class Load extends Command {
             user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
             user.getMusicPlayer().setPaused(false);
             user.getMusicPlayer().setShuffled(false);
+            user.getMusicPlayer().setTrackQueue(new LinkedList<>());
 
             // Setup for when a song is played by a user
             if (user.getTrackType() == Users.Track.SONG) {
                 Songs playerSong = user.getMusicPlayer().getSong();
 
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
+                user.getMusicPlayer().addToTrackQueue(playerSong);
                 // Update the maps for the user
                 updateMaps(playerSong, user, library);
             } else if (user.getTrackType() == Users.Track.PLAYLIST) {
@@ -58,6 +62,7 @@ public class Load extends Command {
                 Songs playerSong = user.getMusicPlayer().getPlaylist().getSongs().get(0);
 
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
+                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getPlaylist());
                 // Set the first song on the player
                 user.getMusicPlayer().setSong(playerSong);
                 // Update the maps for the user
@@ -79,6 +84,7 @@ public class Load extends Command {
                 Songs playerSong = user.getMusicPlayer().getAlbum().getSongs().get(0);
 
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
+                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getAlbum());
                 // Set the first song on the player
                 user.getMusicPlayer().setSong(playerSong);
                 // Update the maps for the user

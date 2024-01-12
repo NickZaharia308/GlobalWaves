@@ -390,7 +390,7 @@ public class Status extends Command {
             } else if (user.getTrackType() == Users.Track.ALBUM) {
                 Songs playerSong = user.getMusicPlayer().getSong();
 
-                if (user.getMusicPlayer().getSong() == null) {
+                if (playerSong == null) {
                     return;
                 }
                 setTrackName(playerSong.getName());
@@ -427,20 +427,36 @@ public class Status extends Command {
                         int index = user.getMusicPlayer().getAlbum().getSongs().
                                 indexOf(playerSong);
                         Songs currentSong = playerSong;
-                        while (index < user.getMusicPlayer().getAlbum().getSongs().size() - 1
-                                && leftTime <= 0) {
-                            index++;
-                            currentSong = user.getMusicPlayer().getAlbum().getSongs()
-                                    .get(index);
+
+                        if (!user.getMusicPlayer().getTrackQueue().isEmpty() &&
+                            user.getMusicPlayer().getTrackQueue().peek().getName().equals(playerSong.getName())) {
+                            currentSong = user.getMusicPlayer().getTrackQueue().poll();
+                        }
+
+                        while (!user.getMusicPlayer().getTrackQueue().isEmpty() && leftTime <= 0) {
+                            currentSong = user.getMusicPlayer().getTrackQueue().poll();
                             leftTime += currentSong.getDuration();
 
                             // if the repeat mode is "repeat all and we reached the last song
                             if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime <= 0
-                                    && index == user.getMusicPlayer().getAlbum().getSongs().size()
-                                    - 1) {
-                                index = -1;
+                                    && user.getMusicPlayer().getTrackQueue().isEmpty()) {
+                                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getAlbum());
                             }
                         }
+//                        while (index < user.getMusicPlayer().getAlbum().getSongs().size() - 1
+//                                && leftTime <= 0) {
+//                            index++;
+//                            currentSong = user.getMusicPlayer().getAlbum().getSongs()
+//                                    .get(index);
+//                            leftTime += currentSong.getDuration();
+//
+//                            // if the repeat mode is "repeat all and we reached the last song
+//                            if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime <= 0
+//                                    && index == user.getMusicPlayer().getAlbum().getSongs().size()
+//                                    - 1) {
+//                                index = -1;
+//                            }
+//                        }
                         // if the repeat mode is "repeat all and we reached the last song
                         if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime <= 0
                                 && index == user.getMusicPlayer().getAlbum().getSongs().

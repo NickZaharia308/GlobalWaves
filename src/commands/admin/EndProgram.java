@@ -76,6 +76,14 @@ public class EndProgram extends Command {
             if (currentRevenue > maxRevenue) {
                 maxRevenue = currentRevenue;
                 highestRevenueSong = entry.getKey();
+            } else if (currentRevenue == maxRevenue) {
+                // If two songs have the same revenue, compare their names lexicographically
+                String currentSongName = entry.getKey().getName();
+                String currentHighestSongName = highestRevenueSong.getName();
+
+                if (currentSongName.compareTo(currentHighestSongName) < 0) {
+                    highestRevenueSong = entry.getKey();
+                }
             }
         }
         if (highestRevenueSong != null) {

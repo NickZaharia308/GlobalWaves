@@ -8,6 +8,9 @@ import user.entities.audio.files.Podcasts;
 import user.entities.audio.files.Songs;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * Represents a music player with information about the current song, playlist,
@@ -35,6 +38,8 @@ public class MusicPlayer {
     private int repeatMode = 0;
     private boolean isShuffled = false;
     private boolean isPaused = true;
+
+    private Queue<Songs> trackQueue = new LinkedList<>();
 
     /**
      * Sets the current song in the music player.
@@ -183,5 +188,33 @@ public class MusicPlayer {
      */
     public void setAlbumShuffled(final Album albumShuffled) {
         this.albumShuffled = albumShuffled;
+    }
+
+
+    public void setTrackQueue(Queue<Songs> trackQueue) {
+        this.trackQueue = trackQueue;
+    }
+
+    public void addToTrackQueue(Songs song) {
+        // Add the song to the trackQueue
+        trackQueue.offer(song);
+    }
+
+    public void addSongsToQueue(Playlists playlist) {
+        if (playlist != null) {
+            List<Songs> playlistSongs = playlist.getSongs();
+            for (Songs song : playlistSongs) {
+                addToTrackQueue(song);
+            }
+        }
+    }
+
+    public void addSongsToQueue(Album album) {
+        if (album != null) {
+            List<Songs> albumSongs = album.getSongs();
+            for (Songs song : albumSongs) {
+                addToTrackQueue(song);
+            }
+        }
     }
 }

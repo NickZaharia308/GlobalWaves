@@ -61,6 +61,7 @@ public class Users implements PageObserver, NotificationObserver {
     private String lastSong;
     // Subscribe and Notification
     private Queue<String> notifications = new LinkedList<>();
+    private ArrayList<String> boughtMerchandise = new ArrayList<>();
 
 
     /**

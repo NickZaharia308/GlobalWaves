@@ -38,7 +38,7 @@ public class EndProgram extends Command {
         sortArtists();
         int ranking = 1;
         for (Artist artist : this.platformArtists) {
-            if (artist.hasTrueValueInListeners()) {
+            if (artist.hasTrueValueInListeners() || artist.getMerchRevenue() > 0) {
                 artist.setRanking(ranking);
                 ranking++;
             }
@@ -47,12 +47,13 @@ public class EndProgram extends Command {
 
     private void sortArtists() {
         Comparator<Artist> artistComparator = Comparator
-                .comparingDouble((Artist artist) -> artist.getSongRevenue())
+                .comparingDouble((Artist artist) -> artist.getSongRevenue() + artist.getMerchRevenue())
                 .reversed()
                 .thenComparing(Artist::getUsername);
 
         this.platformArtists.sort(artistComparator);
     }
+
 
 
     private void getRevenueForArtist(Artist artist) {

@@ -23,10 +23,7 @@ import commands.users.host.RemoveAnnouncement;
 import commands.users.host.RemovePodcast;
 import commands.users.notifications.GetNotification;
 import commands.users.notifications.Subscribe;
-import commands.users.playlists.CreatePlaylist;
-import commands.users.playlists.FollowPlaylist;
-import commands.users.playlists.ShowPlaylists;
-import commands.users.playlists.SwitchVisibility;
+import commands.users.playlists.*;
 import lombok.experimental.UtilityClass;
 import user.entities.Artist;
 import user.entities.Users;
@@ -663,7 +660,7 @@ public class PrintOutput {
 
 
             for (Artist artist : endProgram.getPlatformArtists()) {
-                if (artist.hasTrueValueInListeners()) {
+                if (artist.hasTrueValueInListeners() || artist.getMerchRevenue() > 0) {
                     ObjectNode artistInfoNode = objectMapper.createObjectNode();
                     artistInfoNode.put("merchRevenue", artist.getMerchRevenue());
                     artistInfoNode.put("mostProfitableSong", artist.getMostProfitableSong());
@@ -735,6 +732,35 @@ public class PrintOutput {
                 notificationNode.put("name", name);
                 notificationNode.put("description", description);
                 notificationsArray.add(notificationNode);
+            }
+
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "buyMerch")) {
+            BuyMerch buyMerch = new BuyMerch();
+            buyMerch.returnBuyMerch(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", buyMerch.getCommand());
+            resultNode.put("user", buyMerch.getUsername());
+            resultNode.put("timestamp", buyMerch.getTimestamp());
+            resultNode.put("message", buyMerch.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "seeMerch")) {
+            SeeMerch seeMerch = new SeeMerch();
+            seeMerch.returnSeeMerch(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", seeMerch.getCommand());
+            resultNode.put("user", seeMerch.getUsername());
+            resultNode.put("timestamp", seeMerch.getTimestamp());
+
+            if (!seeMerch.getMessage().equals("")) {
+                resultNode.put("message", seeMerch.getMessage());
+            } else {
+                ArrayNode merchArray = resultNode.putArray("result");
+                for (String merch : seeMerch.getMerch()) {
+                    merchArray.add(merch);
+                }
             }
 
             outputs.add(resultNode);

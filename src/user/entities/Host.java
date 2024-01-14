@@ -8,6 +8,8 @@ import user.entities.specialEntities.Announcement;
 import user.entities.audio.files.Podcasts;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -22,6 +24,8 @@ public class Host extends Users {
     private ArrayList<Podcasts> podcasts = new ArrayList<>();
     private ArrayList<Announcement> announcements = new ArrayList<>();
     private ArrayList<Users> subscribers = new ArrayList<>();
+
+    private Map<String, Boolean> listeners = new HashMap<>();
 
     /**
      * Constructs a new Host object with the specified username, age, and city.
@@ -97,6 +101,15 @@ public class Host extends Users {
         }
 
         return builder.toString();
+    }
+
+    public boolean hasTrueValueInListeners() {
+        for (boolean value : listeners.values()) {
+            if (value) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean hasUserInSubscribers(final String hostName ,final Users user) {

@@ -153,7 +153,7 @@ public class Artist extends Users implements NotificationSubject {
         return builder.toString();
     }
 
-    public boolean hasTrueValue() {
+    public boolean hasTrueValueInListeners() {
         for (boolean value : listeners.values()) {
             if (value) {
                 return true;

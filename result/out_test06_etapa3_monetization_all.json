@@ -702,6 +702,11 @@
   "timestamp" : 97,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 103,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 123,
@@ -781,6 +786,16 @@
   "user" : "henry26",
   "timestamp" : 194,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 205,
+  "message" : "Ad inserted successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 216,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -974,6 +989,11 @@
   "timestamp" : 450,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 475,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 475,
@@ -1053,6 +1073,11 @@
   "user" : "grace25",
   "timestamp" : 573,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 576,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -1374,6 +1399,11 @@
   "timestamp" : 1061,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 1103,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 1123,
@@ -1507,6 +1537,11 @@
   "timestamp" : 1233,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "frank21",
+  "timestamp" : 1289,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "emily30",
   "timestamp" : 1308,
@@ -1619,6 +1654,11 @@
   "timestamp" : 1419,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 1419,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 1439,
@@ -1719,6 +1759,16 @@
   "user" : "emily30",
   "timestamp" : 1542,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 1559,
+  "message" : "Ad inserted successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 1560,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -1821,6 +1871,11 @@
   "timestamp" : 1648,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 1649,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 1669,
@@ -1884,6 +1939,11 @@
   "user" : "grace25",
   "timestamp" : 1744,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 1749,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -1965,6 +2025,11 @@
   "timestamp" : 1857,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 1911,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 1931,
@@ -2029,6 +2094,11 @@
   "timestamp" : 1984,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 2022,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 2042,
@@ -2092,6 +2162,11 @@
   "user" : "grace25",
   "timestamp" : 2062,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 2134,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -2221,6 +2296,11 @@
   "timestamp" : 2232,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "carol19",
+  "timestamp" : 2256,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 2256,
@@ -2300,6 +2380,11 @@
   "user" : "emily30",
   "timestamp" : 2317,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 2321,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -2535,6 +2620,11 @@
   "timestamp" : 2538,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "emily30",
+  "timestamp" : 2547,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "frank21",
   "timestamp" : 2561,
@@ -2598,6 +2688,11 @@
   "user" : "grace25",
   "timestamp" : 2576,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "carol19",
+  "timestamp" : 2650,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "carol19",
@@ -3195,6 +3290,11 @@
   "timestamp" : 3911,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "frank21",
+  "timestamp" : 3924,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "frank21",
   "timestamp" : 3944,
@@ -3226,6 +3326,11 @@
   "user" : "alice22",
   "timestamp" : 4040,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "frank21",
+  "timestamp" : 4050,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -3323,6 +3428,11 @@
   "timestamp" : 4190,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "frank21",
+  "timestamp" : 4195,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "frank21",
   "timestamp" : 4215,
@@ -3370,6 +3480,11 @@
   "user" : "frank21",
   "timestamp" : 4334,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "frank21",
+  "timestamp" : 4464,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "grace25",
@@ -3829,6 +3944,11 @@
   "timestamp" : 5446,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "carol19",
+  "timestamp" : 5474,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "frank21",
   "timestamp" : 5475,
@@ -3940,6 +4060,11 @@
   "user" : "frank21",
   "timestamp" : 5582,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 5642,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -4308,6 +4433,11 @@
   "timestamp" : 5997,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "jack29",
+  "timestamp" : 6001,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 6014,
@@ -4500,6 +4630,11 @@
   "timestamp" : 6219,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "carol19",
+  "timestamp" : 6221,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "emily30",
   "timestamp" : 6233,
@@ -4612,6 +4747,11 @@
   "timestamp" : 6291,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 6314,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "irene33",
   "timestamp" : 6334,
@@ -4707,6 +4847,11 @@
   "user" : "carol19",
   "timestamp" : 6408,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 6418,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -4836,6 +4981,11 @@
   "timestamp" : 6552,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "carol19",
+  "timestamp" : 6573,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "irene33",
   "timestamp" : 6578,
@@ -4931,6 +5081,11 @@
   "user" : "irene33",
   "timestamp" : 6673,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "carol19",
+  "timestamp" : 6674,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "carol19",
@@ -5144,6 +5299,11 @@
   "user" : "emily30",
   "timestamp" : 6936,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "carol19",
+  "timestamp" : 6948,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "carol19",
@@ -5571,6 +5731,11 @@
   "timestamp" : 7568,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 7605,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 7625,
@@ -5602,6 +5767,11 @@
   "user" : "emily30",
   "timestamp" : 7637,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 7655,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -5651,6 +5821,11 @@
   "timestamp" : 7675,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 7696,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "alice22",
   "timestamp" : 7701,
@@ -5682,6 +5857,11 @@
   "user" : "bob35",
   "timestamp" : 7716,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 7775,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -6503,6 +6683,11 @@
   "timestamp" : 9275,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "emily30",
+  "timestamp" : 9294,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "emily30",
   "timestamp" : 9314,
@@ -6518,6 +6703,11 @@
   "user" : "emily30",
   "timestamp" : 9314,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "alice22",
+  "timestamp" : 9321,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -6582,6 +6772,11 @@
   "user" : "henry26",
   "timestamp" : 9383,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "emily30",
+  "timestamp" : 9431,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -6747,6 +6942,11 @@
   "user" : "frank21",
   "timestamp" : 9672,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "jack29",
+  "timestamp" : 9713,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "jack29",
@@ -7094,6 +7294,11 @@
   "timestamp" : 10279,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "carol19",
+  "timestamp" : 10301,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 10321,
@@ -7157,6 +7362,11 @@
   "user" : "jack29",
   "timestamp" : 10387,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 10428,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -7381,6 +7591,11 @@
   "user" : "emily30",
   "timestamp" : 10728,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "carol19",
+  "timestamp" : 10731,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "carol19",
@@ -8282,6 +8497,11 @@
   "timestamp" : 12316,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "henry26",
+  "timestamp" : 12408,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "jack29",
   "timestamp" : 12421,
@@ -8378,6 +8598,11 @@
   "timestamp" : 12488,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 12492,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 12512,
@@ -8409,6 +8634,11 @@
   "user" : "henry26",
   "timestamp" : 12541,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 12588,
+  "message" : "bob35 is not playing any music."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -8473,6 +8703,11 @@
   "user" : "bob35",
   "timestamp" : 12719,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 12743,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "cancelPremium",
   "user" : "irene33",
@@ -8575,6 +8810,11 @@
   "timestamp" : 12968,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 13063,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "irene33",
   "timestamp" : 13083,
@@ -8590,6 +8830,11 @@
   "user" : "irene33",
   "timestamp" : 13083,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 13083,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -8844,7 +9089,7 @@
     },
     "topAlbums" : {
       "The Essential Bruce Springsteen" : 45,
-      "Greatest Hits" : 20,
+      "Greatest Hits" : 19,
       "Born to Run" : 16,
       "Born in the U.S.A." : 14
     },
@@ -9209,6 +9454,11 @@
   "timestamp" : 14323,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "henry26",
+  "timestamp" : 14370,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 14378,
@@ -9298,6 +9548,11 @@
   "user" : "jack29",
   "timestamp" : 14481,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 14505,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -9427,6 +9682,11 @@
   "timestamp" : 14707,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "henry26",
+  "timestamp" : 14732,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "jack29",
   "timestamp" : 14750,
@@ -9458,6 +9718,11 @@
   "user" : "henry26",
   "timestamp" : 14752,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 14759,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -9752,6 +10017,11 @@
   "timestamp" : 15227,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 15230,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "irene33",
   "timestamp" : 15250,
@@ -9788,6 +10058,11 @@
   "user" : "david27",
   "timestamp" : 15256,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "carol19",
+  "timestamp" : 15289,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -9892,6 +10167,11 @@
   "user" : "carol19",
   "timestamp" : 15343,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 15344,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -10020,6 +10300,11 @@
   "user" : "carol19",
   "timestamp" : 15518,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 15525,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -10153,6 +10438,11 @@
   "user" : "carol19",
   "timestamp" : 15720,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "alice22",
+  "timestamp" : 15799,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -10442,6 +10732,11 @@
   "timestamp" : 16178,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "alice22",
+  "timestamp" : 16189,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 16201,
@@ -10489,6 +10784,11 @@
   "user" : "bob35",
   "timestamp" : 16248,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "henry26",
+  "timestamp" : 16283,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "henry26",
@@ -10605,6 +10905,11 @@
   "timestamp" : 16415,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "henry26",
+  "timestamp" : 16420,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 16440,
@@ -10705,6 +11010,11 @@
   "user" : "carol19",
   "timestamp" : 16551,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "carol19",
+  "timestamp" : 16617,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "carol19",
@@ -11067,6 +11377,11 @@
   "timestamp" : 17300,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "henry26",
+  "timestamp" : 17347,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 17367,
@@ -11168,6 +11483,11 @@
   "timestamp" : 17480,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "jack29",
+  "timestamp" : 17535,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "irene33",
   "timestamp" : 17543,
@@ -11200,6 +11520,11 @@
   "timestamp" : 17555,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "henry26",
+  "timestamp" : 17645,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 17665,
@@ -11215,6 +11540,11 @@
   "user" : "henry26",
   "timestamp" : 17665,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "alice22",
+  "timestamp" : 17681,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "wrapped",
   "user" : "jack29",
@@ -11266,6 +11596,11 @@
   "user" : "alice22",
   "timestamp" : 17701,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "henry26",
+  "timestamp" : 17795,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "wrapped",
   "user" : "Jimi Hendrix",
@@ -11371,6 +11706,11 @@
   "timestamp" : 18082,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 20133,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 20153,
@@ -11451,6 +11791,11 @@
   "timestamp" : 20455,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "bob35",
+  "timestamp" : 20514,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 20534,
@@ -11474,13 +11819,13 @@
     "topArtists" : {
       "Aretha Franklin" : 40,
       "Bob Marley" : 20,
-      "Bruce Springsteen" : 14,
+      "Bruce Springsteen" : 13,
       "Frank Sinatra" : 10,
       "Led Zeppelin" : 10
     },
     "topGenres" : {
       "soul" : 47,
-      "rock" : 22,
+      "rock" : 21,
       "reggae" : 20,
       "jazz" : 12,
       "70s" : 9
@@ -11495,7 +11840,7 @@
     "topAlbums" : {
       "Soul Queen" : 39,
       "Natural Mystic" : 15,
-      "Greatest Hits" : 11,
+      "Greatest Hits" : 10,
       "Led Zeppelin IV (Deluxe Edition)" : 8,
       "Both Sides Now" : 6
     },
@@ -11619,6 +11964,11 @@
   "timestamp" : 23130,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 23141,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "irene33",
   "timestamp" : 23161,
@@ -11698,6 +12048,11 @@
   "user" : "carol19",
   "timestamp" : 23349,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 23359,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -11855,6 +12210,11 @@
     },
     "topEpisodes" : { }
   }
+}, {
+  "command" : "adBreak",
+  "user" : "alice22",
+  "timestamp" : 24560,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -12153,6 +12513,11 @@
   "user" : "alice22",
   "timestamp" : 25738,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 25823,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -12526,83 +12891,83 @@
 }, {
   "command" : "endProgram",
   "result" : {
-    "Marvin Gaye" : {
+    "Bob Marley" : {
       "merchRevenue" : 0.0,
-      "mostProfitableSong" : "God Is Love",
+      "mostProfitableSong" : "400 Years",
       "ranking" : 1,
-      "songRevenue" : 4076114.07
+      "songRevenue" : 3741556.22
     },
     "Madonna" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Hung Up",
       "ranking" : 2,
-      "songRevenue" : 3866079.48
-    },
-    "Frank Sinatra" : {
-      "merchRevenue" : 0.0,
-      "mostProfitableSong" : "Silent Night",
-      "ranking" : 3,
-      "songRevenue" : 2584404.04
-    },
-    "Aretha Franklin" : {
-      "merchRevenue" : 0.0,
-      "mostProfitableSong" : "Dr. Feelgood (Love Is a Serious Business)",
-      "ranking" : 4,
-      "songRevenue" : 2001625.7
-    },
-    "Bruce Springsteen" : {
-      "merchRevenue" : 0.0,
-      "mostProfitableSong" : "Dancing in the Dark",
-      "ranking" : 5,
-      "songRevenue" : 1831068.55
-    },
-    "Jimi Hendrix" : {
-      "merchRevenue" : 0.0,
-      "mostProfitableSong" : "Foxy Lady",
-      "ranking" : 6,
-      "songRevenue" : 1771533.86
-    },
-    "Bob Dylan" : {
-      "merchRevenue" : 0.0,
-      "mostProfitableSong" : "Honey, Just Allow Me One More Chance",
-      "ranking" : 7,
-      "songRevenue" : 1403040.54
-    },
-    "Fleetwood Mac" : {
-      "merchRevenue" : 0.0,
-      "mostProfitableSong" : "Gold Dust Woman",
-      "ranking" : 8,
-      "songRevenue" : 1378334.16
+      "songRevenue" : 2464614.86
     },
     "The Beatles" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Because - Remastered 2009",
-      "ranking" : 9,
-      "songRevenue" : 1343920.65
+      "ranking" : 3,
+      "songRevenue" : 1871238.97
     },
-    "Bob Marley" : {
+    "Marvin Gaye" : {
       "merchRevenue" : 0.0,
-      "mostProfitableSong" : "400 Years",
-      "ranking" : 10,
-      "songRevenue" : 1336746.71
+      "mostProfitableSong" : "God Is Love",
+      "ranking" : 4,
+      "songRevenue" : 1854344.86
+    },
+    "Joni Mitchell" : {
+      "merchRevenue" : 0.0,
+      "mostProfitableSong" : "You're My Thrill",
+      "ranking" : 5,
+      "songRevenue" : 1837779.35
+    },
+    "Bob Dylan" : {
+      "merchRevenue" : 0.0,
+      "mostProfitableSong" : "Corrina, Corrina",
+      "ranking" : 6,
+      "songRevenue" : 1784777.46
+    },
+    "Jimi Hendrix" : {
+      "merchRevenue" : 0.0,
+      "mostProfitableSong" : "Foxy Lady",
+      "ranking" : 7,
+      "songRevenue" : 1755498.47
+    },
+    "Frank Sinatra" : {
+      "merchRevenue" : 0.0,
+      "mostProfitableSong" : "Silent Night",
+      "ranking" : 8,
+      "songRevenue" : 1724485.92
     },
     "Stevie Wonder" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Sir Duke",
-      "ranking" : 11,
-      "songRevenue" : 1125430.99
+      "ranking" : 9,
+      "songRevenue" : 1589193.62
     },
-    "Joni Mitchell" : {
+    "Aretha Franklin" : {
       "merchRevenue" : 0.0,
-      "mostProfitableSong" : "Ladies of the Canyon",
+      "mostProfitableSong" : "Dr. Feelgood (Love Is a Serious Business)",
+      "ranking" : 10,
+      "songRevenue" : 1487740.41
+    },
+    "Fleetwood Mac" : {
+      "merchRevenue" : 0.0,
+      "mostProfitableSong" : "Gold Dust Woman",
+      "ranking" : 11,
+      "songRevenue" : 1360213.01
+    },
+    "Bruce Springsteen" : {
+      "merchRevenue" : 0.0,
+      "mostProfitableSong" : "Dancing in the Dark",
       "ranking" : 12,
-      "songRevenue" : 701963.46
+      "songRevenue" : 1337957.75
     },
     "Led Zeppelin" : {
       "merchRevenue" : 0.0,
-      "mostProfitableSong" : "Misty Mountain Hop",
+      "mostProfitableSong" : "Babe I'm Gonna Leave You",
       "ranking" : 13,
-      "songRevenue" : 579737.8
+      "songRevenue" : 1196329.09
     }
   }
 } ]

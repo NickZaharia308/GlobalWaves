@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import main.Library;
 import user.entities.Artist;
+import user.entities.Host;
 import user.entities.Users;
 import user.entities.audio.files.Episodes;
 import user.entities.audio.files.Songs;
@@ -42,7 +43,7 @@ public class Wrapped extends Command {
             userType = Users.UserType.ARTIST;
             Artist artist = (Artist) user;
 
-            if (!artist.hasTrueValue()) {
+            if (!artist.hasTrueValueInListeners()) {
                 setMessage("No data to show for artist " + artist.getUsername() + ".");
                 return;
             }
@@ -65,9 +66,32 @@ public class Wrapped extends Command {
 
             return;
         }
+        if (user.getUserType() == Users.UserType.HOST) {
+            userType = Users.UserType.HOST;
+            Host host = (Host) user;
+
+            if (!host.hasTrueValueInListeners()) {
+                setMessage("No data to show for host " + host.getUsername() + ".");
+                return;
+            }
+
+            // update the maps for all normal users of the platform
+            for (Users currentUser : library.getUsers()) {
+                if (currentUser.getUserType() == Users.UserType.NORMAL) {
+                    updateMapsForUsers(command, library, currentUser);
+                }
+            }
+
+            topEpisodes = new ArrayList<>(host.getTopEpisodes().entrySet());
+            listeners = new ArrayList<>(host.getListeners().entrySet());
+
+            sortList(topEpisodes);
+
+            return;
+        }
         updateMapsForUsers(command, library, user);
 
-        if (user.getTopSongs().isEmpty()) {
+        if (user.getTopSongs().isEmpty() && user.getTopEpisodes().isEmpty()) {
             setMessage("No data to show for user " + user.getUsername() + ".");
             return;
         }
@@ -100,6 +124,7 @@ public class Wrapped extends Command {
             return;
         }
         Songs oldSong = user.getMusicPlayer().getSong();
+        Episodes oldEpisode = user.getMusicPlayer().getEpisode();
 
         command.setUsername(user.getUsername());
         Status status = new Status();
@@ -119,7 +144,6 @@ public class Wrapped extends Command {
                 if (user.getMusicPlayer().getAlbum() == null) {
                     return;
                 }
-
                 Songs lastSong = user.getMusicPlayer().getAlbum().getSongs().get(user.getMusicPlayer().getAlbum().getSongs().size() - 1);
                 ArrayList<Songs> songsToBeUpdated = new ArrayList<>(getSongsBetween(user.getMusicPlayer().getAlbum().getSongs(), oldSong, lastSong));
                 for (Songs song : songsToBeUpdated) {
@@ -142,23 +166,17 @@ public class Wrapped extends Command {
             }
         } else if (user.getTrackType() == Users.Track.PODCAST) {
             Episodes currentEpisode = user.getMusicPlayer().getEpisode();
-            load.updateTopEpisodes(currentEpisode, user);
+            ArrayList<Episodes> episodesToBeUpdated = new ArrayList<>(getEpisodesBetween
+            (user.getMusicPlayer().getPodcast().getEpisodes(), oldEpisode, currentEpisode));
 
-            for (Episodes episode : user.getMusicPlayer().getPodcast().getEpisodes()) {
-                // if we reached current episode break
-                // else if it is the first episode, don't add
-                if (episode.getName().equals(currentEpisode.getName())) {
-                    break;
-                } else if (episode != user.getMusicPlayer().getPodcast().getEpisodes().get(0)) {
-                    // add it to the maps
-                    load.updateTopEpisodes(episode, user);
-                }
+            for (Episodes episode : episodesToBeUpdated) {
+                load.updateTopEpisodes(episode, user, user.getMusicPlayer().getPodcast().getOwner());
             }
+
         }
     }
 
     // Method to get songs between two given songs
-    // Method to get songs between two given songs (exclusive)
     private static List<Songs> getSongsBetween(List<Songs> songList, Songs song1, Songs song2) {
         int startIndex = songList.indexOf(song1);
         int endIndex = songList.indexOf(song2);
@@ -167,7 +185,19 @@ public class Wrapped extends Command {
             // Create a new list and add all songs between startIndex + 1 and endIndex
             return new ArrayList<>(songList.subList(startIndex + 1, endIndex + 1));
         } else {
-            // Handle the case where either song1 or song2 is not found in the list or startIndex is not less than endIndex
+            return new ArrayList<>();
+        }
+    }
+
+    // Method to get episodes between two given episodes
+    private static List<Episodes> getEpisodesBetween(List<Episodes> episodeList, Episodes episode1, Episodes episode2) {
+        int startIndex = episodeList.indexOf(episode1);
+        int endIndex = episodeList.indexOf(episode2);
+
+        if (startIndex >= 0 && endIndex >= 0 && startIndex < endIndex) {
+            // Create a new list and add all episodes between startIndex + 1 and endIndex
+            return new ArrayList<>(episodeList.subList(startIndex + 1, endIndex + 1));
+        } else {
             return new ArrayList<>();
         }
     }

@@ -623,7 +623,7 @@ public class PrintOutput {
                 resultObjectNode.set("topAlbums", topAlbums);
             }
 
-            if (wrapped.getUserType() == Users.UserType.NORMAL) {
+            if (wrapped.getUserType() == Users.UserType.NORMAL || wrapped.getUserType() == Users.UserType.HOST) {
                 ObjectNode topEpisodes = objectMapper.createObjectNode();
                 for (Map.Entry<String, Integer> entry : wrapped.getTopEpisodes()) {
                     topEpisodes.put(entry.getKey(), entry.getValue());
@@ -639,7 +639,7 @@ public class PrintOutput {
                 resultObjectNode.set("topFans", topFansArray);
             }
 
-            if (wrapped.getUserType() == Users.UserType.ARTIST) {
+            if (wrapped.getUserType() == Users.UserType.ARTIST || wrapped.getUserType() == Users.UserType.HOST) {
                 int count = 0;
                 for (Map.Entry<String, Boolean> entry : wrapped.getListeners()) {
                     if (entry.getValue()) {
@@ -663,7 +663,7 @@ public class PrintOutput {
 
 
             for (Artist artist : endProgram.getPlatformArtists()) {
-                if (artist.hasTrueValue()) {
+                if (artist.hasTrueValueInListeners()) {
                     ObjectNode artistInfoNode = objectMapper.createObjectNode();
                     artistInfoNode.put("merchRevenue", artist.getMerchRevenue());
                     artistInfoNode.put("mostProfitableSong", artist.getMostProfitableSong());

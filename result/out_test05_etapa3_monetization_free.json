@@ -332,6 +332,11 @@
   "timestamp" : 10,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 1368,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "irene33",
   "timestamp" : 1388,
@@ -396,6 +401,11 @@
   "timestamp" : 1817,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 2112,
+  "message" : "irene33 is not playing any music."
+}, {
   "command" : "search",
   "user" : "irene33",
   "timestamp" : 2132,
@@ -411,6 +421,11 @@
   "user" : "irene33",
   "timestamp" : 2132,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 2286,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "grace25",
@@ -492,6 +507,11 @@
   "timestamp" : 2712,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 2787,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "irene33",
   "timestamp" : 2807,
@@ -508,6 +528,11 @@
   "timestamp" : 2807,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 2839,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 2859,
@@ -523,6 +548,11 @@
   "user" : "david27",
   "timestamp" : 2859,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 2928,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -587,6 +617,11 @@
   "user" : "irene33",
   "timestamp" : 3107,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 3235,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -700,6 +735,11 @@
   "timestamp" : 3506,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 3516,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "grace25",
   "timestamp" : 3536,
@@ -715,6 +755,11 @@
   "user" : "grace25",
   "timestamp" : 3536,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 3558,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -828,6 +873,11 @@
   "timestamp" : 3822,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 3972,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 3992,
@@ -843,6 +893,11 @@
   "user" : "david27",
   "timestamp" : 3992,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 4039,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "grace25",
@@ -860,6 +915,11 @@
   "timestamp" : 4059,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 4092,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 4112,
@@ -875,6 +935,11 @@
   "user" : "david27",
   "timestamp" : 4112,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 4216,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -992,6 +1057,11 @@
   "user" : "grace25",
   "timestamp" : 4927,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 5584,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "grace25",
@@ -1121,6 +1191,16 @@
   "timestamp" : 6982,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 7218,
+  "message" : "Ad inserted successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 7219,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "grace25",
   "timestamp" : 7238,
@@ -1152,6 +1232,11 @@
   "user" : "irene33",
   "timestamp" : 7239,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "irene33",
+  "timestamp" : 7379,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -1200,6 +1285,11 @@
   "user" : "irene33",
   "timestamp" : 7499,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 7523,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "grace25",
@@ -1264,6 +1354,11 @@
   "user" : "grace25",
   "timestamp" : 7695,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 7789,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "grace25",
@@ -1457,6 +1552,11 @@
   "timestamp" : 8686,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 8708,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 8728,
@@ -1472,6 +1572,11 @@
   "user" : "david27",
   "timestamp" : 8728,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 8830,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -1504,6 +1609,11 @@
   "user" : "david27",
   "timestamp" : 8850,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 9195,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -1569,6 +1679,11 @@
   "timestamp" : 9587,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 9754,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 9774,
@@ -1584,6 +1699,11 @@
   "user" : "david27",
   "timestamp" : 9774,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 9833,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -1990,6 +2110,11 @@
   "timestamp" : 12296,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 12299,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 12319,
@@ -2005,6 +2130,11 @@
   "user" : "david27",
   "timestamp" : 12319,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 12374,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "grace25",
@@ -2053,6 +2183,11 @@
   "user" : "david27",
   "timestamp" : 12477,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 12549,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "grace25",
@@ -2120,6 +2255,11 @@
     "topEpisodes" : { }
   }
 }, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 12659,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 12663,
@@ -2167,6 +2307,11 @@
   "user" : "grace25",
   "timestamp" : 12826,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 12845,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -2216,6 +2361,11 @@
   "timestamp" : 12979,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 13004,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "grace25",
   "timestamp" : 13024,
@@ -2231,6 +2381,11 @@
   "user" : "grace25",
   "timestamp" : 13024,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 13095,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -2296,6 +2451,11 @@
   "timestamp" : 13254,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 13338,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 13358,
@@ -2327,6 +2487,11 @@
   "user" : "grace25",
   "timestamp" : 13374,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 13403,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -2360,6 +2525,11 @@
   "timestamp" : 13582,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 13643,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 13663,
@@ -2391,6 +2561,11 @@
   "user" : "grace25",
   "timestamp" : 13682,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 13706,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "grace25",
@@ -2472,6 +2647,11 @@
   "timestamp" : 13905,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 13962,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "grace25",
   "timestamp" : 13982,
@@ -2504,6 +2684,11 @@
   "timestamp" : 14016,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 14040,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "grace25",
   "timestamp" : 14060,
@@ -2535,6 +2720,11 @@
   "user" : "grace25",
   "timestamp" : 14129,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "grace25",
+  "timestamp" : 14153,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "grace25",
@@ -2735,6 +2925,11 @@
   "timestamp" : 16622,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 16765,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 16785,
@@ -2782,6 +2977,11 @@
   "user" : "david27",
   "timestamp" : 16928,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 17027,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -2847,6 +3047,11 @@
   "timestamp" : 17204,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 17316,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 17336,
@@ -2863,6 +3068,11 @@
   "timestamp" : 17336,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 17479,
+  "message" : "Ad inserted successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 17499,
@@ -2878,6 +3088,11 @@
   "user" : "david27",
   "timestamp" : 17499,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 17649,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -2910,6 +3125,11 @@
   "user" : "david27",
   "timestamp" : 17703,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "adBreak",
+  "user" : "david27",
+  "timestamp" : 17762,
+  "message" : "Ad inserted successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -2986,29 +3206,29 @@
 }, {
   "command" : "endProgram",
   "result" : {
-    "Joni Mitchell" : {
+    "Stevie Wonder" : {
       "merchRevenue" : 0.0,
-      "mostProfitableSong" : "N/A",
+      "mostProfitableSong" : "Hey Love",
       "ranking" : 1,
-      "songRevenue" : 0.0
+      "songRevenue" : 1228.5
     },
     "Prince" : {
       "merchRevenue" : 0.0,
-      "mostProfitableSong" : "N/A",
+      "mostProfitableSong" : "All The Critics Love U In New York",
       "ranking" : 2,
-      "songRevenue" : 0.0
+      "songRevenue" : 1168.61
     },
-    "Stevie Wonder" : {
+    "Joni Mitchell" : {
       "merchRevenue" : 0.0,
-      "mostProfitableSong" : "N/A",
+      "mostProfitableSong" : "Blue Boy",
       "ranking" : 3,
-      "songRevenue" : 0.0
+      "songRevenue" : 302.4
     },
     "The Rolling Stones" : {
       "merchRevenue" : 0.0,
-      "mostProfitableSong" : "N/A",
+      "mostProfitableSong" : "Miss You",
       "ranking" : 4,
-      "songRevenue" : 0.0
+      "songRevenue" : 250.49
     }
   }
 } ]

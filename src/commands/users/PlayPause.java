@@ -1,6 +1,7 @@
 package commands.users;
 
 import commands.Command;
+import commands.statistics.Wrapped;
 import lombok.Getter;
 import main.Library;
 import user.entities.Users;
@@ -20,8 +21,8 @@ public class PlayPause extends Command {
         super.setUsername(command.getUsername());
         super.setTimestamp(command.getTimestamp());
 
-        final Status status = new Status();
-        status.returnStatus(command, library);
+        Wrapped wrapped = new Wrapped();
+        wrapped.returnWrapped(command, library);
 
         Users user = new Users();
         user = user.getUser(library.getUsers(), command.getUsername());

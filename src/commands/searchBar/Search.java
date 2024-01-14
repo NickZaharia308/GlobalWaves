@@ -143,7 +143,7 @@ public class Search extends Command {
             boolean matchesAllFilters = true;
             if (filters.has("name")) {
                 String substring = filters.get("name").asText();
-                matchesAllFilters &= podcast.getName().toLowerCase().startsWith(substring);
+                matchesAllFilters &= podcast.getName().startsWith(substring);
             }
             if (filters.has("owner")) {
                 String owner = filters.get("owner").asText();
@@ -282,6 +282,10 @@ public class Search extends Command {
             user.setAlbumResults(albumResult);
         }
 
+        // Update the Wrapped for user
+        Wrapped wrapped = new Wrapped();
+        wrapped.returnWrapped(command, library);
+
         // Checking if the search interrupts an episode
         if (user.getMusicPlayer() != null && user.getTrackType() == Users.Track.PODCAST
                 &&  user.getMusicPlayer().getEpisode() != null) {
@@ -290,12 +294,10 @@ public class Search extends Command {
             int timestamp = command.getTimestamp();
             int leftTime = user.getMusicPlayer().getEpisode().getRemainingTime()
                             + playTimestamp - timestamp;
+            user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
             user.getMusicPlayer().getEpisode().setRemainingTime(leftTime);
         }
 
-        // Update the Wrapped for user
-        Wrapped wrapped = new Wrapped();
-        wrapped.returnWrapped(command, library);
 
         // Canceling the MusicPlayer (loader)
         user.setSomethingLoaded(false);

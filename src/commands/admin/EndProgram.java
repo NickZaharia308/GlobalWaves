@@ -38,7 +38,7 @@ public class EndProgram extends Command {
         sortArtists();
         int ranking = 1;
         for (Artist artist : this.platformArtists) {
-            if (artist.hasTrueValue()) {
+            if (artist.hasTrueValueInListeners()) {
                 artist.setRanking(ranking);
                 ranking++;
             }

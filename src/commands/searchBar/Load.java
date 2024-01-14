@@ -5,6 +5,7 @@ import commands.users.Status;
 import lombok.Getter;
 import main.Library;
 import user.entities.Artist;
+import user.entities.Host;
 import user.entities.Users;
 import user.entities.audio.files.Episodes;
 import user.entities.audio.files.Songs;
@@ -81,7 +82,7 @@ public class Load extends Command {
                 // Set the first episode on the player
                 user.getMusicPlayer().setEpisode(playerEpisode);
                 // Update the map for the episodes
-                updateTopEpisodes(playerEpisode, user);
+                updateTopEpisodes(playerEpisode, user, user.getMusicPlayer().getPodcast().getOwner());
             } else if (user.getTrackType() == Users.Track.ALBUM) {
                 if (user.getMusicPlayer().getAlbum().getSongs().isEmpty()) {
                     return;
@@ -130,6 +131,7 @@ public class Load extends Command {
             user.getSongsFromArtists().put(loadedSong, user.getSongsFromArtists().getOrDefault(loadedSong, 0) + 1);
         }
 
+        // Use the already available fields from the user class
         Users artistAsUser = user.getUser(library.getUsers(), loadedSong.getArtist());
         artistAsUser.getTopSongs().put(loadedSong.getName(), artistAsUser.getTopSongs().getOrDefault(loadedSong.getName(), 0) + 1);
         artistAsUser.getTopAlbums().put(loadedSong.getAlbum(), artistAsUser.getTopAlbums().getOrDefault(loadedSong.getAlbum(), 0) + 1);
@@ -139,8 +141,20 @@ public class Load extends Command {
         artist.getTopFans().put(user.getUsername(), artist.getTopFans().getOrDefault(user.getUsername(), 0) + 1);
     }
 
-    public void updateTopEpisodes(final Episodes loadedEpisode, final Users user) {
+    public void updateTopEpisodes(final Episodes loadedEpisode, final Users user, final String hostName) {
         user.getTopEpisodes().put(loadedEpisode.getName(), user.getTopEpisodes().getOrDefault(loadedEpisode.getName(), 0) + 1);
+
+        Users hostAsUser = user.getUser(Library.getInstance().getUsers(), hostName);
+
+        if (hostAsUser == null) {
+            return;
+        }
+
+        // Use the already available fields from the user class
+        hostAsUser.getTopEpisodes().put(loadedEpisode.getName(), hostAsUser.getTopEpisodes().getOrDefault(loadedEpisode.getName(), 0) + 1);
+        // Cast to Host
+        Host host = (Host) hostAsUser;
+        host.getListeners().put(user.getUsername(), true);
     }
 }
 

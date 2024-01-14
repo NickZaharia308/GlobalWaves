@@ -32,18 +32,18 @@
   "command" : "search",
   "user" : "ghiu",
   "timestamp" : 45,
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "message" : "Search returned 1 results",
+  "results" : [ "Auditory Adventures" ]
 }, {
   "command" : "select",
   "user" : "ghiu",
   "timestamp" : 50,
-  "message" : "The selected ID is too high."
+  "message" : "Successfully selected Auditory Adventures."
 }, {
   "command" : "load",
   "user" : "ghiu",
   "timestamp" : 55,
-  "message" : "Please select a source before attempting to load."
+  "message" : "Playback loaded successfully."
 }, {
   "command" : "changePage",
   "user" : "ghiu",
@@ -59,11 +59,11 @@
   "user" : "ghiu",
   "timestamp" : 70,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Exploring Sonic Landscapes",
+    "remainedTime" : 2685,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "changePage",

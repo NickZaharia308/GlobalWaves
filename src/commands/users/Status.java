@@ -1,6 +1,7 @@
 package commands.users;
 
 import commands.Command;
+import commands.searchBar.Load;
 import lombok.Getter;
 import main.Library;
 import user.entities.Artist;
@@ -363,6 +364,7 @@ public class Status extends Command {
                             currentEpisode = user.getMusicPlayer().getPodcast().getEpisodes().
                                     get(index);
                             leftTime += currentEpisode.getRemainingTime();
+
                             // If all the episodes finished, reset the episodes
                             if (index == user.getMusicPlayer().getPodcast().getEpisodes().size()
                                     - 1) {

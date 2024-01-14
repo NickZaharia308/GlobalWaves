@@ -3,9 +3,13 @@ package commands.users;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
+import user.entities.Artist;
 import user.entities.Users;
 import user.entities.audio.files.Episodes;
 import user.entities.audio.files.Songs;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 @Getter
 /**
@@ -76,10 +80,24 @@ public class Status extends Command {
         } else if (user.isSomethingLoaded() && user.getMusicPlayer() != null) {
             if (user.getTrackType() == Users.Track.SONG) {
                 Songs playerSong = user.getMusicPlayer().getSong();
+                if (!user.getMusicPlayer().getTrackQueue().isEmpty() &&
+                    playerSong.getName().equals(user.getMusicPlayer().getTrackQueue().peek().getName())) {
+
+                    playerSong = user.getMusicPlayer().getTrackQueue().poll();
+                    if (playerSong.getName().equals("Ad Break")) {
+                        computeRevenuePerSongFromQueue(user, library, command);
+                    } else if (!user.isPremium()) {
+                        user.getMusicPlayer().getAdQueue().offer(playerSong);
+                        user.getMusicPlayer().setNoOfSongsBreak(user.getMusicPlayer().getNoOfSongsBreak() + 1);
+                    }
+                }
+
 
                 if (user.getMusicPlayer().getSong() == null) {
                     return;
                 }
+
+
                 setTrackName(playerSong.getName());
                 if (user.getMusicPlayer().getPlayTimestamp() == -1) {
                     setRemainedTime(user.getMusicPlayer().getRemainedTime());
@@ -96,6 +114,22 @@ public class Status extends Command {
                         user.getMusicPlayer().setRemainedTime(leftTime);
                         setRemainedTime(leftTime);
                     } else {
+
+                        Songs currentSong;
+                        user.setLastSong(playerSong.getName());
+
+                        if (!user.getMusicPlayer().getTrackQueue().isEmpty()) {
+                            currentSong = user.getMusicPlayer().getTrackQueue().poll();
+
+                            if (currentSong.getName().equals("Ad Break")) {
+                                command.setPrice(currentSong.getAdPrice());
+                                computeRevenuePerSongFromQueue(user, library, command);
+                            } else if (!user.isPremium()) {
+                                user.getMusicPlayer().getAdQueue().offer(playerSong);
+                                user.getMusicPlayer().setNoOfSongsBreak(user.getMusicPlayer().getNoOfSongsBreak() + 1);
+                            }
+                        }
+
                         // Repeat once
                         if (user.getMusicPlayer().getRepeatMode() == 1) {
                             leftTime += playerSong.getDuration();
@@ -393,6 +427,17 @@ public class Status extends Command {
                 if (playerSong == null) {
                     return;
                 }
+                if (!user.getMusicPlayer().getTrackQueue().isEmpty() &&
+                        playerSong.getName().equals(user.getMusicPlayer().getTrackQueue().peek().getName())) {
+
+                    playerSong = user.getMusicPlayer().getTrackQueue().poll();
+                    if (playerSong.getName().equals("Ad Break")) {
+                        computeRevenuePerSongFromQueue(user, library, command);
+                    } else if (!user.isPremium()) {
+                        user.getMusicPlayer().getAdQueue().offer(playerSong);
+                        user.getMusicPlayer().setNoOfSongsBreak(user.getMusicPlayer().getNoOfSongsBreak() + 1);
+                    }
+                }
                 setTrackName(playerSong.getName());
                 if (user.getMusicPlayer().getPlayTimestamp() == -1) {
                     setRemainedTime(user.getMusicPlayer().getRemainedTime());
@@ -428,35 +473,23 @@ public class Status extends Command {
                                 indexOf(playerSong);
                         Songs currentSong = playerSong;
 
-                        if (!user.getMusicPlayer().getTrackQueue().isEmpty() &&
-                            user.getMusicPlayer().getTrackQueue().peek().getName().equals(playerSong.getName())) {
-                            currentSong = user.getMusicPlayer().getTrackQueue().poll();
-                        }
-
                         while (!user.getMusicPlayer().getTrackQueue().isEmpty() && leftTime <= 0) {
                             currentSong = user.getMusicPlayer().getTrackQueue().poll();
+                            if (currentSong.getName().equals("Ad Break")) {
+                                computeRevenuePerSongFromQueue(user, library, command);
+                            } else if (!user.isPremium()) {
+                                user.getMusicPlayer().getAdQueue().offer(currentSong);
+                                user.getMusicPlayer().setNoOfSongsBreak(user.getMusicPlayer().getNoOfSongsBreak() + 1);
+                            }
                             leftTime += currentSong.getDuration();
 
                             // if the repeat mode is "repeat all and we reached the last song
                             if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime <= 0
                                     && user.getMusicPlayer().getTrackQueue().isEmpty()) {
-                                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getAlbum());
+                                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getAlbum(), user.getMusicPlayer().getTrackQueue());
                             }
+                            user.setLastSong(currentSong.getName());
                         }
-//                        while (index < user.getMusicPlayer().getAlbum().getSongs().size() - 1
-//                                && leftTime <= 0) {
-//                            index++;
-//                            currentSong = user.getMusicPlayer().getAlbum().getSongs()
-//                                    .get(index);
-//                            leftTime += currentSong.getDuration();
-//
-//                            // if the repeat mode is "repeat all and we reached the last song
-//                            if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime <= 0
-//                                    && index == user.getMusicPlayer().getAlbum().getSongs().size()
-//                                    - 1) {
-//                                index = -1;
-//                            }
-//                        }
                         // if the repeat mode is "repeat all and we reached the last song
                         if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime <= 0
                                 && index == user.getMusicPlayer().getAlbum().getSongs().
@@ -565,6 +598,7 @@ public class Status extends Command {
             setShuffle(false);
         }
 
+        user.setLastSong(trackName);
     }
 
     /**
@@ -653,5 +687,26 @@ public class Status extends Command {
      */
     public void setRepeatMessage(final String repeatMessage) {
         this.repeatMessage = repeatMessage;
+    }
+
+    private void computeRevenuePerSongFromQueue(Users user, Library library, Command command) {
+        Queue<Songs> adQueue = user.getMusicPlayer().getAdQueue();
+        int songTotal = user.getMusicPlayer().getNoOfSongsBreak();
+        int numberOfPolledSongs = 0;
+
+        while (!adQueue.isEmpty()) {
+            Songs song = adQueue.poll();
+            numberOfPolledSongs++;
+
+            Artist artist = (Artist) user.getUser(library.getUsers(), song.getArtist());
+            double revenue = (double) command.getPrice() / songTotal;
+
+            artist.getSongsRevenues().merge(song, revenue, Double::sum);
+            if (numberOfPolledSongs == songTotal) {
+                user.getMusicPlayer().setAdQueue(new LinkedList<>());
+                break;
+            }
+        }
+        user.getMusicPlayer().setNoOfSongsBreak(0);
     }
 }

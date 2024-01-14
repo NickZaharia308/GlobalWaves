@@ -22,6 +22,7 @@ public class Songs {
 
     // Added fields
     private Map<String, Boolean> userLikesMap = new HashMap<>();
+    private int adPrice = 0;
 
     /**
      * Constructs a new Songs object with the specified attributes.
@@ -156,5 +157,9 @@ public class Songs {
      */
     public long getNumberOfLikes() {
         return userLikesMap.values().stream().filter(Boolean::booleanValue).count();
+    }
+
+    public void setAdPrice(int adPrice) {
+        this.adPrice = adPrice;
     }
 }

@@ -694,6 +694,16 @@ public class PrintOutput {
             resultNode.put("timestamp", cancelPremium.getTimestamp());
             resultNode.put("message", cancelPremium.getMessage());
             outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "adBreak")) {
+            AdBreak adBreak = new AdBreak();
+            adBreak.returnAdBreak(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", adBreak.getCommand());
+            resultNode.put("user", adBreak.getUsername());
+            resultNode.put("timestamp", adBreak.getTimestamp());
+            resultNode.put("message", adBreak.getMessage());
+            outputs.add(resultNode);
         }
     }
 }

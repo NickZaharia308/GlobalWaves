@@ -8,6 +8,7 @@ import user.entities.Artist;
 import user.entities.Users;
 import user.entities.audio.files.Songs;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Getter
@@ -49,6 +50,7 @@ public class CancelPremium extends Command {
 
             artist.getSongsRevenues().merge(song, revenue, Double::sum);
         }
+        user.setSongsFromArtists(new HashMap<>());
     }
 
 

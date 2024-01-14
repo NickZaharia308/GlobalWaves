@@ -40,6 +40,8 @@ public class MusicPlayer {
     private boolean isPaused = true;
 
     private Queue<Songs> trackQueue = new LinkedList<>();
+    private Queue<Songs> adQueue = new LinkedList<>();
+    private int noOfSongsBreak = 0;
 
     /**
      * Sets the current song in the music player.
@@ -195,26 +197,34 @@ public class MusicPlayer {
         this.trackQueue = trackQueue;
     }
 
-    public void addToTrackQueue(Songs song) {
-        // Add the song to the trackQueue
-        trackQueue.offer(song);
+    public void setAdQueue(Queue<Songs> adQueue) {
+        this.adQueue = adQueue;
     }
 
-    public void addSongsToQueue(Playlists playlist) {
+    public void addToTrackQueue(Songs song, Queue<Songs> queue) {
+        // Add the song to the trackQueue
+        queue.offer(song);
+    }
+
+    public void addSongsToQueue(Playlists playlist, Queue<Songs> queue) {
         if (playlist != null) {
             List<Songs> playlistSongs = playlist.getSongs();
             for (Songs song : playlistSongs) {
-                addToTrackQueue(song);
+                addToTrackQueue(song, queue);
             }
         }
     }
 
-    public void addSongsToQueue(Album album) {
+    public void addSongsToQueue(Album album, Queue<Songs> queue) {
         if (album != null) {
             List<Songs> albumSongs = album.getSongs();
             for (Songs song : albumSongs) {
-                addToTrackQueue(song);
+                addToTrackQueue(song, queue);
             }
         }
+    }
+
+    public void setNoOfSongsBreak(int noOfSongsBreak) {
+        this.noOfSongsBreak = noOfSongsBreak;
     }
 }

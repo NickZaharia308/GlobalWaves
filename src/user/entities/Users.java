@@ -57,6 +57,7 @@ public class Users implements Observer {
     private ArrayList<Album> albumResults = new ArrayList<>();
     private boolean premium;
     private Map<Songs, Integer> songsFromArtists = new HashMap<>();
+    private String lastSong;
 
 
     /**

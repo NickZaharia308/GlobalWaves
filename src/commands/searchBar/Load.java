@@ -1,6 +1,7 @@
 package commands.searchBar;
 
 import commands.Command;
+import commands.users.Status;
 import lombok.Getter;
 import main.Library;
 import user.entities.Artist;
@@ -9,6 +10,7 @@ import user.entities.audio.files.Episodes;
 import user.entities.audio.files.Songs;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Represents a load operation based on the provided command and updates the playback status.
@@ -38,6 +40,8 @@ public class Load extends Command {
         if (!user.isSomethingSelected()) {
             setMessage("Please select a source before attempting to load.");
         } else {
+            Status status = new Status();
+            status.returnStatus(command, library);
 
             setMessage("Playback loaded successfully.");
             user.setSomethingLoaded(true);
@@ -46,12 +50,13 @@ public class Load extends Command {
             user.getMusicPlayer().setShuffled(false);
             user.getMusicPlayer().setTrackQueue(new LinkedList<>());
 
+
             // Setup for when a song is played by a user
             if (user.getTrackType() == Users.Track.SONG) {
                 Songs playerSong = user.getMusicPlayer().getSong();
 
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
-                user.getMusicPlayer().addToTrackQueue(playerSong);
+                user.getMusicPlayer().addToTrackQueue(playerSong, user.getMusicPlayer().getTrackQueue());
                 // Update the maps for the user
                 updateMaps(playerSong, user, library);
             } else if (user.getTrackType() == Users.Track.PLAYLIST) {
@@ -62,7 +67,8 @@ public class Load extends Command {
                 Songs playerSong = user.getMusicPlayer().getPlaylist().getSongs().get(0);
 
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
-                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getPlaylist());
+                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getPlaylist(), user.getMusicPlayer().getTrackQueue());
+
                 // Set the first song on the player
                 user.getMusicPlayer().setSong(playerSong);
                 // Update the maps for the user
@@ -84,7 +90,8 @@ public class Load extends Command {
                 Songs playerSong = user.getMusicPlayer().getAlbum().getSongs().get(0);
 
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
-                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getAlbum());
+                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getAlbum(), user.getMusicPlayer().getTrackQueue());
+
                 // Set the first song on the player
                 user.getMusicPlayer().setSong(playerSong);
                 // Update the maps for the user

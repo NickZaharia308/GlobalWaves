@@ -5,6 +5,7 @@ import lombok.Getter;
 import main.Library;
 import user.entities.Artist;
 import user.entities.Host;
+import user.entities.UserFactory;
 import user.entities.Users;
 
 import java.util.ArrayList;
@@ -40,19 +41,8 @@ public class AddUser extends Command {
             return;
         }
 
-        // Add the user based on its type
-        if (command.getType().equalsIgnoreCase(Users.UserType.ARTIST.toString())) {
-            Artist newArtist = new Artist(getUsername(), command.getAge(), command.getCity());
-            newArtist.setUserType(Users.UserType.ARTIST);
-            allUsers.add(newArtist);
-        } else if (command.getType().equalsIgnoreCase(Users.UserType.HOST.toString())) {
-            Host newHost = new Host(getUsername(), command.getAge(), command.getCity());
-            newHost.setUserType(Users.UserType.HOST);
-            allUsers.add(newHost);
-        } else {
-            Users newUser = new Users(getUsername(), command.getAge(), command.getCity());
-            allUsers.add(newUser);
-        }
+        Users newUser = UserFactory.createUser(getUsername(), command.getAge(), command.getCity(), command.getType());
+        allUsers.add(newUser);
 
         setMessage("The username " + getUsername() + " has been added successfully.");
     }

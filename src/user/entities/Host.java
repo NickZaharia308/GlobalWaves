@@ -1,6 +1,8 @@
 package user.entities;
 
 import lombok.Getter;
+import lombok.Setter;
+import main.Library;
 import user.entities.audio.files.Episodes;
 import user.entities.specialEntities.Announcement;
 import user.entities.audio.files.Podcasts;
@@ -14,10 +16,12 @@ import java.util.ArrayList;
  * and announcements associated with the host.
  */
 @Getter
+@Setter
 public class Host extends Users {
 
     private ArrayList<Podcasts> podcasts = new ArrayList<>();
     private ArrayList<Announcement> announcements = new ArrayList<>();
+    private ArrayList<Users> subscribers = new ArrayList<>();
 
     /**
      * Constructs a new Host object with the specified username, age, and city.
@@ -30,24 +34,6 @@ public class Host extends Users {
         super.username = username;
         super.age = age;
         super.city = city;
-    }
-
-    /**
-     * Sets the list of podcasts for the host.
-     *
-     * @param podcasts The list of podcasts to set.
-     */
-    public void setPodcasts(final ArrayList<Podcasts> podcasts) {
-        this.podcasts = new ArrayList<>(podcasts);
-    }
-
-    /**
-     * Sets the list of announcements for the host.
-     *
-     * @param announcements The list of announcements to set.
-     */
-    public void setAnnouncements(final ArrayList<Announcement> announcements) {
-        this.announcements = new ArrayList<>(announcements);
     }
 
     /**
@@ -111,6 +97,16 @@ public class Host extends Users {
         }
 
         return builder.toString();
+    }
+
+    public static boolean hasUserInSubscribers(final String hostName ,final Users user) {
+        Host host = (Host) user.getUser(Library.getInstance().getUsers(), hostName);
+        for (Users subscriber : host.getSubscribers()) {
+            if (subscriber.getUsername().equals(user.getUsername())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 

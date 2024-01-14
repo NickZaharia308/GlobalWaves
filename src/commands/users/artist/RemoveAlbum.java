@@ -1,7 +1,7 @@
 package commands.users.artist;
 
 import commands.Command;
-import commands.page.Subject;
+import commands.page.PageSubject;
 import commands.users.Status;
 import lombok.Getter;
 import main.Library;
@@ -78,8 +78,8 @@ public class RemoveAlbum extends Command {
         artist.getAlbums().remove(albumToDelete);
 
         // Notify the observers
-        Subject subject = new Subject();
-        subject.notifyObservers(artist.getUsername());
+        PageSubject pageSubject = new PageSubject();
+        pageSubject.notifyObservers(artist.getUsername());
 
         setMessage(this.getUsername() + " deleted the album successfully.");
     }

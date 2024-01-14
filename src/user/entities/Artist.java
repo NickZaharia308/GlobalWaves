@@ -1,7 +1,10 @@
 package user.entities;
 
+import commands.users.notifications.NotificationObserver;
+import commands.users.notifications.NotificationSubject;
 import lombok.Getter;
 import lombok.Setter;
+import main.Library;
 import user.entities.audio.files.Songs;
 import user.entities.specialEntities.Merch;
 import user.entities.audio.files.Album;
@@ -18,13 +21,15 @@ import java.util.Map;
  */
 @Getter
 @Setter
-public class Artist extends Users {
+public class Artist extends Users implements NotificationSubject {
 
+    // Wrapped
     private ArrayList<Album> albums = new ArrayList<>();
     private ArrayList<Event> events = new ArrayList<>();
     private ArrayList<Merch> merchandise = new ArrayList<>();
     private Map<String, Integer> topFans = new HashMap<>();
     private Map<String, Boolean> listeners = new HashMap<>();
+    // Monetization
     private double merchRevenue;
     private double songRevenue;
     private int ranking = 1;
@@ -32,6 +37,12 @@ public class Artist extends Users {
     private int addOnPlatformOrder;
     private static int order = 0;
     private Map<Songs, Double> songsRevenues = new HashMap<>();
+    // Subscribers
+    private ArrayList<NotificationObserver> observers = new ArrayList<>();
+    private String notificationName;
+    private String notificationDescription;
+
+
 
     /**
      * Constructs a new Artist object with the specified username, age, and city.
@@ -151,4 +162,24 @@ public class Artist extends Users {
         return false;
     }
 
+    public static boolean hasObserverInSubscribers(final String artistName, final Users user) {
+        Artist artist = (Artist) user.getUser(Library.getInstance().getUsers(), artistName);
+        if (artist.getObservers().contains(user)) {
+            return true;
+        }
+        return false;
+    }
+    public void addNotificationObserver(NotificationObserver notificationObserver) {
+        observers.add(notificationObserver);
+    }
+
+    public void removeNotificationObserver(NotificationObserver notificationObserver) {
+        observers.remove(notificationObserver);
+    }
+
+    public void notifyNotificationObservers() {
+        for (NotificationObserver observer : observers) {
+            observer.update(this);
+        }
+    }
 }

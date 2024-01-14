@@ -1,7 +1,7 @@
 package commands.users.artist;
 
 import commands.Command;
-import commands.page.Subject;
+import commands.page.PageSubject;
 import lombok.Getter;
 import main.Library;
 import user.entities.Artist;
@@ -68,8 +68,8 @@ public class RemoveEvent extends Command {
         artist.getEvents().remove(eventToDelete);
 
         // Notify the observers
-        Subject subject = new Subject();
-        subject.notifyObservers(artist.getUsername());
+        PageSubject pageSubject = new PageSubject();
+        pageSubject.notifyObservers(artist.getUsername());
 
         setMessage(this.getUsername() + " deleted the event successfully.");
     }

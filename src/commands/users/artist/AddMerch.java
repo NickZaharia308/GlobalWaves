@@ -1,7 +1,7 @@
 package commands.users.artist;
 
 import commands.Command;
-import commands.page.Subject;
+import commands.page.PageSubject;
 import lombok.Getter;
 import main.Library;
 import user.entities.Artist;
@@ -66,9 +66,15 @@ public class AddMerch extends Command {
         Merch merch = new Merch(command.getName(), command.getDescription(), command.getPrice());
         artist.getMerchandise().add(merch);
 
+        artist.setNotificationName("New Merchandise");
+        artist.setNotificationDescription("New Merchandise from " + artist.getUsername() + ".");
+
+        // Notify the notification observers
+        artist.notifyNotificationObservers();
+
         // Notify the observers
-        Subject subject = new Subject();
-        subject.notifyObservers(artist.getUsername());
+        PageSubject pageSubject = new PageSubject();
+        pageSubject.notifyObservers(artist.getUsername());
 
         setMessage(this.getUsername() + " has added new merchandise successfully.");
     }

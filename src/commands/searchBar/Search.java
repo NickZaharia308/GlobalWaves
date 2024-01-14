@@ -2,7 +2,7 @@ package commands.searchBar;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import commands.Command;
-import commands.page.Subject;
+import commands.page.PageSubject;
 import commands.statistics.Wrapped;
 import lombok.Getter;
 import main.Library;
@@ -306,8 +306,8 @@ public class Search extends Command {
             || user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE)
             && (Objects.equals(command.getType(), "artist")
                     || Objects.equals(command.getType(), "host"))) {
-            Subject subject = new Subject();
-            subject.removeObserver(user.getPageMenu().getPageOwnerName(), user);
+            PageSubject pageSubject = new PageSubject();
+            pageSubject.removeObserver(user.getPageMenu().getPageOwnerName(), user);
         }
 
         // Setting the type of search (song, playlist, podcast)

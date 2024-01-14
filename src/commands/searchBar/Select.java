@@ -1,7 +1,7 @@
 package commands.searchBar;
 
 import commands.Command;
-import commands.page.Subject;
+import commands.page.PageSubject;
 import lombok.Getter;
 import main.Library;
 import user.entities.audio.MusicPlayer;
@@ -183,9 +183,9 @@ public class Select extends Command {
             setMessage("Successfully selected " + pageOwner + "'s page.");
 
             // Adding the user as an "Observer" to artist or host (Subject)
-            Subject subject = new Subject();
-            subject.addObserver(pageOwner, user);
-            subject.notifyObservers(pageOwner);
+            PageSubject pageSubject = new PageSubject();
+            pageSubject.addObserver(pageOwner, user);
+            pageSubject.notifyObservers(pageOwner);
         }
     }
 

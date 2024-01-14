@@ -1,7 +1,7 @@
 package commands.users.host;
 
 import commands.Command;
-import commands.page.Subject;
+import commands.page.PageSubject;
 import lombok.Getter;
 import main.Library;
 import user.entities.Host;
@@ -68,8 +68,8 @@ public class RemoveAnnouncement extends Command {
         host.getAnnouncements().remove(announcementToDelete);
 
         // Notify the observers
-        Subject subject = new Subject();
-        subject.notifyObservers(host.getUsername());
+        PageSubject pageSubject = new PageSubject();
+        pageSubject.notifyObservers(host.getUsername());
 
         setMessage(this.getUsername() + " has successfully deleted the announcement.");
     }

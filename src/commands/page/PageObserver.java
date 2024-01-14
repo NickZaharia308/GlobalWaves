@@ -9,7 +9,7 @@ import main.Library;
  * The Users class implements the Observer interface so that any normal user that searched a page
  * of an artist or a host, gets an update when the subject (host or artist) modifies its page.
  */
-public interface Observer {
+public interface PageObserver {
     /**
      * Updates the observer with the latest state of the system.
      *

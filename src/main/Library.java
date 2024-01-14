@@ -1,6 +1,6 @@
 package main;
 
-import commands.page.Observer;
+import commands.page.PageObserver;
 import lombok.Getter;
 import user.entities.Users;
 import user.entities.audio.files.Album;
@@ -25,7 +25,7 @@ public final class Library {
     private ArrayList<Podcasts> podcasts;
     private ArrayList<Playlists> playlists;
     private ArrayList<Album> albums;
-    private Map<String, ArrayList<Observer>> observersMap;
+    private Map<String, ArrayList<PageObserver>> observersMap;
 
     /**
      * Private constructor to prevent external instantiation.
@@ -103,7 +103,7 @@ public final class Library {
      *
      * @param observersMap The observer map to set.
      */
-    public void setObserversMap(final Map<String, ArrayList<Observer>> observersMap) {
+    public void setObserversMap(final Map<String, ArrayList<PageObserver>> observersMap) {
         this.observersMap = observersMap;
     }
 

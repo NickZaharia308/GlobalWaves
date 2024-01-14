@@ -3,7 +3,7 @@ package commands.users.artist;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import commands.Command;
-import commands.page.Subject;
+import commands.page.PageSubject;
 import lombok.Getter;
 import main.Library;
 import user.entities.Artist;
@@ -103,9 +103,15 @@ public class AddAlbum extends Command {
         library.getAlbums().add(newAlbum);
         artist.getAlbums().add(newAlbum);
 
-        // Notify the observers
-        Subject subject = new Subject();
-        subject.notifyObservers(artist.getUsername());
+        artist.setNotificationName("New Album");
+        artist.setNotificationDescription("New Album from " + artist.getUsername() + ".");
+
+        // Notify the notification observers
+        artist.notifyNotificationObservers();
+
+        // Notify the page observers
+        PageSubject pageSubject = new PageSubject();
+        pageSubject.notifyObservers(artist.getUsername());
 
         setMessage(this.getUsername() + " has added new album successfully.");
     }

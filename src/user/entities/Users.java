@@ -1,6 +1,8 @@
 package user.entities;
 
-import commands.page.Observer;
+import commands.page.PageObserver;
+import commands.users.notifications.NotificationObserver;
+import commands.users.notifications.NotificationSubject;
 import lombok.Getter;
 import lombok.Setter;
 import main.Library;
@@ -10,17 +12,14 @@ import user.entities.specialEntities.PageMenu;
 import user.entities.audio.files.Playlists;
 import user.entities.audio.files.Songs;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 /**
  * The Users class represents a user in the system.
  */
 @Setter
 @Getter
-public class Users implements Observer {
+public class Users implements PageObserver, NotificationObserver {
 
     // "Default" fields
     protected String username;
@@ -49,15 +48,19 @@ public class Users implements Observer {
     private boolean pageSearched = false;
 
     // Added fields etapa 3
+    //Wrapped
     private Map<String, Integer> topArtists = new HashMap<>();
     private Map<String, Integer> topGenres = new HashMap<>();
     private Map<String, Integer> topSongs = new HashMap<>();
     private Map<String, Integer> topAlbums = new HashMap<>();
     private Map<String, Integer> topEpisodes = new HashMap<>();
     private ArrayList<Album> albumResults = new ArrayList<>();
+    // Monetization
     private boolean premium;
     private Map<Songs, Integer> songsFromArtists = new HashMap<>();
     private String lastSong;
+    // Subscribe and Notification
+    private Queue<String> notifications = new LinkedList<>();
 
 
     /**
@@ -118,5 +121,12 @@ public class Users implements Observer {
     @Override
     public final void update(final Library library) {
         this.getPageMenu().setPage(this, library, this.getPageMenu().getPageOwnerName());
+    }
+
+    @Override
+    public final void update(final NotificationSubject notificationSubject) {
+        Artist artist = (Artist) notificationSubject;
+        notifications.add(artist.getNotificationName());
+        notifications.add(artist.getNotificationDescription());
     }
 }

@@ -3,7 +3,7 @@ package commands.users.artist;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import commands.Command;
-import commands.page.Subject;
+import commands.page.PageSubject;
 import lombok.Getter;
 import main.Library;
 import user.entities.Artist;
@@ -69,9 +69,15 @@ public class AddEvent extends Command {
         Event event = new Event(command.getName(), command.getDescription(), command.getDate());
         artist.getEvents().add(event);
 
+        artist.setNotificationName("New Event");
+        artist.setNotificationDescription("New Event from " + artist.getUsername() + ".");
+
+        // Notify the notification observers
+        artist.notifyNotificationObservers();
+
         // Notify the observers
-        Subject subject = new Subject();
-        subject.notifyObservers(artist.getUsername());
+        PageSubject pageSubject = new PageSubject();
+        pageSubject.notifyObservers(artist.getUsername());
 
         setMessage(this.getUsername() + " has added new event successfully.");
     }

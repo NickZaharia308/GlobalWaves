@@ -13,23 +13,23 @@ import java.util.Map;
  * It contains a reference to the Library instance.
  */
 @Getter
-public class Subject {
+public class PageSubject {
     private final Library library = Library.getInstance();
     /**
      * The Map structure is used to store more one-to-many relations. The String represents
      *      the name of the host or artist, while the Observer is a list which contains all normal
      *      users which selected the artist or the host page.
      */
-    private Map<String, ArrayList<Observer>> observersMap = library.getObserversMap();
+    private Map<String, ArrayList<PageObserver>> observersMap = library.getObserversMap();
 
     /**
      * Registers an observer for a specific artist or host.
      *
      * @param subject  The subject (artist or host) for which the observer is registered.
-     * @param observer The observer to be registered.
+     * @param pageObserver The observer to be registered.
      */
-    public void addObserver(final String subject, final Observer observer) {
-        observersMap.computeIfAbsent(subject, k -> new ArrayList<>()).add(observer);
+    public void addObserver(final String subject, final PageObserver pageObserver) {
+        observersMap.computeIfAbsent(subject, k -> new ArrayList<>()).add(pageObserver);
         // Update the Observer Map from the library
         library.setObserversMap(observersMap);
     }
@@ -38,10 +38,10 @@ public class Subject {
      * Unregisters an observer for a specific artist or host.
      *
      * @param subject  The subject (artist or host) for which the observer is unregistered.
-     * @param observer The observer to be unregistered.
+     * @param pageObserver The observer to be unregistered.
      */
-    public void removeObserver(final String subject, final Observer observer) {
-        observersMap.getOrDefault(subject, new ArrayList<>()).remove(observer);
+    public void removeObserver(final String subject, final PageObserver pageObserver) {
+        observersMap.getOrDefault(subject, new ArrayList<>()).remove(pageObserver);
         // Update the Observer Map from the library
         library.setObserversMap(observersMap);
     }
@@ -52,8 +52,8 @@ public class Subject {
      * @param subject The subject (artist or host) for which observers are notified.
      */
     public void notifyObservers(final String subject) {
-        for (Observer observer : observersMap.getOrDefault(subject, new ArrayList<>())) {
-            observer.update(library);
+        for (PageObserver pageObserver : observersMap.getOrDefault(subject, new ArrayList<>())) {
+            pageObserver.update(library);
         }
     }
 }

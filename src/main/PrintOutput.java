@@ -21,6 +21,8 @@ import commands.users.host.AddAnnouncement;
 import commands.users.host.AddPodcast;
 import commands.users.host.RemoveAnnouncement;
 import commands.users.host.RemovePodcast;
+import commands.users.notifications.GetNotification;
+import commands.users.notifications.Subscribe;
 import commands.users.playlists.CreatePlaylist;
 import commands.users.playlists.FollowPlaylist;
 import commands.users.playlists.ShowPlaylists;
@@ -703,6 +705,38 @@ public class PrintOutput {
             resultNode.put("user", adBreak.getUsername());
             resultNode.put("timestamp", adBreak.getTimestamp());
             resultNode.put("message", adBreak.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "subscribe")) {
+            Subscribe subscribe = new Subscribe();
+            subscribe.returnSubscribe(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", subscribe.getCommand());
+            resultNode.put("user", subscribe.getUsername());
+            resultNode.put("timestamp", subscribe.getTimestamp());
+            resultNode.put("message", subscribe.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "getNotifications")) {
+            GetNotification getNotification = new GetNotification();
+            getNotification.returnGetNotification(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", getNotification.getCommand());
+            resultNode.put("user", getNotification.getUsername());
+            resultNode.put("timestamp", getNotification.getTimestamp());
+
+            ArrayNode notificationsArray = resultNode.putArray("notifications");
+
+            while (!getNotification.getNotifications().isEmpty()) {
+                String name = getNotification.getNotifications().poll();
+                String description = getNotification.getNotifications().poll();
+
+                ObjectNode notificationNode = objectMapper.createObjectNode();
+                notificationNode.put("name", name);
+                notificationNode.put("description", description);
+                notificationsArray.add(notificationNode);
+            }
+
             outputs.add(resultNode);
         }
     }

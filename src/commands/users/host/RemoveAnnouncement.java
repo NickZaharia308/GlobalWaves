@@ -1,7 +1,7 @@
 package commands.users.host;
 
 import commands.Command;
-import commands.page.PageSubject;
+import commands.page.observer.PageSubject;
 import lombok.Getter;
 import main.Library;
 import user.entities.Host;

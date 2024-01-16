@@ -7,6 +7,7 @@ import commands.Command;
 import commands.admin.*;
 import commands.page.ChangePage;
 import commands.page.PrintCurrentPage;
+import commands.page.command.PreviousPage;
 import commands.searchBar.Load;
 import commands.searchBar.Search;
 import commands.searchBar.Select;
@@ -763,6 +764,26 @@ public class PrintOutput {
                 }
             }
 
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "updateRecommendations")) {
+            UpdateRecommendations updateRecommendations = new UpdateRecommendations();
+            updateRecommendations.returnUpdateRecommendations(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", updateRecommendations.getCommand());
+            resultNode.put("user", updateRecommendations.getUsername());
+            resultNode.put("timestamp", updateRecommendations.getTimestamp());
+            resultNode.put("message", updateRecommendations.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "previousPage")) {
+            PreviousPage previousPage = new PreviousPage();
+            previousPage.returnPreviousPage(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", previousPage.getCommand());
+            resultNode.put("user", previousPage.getUsername());
+            resultNode.put("timestamp", previousPage.getTimestamp());
+            resultNode.put("message", previousPage.getMessage());
             outputs.add(resultNode);
         }
     }

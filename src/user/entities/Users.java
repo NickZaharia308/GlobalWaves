@@ -1,6 +1,7 @@
 package user.entities;
 
-import commands.page.PageObserver;
+import commands.page.command.PageCommand;
+import commands.page.observer.PageObserver;
 import commands.users.notifications.NotificationObserver;
 import commands.users.notifications.NotificationSubject;
 import lombok.Getter;
@@ -62,6 +63,9 @@ public class Users implements PageObserver, NotificationObserver {
     // Subscribe and Notification
     private Queue<String> notifications = new LinkedList<>();
     private ArrayList<String> boughtMerchandise = new ArrayList<>();
+    private ArrayList<Playlists> recommendedPlaylists = new ArrayList<>();
+    private ArrayList<Songs> recommendedSongs = new ArrayList<>();
+    private PageCommand pageCommand = new PageCommand();
 
 
     /**

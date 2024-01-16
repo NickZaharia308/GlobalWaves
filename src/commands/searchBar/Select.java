@@ -1,7 +1,7 @@
 package commands.searchBar;
 
 import commands.Command;
-import commands.page.PageSubject;
+import commands.page.observer.PageSubject;
 import lombok.Getter;
 import main.Library;
 import user.entities.audio.MusicPlayer;

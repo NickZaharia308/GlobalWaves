@@ -3,7 +3,7 @@ package commands.users.artist;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import commands.Command;
-import commands.page.PageSubject;
+import commands.page.observer.PageSubject;
 import lombok.Getter;
 import main.Library;
 import user.entities.Artist;

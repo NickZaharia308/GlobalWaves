@@ -54,9 +54,13 @@ public class PageMenu {
     private void createHomepage(final Users user) {
         ArrayList<Songs> likedSongs = sortLikedSongs(user.getLikedSongs());
         ArrayList<Playlists> followedPlaylists = user.getFollowedPlaylists();
+        ArrayList<Playlists> recommendedPlaylists = user.getRecommendedPlaylists();
+        ArrayList<Songs> recommendedSongs = user.getRecommendedSongs();
 
         final int maxSongs = Math.min(likedSongs.size(), maxShowed);
         final int maxPlaylists = Math.min(followedPlaylists.size(), maxShowed);
+        final int maxRecommendedSongs = Math.min(recommendedSongs.size(), maxShowed);
+        final int maxRecommendedPlaylists = Math.min(recommendedPlaylists.size(), maxShowed);
 
         StringBuilder messageBuilder = new StringBuilder("Liked songs:\n\t[");
         for (int i = 0; i < maxSongs; i++) {
@@ -76,7 +80,34 @@ public class PageMenu {
                 messageBuilder.append(", ");
             }
         }
+        messageBuilder.append("]\n\nSong recommendations:\n\t[");
+        for (int i = 0; i < maxRecommendedSongs; i++) {
+            if (recommendedSongs.isEmpty()) {
+                break;
+            }
+
+            messageBuilder.append(recommendedSongs.get(i).getName());
+
+            // Add a comma if it's not the last element
+            if (i < maxRecommendedSongs - 1) {
+                messageBuilder.append(", ");
+            }
+        }
+        messageBuilder.append("]\n\nPlaylists recommendations:\n\t[");
+        for (int i = 0; i < maxRecommendedPlaylists; i++) {
+            if (recommendedPlaylists.isEmpty()) {
+                break;
+            }
+
+            messageBuilder.append(recommendedPlaylists.get(i).getName());
+
+            // Add a comma if it's not the last element
+            if (i < maxRecommendedPlaylists - 1) {
+                messageBuilder.append(", ");
+            }
+        }
         messageBuilder.append("]");
+
         user.setCurrentPage(messageBuilder.toString());
     }
 

@@ -1,4 +1,4 @@
-package commands.page;
+package commands.page.observer;
 
 import main.Library;
 

@@ -1,6 +1,6 @@
 package main;
 
-import commands.page.PageObserver;
+import commands.page.observer.PageObserver;
 import lombok.Getter;
 import user.entities.Users;
 import user.entities.audio.files.Album;

@@ -2,7 +2,7 @@ package commands.searchBar;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import commands.Command;
-import commands.page.PageSubject;
+import commands.page.observer.PageSubject;
 import commands.statistics.Wrapped;
 import lombok.Getter;
 import main.Library;

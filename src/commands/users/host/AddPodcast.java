@@ -2,7 +2,7 @@ package commands.users.host;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import commands.Command;
-import commands.page.PageSubject;
+import commands.page.observer.PageSubject;
 import lombok.Getter;
 import main.Library;
 import user.entities.Host;

@@ -3,6 +3,7 @@ package commands.page;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
+import org.antlr.v4.runtime.misc.Pair;
 import user.entities.Users;
 import user.entities.specialEntities.PageMenu;
 
@@ -35,16 +36,36 @@ public class ChangePage extends Command {
         }
 
         if (!(command.getNextPage().equals("Home")
-                || command.getNextPage().equals("LikedContent"))) {
+                || command.getNextPage().equals("LikedContent")
+                || command.getNextPage().equals("Artist")
+                || command.getNextPage().equals("Host"))) {
             setMessage(this.getUsername() + " is trying to access a non-existent page.");
             return;
         }
 
         if (command.getNextPage().equals("Home")) {
             user.getPageMenu().setCurrentPage(PageMenu.Page.HOMEPAGE);
+            // Add the page to queue
+            Pair<PageMenu.Page, String> pair = new Pair<>(PageMenu.Page.HOMEPAGE, "");
+            user.getPageCommand().execute(pair);
         } else if (command.getNextPage().equals("LikedContent")) {
             user.getPageMenu().setCurrentPage(PageMenu.Page.LIKEDCONTENTPAGE);
             user.getPageMenu().setPageOwnerName("");
+            // Add the page to queue
+            Pair<PageMenu.Page, String> pair = new Pair<>(PageMenu.Page.LIKEDCONTENTPAGE, "");
+            user.getPageCommand().execute(pair);
+        } else if (command.getNextPage().equals("Artist")) {
+            user.getPageMenu().setCurrentPage(PageMenu.Page.ARTISTPAGE);
+            user.getPageMenu().setPageOwnerName(user.getMusicPlayer().getSong().getArtist());
+            // Add the page to queue
+            Pair<PageMenu.Page, String> pair = new Pair<>(PageMenu.Page.ARTISTPAGE, user.getMusicPlayer().getSong().getArtist());
+            user.getPageCommand().execute(pair);
+        } else if (command.getNextPage().equals("Host")) {
+            user.getPageMenu().setCurrentPage(PageMenu.Page.HOSTPAGE);
+            user.getPageMenu().setPageOwnerName(user.getMusicPlayer().getPodcast().getOwner());
+            // Add the page to queue
+            Pair<PageMenu.Page, String> pair = new Pair<>(PageMenu.Page.HOSTPAGE, user.getMusicPlayer().getPodcast().getOwner());
+            user.getPageCommand().execute(pair);
         }
         setMessage(this.getUsername() + " accessed " + command.getNextPage() + " successfully.");
     }

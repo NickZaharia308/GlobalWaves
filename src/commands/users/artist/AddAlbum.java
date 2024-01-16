@@ -3,7 +3,7 @@ package commands.users.artist;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import commands.Command;
-import commands.page.PageSubject;
+import commands.page.observer.PageSubject;
 import lombok.Getter;
 import main.Library;
 import user.entities.Artist;

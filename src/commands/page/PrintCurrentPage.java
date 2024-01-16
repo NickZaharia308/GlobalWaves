@@ -41,6 +41,9 @@ public class PrintCurrentPage extends Command {
                 || user.getPageMenu().getCurrentPage() == PageMenu.Page.LIKEDCONTENTPAGE
                 || user.getPageMenu().getPageOwnerName().equals(user.getUsername())) {
             user.getPageMenu().setPage(user, library, user.getPageMenu().getPageOwnerName());
+        } else {
+            // If the page is ARTISTPAGE or HOSTPAGE, the page has to be retrieved
+            user.getPageMenu().setPage(user, library, user.getPageMenu().getPageOwnerName());
         }
 
         setMessage(user.getCurrentPage());

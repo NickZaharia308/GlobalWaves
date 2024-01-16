@@ -2241,6 +2241,11 @@
   "timestamp" : 1317,
   "result" : [ ]
 }, {
+  "command" : "loadRecommendations",
+  "user" : "bob35",
+  "timestamp" : 1321,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 1326,
@@ -3187,6 +3192,11 @@
   "timestamp" : 1943,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "henry26",
+  "timestamp" : 1957,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 1962,
@@ -3854,6 +3864,11 @@
   "command" : "load",
   "user" : "david27",
   "timestamp" : 2569,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "carol19",
+  "timestamp" : 2570,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "removeAlbum",
@@ -5851,6 +5866,11 @@
   "timestamp" : 4802,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "updateRecommendations",
+  "user" : "carol19",
+  "timestamp" : 4803,
+  "message" : "The recommendations for user carol19 have been updated successfully."
+}, {
   "command" : "search",
   "user" : "alice22",
   "timestamp" : 4809,
@@ -6329,16 +6349,16 @@
   "result" : {
     "topSongs" : {
       "All I Want" : 6,
+      "Comes Love" : 6,
       "A Case of You" : 5,
-      "Comes Love" : 5,
       "Little Green" : 5,
       "Raised on Robbery" : 5
     },
     "topAlbums" : {
-      "Blue" : 33,
+      "Blue" : 34,
       "Ladies of the Canyon" : 28,
-      "Court and Spark" : 27,
-      "Both Sides Now" : 26
+      "Both Sides Now" : 27,
+      "Court and Spark" : 27
     },
     "topFans" : [ "frank21", "carol19", "alice22", "grace25", "henry26" ],
     "listeners" : 10
@@ -6889,6 +6909,11 @@
   "user" : "Queen",
   "timestamp" : 5838,
   "message" : "Queen has added new album successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "frank21",
+  "timestamp" : 5853,
+  "message" : "Playback loaded successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -8559,6 +8584,11 @@
 }, {
   "command" : "load",
   "user" : "jack29",
+  "timestamp" : 7207,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "emily30",
   "timestamp" : 7207,
   "message" : "Playback loaded successfully."
 }, {
@@ -10713,6 +10743,11 @@
   "timestamp" : 9075,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "frank21",
+  "timestamp" : 9091,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 9094,
@@ -10978,6 +11013,11 @@
   "timestamp" : 9382,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "updateRecommendations",
+  "user" : "henry26",
+  "timestamp" : 9386,
+  "message" : "The recommendations for user henry26 have been updated successfully."
+}, {
   "command" : "search",
   "user" : "grace25",
   "timestamp" : 9394,
@@ -11089,18 +11129,18 @@
   "timestamp" : 9495,
   "result" : {
     "topSongs" : {
+      "From a Buick 6" : 7,
       "Queen Jane Approximately" : 7,
       "Bob Dylan's 115th Dream" : 6,
       "Desolation Row" : 6,
-      "Don't Think Twice, It's All Right" : 6,
-      "From a Buick 6" : 6
+      "Don't Think Twice, It's All Right" : 6
     },
     "topAlbums" : {
-      "Highway 61 Revisited" : 39,
+      "Highway 61 Revisited" : 40,
       "Bringing It All Back Home" : 38,
       "The Freewheelin' Bob Dylan" : 33
     },
-    "topFans" : [ "irene33", "david27", "jack29", "bob35", "henry26" ],
+    "topFans" : [ "irene33", "david27", "jack29", "bob35", "frank21" ],
     "listeners" : 10
   }
 }, {
@@ -11380,6 +11420,11 @@
   "command" : "load",
   "user" : "david27",
   "timestamp" : 9736,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "jack29",
+  "timestamp" : 9745,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "search",
@@ -11849,6 +11894,11 @@
   "timestamp" : 10208,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "jack29",
+  "timestamp" : 10217,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "grace25",
   "timestamp" : 10287,
@@ -11950,6 +12000,11 @@
   "timestamp" : 10322,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "updateRecommendations",
+  "user" : "grace25",
+  "timestamp" : 10322,
+  "message" : "The recommendations for user grace25 have been updated successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 10350,
@@ -11974,14 +12029,14 @@
       "I Know There's an Answer" : 7,
       "Pet Sounds" : 7,
       "Summertime Blues" : 7,
-      "Girl Don't Tell Me" : 6,
-      "Here Today" : 6
+      "Do You Remember" : 6,
+      "Girl Don't Tell Me" : 6
     },
     "topAlbums" : {
       "Pet Sounds" : 52,
-      "Summer Dreams" : 51
+      "Summer Dreams" : 52
     },
-    "topFans" : [ "alice22", "bob35", "jack29", "carol19", "david27" ],
+    "topFans" : [ "alice22", "bob35", "emily30", "jack29", "carol19" ],
     "listeners" : 10
   }
 }, {
@@ -16992,6 +17047,11 @@
   "timestamp" : 17095,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "jack29",
+  "timestamp" : 17100,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 17111,
@@ -17103,16 +17163,16 @@
   "timestamp" : 17212,
   "result" : {
     "topSongs" : {
+      "He's Misstra Know It All" : 7,
       "All Day Sucker" : 6,
-      "He's Misstra Know It All" : 6,
       "Higher Ground" : 6,
       "I Believe (When I Fall in Love It Will Be Forever)" : 6,
       "All in Love Is Fair" : 5
     },
     "topAlbums" : {
-      "Songs in the Key of Life" : 42,
+      "Songs in the Key of Life" : 44,
+      "Innervisions" : 36,
       "Talking Book" : 36,
-      "Innervisions" : 35,
       "The Definitive Collection" : 28
     },
     "topFans" : [ "irene33", "carol19", "frank21", "henry26", "alice22" ],
@@ -17442,6 +17502,11 @@
   "command" : "load",
   "user" : "jack29",
   "timestamp" : 17650,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "bob35",
+  "timestamp" : 17665,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "search",
@@ -18730,6 +18795,11 @@
   "timestamp" : 19619,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "updateRecommendations",
+  "user" : "emily30",
+  "timestamp" : 19635,
+  "message" : "The recommendations for user emily30 have been updated successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 19651,
@@ -19435,7 +19505,7 @@
       "Nirvana" : 17,
       "The Rolling Stones" : 14,
       "Johnny Cash" : 12,
-      "Adele" : 10
+      "The Beach Boys" : 11
     },
     "topGenres" : {
       "pop" : 22,
@@ -19449,13 +19519,13 @@
       "Before They Make Me Run" : 2,
       "Come On" : 2,
       "Consideration" : 2,
-      "Does Your Mother Know" : 2
+      "Do You Remember" : 2
     },
     "topAlbums" : {
       "Good Girl Gone Bad" : 16,
+      "Summer Dreams" : 7,
       "Nevermind" : 6,
       "Nirvana" : 6,
-      "Summer Dreams" : 6,
       "19" : 5
     },
     "topEpisodes" : { }
@@ -19591,6 +19661,11 @@
   "command" : "load",
   "user" : "irene33",
   "timestamp" : 20712,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "henry26",
+  "timestamp" : 20718,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "search",
@@ -20561,33 +20636,38 @@
     "topArtists" : {
       "Bob Dylan" : 14,
       "Rihanna" : 14,
-      "Johnny Cash" : 11,
-      "The Beach Boys" : 11,
-      "Stevie Wonder" : 10
+      "Johnny Cash" : 12,
+      "Stevie Wonder" : 12,
+      "The Beach Boys" : 11
     },
     "topGenres" : {
       "pop" : 21,
+      "soul" : 19,
       "rock" : 18,
-      "soul" : 17,
       "classic rock" : 12,
-      "folk" : 12
+      "country" : 12
     },
     "topSongs" : {
-      "He's Misstra Know It All" : 3,
+      "He's Misstra Know It All" : 4,
+      "Hurt" : 3,
       "Melt My Heart to Stone" : 3,
       "Pet Sounds" : 3,
-      "You Never Give Me Your Money - Remastered 2009" : 3,
-      "Hurt" : 2
+      "You Never Give Me Your Money - Remastered 2009" : 3
     },
     "topAlbums" : {
       "American IV: The Man Comes Around" : 7,
       "Summer Dreams" : 7,
       "Good Girl Gone Bad" : 6,
       "Greatest Hits II" : 6,
-      "Loud" : 6
+      "Innervisions" : 6
     },
     "topEpisodes" : { }
   }
+}, {
+  "command" : "loadRecommendations",
+  "user" : "alice22",
+  "timestamp" : 21858,
+  "message" : "Playback loaded successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -20649,23 +20729,23 @@
     "topArtists" : {
       "Joni Mitchell" : 19,
       "Bruce Springsteen" : 16,
+      "Stevie Wonder" : 15,
       "The Beatles" : 15,
-      "Elton John" : 14,
-      "Stevie Wonder" : 14
+      "Elton John" : 14
     },
     "topGenres" : {
       "rock" : 31,
-      "soul" : 27,
+      "soul" : 28,
       "pop" : 18,
-      "folk" : 16,
+      "folk" : 17,
       "classic rock" : 12
     },
     "topSongs" : {
+      "From a Buick 6" : 3,
+      "Sir Duke" : 3,
       "Woman Like Me" : 3,
       "Backstreets" : 2,
-      "Big Yellow Taxi" : 2,
-      "Born to Run" : 2,
-      "Come Together - Remastered 2009" : 2
+      "Big Yellow Taxi" : 2
     },
     "topAlbums" : {
       "Court and Spark" : 9,
@@ -21108,6 +21188,11 @@
   "timestamp" : 22659,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "bob35",
+  "timestamp" : 22712,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 22713,
@@ -21138,6 +21223,11 @@
   "command" : "load",
   "user" : "alice22",
   "timestamp" : 22716,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "grace25",
+  "timestamp" : 22734,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "search",
@@ -21211,15 +21301,15 @@
     "topSongs" : {
       "Born to Run" : 10,
       "I'm on Fire" : 7,
+      "Born in the U.S.A." : 6,
       "Meeting Across the River" : 6,
-      "Backstreets" : 5,
-      "Badlands" : 5
+      "Backstreets" : 5
     },
     "topAlbums" : {
-      "The Essential Bruce Springsteen" : 61,
+      "The Essential Bruce Springsteen" : 62,
       "Born to Run" : 37,
       "Born in the U.S.A." : 24,
-      "Greatest Hits" : 7
+      "Greatest Hits" : 8
     },
     "topFans" : [ "alice22", "bob35", "frank21", "henry26", "irene33" ],
     "listeners" : 10
@@ -23226,6 +23316,11 @@
   "timestamp" : 26338,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "updateRecommendations",
+  "user" : "carol19",
+  "timestamp" : 26373,
+  "message" : "The recommendations for user carol19 have been updated successfully."
+}, {
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 26419,
@@ -23264,7 +23359,7 @@
   "result" : {
     "topArtists" : {
       "Johnny Cash" : 46,
-      "Joni Mitchell" : 17,
+      "Joni Mitchell" : 18,
       "Stevie Wonder" : 15,
       "ABBA" : 14,
       "Nirvana" : 14
@@ -23796,22 +23891,22 @@
       "The Rolling Stones" : 20,
       "Adele" : 18,
       "Johnny Cash" : 18,
-      "ABBA" : 14,
-      "Joni Mitchell" : 14
+      "Joni Mitchell" : 16,
+      "ABBA" : 14
     },
     "topGenres" : {
       "soul" : 32,
       "classic rock" : 28,
       "rock" : 23,
-      "country" : 18,
-      "folk" : 17
+      "folk" : 19,
+      "country" : 18
     },
     "topSongs" : {
       "Chasing Pavements" : 4,
       "A Case of You" : 3,
       "Arrival" : 3,
       "Goodbye Yellow Brick Road" : 3,
-      "All Day Sucker" : 2
+      "Woodstock" : 3
     },
     "topAlbums" : {
       "Aftermath" : 16,
@@ -24078,24 +24173,24 @@
   "result" : {
     "topArtists" : {
       "Radiohead" : 28,
-      "Bruce Springsteen" : 21,
+      "Bruce Springsteen" : 22,
       "Nirvana" : 15,
       "The Beach Boys" : 12,
       "The Rolling Stones" : 12
     },
     "topGenres" : {
-      "rock" : 30,
+      "rock" : 32,
       "alternative" : 19,
       "soul" : 19,
       "classic rock" : 15,
       "grunge" : 15
     },
     "topSongs" : {
-      "Born in the U.S.A." : 3,
+      "Born in the U.S.A." : 4,
+      "Back in the U.S.S.R. - Remastered 2009" : 2,
       "Bob Dylan's Blues" : 2,
       "Born to Run" : 2,
-      "Climbing Up the Walls" : 2,
-      "Daydreamer" : 2
+      "Climbing Up the Walls" : 2
     },
     "topAlbums" : {
       "OK Computer" : 14,
@@ -24452,7 +24547,7 @@
       "soul" : 26,
       "classic rock" : 15,
       "pop" : 14,
-      "rnb" : 11
+      "alternative" : 11
     },
     "topSongs" : {
       "Live With Me" : 3,
@@ -24910,6 +25005,11 @@
   "timestamp" : 29203,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "irene33",
+  "timestamp" : 29292,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "irene33",
   "timestamp" : 29392,
@@ -25232,16 +25332,16 @@
     "topGenres" : {
       "soul" : 45,
       "rock" : 36,
+      "pop" : 15,
       "folk" : 14,
-      "pop" : 14,
       "grunge" : 12
     },
     "topSongs" : {
       "All in Love Is Fair" : 3,
       "Higher Ground" : 3,
+      "Shut Up and Drive" : 3,
       "Subterranean Homesick Blues" : 3,
-      "Wayfaring Stranger" : 3,
-      "Bob Dylan's 115th Dream" : 2
+      "Wayfaring Stranger" : 3
     },
     "topAlbums" : {
       "Songs in the Key of Life" : 23,
@@ -25284,6 +25384,11 @@
   "user" : "alice22",
   "timestamp" : 31315,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "updateRecommendations",
+  "user" : "alice22",
+  "timestamp" : 31350,
+  "message" : "The recommendations for user alice22 have been updated successfully."
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -25514,14 +25619,14 @@
   "timestamp" : 32969,
   "result" : {
     "topSongs" : {
-      "Hurt" : 6,
+      "Hurt" : 7,
       "Desperado" : 5,
       "Field of Diamonds" : 5,
       "I Won't Back Down" : 5,
       "Get Rhythm" : 4
     },
     "topAlbums" : {
-      "Unearthed" : 75,
+      "Unearthed" : 76,
       "The Legend of Johnny Cash" : 31,
       "American IV: The Man Comes Around" : 30,
       "American III: Solitary Man" : 26
@@ -25798,7 +25903,7 @@
       "Yellow Submarine - Remastered 2015" : 5
     },
     "topAlbums" : {
-      "The Beatles (Remastered)" : 54,
+      "The Beatles (Remastered)" : 55,
       "1 (Remastered)" : 53,
       "Abbey Road (Remastered)" : 44
     },
@@ -26233,12 +26338,12 @@
     "topSongs" : {
       "Breakin' Dishes" : 8,
       "Push Up on Me" : 8,
+      "Shut Up and Drive" : 8,
       "Good Girl Gone Bad" : 7,
-      "Lemme Get That" : 7,
-      "Shut Up and Drive" : 7
+      "Lemme Get That" : 7
     },
     "topAlbums" : {
-      "Good Girl Gone Bad" : 61,
+      "Good Girl Gone Bad" : 62,
       "ANTI (Deluxe)" : 30,
       "Loud" : 24,
       "Good Girl Gone Bad: Reloaded" : 19
@@ -26486,13 +26591,13 @@
   "result" : {
     "topArtists" : {
       "Rihanna" : 33,
-      "Bruce Springsteen" : 29,
+      "Bruce Springsteen" : 30,
       "Johnny Cash" : 27,
       "Elton John" : 24,
       "The Beatles" : 21
     },
     "topGenres" : {
-      "rock" : 50,
+      "rock" : 51,
       "pop" : 35,
       "country" : 27,
       "soul" : 21,
@@ -26502,8 +26607,8 @@
       "Octopus's Garden - Remastered 2009" : 3,
       "Shut Up and Drive" : 3,
       "Big Brother" : 2,
-      "Born to Run" : 2,
-      "Desperado" : 2
+      "Blood Brothers" : 2,
+      "Born to Run" : 2
     },
     "topAlbums" : {
       "The Essential Bruce Springsteen" : 23,
@@ -26527,85 +26632,85 @@
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "You're My Thrill",
       "ranking" : 2,
-      "songRevenue" : 4923434.01
+      "songRevenue" : 4941005.07
     },
     "Nirvana" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Oh Me",
       "ranking" : 3,
-      "songRevenue" : 4331887.4
+      "songRevenue" : 4318021.77
     },
     "Bob Dylan" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Subterranean Homesick Blues",
       "ranking" : 4,
-      "songRevenue" : 3862490.83
+      "songRevenue" : 3881118.21
     },
     "The Beach Boys" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Girl Don't Tell Me",
       "ranking" : 5,
-      "songRevenue" : 3610271.82
+      "songRevenue" : 3570431.22
     },
     "Stevie Wonder" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "I Believe (When I Fall in Love It Will Be Forever)",
       "ranking" : 6,
-      "songRevenue" : 2843334.16
+      "songRevenue" : 2877970.11
     },
     "The Beatles" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "You Never Give Me Your Money - Remastered 2009",
       "ranking" : 7,
-      "songRevenue" : 2551386.84
+      "songRevenue" : 2537960.97
     },
     "Rihanna" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Consideration",
       "ranking" : 8,
-      "songRevenue" : 2226016.89
+      "songRevenue" : 2262781.13
     },
     "Elton John" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Hercules",
       "ranking" : 9,
-      "songRevenue" : 2086428.07
+      "songRevenue" : 2077393.37
     },
     "ABBA" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Dancing Queen",
       "ranking" : 10,
-      "songRevenue" : 1982829.44
+      "songRevenue" : 1975537.84
+    },
+    "Bruce Springsteen" : {
+      "merchRevenue" : 0.0,
+      "mostProfitableSong" : "Born in the U.S.A.",
+      "ranking" : 11,
+      "songRevenue" : 1902265.03
     },
     "The Rolling Stones" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "I Am Waiting",
-      "ranking" : 11,
-      "songRevenue" : 1932158.8
-    },
-    "Bruce Springsteen" : {
-      "merchRevenue" : 0.0,
-      "mostProfitableSong" : "Born to Run",
       "ranking" : 12,
-      "songRevenue" : 1889117.85
+      "songRevenue" : 1896166.87
     },
     "Johnny Cash" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Personal Jesus",
       "ranking" : 13,
-      "songRevenue" : 1670665.16
+      "songRevenue" : 1667418.75
     },
     "Radiohead" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Weird Fishes/Arpeggi",
       "ranking" : 14,
-      "songRevenue" : 811850.39
+      "songRevenue" : 816006.93
     },
     "Queen" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "A Kind of Magic",
       "ranking" : 15,
-      "songRevenue" : 169847.64
+      "songRevenue" : 166702.05
     }
   }
 } ]

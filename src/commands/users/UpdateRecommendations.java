@@ -55,6 +55,9 @@ public class UpdateRecommendations extends Command {
             Playlists newlyCreatedPlaylist = library.getPlaylists().get(library.getPlaylists().size() - 1);
             newlyCreatedPlaylist.setSongs((ArrayList<Songs>) topSongs);
             user.getRecommendedPlaylists().add(newlyCreatedPlaylist);
+            user.setLastRecommendedPlaylist(newlyCreatedPlaylist);
+            user.setLastRecommendationType(Users.Track.PLAYLIST);
+
             setMessage("The recommendations for user " + user.getUsername() + " have been updated successfully.");
         } else if (command.getRecommendationType().equals("random_song")) {
             Songs currentSong = user.getMusicPlayer().getSong();
@@ -67,11 +70,15 @@ public class UpdateRecommendations extends Command {
             // Getting the genre of the current song and get all the songs with the same genre
             String genre = currentSong.getGenre();
             List<Songs> songsWithSameGenre = library.getSongs().stream().filter(song -> song.getGenre().equals(genre)).collect(Collectors.toList());
+
             // Generating a random song from the list
             Random random = new Random(seed);
             Songs randomSong = songsWithSameGenre.get(random.nextInt(songsWithSameGenre.size()));
+
             // Adding the song to the user's recommended songs
             user.getRecommendedSongs().add(randomSong);
+            user.setLastRecommendedSong(randomSong);
+            user.setLastRecommendationType(Users.Track.SONG);
             setMessage("The recommendations for user " + user.getUsername() + " have been updated successfully.");
         } else if (command.getRecommendationType().equals("random_playlist")) {
             ArrayList<Songs> songsForTop3Genres = getSongsForTop3Genres(user);
@@ -85,6 +92,9 @@ public class UpdateRecommendations extends Command {
             Playlists newlyCreatedPlaylist = library.getPlaylists().get(library.getPlaylists().size() - 1);
             newlyCreatedPlaylist.setSongs(songsForTop3Genres);
             user.getRecommendedPlaylists().add(newlyCreatedPlaylist);
+            user.setLastRecommendedPlaylist(newlyCreatedPlaylist);
+            user.setLastRecommendationType(Users.Track.PLAYLIST);
+
             setMessage("The recommendations for user " + user.getUsername() + " have been updated successfully.");
         }
 

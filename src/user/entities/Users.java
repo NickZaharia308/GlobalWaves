@@ -63,9 +63,13 @@ public class Users implements PageObserver, NotificationObserver {
     // Subscribe and Notification
     private Queue<String> notifications = new LinkedList<>();
     private ArrayList<String> boughtMerchandise = new ArrayList<>();
+    // Recommendations and pages
+    private PageCommand pageCommand = new PageCommand();
     private ArrayList<Playlists> recommendedPlaylists = new ArrayList<>();
     private ArrayList<Songs> recommendedSongs = new ArrayList<>();
-    private PageCommand pageCommand = new PageCommand();
+    private Track lastRecommendationType = null;
+    private Songs lastRecommendedSong = null;
+    private Playlists lastRecommendedPlaylist = null;
 
 
     /**
@@ -78,6 +82,7 @@ public class Users implements PageObserver, NotificationObserver {
     public enum UserType {
         NORMAL, ARTIST, HOST
     }
+
 
     /**
      * Constructs a new Users object with the specified username, age, and city.

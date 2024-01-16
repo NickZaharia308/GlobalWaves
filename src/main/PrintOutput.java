@@ -7,6 +7,7 @@ import commands.Command;
 import commands.admin.*;
 import commands.page.ChangePage;
 import commands.page.PrintCurrentPage;
+import commands.page.command.NextPage;
 import commands.page.command.PreviousPage;
 import commands.searchBar.Load;
 import commands.searchBar.Search;
@@ -784,6 +785,26 @@ public class PrintOutput {
             resultNode.put("user", previousPage.getUsername());
             resultNode.put("timestamp", previousPage.getTimestamp());
             resultNode.put("message", previousPage.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "nextPage")) {
+            NextPage nextPage = new NextPage();
+            nextPage.returnNextPage(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", nextPage.getCommand());
+            resultNode.put("user", nextPage.getUsername());
+            resultNode.put("timestamp", nextPage.getTimestamp());
+            resultNode.put("message", nextPage.getMessage());
+            outputs.add(resultNode);
+        } else if (Objects.equals(command.getCommand(), "loadRecommendations")) {
+            LoadRecommendations loadRecommendations = new LoadRecommendations();
+            loadRecommendations.returnLoadRecommendations(command, myLibrary);
+
+            ObjectNode resultNode = objectMapper.createObjectNode();
+            resultNode.put("command", loadRecommendations.getCommand());
+            resultNode.put("user", loadRecommendations.getUsername());
+            resultNode.put("timestamp", loadRecommendations.getTimestamp());
+            resultNode.put("message", loadRecommendations.getMessage());
             outputs.add(resultNode);
         }
     }

@@ -2662,6 +2662,11 @@
   "timestamp" : 1918,
   "message" : "Ad inserted successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "frank21",
+  "timestamp" : 1931,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 1938,
@@ -4356,14 +4361,14 @@
   "timestamp" : 4051,
   "result" : {
     "topSongs" : {
+      "If I Could Build My Whole World Around You" : 7,
       "Joy" : 7,
-      "If I Could Build My Whole World Around You" : 6,
       "Mercy Mercy Me (The Ecology)" : 6,
       "What's Going On" : 6,
       "Right On" : 5
     },
     "topAlbums" : {
-      "United" : 34,
+      "United" : 35,
       "What's Going On" : 32,
       "Midnight Love" : 26,
       "The Very Best of Marvin Gaye" : 19
@@ -7753,6 +7758,11 @@
   "timestamp" : 8141,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "emily30",
+  "timestamp" : 8153,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "adBreak",
   "user" : "bob35",
   "timestamp" : 8154,
@@ -9115,6 +9125,11 @@
   "timestamp" : 9343,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "bob35",
+  "timestamp" : 9366,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "jack29",
   "timestamp" : 9407,
@@ -9770,6 +9785,11 @@
   "command" : "load",
   "user" : "irene33",
   "timestamp" : 9914,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "jack29",
+  "timestamp" : 9921,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "search",
@@ -10590,6 +10610,11 @@
   "timestamp" : 10579,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "updateRecommendations",
+  "user" : "frank21",
+  "timestamp" : 10594,
+  "message" : "The recommendations for user frank21 have been updated successfully."
+}, {
   "command" : "search",
   "user" : "emily30",
   "timestamp" : 10624,
@@ -11222,6 +11247,11 @@
   "timestamp" : 11637,
   "message" : "emily30 bought the subscription successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "emily30",
+  "timestamp" : 11637,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 11642,
@@ -11678,6 +11708,11 @@
   "user" : "david27",
   "timestamp" : 12050,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "updateRecommendations",
+  "user" : "grace25",
+  "timestamp" : 12068,
+  "message" : "The recommendations for user grace25 have been updated successfully."
 }, {
   "command" : "search",
   "user" : "carol19",
@@ -12175,7 +12210,7 @@
       "Maybellene" : 6
     },
     "topAlbums" : {
-      "Chuck Berry Is On Top" : 55,
+      "Chuck Berry Is On Top" : 56,
       "St. Louis to Liverpool" : 26,
       "The Great Twenty-Eight" : 25,
       "Berry Is On Top" : 7
@@ -13050,6 +13085,11 @@
   "command" : "load",
   "user" : "jack29",
   "timestamp" : 13487,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "henry26",
+  "timestamp" : 13511,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "search",
@@ -14138,17 +14178,17 @@
     "topSongs" : {
       "Express Yourself" : 7,
       "Forbidden Love" : 6,
-      "The Power of Good-Bye" : 5,
+      "The Power of Good-Bye" : 6,
       "Dear Jessie" : 4,
       "Dress You Up" : 4
     },
     "topAlbums" : {
       "Celebration (Double Disc Version)" : 44,
       "Confessions on a Dance Floor" : 28,
-      "Ray of Light" : 24,
+      "Ray of Light" : 26,
       "Like a Prayer" : 23
     },
-    "topFans" : [ "henry26", "irene33", "grace25", "carol19", "emily30" ],
+    "topFans" : [ "henry26", "irene33", "grace25", "emily30", "carol19" ],
     "listeners" : 10
   }
 }, {
@@ -16041,7 +16081,7 @@
     },
     "topAlbums" : {
       "ABBA Gold" : 52,
-      "Arrival" : 26,
+      "Arrival" : 27,
       "Super Trouper" : 25,
       "Voulez-Vous" : 23
     },
@@ -16712,6 +16752,11 @@
   "timestamp" : 18347,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "bob35",
+  "timestamp" : 18347,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 18362,
@@ -16981,6 +17026,11 @@
   "command" : "load",
   "user" : "emily30",
   "timestamp" : 18658,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "alice22",
+  "timestamp" : 18667,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "search",
@@ -17531,6 +17581,11 @@
   "user" : "alice22",
   "timestamp" : 19176,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "updateRecommendations",
+  "user" : "irene33",
+  "timestamp" : 19187,
+  "message" : "The recommendations for user irene33 have been updated successfully."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -18451,6 +18506,11 @@
   "user" : "henry26",
   "timestamp" : 20149,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "updateRecommendations",
+  "user" : "grace25",
+  "timestamp" : 20180,
+  "message" : "The recommendations for user grace25 have been updated successfully."
 }, {
   "command" : "search",
   "user" : "carol19",
@@ -19583,6 +19643,11 @@
   "timestamp" : 21380,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "loadRecommendations",
+  "user" : "emily30",
+  "timestamp" : 21382,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 21390,
@@ -19729,12 +19794,12 @@
       "Fifteen" : 6,
       "So It Goes… 就这样吧" : 6,
       "Blank Space" : 5,
-      "Delicate 易碎" : 5,
-      "Gorgeous 完美情人" : 5
+      "Breathe (feat. Colbie Caillat)" : 5,
+      "Delicate 易碎" : 5
     },
     "topAlbums" : {
       "Lover" : 36,
-      "Fearless" : 34,
+      "Fearless" : 35,
       "1989" : 33,
       "reputation" : 33
     },
@@ -20474,7 +20539,7 @@
   "result" : {
     "topArtists" : {
       "Johnny Cash" : 22,
-      "Chuck Berry" : 18,
+      "Chuck Berry" : 19,
       "Jimi Hendrix" : 18,
       "Led Zeppelin" : 18,
       "Taylor Swift" : 13
@@ -20484,18 +20549,18 @@
       "country" : 26,
       "classic rock" : 21,
       "rock" : 14,
-      "rock and roll" : 13
+      "rock and roll" : 14
     },
     "topSongs" : {
       "Dancing With Our Hands Tied" : 3,
+      "Jo Jo Gunne" : 3,
       "You Belong with Me" : 3,
       "All Along the Watchtower" : 2,
-      "Clean" : 2,
-      "Dazed and Confused" : 2
+      "Clean" : 2
     },
     "topAlbums" : {
       "The Legend of Johnny Cash" : 13,
-      "Chuck Berry Is On Top" : 10,
+      "Chuck Berry Is On Top" : 11,
       "Electric Ladyland" : 9,
       "ABBA Gold" : 8,
       "Experience Hendrix: The Best of Jimi Hendrix" : 6
@@ -20691,8 +20756,8 @@
     "topGenres" : {
       "rock" : 32,
       "pop" : 20,
+      "country" : 12,
       "soul" : 12,
-      "country" : 11,
       "alternative rock" : 8
     },
     "topSongs" : {
@@ -22005,18 +22070,18 @@
       "Fleetwood Mac" : 13
     },
     "topGenres" : {
-      "pop" : 33,
+      "pop" : 34,
       "rock" : 30,
+      "country" : 16,
       "classic rock" : 15,
-      "country" : 14,
       "hard rock" : 11
     },
     "topSongs" : {
       "Angeleyes" : 3,
       "Stairway to Heaven" : 3,
       "Amsterdam - NBT" : 2,
-      "Bring It on Home" : 2,
-      "Can You See Me" : 2
+      "Breathe (feat. Colbie Caillat)" : 2,
+      "Bring It on Home" : 2
     },
     "topAlbums" : {
       "Are You Experienced" : 13,
@@ -22648,6 +22713,11 @@
   "timestamp" : 27887,
   "message" : "Playback loaded successfully."
 }, {
+  "command" : "updateRecommendations",
+  "user" : "grace25",
+  "timestamp" : 27888,
+  "message" : "The recommendations for user grace25 have been updated successfully."
+}, {
   "command" : "search",
   "user" : "frank21",
   "timestamp" : 27923,
@@ -22885,14 +22955,14 @@
       "Jimi Hendrix" : 27,
       "ABBA" : 15,
       "Johnny Cash" : 14,
-      "Taylor Swift" : 14,
-      "Marvin Gaye" : 13
+      "Marvin Gaye" : 14,
+      "Taylor Swift" : 14
     },
     "topGenres" : {
       "pop" : 32,
       "classic rock" : 30,
       "country" : 17,
-      "soul" : 13,
+      "soul" : 14,
       "rock" : 11
     },
     "topSongs" : {
@@ -23265,12 +23335,12 @@
       "Public Service Announcement 2000" : 6,
       "Business" : 4,
       "Cleanin' Out My Closet" : 4,
-      "Role Model" : 4,
-      "Space Bound" : 4
+      "Paul - Skit" : 4,
+      "Role Model" : 4
     },
     "topAlbums" : {
+      "The Marshall Mathers LP" : 39,
       "The Eminem Show" : 38,
-      "The Marshall Mathers LP" : 38,
       "The Slim Shady LP" : 34,
       "Recovery" : 28
     },
@@ -23324,6 +23394,11 @@
   "command" : "load",
   "user" : "henry26",
   "timestamp" : 29708,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "david27",
+  "timestamp" : 29741,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "cancelPremium",
@@ -23655,6 +23730,11 @@
   "user" : "david27",
   "timestamp" : 31040,
   "message" : "Playback loaded successfully."
+}, {
+  "command" : "updateRecommendations",
+  "user" : "henry26",
+  "timestamp" : 31063,
+  "message" : "The recommendations for user henry26 have been updated successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -24091,14 +24171,14 @@
   "timestamp" : 32557,
   "result" : {
     "topArtists" : {
-      "Madonna" : 22,
+      "Madonna" : 23,
       "Eminem" : 20,
       "Johnny Cash" : 20,
       "ABBA" : 16,
       "Nothing But Thieves" : 16
     },
     "topGenres" : {
-      "pop" : 56,
+      "pop" : 57,
       "country" : 21,
       "rap" : 20,
       "rock" : 15,
@@ -24106,10 +24186,10 @@
     },
     "topSongs" : {
       "Don't Stop 'Til You Get Enough" : 3,
+      "To Have and Not to Hold" : 3,
       "Wanna Be Startin' Somethin' 2008 with Akon - Thriller 25th Anniversary Remix" : 3,
       "'Till I Collapse (feat. Nate Dogg)" : 2,
-      "Broken Machine" : 2,
-      "Country Trash" : 2
+      "Broken Machine" : 2
     },
     "topAlbums" : {
       "American III: Solitary Man" : 15,
@@ -24502,15 +24582,15 @@
     "topSongs" : {
       "Wayfaring Stranger" : 7,
       "The Man Comes Around (Early Take)" : 6,
+      "We'll Meet Again" : 5,
       "Country Trash" : 4,
-      "I Hung My Head" : 4,
-      "I Won't Back Down" : 4
+      "I Hung My Head" : 4
     },
     "topAlbums" : {
-      "Unearthed" : 108,
+      "Unearthed" : 110,
       "American III: Solitary Man" : 38,
       "The Legend of Johnny Cash" : 32,
-      "American IV: The Man Comes Around" : 27
+      "American IV: The Man Comes Around" : 28
     },
     "topFans" : [ "jack29", "bob35", "henry26", "carol19", "frank21" ],
     "listeners" : 10
@@ -24983,7 +25063,7 @@
     "topGenres" : {
       "country" : 93,
       "rock" : 34,
-      "pop" : 30,
+      "pop" : 31,
       "rap" : 21,
       "rock and roll" : 13
     },
@@ -25010,13 +25090,13 @@
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Songbird",
       "ranking" : 1,
-      "songRevenue" : 3962792.59
+      "songRevenue" : 3920632.88
     },
     "Eminem" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Under The Influence",
       "ranking" : 2,
-      "songRevenue" : 3500597.05
+      "songRevenue" : 3469240.88
     },
     "Nothing But Thieves" : {
       "merchRevenue" : 0.0,
@@ -25028,61 +25108,61 @@
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Joy",
       "ranking" : 4,
-      "songRevenue" : 3099300.55
+      "songRevenue" : 3115383.02
     },
     "U2" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Running to Stand Still",
       "ranking" : 5,
-      "songRevenue" : 2738891.03
+      "songRevenue" : 2712283.57
     },
     "Jimi Hendrix" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Can You See Me",
       "ranking" : 6,
-      "songRevenue" : 2320999.13
+      "songRevenue" : 2315973.24
     },
     "Johnny Cash" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "I'm A Drifter - Version 1",
       "ranking" : 7,
-      "songRevenue" : 2197104.72
+      "songRevenue" : 2276536.58
     },
     "Taylor Swift" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Delicate 易碎",
       "ranking" : 8,
-      "songRevenue" : 2051641.5
+      "songRevenue" : 2074165.21
     },
     "Michael Jackson" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Jam",
       "ranking" : 9,
-      "songRevenue" : 2021964.52
+      "songRevenue" : 2013756.1
     },
     "Led Zeppelin" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Misty Mountain Hop",
       "ranking" : 10,
-      "songRevenue" : 1974915.57
+      "songRevenue" : 1967827.3
     },
     "ABBA" : {
       "merchRevenue" : 1500.0,
       "mostProfitableSong" : "Why Did It Have to Be Me",
       "ranking" : 11,
-      "songRevenue" : 1552381.9
+      "songRevenue" : 1551368.65
     },
     "Madonna" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Frozen",
       "ranking" : 12,
-      "songRevenue" : 959951.56
+      "songRevenue" : 966503.52
     },
     "Chuck Berry" : {
       "merchRevenue" : 0.0,
       "mostProfitableSong" : "Reelin' And Rockin' - Single Version",
       "ranking" : 13,
-      "songRevenue" : 425199.21
+      "songRevenue" : 422068.4
     },
     "Imagine Dragons" : {
       "merchRevenue" : 7700.0,

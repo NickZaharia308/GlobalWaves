@@ -86,7 +86,7 @@ public final class Main {
 //        CommandInput[] commands = objectMapper.readValue(new File(CheckerConstants.TESTS_PATH
 //                                                                  + filePath1),
 //                                                                  CommandInput[].class);
-//        if (!filePath1.equals("test11_etapa3_basicPageNavigation.json")) {
+//        if (!filePath1.equals("test14_etapa3_page_navigation.json")) {
 //            return;
 //        }
 

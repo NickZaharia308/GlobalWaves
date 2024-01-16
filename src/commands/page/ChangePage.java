@@ -67,6 +67,8 @@ public class ChangePage extends Command {
             Pair<PageMenu.Page, String> pair = new Pair<>(PageMenu.Page.HOSTPAGE, user.getMusicPlayer().getPodcast().getOwner());
             user.getPageCommand().execute(pair);
         }
+        // Clear the history for forward
+        user.getPageCommand().getPrevStack().clear();
         setMessage(this.getUsername() + " accessed " + command.getNextPage() + " successfully.");
     }
 

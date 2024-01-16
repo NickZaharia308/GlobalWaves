@@ -5,10 +5,7 @@ import lombok.Setter;
 import org.antlr.v4.runtime.misc.Pair;
 import user.entities.specialEntities.PageMenu;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
+import java.util.*;
 
 interface PageCommandInterface {
     void execute(Pair<PageMenu.Page, String> pagePair);
@@ -19,26 +16,26 @@ interface PageCommandInterface {
 @Getter
 @Setter
 public class PageCommand implements PageCommandInterface {
-    private Queue<Pair<PageMenu.Page, String>> prevQueue = new LinkedList<>();
-    private Queue<Pair<PageMenu.Page, String>> nextQueue = new LinkedList<>();
+    private Stack<Pair<PageMenu.Page, String>> prevStack = new Stack<>();
+    private Stack<Pair<PageMenu.Page, String>> nextStack = new Stack<>();
 
     public void execute(Pair<PageMenu.Page, String> pagePair) {
-        nextQueue.offer(pagePair);
+        nextStack.push(pagePair);
     }
 
     public boolean redo() {
-        if (!prevQueue.isEmpty()) {
-            Pair<PageMenu.Page, String> pagePair = prevQueue.poll();
-            nextQueue.offer(pagePair);
+        if (!prevStack.isEmpty()) {
+            Pair<PageMenu.Page, String> pagePair = prevStack.pop();
+            nextStack.push(pagePair);
             return true;
         }
         return false;
     }
 
     public boolean undo() {
-        if (!nextQueue.isEmpty()) {
-            Pair<PageMenu.Page, String> pagePair = nextQueue.poll();
-            prevQueue.offer(pagePair);
+        if (!nextStack.isEmpty()) {
+            Pair<PageMenu.Page, String> pagePair = nextStack.pop();
+            prevStack.push(pagePair);
             return true;
         }
         return false;

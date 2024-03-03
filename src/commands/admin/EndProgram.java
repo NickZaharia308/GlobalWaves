@@ -12,29 +12,46 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Map;
 
+/**
+ * The EndProgram class represents the implicit command given at the end of the program
+ * that computes the revenue for each artist, as well as the song with the
+ * highest revenue for each artist.
+ */
 @Getter
 public class EndProgram extends Command {
     private ArrayList<Artist> platformArtists = new ArrayList<>();
+    private final double percent = 100;
 
+    /**
+     * Computes the revenue for each artist and the song with the highest revenue
+     * for each artist, as well as the ranking of the artists based on their revenue.
+     *
+     * @param command The command containing information about the end of the program.
+     * @param library The main library containing user data.
+     */
     public void returnEndProgram(final Command command, final Library library) {
         super.setCommand(command.getCommand());
 
+        //
         for (Users user : library.getUsers()) {
             if (user.getUserType() == Users.UserType.ARTIST) {
                 this.platformArtists.add((Artist) user);
             } else if (user.getUserType() == Users.UserType.NORMAL) {
-                // CancelPremium for all users
                 command.setUsername(user.getUsername());
+
+                // CancelPremium for all users
                 CancelPremium cancelPremium = new CancelPremium();
                 cancelPremium.returnCancelPremium(command, library);
             }
         }
 
+        // Compute revenue for each artist
         for (Artist artist : this.platformArtists) {
             getRevenueForArtist(artist);
             setSongWithHighestRevenue(artist);
         }
 
+        // Sort artists based on their revenue
         sortArtists();
         int ranking = 1;
         for (Artist artist : this.platformArtists) {
@@ -45,9 +62,14 @@ public class EndProgram extends Command {
         }
     }
 
+
+    /**
+     * Sorts the artists based on their revenue and username.
+     */
     private void sortArtists() {
         Comparator<Artist> artistComparator = Comparator
-                .comparingDouble((Artist artist) -> artist.getSongRevenue() + artist.getMerchRevenue())
+                .comparingDouble((Artist artist) ->
+                        artist.getSongRevenue() + artist.getMerchRevenue())
                 .reversed()
                 .thenComparing(Artist::getUsername);
 
@@ -56,18 +78,27 @@ public class EndProgram extends Command {
 
 
 
-    private void getRevenueForArtist(Artist artist) {
-
+    /**
+     * Computes the revenue for a given artist based on the songs' revenue.
+     *
+     * @param artist The artist for which the revenue is computed.
+     */
+    private void getRevenueForArtist(final Artist artist) {
         double revenue = 0;
 
         for (Map.Entry<Songs, Double> entry : artist.getSongsRevenues().entrySet()) {
             revenue += entry.getValue();
         }
-        double songsRevenue = Math.round(revenue * 100.0) / 100.0;
+        double songsRevenue = Math.round(revenue * percent) / percent;
         artist.setSongRevenue(songsRevenue);
     }
 
-    private void setSongWithHighestRevenue(Artist artist) {
+    /**
+     * Sets the song with the highest revenue for a given artist.
+     *
+     * @param artist The artist for which the song with the highest revenue is set.
+     */
+    private void setSongWithHighestRevenue(final Artist artist) {
         Songs highestRevenueSong = null;
         double maxRevenue = Double.MIN_VALUE;
 
@@ -91,5 +122,4 @@ public class EndProgram extends Command {
             artist.setMostProfitableSong(highestRevenueSong.getName());
         }
     }
-
 }

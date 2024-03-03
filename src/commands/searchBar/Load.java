@@ -11,21 +11,18 @@ import user.entities.audio.files.Episodes;
 import user.entities.audio.files.Songs;
 
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * Represents a load operation based on the provided command and updates the playback status.
  * The load operation depends on the user's previous selection, and it can load a song, playlist,
- * or podcast.
+ * album or podcast.
  */
 @Getter
 public class Load extends Command {
     private String message;
 
     /**
-     * Performs a load operation based on the provided command and updates the playback status.
-     * The load operation depends on the user's previous selection, and it can load a song,
-     * playlist, or podcast.
+     * Performs a load operation based on the type of the track that the user has selected.
      *
      * @param command The load command containing user-specific information and timestamp.
      * @param library The library containing songs, playlists, podcasts, and user information.
@@ -51,13 +48,15 @@ public class Load extends Command {
             user.getMusicPlayer().setShuffled(false);
             user.getMusicPlayer().setTrackQueue(new LinkedList<>());
 
-
-            // Setup for when a song is played by a user
+            // Setup used when a track is played by the user
             if (user.getTrackType() == Users.Track.SONG) {
                 Songs playerSong = user.getMusicPlayer().getSong();
 
+                // Add the song to TrackQueue
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
-                user.getMusicPlayer().addToTrackQueue(playerSong, user.getMusicPlayer().getTrackQueue());
+                user.getMusicPlayer().addToTrackQueue(playerSong,
+                                                    user.getMusicPlayer().getTrackQueue());
+
                 // Update the maps for the user
                 updateMaps(playerSong, user, library);
             } else if (user.getTrackType() == Users.Track.PLAYLIST) {
@@ -67,8 +66,10 @@ public class Load extends Command {
                 // Get the first song from that playlist
                 Songs playerSong = user.getMusicPlayer().getPlaylist().getSongs().get(0);
 
+                // Add all the songs to TrackQueue
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
-                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getPlaylist(), user.getMusicPlayer().getTrackQueue());
+                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getPlaylist(),
+                                                    user.getMusicPlayer().getTrackQueue());
 
                 // Set the first song on the player
                 user.getMusicPlayer().setSong(playerSong);
@@ -82,7 +83,8 @@ public class Load extends Command {
                 // Set the first episode on the player
                 user.getMusicPlayer().setEpisode(playerEpisode);
                 // Update the map for the episodes
-                updateTopEpisodes(playerEpisode, user, user.getMusicPlayer().getPodcast().getOwner());
+                updateTopEpisodes(playerEpisode, user,
+                                user.getMusicPlayer().getPodcast().getOwner());
             } else if (user.getTrackType() == Users.Track.ALBUM) {
                 if (user.getMusicPlayer().getAlbum().getSongs().isEmpty()) {
                     return;
@@ -90,8 +92,10 @@ public class Load extends Command {
                 // Get the first song from that album
                 Songs playerSong = user.getMusicPlayer().getAlbum().getSongs().get(0);
 
+                // Add all the songs to TrackQueue
                 user.getMusicPlayer().setRemainedTime(playerSong.getDuration());
-                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getAlbum(), user.getMusicPlayer().getTrackQueue());
+                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getAlbum(),
+                                                    user.getMusicPlayer().getTrackQueue());
 
                 // Set the first song on the player
                 user.getMusicPlayer().setSong(playerSong);
@@ -121,28 +125,60 @@ public class Load extends Command {
         this.message = message;
     }
 
+    /**
+     * Updates the user's top songs, genres, artists, albums, and the artist's top fans
+     * and listeners.
+     *
+     * @param loadedSong The song that the user has loaded.
+     * @param user The user that has loaded the song.
+     * @param library The library containing songs, playlists, podcasts, and user information.
+     */
     public void updateMaps(final Songs loadedSong, final Users user, final Library library) {
-        user.getTopSongs().put(loadedSong.getName(), user.getTopSongs().getOrDefault(loadedSong.getName(), 0) + 1);
-        user.getTopGenres().put(loadedSong.getGenre(), user.getTopGenres().getOrDefault(loadedSong.getGenre(), 0) + 1);
-        user.getTopArtists().put(loadedSong.getArtist(), user.getTopArtists().getOrDefault(loadedSong.getArtist(), 0) + 1);
-        user.getTopAlbums().put(loadedSong.getAlbum(), user.getTopAlbums().getOrDefault(loadedSong.getAlbum(), 0) + 1);
+        // If the entry is not found, it will be created and with the default value of 0
+        // and incremented by 1, else added 1 to the existing value
+        user.getTopSongs().put(loadedSong.getName(),
+                                user.getTopSongs().getOrDefault(loadedSong.getName(), 0) + 1);
+
+        user.getTopGenres().put(loadedSong.getGenre(),
+                                user.getTopGenres().getOrDefault(loadedSong.getGenre(), 0) + 1);
+
+        user.getTopArtists().put(loadedSong.getArtist(),
+                                user.getTopArtists().getOrDefault(loadedSong.getArtist(), 0) + 1);
+
+        user.getTopAlbums().put(loadedSong.getAlbum(),
+                                user.getTopAlbums().getOrDefault(loadedSong.getAlbum(), 0) + 1);
 
         if (user.isPremium()) {
-            user.getSongsFromArtists().put(loadedSong, user.getSongsFromArtists().getOrDefault(loadedSong, 0) + 1);
+            user.getSongsFromArtists().put(loadedSong,
+                                user.getSongsFromArtists().getOrDefault(loadedSong, 0) + 1);
         }
 
         // Use the already available fields from the user class
         Users artistAsUser = user.getUser(library.getUsers(), loadedSong.getArtist());
-        artistAsUser.getTopSongs().put(loadedSong.getName(), artistAsUser.getTopSongs().getOrDefault(loadedSong.getName(), 0) + 1);
-        artistAsUser.getTopAlbums().put(loadedSong.getAlbum(), artistAsUser.getTopAlbums().getOrDefault(loadedSong.getAlbum(), 0) + 1);
+        artistAsUser.getTopSongs().put(loadedSong.getName(),
+                        artistAsUser.getTopSongs().getOrDefault(loadedSong.getName(), 0) + 1);
+
+        artistAsUser.getTopAlbums().put(loadedSong.getAlbum(),
+                        artistAsUser.getTopAlbums().getOrDefault(loadedSong.getAlbum(), 0) + 1);
+
         // Cast to Artist
         Artist artist = (Artist) artistAsUser;
         artist.getListeners().put(user.getUsername(), true);
-        artist.getTopFans().put(user.getUsername(), artist.getTopFans().getOrDefault(user.getUsername(), 0) + 1);
+        artist.getTopFans().put(user.getUsername(),
+                        artist.getTopFans().getOrDefault(user.getUsername(), 0) + 1);
     }
 
-    public void updateTopEpisodes(final Episodes loadedEpisode, final Users user, final String hostName) {
-        user.getTopEpisodes().put(loadedEpisode.getName(), user.getTopEpisodes().getOrDefault(loadedEpisode.getName(), 0) + 1);
+    /**
+     * Updates the user's top episodes and the host's top listeners.
+     *
+     * @param loadedEpisode The episode that the user has loaded.
+     * @param user The user that has loaded the episode.
+     * @param hostName The name of the host that owns the podcast.
+     */
+    public void updateTopEpisodes(final Episodes loadedEpisode, final Users user,
+                                  final String hostName) {
+        user.getTopEpisodes().put(loadedEpisode.getName(),
+                        user.getTopEpisodes().getOrDefault(loadedEpisode.getName(), 0) + 1);
 
         Users hostAsUser = user.getUser(Library.getInstance().getUsers(), hostName);
 
@@ -151,7 +187,8 @@ public class Load extends Command {
         }
 
         // Use the already available fields from the user class
-        hostAsUser.getTopEpisodes().put(loadedEpisode.getName(), hostAsUser.getTopEpisodes().getOrDefault(loadedEpisode.getName(), 0) + 1);
+        hostAsUser.getTopEpisodes().put(loadedEpisode.getName(),
+                        hostAsUser.getTopEpisodes().getOrDefault(loadedEpisode.getName(), 0) + 1);
         // Cast to Host
         Host host = (Host) hostAsUser;
         host.getListeners().put(user.getUsername(), true);

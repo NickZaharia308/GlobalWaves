@@ -1,10 +1,13 @@
 package commands.users.notifications;
 
-import java.util.ArrayList;
-
+/**
+ * This interface is used to implement the Observer pattern.
+ * The subject is represented as an artist or a host and notifies the users when there is a new
+ * event, album, merchandise, or other notifications.
+ */
 public interface NotificationSubject {
-    public void addNotificationObserver(NotificationObserver notificationObserver);
-    public void removeNotificationObserver(NotificationObserver notificationObserver);
-    public void notifyNotificationObservers();
+    void addNotificationObserver(NotificationObserver notificationObserver);
+    void removeNotificationObserver(NotificationObserver notificationObserver);
+    void notifyNotificationObservers();
 
 }

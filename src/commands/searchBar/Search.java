@@ -14,7 +14,11 @@ import user.entities.audio.files.Podcasts;
 import user.entities.audio.files.Songs;
 import user.entities.specialEntities.PageMenu;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -72,6 +76,12 @@ public class Search extends Command {
         updateResultsAndMessage(library, command);
     }
 
+    /**
+     * Searches for songs based on the provided filters and updates the search results.
+     *
+     * @param library The library containing songs to search within.
+     * @param filters The filters to apply to the search.
+     */
     private void searchSongs(final Library library, final JsonNode filters) {
         ArrayList<Songs> songs = library.getSongs();
         for (Songs song : songs) {
@@ -128,6 +138,7 @@ public class Search extends Command {
                 String artist = filters.get("artist").asText();
                 matchesAllFilters &= Objects.equals(song.getArtist(), artist);
             }
+
             if (matchesAllFilters && noOfResults < maxSearches) {
                 noOfResults++;
                 this.results.add(song.getName());
@@ -137,6 +148,12 @@ public class Search extends Command {
         }
     }
 
+    /**
+     * Searches for podcasts based on the provided filters and updates the search results.
+     *
+     * @param library The library containing podcasts to search within.
+     * @param filters The filters to apply to the search.
+     */
     private void searchPodcasts(final Library library, final JsonNode filters) {
         ArrayList<Podcasts> podcasts = library.getPodcasts();
         for (Podcasts podcast : podcasts) {
@@ -149,6 +166,7 @@ public class Search extends Command {
                 String owner = filters.get("owner").asText();
                 matchesAllFilters &= Objects.equals(podcast.getOwner(), owner);
             }
+
             if (matchesAllFilters && noOfResults < maxSearches) {
                 noOfResults++;
                 this.results.add(podcast.getName());
@@ -157,6 +175,14 @@ public class Search extends Command {
             }
         }
     }
+
+    /**
+     * Searches for playlists based on the provided filters and updates the search results.
+     *
+     * @param library The library containing playlists to search within.
+     * @param filters The filters to apply to the search.
+     * @param command The original search command.
+     */
     private void searchPlaylists(final Library library, final JsonNode filters,
                                  final Command command) {
         ArrayList<Playlists> playlists = library.getPlaylists();
@@ -176,6 +202,7 @@ public class Search extends Command {
                 // If the searched playlist is public
                 matchesAllFilters &= playlist.getVisibility().equals("public");
             }
+
             if (matchesAllFilters && noOfResults < maxSearches) {
                 noOfResults++;
                 this.results.add(playlist.getName());
@@ -185,6 +212,12 @@ public class Search extends Command {
         }
     }
 
+    /**
+     * Searches for artists based on the provided filters and updates the search results.
+     *
+     * @param library The library containing artists to search within.
+     * @param filters The filters to apply to the search.
+     */
     private void searchArtist(final Library library, final JsonNode filters) {
         ArrayList<Users> users = library.getUsers();
         for (Users user : users) {
@@ -208,6 +241,12 @@ public class Search extends Command {
         }
     }
 
+    /**
+     * Searches for albums based on the provided filters and updates the search results.
+     *
+     * @param library The library containing albums to search within.
+     * @param filters The filters to apply to the search.
+     */
     private void searchAlbum(final Library library, final JsonNode filters) {
         ArrayList<Album> albums = library.getAlbums();
         for (Album album : albums) {
@@ -233,11 +272,17 @@ public class Search extends Command {
         }
         sortAlbums(library, this.albumResult);
         this.results = extractAlbumNames(this.albumResult);
-        if (noOfResults > 5) {
-            noOfResults = 5;
+        if (noOfResults > maxSearches) {
+            noOfResults = maxSearches;
         }
     }
 
+    /**
+     * Searches for hosts based on the provided filters and updates the search results.
+     *
+     * @param library The library containing hosts to search within.
+     * @param filters The filters to apply to the search.
+     */
     private void searchHost(final Library library, final JsonNode filters) {
         ArrayList<Users> users = library.getUsers();
         for (Users user : users) {
@@ -297,7 +342,6 @@ public class Search extends Command {
             user.getMusicPlayer().setPlayTimestamp(command.getTimestamp());
             user.getMusicPlayer().getEpisode().setRemainingTime(leftTime);
         }
-
 
         // Canceling the MusicPlayer (loader)
         user.setSomethingLoaded(false);
@@ -375,12 +419,17 @@ public class Search extends Command {
             case "<":
                 return givenYear < comparisonYear;
             default:
-                // Handle the case when the operator is not > or <
                 return false;
         }
     }
 
-    public static void sortAlbums(final Library myLibrary, List<Album> albums) {
+    /**
+     * Sorts the albums based on the owner's addOnPlatformOrder and the album's addOrder.
+     *
+     * @param myLibrary The library containing the albums to be sorted.
+     * @param albums    The list of albums to be sorted.
+     */
+    public static void sortAlbums(final Library myLibrary, final List<Album> albums) {
         Comparator<Album> albumComparator = Comparator
                 .comparing((Album album) -> {
                     Artist owner = getArtistByUsername(myLibrary, album.getOwner());
@@ -399,17 +448,17 @@ public class Search extends Command {
         return (Artist) user;
     }
 
-    private LinkedList<String> extractAlbumNames(List<Album> sortedAlbums) {
-        LinkedList<String> results = new LinkedList<>();
+    private LinkedList<String> extractAlbumNames(final List<Album> sortedAlbums) {
+        LinkedList<String> albumNames = new LinkedList<>();
         int maxAlbums = 0;
         for (Album album : sortedAlbums) {
             if (maxAlbums < this.maxSearches) {
-                results.add(album.getName());
+                albumNames.add(album.getName());
             } else {
                 break;
             }
             maxAlbums++;
         }
-        return results;
+        return albumNames;
     }
 }

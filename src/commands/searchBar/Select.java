@@ -24,16 +24,11 @@ import java.util.LinkedList;
  */
 @Getter
 public class Select extends Command {
-    /**
-     * -- GETTER --
-     *  Gets the message generated during the selection operation.
-     *
-     * @return The selection message.
-     */
     private String message;
 
     /**
-     * Performs a selection based on the provided command and updates the selected item and message.
+     * Performs a selection based on the provided command and updates the selected item and
+     * message.
      * The selection is performed from the search results, and the type of the selected item can be
      * a song, playlist, podcast, album, artist/host pages
      *

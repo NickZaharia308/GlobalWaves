@@ -192,7 +192,7 @@ public class DeleteUser extends Command {
     }
 
     /**
-     * Deletes a user and related data if the user is of type normal.
+     * Deletes a user and related data.
      * Checks if the user is the owner of any loaded playlist to prevent deletion.
      *
      * @param command The command containing information about the requested operation.

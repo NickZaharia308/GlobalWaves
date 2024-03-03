@@ -3,11 +3,8 @@ package commands.admin;
 import commands.Command;
 import lombok.Getter;
 import main.Library;
-import user.entities.Artist;
-import user.entities.Host;
 import user.entities.UserFactory;
 import user.entities.Users;
-
 import java.util.ArrayList;
 
 /**
@@ -41,7 +38,9 @@ public class AddUser extends Command {
             return;
         }
 
-        Users newUser = UserFactory.createUser(getUsername(), command.getAge(), command.getCity(), command.getType());
+        // Adding the new user using Factory Design Pattern
+        Users newUser = UserFactory.createUser(getUsername(), command.getAge(),
+                                                command.getCity(), command.getType());
         allUsers.add(newUser);
 
         setMessage("The username " + getUsername() + " has been added successfully.");

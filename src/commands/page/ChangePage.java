@@ -9,7 +9,7 @@ import user.entities.specialEntities.PageMenu;
 
 /**
  * The ChangePage class represents a command to change the current page for a user.
- * The user can choose from: Home page and Liked content page.
+ * The user can choose from: Home page, Liked content page, ArtistPage or Host page.
  * It extends the Command class.
  */
 @Getter
@@ -45,26 +45,32 @@ public class ChangePage extends Command {
 
         if (command.getNextPage().equals("Home")) {
             user.getPageMenu().setCurrentPage(PageMenu.Page.HOMEPAGE);
-            // Add the page to queue
+
+            // Create the pair (page, page name) and add it to the stack
             Pair<PageMenu.Page, String> pair = new Pair<>(PageMenu.Page.HOMEPAGE, "");
             user.getPageCommand().execute(pair);
         } else if (command.getNextPage().equals("LikedContent")) {
             user.getPageMenu().setCurrentPage(PageMenu.Page.LIKEDCONTENTPAGE);
             user.getPageMenu().setPageOwnerName("");
-            // Add the page to queue
+
+            // Create the pair (page, page name) and add it to the stack
             Pair<PageMenu.Page, String> pair = new Pair<>(PageMenu.Page.LIKEDCONTENTPAGE, "");
             user.getPageCommand().execute(pair);
         } else if (command.getNextPage().equals("Artist")) {
             user.getPageMenu().setCurrentPage(PageMenu.Page.ARTISTPAGE);
             user.getPageMenu().setPageOwnerName(user.getMusicPlayer().getSong().getArtist());
-            // Add the page to queue
-            Pair<PageMenu.Page, String> pair = new Pair<>(PageMenu.Page.ARTISTPAGE, user.getMusicPlayer().getSong().getArtist());
+
+            // Create the pair (page, page name) and add it to the stack
+            Pair<PageMenu.Page, String> pair = new Pair<>(PageMenu.Page.ARTISTPAGE,
+                                                user.getMusicPlayer().getSong().getArtist());
             user.getPageCommand().execute(pair);
         } else if (command.getNextPage().equals("Host")) {
             user.getPageMenu().setCurrentPage(PageMenu.Page.HOSTPAGE);
             user.getPageMenu().setPageOwnerName(user.getMusicPlayer().getPodcast().getOwner());
-            // Add the page to queue
-            Pair<PageMenu.Page, String> pair = new Pair<>(PageMenu.Page.HOSTPAGE, user.getMusicPlayer().getPodcast().getOwner());
+
+            // Create the pair (page, page name) and add it to the stack
+            Pair<PageMenu.Page, String> pair = new Pair<>(PageMenu.Page.HOSTPAGE,
+                                                user.getMusicPlayer().getPodcast().getOwner());
             user.getPageCommand().execute(pair);
         }
         // Clear the history for forward

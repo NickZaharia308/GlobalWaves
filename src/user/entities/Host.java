@@ -103,6 +103,10 @@ public class Host extends Users {
         return builder.toString();
     }
 
+    /**
+     * If the host has had at least one listener, the method returns true.
+     * @return true if the host has had at least one listener, false otherwise.
+     */
     public boolean hasTrueValueInListeners() {
         for (boolean value : listeners.values()) {
             if (value) {
@@ -112,7 +116,13 @@ public class Host extends Users {
         return false;
     }
 
-    public static boolean hasUserInSubscribers(final String hostName ,final Users user) {
+    /**
+     * Method that checks if the host has a specific subscriber (normal user).
+     * @param hostName The name of the host.
+     * @param user The user to be checked.
+     * @return true if the user is a subscriber of the host, false otherwise.
+     */
+    public static boolean hasUserInSubscribers(final String hostName, final Users user) {
         Host host = (Host) user.getUser(Library.getInstance().getUsers(), hostName);
         for (Users subscriber : host.getSubscribers()) {
             if (subscriber.getUsername().equals(user.getUsername())) {

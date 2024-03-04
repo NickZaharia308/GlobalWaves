@@ -59,37 +59,6 @@ public class Artist extends Users implements NotificationSubject {
     }
 
     /**
-     * Sets the list of albums for the artist.
-     *
-     * @param albums The list of albums to set.
-     */
-    public void setAlbums(final ArrayList<Album> albums) {
-        this.albums = new ArrayList<>(albums);
-    }
-
-    /**
-     * Sets the list of events for the artist.
-     *
-     * @param events The list of events to set.
-     */
-    public void setEvents(final ArrayList<Event> events) {
-        this.events = new ArrayList<>(events);
-    }
-
-    /**
-     * Sets the list of merchandise for the artist.
-     *
-     * @param merchandise The list of merchandise to set.
-     */
-    public void setMerchandise(final ArrayList<Merch> merchandise) {
-        this.merchandise = new ArrayList<>(merchandise);
-    }
-
-    public void setRanking(final int ranking) {
-        this.ranking = ranking;
-    }
-
-    /**
      * Overrides the toString method to provide a string representation of the Artist.
      * It is used in the command "PrintCurrentPage"
      *
@@ -153,6 +122,11 @@ public class Artist extends Users implements NotificationSubject {
         return builder.toString();
     }
 
+    /**
+     * Checks if the artist has had at least one user that listened its music.
+     *
+     * @return true if the artist has at least one listener, false otherwise.
+     */
     public boolean hasTrueValueInListeners() {
         for (boolean value : listeners.values()) {
             if (value) {
@@ -162,6 +136,12 @@ public class Artist extends Users implements NotificationSubject {
         return false;
     }
 
+    /**
+     * Checks if the artist has a listener (normal user) with the specified username.
+     * @param artistName The name of the artist.
+     * @param user The user to be checked.
+     * @return true if the user is a listener of the artist, false otherwise.
+     */
     public static boolean hasObserverInSubscribers(final String artistName, final Users user) {
         Artist artist = (Artist) user.getUser(Library.getInstance().getUsers(), artistName);
         if (artist.getObservers().contains(user)) {
@@ -169,14 +149,31 @@ public class Artist extends Users implements NotificationSubject {
         }
         return false;
     }
-    public void addNotificationObserver(NotificationObserver notificationObserver) {
+
+    /**
+     * Adds a notification observer to the list of notification observers.
+     *
+     * @param notificationObserver The notification observer to add.
+     */
+    @Override
+    public void addNotificationObserver(final NotificationObserver notificationObserver) {
         observers.add(notificationObserver);
     }
 
-    public void removeNotificationObserver(NotificationObserver notificationObserver) {
+    /**
+     * Removes a notification observer from the list of notification observers.
+     *
+     * @param notificationObserver The notification observer to remove.
+     */
+    @Override
+    public void removeNotificationObserver(final NotificationObserver notificationObserver) {
         observers.remove(notificationObserver);
     }
 
+    /**
+     * Notifies all notification observers that the artist has a new event.
+     */
+    @Override
     public void notifyNotificationObservers() {
         for (NotificationObserver observer : observers) {
             observer.update(this);

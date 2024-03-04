@@ -117,13 +117,4 @@ public class MusicPlayer {
             }
         }
     }
-
-    /**
-     * Sets the number of songs to be played before an ad break.
-     *
-     * @param noOfSongsBreak The number of songs before an ad break.
-     */
-    public void setNoOfSongsBreak(final int noOfSongsBreak) {
-        this.noOfSongsBreak = noOfSongsBreak;
-    }
 }

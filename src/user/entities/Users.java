@@ -13,7 +13,11 @@ import user.entities.specialEntities.PageMenu;
 import user.entities.audio.files.Playlists;
 import user.entities.audio.files.Songs;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
 
 /**
  * The Users class represents a user in the system.
@@ -71,7 +75,6 @@ public class Users implements PageObserver, NotificationObserver {
     private Songs lastRecommendedSong = null;
     private Playlists lastRecommendedPlaylist = null;
 
-
     /**
      * Enumeration representing different types of tracks.
      */
@@ -82,7 +85,6 @@ public class Users implements PageObserver, NotificationObserver {
     public enum UserType {
         NORMAL, ARTIST, HOST
     }
-
 
     /**
      * Constructs a new Users object with the specified username, age, and city.
@@ -133,6 +135,11 @@ public class Users implements PageObserver, NotificationObserver {
         this.getPageMenu().setPage(this, library, this.getPageMenu().getPageOwnerName());
     }
 
+    /**
+     * Updates the user's notifications.
+     *
+     * @param notificationSubject The notification subject that was updated.
+     */
     @Override
     public final void update(final NotificationSubject notificationSubject) {
         Artist artist = (Artist) notificationSubject;

@@ -37,8 +37,8 @@ public class Subscribe extends Command {
             return;
         }
 
-        if (!(user.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE ||
-            user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE)) {
+        if (!(user.getPageMenu().getCurrentPage() == PageMenu.Page.ARTISTPAGE
+            || user.getPageMenu().getCurrentPage() == PageMenu.Page.HOSTPAGE)) {
             setMessage("To subscribe you need to be on the page of an artist or host.");
             return;
         }

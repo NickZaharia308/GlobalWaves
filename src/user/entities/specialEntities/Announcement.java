@@ -1,12 +1,14 @@
 package user.entities.specialEntities;
 
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  * The Announcement class represents an announcement entity with a name and description.
  * An announcement is created by a host.
  */
 @Getter
+@Setter
 public class Announcement {
     private String name;
     private String description;
@@ -19,24 +21,6 @@ public class Announcement {
      */
     public Announcement(final String name, final String description) {
         this.name = name;
-        this.description = description;
-    }
-
-    /**
-     * Sets the name of the announcement.
-     *
-     * @param name The new name to be set for the announcement.
-     */
-    public void setName(final String name) {
-        this.name = name;
-    }
-
-    /**
-     * Sets the description of the announcement.
-     *
-     * @param description The new description to be set for the announcement.
-     */
-    public void setDescription(final String description) {
         this.description = description;
     }
 }

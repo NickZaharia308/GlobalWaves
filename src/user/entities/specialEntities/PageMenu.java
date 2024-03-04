@@ -1,6 +1,7 @@
 package user.entities.specialEntities;
 
 import lombok.Getter;
+import lombok.Setter;
 import main.Library;
 import user.entities.Artist;
 import user.entities.Host;
@@ -16,6 +17,7 @@ import java.util.Comparator;
  * liked content page, artist page, and host page.
  */
 @Getter
+@Setter
 public class PageMenu {
 
     // Type of page
@@ -199,23 +201,5 @@ public class PageMenu {
         ArrayList<Songs> sortedSongs = new ArrayList<>(likedSongs);
         sortedSongs.sort(Comparator.comparingLong(Songs::getNumberOfLikes).reversed());
         return sortedSongs;
-    }
-
-    /**
-     * Sets the current page type.
-     *
-     * @param currentPage The type of page to be set.
-     */
-    public void setCurrentPage(final Page currentPage) {
-        this.currentPage = currentPage;
-    }
-
-    /**
-     * Sets the page owner's name.
-     *
-     * @param pageOwnerName The name of the page owner to be set.
-     */
-    public void setPageOwnerName(final String pageOwnerName) {
-        this.pageOwnerName = pageOwnerName;
     }
 }

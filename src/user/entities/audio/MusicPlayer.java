@@ -1,6 +1,7 @@
 package user.entities.audio;
 
 import lombok.Getter;
+import lombok.Setter;
 import user.entities.audio.files.Album;
 import user.entities.audio.files.Episodes;
 import user.entities.audio.files.Playlists;
@@ -17,6 +18,7 @@ import java.util.Queue;
  * podcast or album and playback status.
  */
 @Getter
+@Setter
 public class MusicPlayer {
     private Songs song = null;
 
@@ -44,24 +46,6 @@ public class MusicPlayer {
     private int noOfSongsBreak = 0;
 
     /**
-     * Sets the current song in the music player.
-     *
-     * @param song The song to be set.
-     */
-    public void setSong(final Songs song) {
-        this.song = song;
-    }
-
-    /**
-     * Sets the current playlist in the music player.
-     *
-     * @param playlist The playlist to be set.
-     */
-    public void setPlaylist(final Playlists playlist) {
-        this.playlist = playlist;
-    }
-
-    /**
      * Sets the podcasts in the music player, creating deep copies if necessary.
      *
      * @param podcasts The list of podcasts to be set.
@@ -81,60 +65,6 @@ public class MusicPlayer {
     }
 
     /**
-     * Sets the current podcast in the music player.
-     *
-     * @param podcast The podcast to be set.
-     */
-    public void setPodcast(final Podcasts podcast) {
-        this.podcast = podcast;
-    }
-
-    /**
-     * Sets the current episode in the music player.
-     *
-     * @param episode The episode to be set.
-     */
-    public void setEpisode(final Episodes episode) {
-        this.episode = episode;
-    }
-
-    /**
-     * Checks if the music player is currently paused.
-     *
-     * @return True if the player is paused, false otherwise.
-     */
-    public boolean isPaused() {
-        return isPaused;
-    }
-
-    /**
-     * Sets the playback status of the music player.
-     *
-     * @param paused True to pause the player, false to resume playback.
-     */
-    public void setPaused(final boolean paused) {
-        isPaused = paused;
-    }
-
-    /**
-     * Sets the remaining time for the current track in the music player.
-     *
-     * @param remainedTime The remaining time in seconds.
-     */
-    public void setRemainedTime(final int remainedTime) {
-        this.remainedTime = remainedTime;
-    }
-
-    /**
-     * Sets the timestamp for the current play position in the music player.
-     *
-     * @param playTimestamp The timestamp in seconds.
-     */
-    public void setPlayTimestamp(final int playTimestamp) {
-        this.playTimestamp = playTimestamp;
-    }
-
-    /**
      * Sets the repeat mode for the music player.
      *
      * @param repeatMode The repeat mode to be set.
@@ -148,83 +78,52 @@ public class MusicPlayer {
     }
 
     /**
-     * Sets the shuffled playlists in the music player.
+     * Adds the song to the track queue.
      *
-     * @param playlistsShuffled The shuffled playlists to be set.
+     * @param songToAdd  The song to be added to the queue.
+     * @param queue The queue to which the song is added.
      */
-    public void setPlaylistsShuffled(final Playlists playlistsShuffled) {
-        this.playlistsShuffled = playlistsShuffled;
-    }
-
-    /**
-     * Checks if the music player is currently in shuffle mode.
-     *
-     * @return True if shuffle mode is active, false otherwise.
-     */
-    public boolean isShuffled() {
-        return isShuffled;
-    }
-
-    /**
-     * Sets the shuffle mode for the music player.
-     *
-     * @param shuffled True to activate shuffle mode, false to deactivate.
-     */
-    public void setShuffled(final boolean shuffled) {
-        isShuffled = shuffled;
-    }
-
-    /**
-     * Sets the current album in the music player.
-     *
-     * @param album The album to be set.
-     */
-    public void setAlbum(final Album album) {
-        this.album = album;
-    }
-
-    /**
-     * Sets the shuffled album in the music player.
-     *
-     * @param albumShuffled The shuffled album to be set.
-     */
-    public void setAlbumShuffled(final Album albumShuffled) {
-        this.albumShuffled = albumShuffled;
-    }
-
-
-    public void setTrackQueue(Queue<Songs> trackQueue) {
-        this.trackQueue = trackQueue;
-    }
-
-    public void setAdQueue(Queue<Songs> adQueue) {
-        this.adQueue = adQueue;
-    }
-
-    public void addToTrackQueue(Songs song, Queue<Songs> queue) {
+    public void addToTrackQueue(final Songs songToAdd, final Queue<Songs> queue) {
         // Add the song to the trackQueue
-        queue.offer(song);
+        queue.offer(songToAdd);
     }
 
-    public void addSongsToQueue(Playlists playlist, Queue<Songs> queue) {
-        if (playlist != null) {
-            List<Songs> playlistSongs = playlist.getSongs();
-            for (Songs song : playlistSongs) {
-                addToTrackQueue(song, queue);
+    /**
+     * Adds the songs from the playlist to the track queue.
+     *
+     * @param playlistParam The playlist from which to add songs to the queue.
+     * @param queue    The queue to which the songs are added.
+     */
+    public void addSongsToQueue(final Playlists playlistParam, final Queue<Songs> queue) {
+        if (playlistParam != null) {
+            List<Songs> playlistSongs = playlistParam.getSongs();
+            for (Songs songInPlaylist : playlistSongs) {
+                addToTrackQueue(songInPlaylist, queue);
             }
         }
     }
 
-    public void addSongsToQueue(Album album, Queue<Songs> queue) {
-        if (album != null) {
-            List<Songs> albumSongs = album.getSongs();
-            for (Songs song : albumSongs) {
-                addToTrackQueue(song, queue);
+    /**
+     * Adds the songs from the album to the track queue.
+     *
+     * @param albumParam The album from which to add songs to the queue.
+     * @param queue The queue to which the songs are added.
+     */
+    public void addSongsToQueue(final Album albumParam, final Queue<Songs> queue) {
+        if (albumParam != null) {
+            List<Songs> albumSongs = albumParam.getSongs();
+            for (Songs songInAlbum : albumSongs) {
+                addToTrackQueue(songInAlbum, queue);
             }
         }
     }
 
-    public void setNoOfSongsBreak(int noOfSongsBreak) {
+    /**
+     * Sets the number of songs to be played before an ad break.
+     *
+     * @param noOfSongsBreak The number of songs before an ad break.
+     */
+    public void setNoOfSongsBreak(final int noOfSongsBreak) {
         this.noOfSongsBreak = noOfSongsBreak;
     }
 }

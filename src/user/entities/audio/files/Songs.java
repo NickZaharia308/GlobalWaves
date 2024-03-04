@@ -84,7 +84,7 @@ public class Songs {
      * Sets the price for advertising the song.
      * @param adPrice The price for advertising the song.
      */
-    public void setAdPrice(int adPrice) {
+    public void setAdPrice(final int adPrice) {
         this.adPrice = adPrice;
     }
 }

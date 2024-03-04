@@ -1,11 +1,13 @@
 package user.entities.audio.files;
 
 import lombok.Getter;
+import lombok.Setter;
 
 /**
  * The Episodes class represents an episode in the system.
  */
 @Getter
+@Setter
 public class Episodes {
     private String name;
     private int duration;
@@ -36,41 +38,5 @@ public class Episodes {
         this.duration = otherEpisode.duration;
         this.description = otherEpisode.description;
         this.remainingTime = otherEpisode.remainingTime;
-    }
-
-    /**
-     * Sets the name of the episode.
-     *
-     * @param name The new name of the episode.
-     */
-    public void setName(final String name) {
-        this.name = name;
-    }
-
-    /**
-     * Sets the duration of the episode.
-     *
-     * @param duration The new duration of the episode.
-     */
-    public void setDuration(final int duration) {
-        this.duration = duration;
-    }
-
-    /**
-     * Sets the description of the episode.
-     *
-     * @param description The new description of the episode.
-     */
-    public void setDescription(final String description) {
-        this.description = description;
-    }
-
-    /**
-     * Sets the remaining time of the episode.
-     *
-     * @param remainingTime The new remaining time of the episode.
-     */
-    public void setRemainingTime(final int remainingTime) {
-        this.remainingTime = remainingTime;
     }
 }

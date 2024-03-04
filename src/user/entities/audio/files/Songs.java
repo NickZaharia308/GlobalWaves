@@ -1,6 +1,7 @@
 package user.entities.audio.files;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import java.util.Map;
  * The Songs class represents a song in the system.
  */
 @Getter
+@Setter
 public class Songs {
     // "Default" fields
     private String name;
@@ -70,87 +72,6 @@ public class Songs {
     }
 
     /**
-     * Sets the name of the song.
-     *
-     * @param name The new name of the song.
-     */
-    public void setName(final String name) {
-        this.name = name;
-    }
-
-    /**
-     * Sets the duration of the song.
-     *
-     * @param duration The new duration of the song.
-     */
-    public void setDuration(final int duration) {
-        this.duration = duration;
-    }
-
-    /**
-     * Sets the album to which the song belongs.
-     *
-     * @param album The new album of the song.
-     */
-    public void setAlbum(final String album) {
-        this.album = album;
-    }
-
-    /**
-     * Sets the list of tags associated with the song.
-     *
-     * @param tags The new list of tags for the song.
-     */
-    public void setTags(final ArrayList<String> tags) {
-        this.tags = tags;
-    }
-
-    /**
-     * Sets the lyrics of the song.
-     *
-     * @param lyrics The new lyrics of the song.
-     */
-    public void setLyrics(final String lyrics) {
-        this.lyrics = lyrics;
-    }
-
-    /**
-     * Sets the genre of the song.
-     *
-     * @param genre The new genre of the song.
-     */
-    public void setGenre(final String genre) {
-        this.genre = genre;
-    }
-
-    /**
-     * Sets the release year of the song.
-     *
-     * @param releaseYear The new release year of the song.
-     */
-    public void setReleaseYear(final int releaseYear) {
-        this.releaseYear = releaseYear;
-    }
-
-    /**
-     * Sets the artist who performed the song.
-     *
-     * @param artist The new artist of the song.
-     */
-    public void setArtist(final String artist) {
-        this.artist = artist;
-    }
-
-    /**
-     * Sets the user likes map for the song.
-     *
-     * @param userLikesMap The new user likes map for the song.
-     */
-    public void setUserLikesMap(final Map<String, Boolean> userLikesMap) {
-        this.userLikesMap = userLikesMap;
-    }
-
-    /**
      * Gets the number of likes for the song.
      *
      * @return The number of likes for the song.
@@ -159,6 +80,10 @@ public class Songs {
         return userLikesMap.values().stream().filter(Boolean::booleanValue).count();
     }
 
+    /**
+     * Sets the price for advertising the song.
+     * @param adPrice The price for advertising the song.
+     */
     public void setAdPrice(int adPrice) {
         this.adPrice = adPrice;
     }

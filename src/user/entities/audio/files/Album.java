@@ -1,6 +1,7 @@
 package user.entities.audio.files;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,6 +11,7 @@ import java.util.Random;
  * The Album class represents a collection of songs released by an artist.
  */
 @Getter
+@Setter
 public class Album {
     private String name;
     private int releaseYear;
@@ -68,54 +70,5 @@ public class Album {
             Random random = new Random(seed);
             Collections.shuffle(this.songs, random);
         }
-    }
-
-    /**
-     * Sets the name of the album.
-     *
-     * @param name The new name of the album.
-     */
-    public void setName(final String name) {
-        this.name = name;
-    }
-
-    /**
-     * Sets the release year of the album.
-     *
-     * @param releaseYear The new release year of the album.
-     */
-    public void setReleaseYear(final int releaseYear) {
-        this.releaseYear = releaseYear;
-    }
-
-    /**
-     * Sets the description of the album.
-     *
-     * @param description The new description of the album.
-     */
-    public void setDescription(final String description) {
-        this.description = description;
-    }
-
-    /**
-     * Sets the list of songs in the album.
-     *
-     * @param songs The new list of songs in the album.
-     */
-    public void setSongs(final ArrayList<Songs> songs) {
-        this.songs = songs;
-    }
-
-    /**
-     * Sets the owner (artist) of the album.
-     *
-     * @param owner The new owner (artist) of the album.
-     */
-    public void setOwner(final String owner) {
-        this.owner = owner;
-    }
-
-    public void setAddOrder(int addOrder) {
-        this.addOrder = addOrder;
     }
 }

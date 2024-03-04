@@ -4,7 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import commands.Command;
-import commands.admin.*;
+import commands.admin.AddUser;
+import commands.admin.DeleteUser;
+import commands.admin.EndProgram;
+import commands.admin.ShowAlbums;
+import commands.admin.ShowPodcasts;
 import commands.page.ChangePage;
 import commands.page.PrintCurrentPage;
 import commands.page.command.NextPage;
@@ -12,8 +16,32 @@ import commands.page.command.PreviousPage;
 import commands.searchBar.Load;
 import commands.searchBar.Search;
 import commands.searchBar.Select;
-import commands.statistics.*;
-import commands.users.*;
+import commands.statistics.GetAllUsers;
+import commands.statistics.GetOnlineUsers;
+import commands.statistics.GetTop5Albums;
+import commands.statistics.GetTop5Artists;
+import commands.statistics.GetTop5Playlists;
+import commands.statistics.GetTop5Songs;
+import commands.statistics.Wrapped;
+import commands.users.AdBreak;
+import commands.users.AddRemoveInPlaylist;
+import commands.users.Backward;
+import commands.users.BuyMerch;
+import commands.users.BuyPremium;
+import commands.users.CancelPremium;
+import commands.users.Forward;
+import commands.users.Like;
+import commands.users.LoadRecommendations;
+import commands.users.Next;
+import commands.users.PlayPause;
+import commands.users.Prev;
+import commands.users.Repeat;
+import commands.users.SeeMerch;
+import commands.users.ShowPreferredSongs;
+import commands.users.Shuffle;
+import commands.users.Status;
+import commands.users.SwitchConnectionStatus;
+import commands.users.UpdateRecommendations;
 import commands.users.artist.AddAlbum;
 import commands.users.artist.AddEvent;
 import commands.users.artist.AddMerch;
@@ -23,10 +51,12 @@ import commands.users.host.AddAnnouncement;
 import commands.users.host.AddPodcast;
 import commands.users.host.RemoveAnnouncement;
 import commands.users.host.RemovePodcast;
-import commands.users.notifications.GetNotification;
+import commands.users.notifications.GetNotifications;
 import commands.users.notifications.Subscribe;
-import commands.users.playlists.*;
-import lombok.experimental.UtilityClass;
+import commands.users.playlists.CreatePlaylist;
+import commands.users.playlists.FollowPlaylist;
+import commands.users.playlists.ShowPlaylists;
+import commands.users.playlists.SwitchVisibility;
 import user.entities.Artist;
 import user.entities.Users;
 import user.entities.audio.files.Album;
@@ -43,9 +73,10 @@ import java.util.Objects;
 /**
  * Represents a utility class for printing output based on different commands.
  */
-@UtilityClass
-public class PrintOutput {
+public final class PrintOutput {
 
+    private PrintOutput() {
+    }
     /**
      * Prints output based on the provided command.
      *
@@ -606,7 +637,8 @@ public class PrintOutput {
                 resultObjectNode.set("topGenres", topGenresNode);
             }
 
-            if (wrapped.getUserType() == Users.UserType.NORMAL || wrapped.getUserType() == Users.UserType.ARTIST) {
+            if (wrapped.getUserType() == Users.UserType.NORMAL
+                    || wrapped.getUserType() == Users.UserType.ARTIST) {
                 ObjectNode topSongsNode = objectMapper.createObjectNode();
                 for (Map.Entry<String, Integer> entry : wrapped.getTopSongs()) {
                     topSongsNode.put(entry.getKey(), entry.getValue());
@@ -614,7 +646,8 @@ public class PrintOutput {
                 resultObjectNode.set("topSongs", topSongsNode);
             }
 
-            if (wrapped.getUserType() == Users.UserType.NORMAL || wrapped.getUserType() == Users.UserType.ARTIST) {
+            if (wrapped.getUserType() == Users.UserType.NORMAL
+                    || wrapped.getUserType() == Users.UserType.ARTIST) {
                 ObjectNode topAlbums = objectMapper.createObjectNode();
                 for (Map.Entry<String, Integer> entry : wrapped.getTopAlbums()) {
                     topAlbums.put(entry.getKey(), entry.getValue());
@@ -622,7 +655,8 @@ public class PrintOutput {
                 resultObjectNode.set("topAlbums", topAlbums);
             }
 
-            if (wrapped.getUserType() == Users.UserType.NORMAL || wrapped.getUserType() == Users.UserType.HOST) {
+            if (wrapped.getUserType() == Users.UserType.NORMAL
+                    || wrapped.getUserType() == Users.UserType.HOST) {
                 ObjectNode topEpisodes = objectMapper.createObjectNode();
                 for (Map.Entry<String, Integer> entry : wrapped.getTopEpisodes()) {
                     topEpisodes.put(entry.getKey(), entry.getValue());
@@ -638,7 +672,8 @@ public class PrintOutput {
                 resultObjectNode.set("topFans", topFansArray);
             }
 
-            if (wrapped.getUserType() == Users.UserType.ARTIST || wrapped.getUserType() == Users.UserType.HOST) {
+            if (wrapped.getUserType() == Users.UserType.ARTIST
+                    || wrapped.getUserType() == Users.UserType.HOST) {
                 int count = 0;
                 for (Map.Entry<String, Boolean> entry : wrapped.getListeners()) {
                     if (entry.getValue()) {
@@ -716,19 +751,19 @@ public class PrintOutput {
             resultNode.put("message", subscribe.getMessage());
             outputs.add(resultNode);
         } else if (Objects.equals(command.getCommand(), "getNotifications")) {
-            GetNotification getNotification = new GetNotification();
-            getNotification.returnGetNotification(command, myLibrary);
+            GetNotifications getNotifications = new GetNotifications();
+            getNotifications.returnGetNotification(command, myLibrary);
 
             ObjectNode resultNode = objectMapper.createObjectNode();
-            resultNode.put("command", getNotification.getCommand());
-            resultNode.put("user", getNotification.getUsername());
-            resultNode.put("timestamp", getNotification.getTimestamp());
+            resultNode.put("command", getNotifications.getCommand());
+            resultNode.put("user", getNotifications.getUsername());
+            resultNode.put("timestamp", getNotifications.getTimestamp());
 
             ArrayNode notificationsArray = resultNode.putArray("notifications");
 
-            while (!getNotification.getNotifications().isEmpty()) {
-                String name = getNotification.getNotifications().poll();
-                String description = getNotification.getNotifications().poll();
+            while (!getNotifications.getNotifications().isEmpty()) {
+                String name = getNotifications.getNotifications().poll();
+                String description = getNotifications.getNotifications().poll();
 
                 ObjectNode notificationNode = objectMapper.createObjectNode();
                 notificationNode.put("name", name);

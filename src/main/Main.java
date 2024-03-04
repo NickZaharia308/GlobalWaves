@@ -83,10 +83,10 @@ public final class Main {
         LibraryInput library = objectMapper.readValue(new File(CheckerConstants.TESTS_PATH
                                                                + "library/library.json"),
                                                                LibraryInput.class);
-//        CommandInput[] commands = objectMapper.readValue(new File(CheckerConstants.TESTS_PATH
-//                                                                  + filePath1),
-//                                                                  CommandInput[].class);
-//        if (!filePath1.equals("test14_etapa3_page_navigation.json")) {
+////        CommandInput[] commands = objectMapper.readValue(new File(CheckerConstants.TESTS_PATH
+////                                                                  + filePath1),
+////                                                                  CommandInput[].class);
+//        if (!filePath1.equals("test06_etapa3_monetization_all.json")) {
 //            return;
 //        }
 

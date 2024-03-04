@@ -1,6 +1,7 @@
 package user.entities.audio.files;
 
 import lombok.Getter;
+import lombok.Setter;
 import main.Library;
 import user.entities.Users;
 
@@ -14,6 +15,7 @@ import java.util.Random;
  * The Playlists class represents a playlist in the system.
  */
 @Getter
+@Setter
 public class Playlists {
     private String name;
     private ArrayList<Songs> songs = null;
@@ -97,79 +99,6 @@ public class Playlists {
             }
         }
         return null;
-    }
-
-
-    /**
-     * Sets the name of the playlist.
-     *
-     * @param name The new name of the playlist.
-     */
-    public void setName(final String name) {
-        this.name = name;
-    }
-
-    /**
-     * Sets the list of songs in the playlist.
-     *
-     * @param songs The new list of songs for the playlist.
-     */
-    public void setSongs(final ArrayList<Songs> songs) {
-        this.songs = songs;
-    }
-
-    /**
-     * Sets the visibility of the playlist.
-     *
-     * @param visibility The new visibility of the playlist.
-     */
-    public void setVisibility(final String visibility) {
-        this.visibility = visibility;
-    }
-
-    /**
-     * Sets the number of followers for the playlist.
-     *
-     * @param followers The new number of followers for the playlist.
-     */
-    public void setFollowers(final int followers) {
-        this.followers = followers;
-    }
-
-    /**
-     * Sets the owner of the playlist.
-     *
-     * @param owner The new owner of the playlist.
-     */
-    public void setOwner(final String owner) {
-        this.owner = owner;
-    }
-
-    /**
-     * Sets the ID of the playlist.
-     *
-     * @param id The new ID of the playlist.
-     */
-    public void setId(final int id) {
-        this.id = id;
-    }
-
-    /**
-     * Sets the user follow map for the playlist.
-     *
-     * @param userFollowMap The new user follow map for the playlist.
-     */
-    public void setUserFollowMap(final Map<String, Boolean> userFollowMap) {
-        this.userFollowMap = userFollowMap;
-    }
-
-    /**
-     * Sets the ID of the owner in his personal collection.
-     *
-     * @param usersID The new ID of the owner in his personal collection.
-     */
-    public void setUsersID(final int usersID) {
-        this.usersID = usersID;
     }
 
     /**

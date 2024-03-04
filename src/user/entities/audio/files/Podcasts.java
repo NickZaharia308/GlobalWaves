@@ -1,6 +1,7 @@
 package user.entities.audio.files;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 
@@ -8,6 +9,7 @@ import java.util.ArrayList;
  * The Podcasts class represents a podcast in the system.
  */
 @Getter
+@Setter
 public class Podcasts {
     private String name;
     private String owner;
@@ -51,32 +53,5 @@ public class Podcasts {
         for (Episodes episode : podcast.getEpisodes()) {
             episode.setRemainingTime(episode.getDuration());
         }
-    }
-
-    /**
-     * Sets the name of the podcast.
-     *
-     * @param name The new name of the podcast.
-     */
-    public void setName(final String name) {
-        this.name = name;
-    }
-
-    /**
-     * Sets the owner of the podcast.
-     *
-     * @param owner The new owner of the podcast.
-     */
-    public void setOwner(final String owner) {
-        this.owner = owner;
-    }
-
-    /**
-     * Sets the list of episodes associated with the podcast.
-     *
-     * @param episodes The new list of episodes for the podcast.
-     */
-    public void setEpisodes(final ArrayList<Episodes> episodes) {
-        this.episodes = episodes;
     }
 }

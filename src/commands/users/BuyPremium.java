@@ -6,10 +6,20 @@ import lombok.Setter;
 import main.Library;
 import user.entities.Users;
 
+/**
+ * BuyPremium class has the purpose to buy a premium subscription for a user. (if the user is not
+ * already premium)
+ */
 @Getter
 @Setter
 public class BuyPremium extends Command {
     private String message;
+
+    /**
+     * Buys a premium subscription for a user.
+     * @param command the command to be executed
+     * @param library the main library
+     */
     public void returnBuyPremium(final Command command, final Library library) {
         super.setCommand(command.getCommand());
         super.setUsername(command.getUsername());

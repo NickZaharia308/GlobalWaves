@@ -79,18 +79,25 @@ The file in the **src/** hierarchy looks like this:
        * **ShowPlaylists** - Shows the owner's playlists
        * **SwitchVisibility** - Switches a playlist's visibility from "private" to "public" and vice versa
 
+     * **AdBreak** - Inserts an add in the front of the queue of a non-premium user
      * **AddRemoveInPlaylist** - Adds/removes a song in a playlist
      * **Backward** - Goes back 90 seconds in a podcast episode
+     * **BuyMerch** - Permits the user to buy merch from an artist
+     * **BuyPremium** - Allows the user to buy premium (no more ads)
+     * **CancelPremium** - Cancels the user's premium subscription and computes the song revenue for each listened artist
      * **Forward** - Skips 90 seconds in a podcast episode
      * **Like** - Allows users to like a song
+     * **LoadRecommendations** - Loads the last recommendation for a user (song or playlist)
      * **Next** - Skips to the next song or episode
      * **PlayPause** - Switches the music player from play to pause and vice versa
      * **Prev** - Goes to the start of the song or episode
      * **Repeat** - Allows the user to repeat songs, playlists, albums and podcasts once or unlimited times
+     * **SeeMerch** - Shows the user bought merchandise (from artists) 
      * **ShowPreferredSongs** - Gives a list with the appreciated songs
      * **Shuffle** - Shuffles the songs in a playlist or an album
      * **Status** - Shows some details about the current track
      * **SwitchConnectionStatus** - Switches the online status of a normal user.
+     * **UpdateRecommendations** - Creates a playlist or gives a song based on user's listened artists, songs, genres
 
    * **Command** - The general structure for a command, each command has these parameters
 
@@ -182,6 +189,6 @@ The communication between input->commands and results->output is done using JSON
  * #### Miscellaneous
    * **Comparator**: PageMenu, GetTop5Artists, GetTop5Albums, GetTop5Songs, GetTop5Playlists, EndProgram, Wrapped
    * **Iterator**: DeleteUser, RemoveAlbum
-   * **Stream**: DeleteUser, Songs
-   * **Lambda Expressions**: AddAlbum, DeleteUser, Subject, EndProgram
+   * **Stream**: DeleteUser, Songs, BuyMerch
+   * **Lambda Expressions**: AddAlbum, DeleteUser, Subject, EndProgram, BuyMerch
 

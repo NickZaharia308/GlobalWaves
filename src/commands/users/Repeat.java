@@ -5,6 +5,11 @@ import lombok.Getter;
 import main.Library;
 import user.entities.Users;
 
+/**
+ * Repeat class is used to change the repeat mode for a user.
+ * The repeat mode can be changed to repeat all, repeat current song, repeat once, repeat
+ * infinite, or no repeat.
+ */
 @Getter
 public class Repeat extends Command {
     private String message;

@@ -1,7 +1,6 @@
 package commands.users;
 
 import commands.Command;
-import commands.searchBar.Load;
 import lombok.Getter;
 import main.Library;
 import user.entities.Artist;
@@ -81,15 +80,17 @@ public class Status extends Command {
         } else if (user.isSomethingLoaded() && user.getMusicPlayer() != null) {
             if (user.getTrackType() == Users.Track.SONG) {
                 Songs playerSong = user.getMusicPlayer().getSong();
-                if (!user.getMusicPlayer().getTrackQueue().isEmpty() &&
-                    playerSong.getName().equals(user.getMusicPlayer().getTrackQueue().peek().getName())) {
+                if (!user.getMusicPlayer().getTrackQueue().isEmpty()
+                    && playerSong.getName().
+                        equals(user.getMusicPlayer().getTrackQueue().peek().getName())) {
 
                     playerSong = user.getMusicPlayer().getTrackQueue().poll();
-                    if (playerSong.getName().equals("Ad Break")) {
+                    if (playerSong.getName().equals("Ad Break") && !user.isPremium()) {
                         computeRevenuePerSongFromQueue(user, library, command);
                     } else if (!user.isPremium()) {
                         user.getMusicPlayer().getAdQueue().offer(playerSong);
-                        user.getMusicPlayer().setNoOfSongsBreak(user.getMusicPlayer().getNoOfSongsBreak() + 1);
+                        user.getMusicPlayer().
+                                setNoOfSongsBreak(user.getMusicPlayer().getNoOfSongsBreak() + 1);
                     }
                 }
 
@@ -97,7 +98,6 @@ public class Status extends Command {
                 if (user.getMusicPlayer().getSong() == null) {
                     return;
                 }
-
 
                 setTrackName(playerSong.getName());
                 if (user.getMusicPlayer().getPlayTimestamp() == -1) {
@@ -122,12 +122,14 @@ public class Status extends Command {
                         if (!user.getMusicPlayer().getTrackQueue().isEmpty()) {
                             currentSong = user.getMusicPlayer().getTrackQueue().poll();
 
-                            if (currentSong.getName().equals("Ad Break")) {
+                            if (currentSong.getName().equals("Ad Break") && !user.isPremium()) {
                                 command.setPrice(currentSong.getAdPrice());
                                 computeRevenuePerSongFromQueue(user, library, command);
                             } else if (!user.isPremium()) {
                                 user.getMusicPlayer().getAdQueue().offer(playerSong);
-                                user.getMusicPlayer().setNoOfSongsBreak(user.getMusicPlayer().getNoOfSongsBreak() + 1);
+                                user.getMusicPlayer().
+                                        setNoOfSongsBreak(user.getMusicPlayer().
+                                                                getNoOfSongsBreak() + 1);
                             }
                         }
 
@@ -429,15 +431,17 @@ public class Status extends Command {
                 if (playerSong == null) {
                     return;
                 }
-                if (!user.getMusicPlayer().getTrackQueue().isEmpty() &&
-                        playerSong.getName().equals(user.getMusicPlayer().getTrackQueue().peek().getName())) {
+                if (!user.getMusicPlayer().getTrackQueue().isEmpty()
+                        && playerSong.getName().
+                                equals(user.getMusicPlayer().getTrackQueue().peek().getName())) {
 
                     playerSong = user.getMusicPlayer().getTrackQueue().poll();
-                    if (playerSong.getName().equals("Ad Break")) {
+                    if (playerSong.getName().equals("Ad Break") && !user.isPremium()) {
                         computeRevenuePerSongFromQueue(user, library, command);
                     } else if (!user.isPremium()) {
                         user.getMusicPlayer().getAdQueue().offer(playerSong);
-                        user.getMusicPlayer().setNoOfSongsBreak(user.getMusicPlayer().getNoOfSongsBreak() + 1);
+                        user.getMusicPlayer().
+                                setNoOfSongsBreak(user.getMusicPlayer().getNoOfSongsBreak() + 1);
                     }
                 }
                 setTrackName(playerSong.getName());
@@ -477,18 +481,22 @@ public class Status extends Command {
 
                         while (!user.getMusicPlayer().getTrackQueue().isEmpty() && leftTime <= 0) {
                             currentSong = user.getMusicPlayer().getTrackQueue().poll();
-                            if (currentSong.getName().equals("Ad Break")) {
+                            if (currentSong.getName().equals("Ad Break") && !user.isPremium()) {
                                 computeRevenuePerSongFromQueue(user, library, command);
                             } else if (!user.isPremium()) {
                                 user.getMusicPlayer().getAdQueue().offer(currentSong);
-                                user.getMusicPlayer().setNoOfSongsBreak(user.getMusicPlayer().getNoOfSongsBreak() + 1);
+                                user.getMusicPlayer().
+                                        setNoOfSongsBreak(user.getMusicPlayer().
+                                                            getNoOfSongsBreak() + 1);
                             }
                             leftTime += currentSong.getDuration();
 
                             // if the repeat mode is "repeat all and we reached the last song
                             if (user.getMusicPlayer().getRepeatMode() == 1 && leftTime <= 0
                                     && user.getMusicPlayer().getTrackQueue().isEmpty()) {
-                                user.getMusicPlayer().addSongsToQueue(user.getMusicPlayer().getAlbum(), user.getMusicPlayer().getTrackQueue());
+                                user.getMusicPlayer().
+                                        addSongsToQueue(user.getMusicPlayer().getAlbum(),
+                                                        user.getMusicPlayer().getTrackQueue());
                             }
                             user.setLastSong(currentSong.getName());
                         }
@@ -691,7 +699,17 @@ public class Status extends Command {
         this.repeatMessage = repeatMessage;
     }
 
-    private void computeRevenuePerSongFromQueue(Users user, Library library, Command command) {
+    /**
+     * The method computes the revenue per song after an ad starts playing.
+     * The formula is val = (priceOfAd / totalSongs) * songsFromArtist.
+     * The songs that are eligible for the revenue are the ones before the ad.
+     *
+     * @param user    The user that cancels the premium subscription.
+     * @param library The main library.
+     */
+    private void computeRevenuePerSongFromQueue(final Users user, final Library library,
+                                                final Command command) {
+
         Queue<Songs> adQueue = user.getMusicPlayer().getAdQueue();
         int songTotal = user.getMusicPlayer().getNoOfSongsBreak();
         int numberOfPolledSongs = 0;

@@ -6,6 +6,9 @@ import lombok.Getter;
 import main.Library;
 import user.entities.Users;
 
+/**
+ * PlayPause class is used to resume or pause playback based on the user's command.
+ */
 @Getter
 public class PlayPause extends Command {
     private String message;

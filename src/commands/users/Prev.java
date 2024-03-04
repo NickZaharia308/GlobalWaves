@@ -10,6 +10,9 @@ import user.entities.audio.files.Playlists;
 import user.entities.audio.files.Podcasts;
 import user.entities.audio.files.Songs;
 
+/**
+ * Prev class is used to return to the previous track in the user's music player.
+ */
 @Getter
 public class Prev extends Command {
     private String message;

@@ -11,14 +11,17 @@ import user.entities.specialEntities.PageMenu;
 
 import java.util.ArrayList;
 
+/**
+ * BuyMerch class is used by a user to buy merchandise from an artist's page.
+ */
 @Setter
 @Getter
 public class BuyMerch extends Command {
     private String message;
 
     /**
-     * Performs a buy merch operation based on the provided command
-     * A user can by merch from an artist's page
+     * Performs a buy merch operation based on the provided command.
+     * A user can by merch from an artist's page.
      *
      * @param command The buy merch command containing user-specific information and timestamp.
      * @param library The library containing songs, playlists, podcasts, and user information.
@@ -41,7 +44,8 @@ public class BuyMerch extends Command {
             return;
         }
 
-        Artist artist = (Artist) user.getUser(library.getUsers(), user.getPageMenu().getPageOwnerName());
+        Artist artist = (Artist) user.getUser(library.getUsers(),
+                                                user.getPageMenu().getPageOwnerName());
         Merch merchToBuy = getMerchandiseFromArtist(artist.getMerchandise(), command.getName());
         if (merchToBuy == null) {
             setMessage("The merch " + command.getName() + " doesn't exist.");
@@ -54,12 +58,18 @@ public class BuyMerch extends Command {
         artist.setMerchRevenue(artist.getMerchRevenue() + merchToBuy.getPrice());
     }
 
-    private Merch getMerchandiseFromArtist(ArrayList<Merch> merchArrayList, String merchName) {
-        for (Merch merch : merchArrayList) {
-            if (merch.getName().equals(merchName)) {
-                return merch;
-            }
-        }
-        return null;
+    /**
+     * Gets the merchandise from the artist's page.
+     *
+     * @param merchArrayList The list of merchandise from the artist's page.
+     * @param merchName      The name of the merchandise to retrieve.
+     * @return The merchandise with the specified name, or null if not found.
+     */
+    private Merch getMerchandiseFromArtist(final ArrayList<Merch> merchArrayList,
+                                           final String merchName) {
+        return merchArrayList.stream()
+                .filter(merch -> merch.getName().equals(merchName))
+                .findFirst()
+                .orElse(null);
     }
 }

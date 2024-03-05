@@ -131,8 +131,10 @@ The file in the **src/** hierarchy looks like this:
      * **Announcement** - Host created entity that represents an announcement and appears on its page
      * **Event** - Artist made entity that appears on its page
      * **Merch** - Artist made entity that represents merchandise and appears on its page
+     * **PageMenu** - Contains the currentPage of a user (Home, Liked Content, Artist or Host)
    * **Artist** - Special type of user that can create albums 
    * **Host** - Special type of user that can create podcasts
+   * **UserFactory** - Simplifies the creation of users, using Factory Design Pattern
    * **Users** - Contains details about every user
 
 ### Description
@@ -147,16 +149,22 @@ Every user has their own Music Player, which can be found in "MusicPlayer.java."
 * time left
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Alongside listening to tracks, users can navigate on pages (Home page, liked content page, artist page or host page) and can also subscribe to artists or hosts to get the latest updates about their new merch, albums, announcements or events.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Statistics and recommendations can be also seen by all kind of users. In addition, artists will get a revenue based on their listened songs. The generated revenue is based on premium subscription or ad breaks. Users can decide whether or not they want to pay for the premium subscription. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 A user can give a certain command at a known timestamp. Timestamp is used to have a chronological order of the commands. The output is basically instant (same timestamp as input) and the reason is that we don't want a user to wait much after searching a song or after following a playlist.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 The communication between input->commands and results->output is done using JSON, because is a lightweight data-interchange format commonly used for data exchange between a server and a web application, as well as for configuration files.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-##### Grouping the classes we have:
+#### Grouping the classes we have:
 * <font color="yellow">commands/</font>
 
-  * All of the commands are placed here. The commands are categorized as the hierarchy shows so that we have: **admin** commands, **pages** related commands, **searchBar** commands that let the user search, select and load something, general **statistics** and finally **user's** commands.
+  * All of the commands are placed here. The commands are categorized as the hierarchy shows so that we have: **admin** commands, **pages** related commands, **searchBar** commands that let the user search, select and load something, general **statistics** and finally, **user's** commands.
 
 * <font color="violet">fileio/input/:</font>
   * Files that are used to read the data in JSON format and make it Java usable.
@@ -169,17 +177,26 @@ The communication between input->commands and results->output is done using JSON
     * Library: Central Storing Entity *(A.K.A. CSE)* that follows the Singleton pattern and keeps the essential program lists.
 
 * <font color="lighblue">user/entities/</font>
-  * Package that contains both passive entities **(specialEntities/ and audio/)** and active entities such as: users, hosts and artists which use commands.
+  * Package that contains both passive entities **(specialEntities/ and audio/)** and active entities such as: users, hosts and artists which use commands. In this package we also find the Music Player, used for listening the tracks and the Page Menu, that allows the user to select different pages.
 
 ### OOP Concepts
 
  * #### Design Patters
    * Library follows the **Singleton Design Pattern** because we only want one instance of the library that stores all of the arrays.
+
    * The page system uses the **Observer Design Pattern** so that if a normal user has an artist/host page selected, it will be notifed if something on that page changes. In this case the relation in one-to-many, where **Subjects** are hosts and artists and **Observers** are normal users.
-   * The page system also uses the **Command Design Pattern**
+
+   * The page system also uses the **Command Design Pattern**. We need a history of the pages accessed by a user (Home, Liked Content, Artist page or Host page). This also enables commands like **undo** and **redo** that help the user navigate through pages easier.
+
+   * Notifications are implemented using **Observer Design Pattern**. Those are used, when a user wants to find out about the latest posts of artists or hosts. The **Subjects** are artists and hosts and the **Observers** are normal users, similarly to the page system. Notifications happen when hosts / artists add: albums, podcasts, merch or announcements.
+
+   * Previously, users were created inside the *AddUser* class, but extending the codebase was cumbersome, using only that class. Thus, **Factory Design Pattern** was introduces, to ease the creation of users and to improve extensibility of the code.
 
  * #### Inheritance
-   * All commands extend the command class, artists and hosts extend the users class and the user implements the Observer interface.
+   * All commands extend the *Command* class.
+   * *Artist* and *Host* extend the *Users* class.
+   * *Users* implements the *PageObserver*, *NotificationObserver* interfaces.
+   * *Artist* implements *NotificationSubject* interfaces.
 
  * #### Encapsulation
    * Classes have their fields as private (or protected in some cases), because it helps in maintaining a consistent state, facilitating future changes to the internal representation of the class without affecting external code. This translates to:
@@ -187,8 +204,8 @@ The communication between input->commands and results->output is done using JSON
    * **Public Getters and Setters**: Providing public methods (getters and setters) to access and modify the private fields. This allows controlled and well-defined access to the internal state of the object.
 
  * #### Miscellaneous
-   * **Comparator**: PageMenu, GetTop5Artists, GetTop5Albums, GetTop5Songs, GetTop5Playlists, EndProgram, Wrapped
-   * **Iterator**: DeleteUser, RemoveAlbum
-   * **Stream**: DeleteUser, Songs, BuyMerch
-   * **Lambda Expressions**: AddAlbum, DeleteUser, Subject, EndProgram, BuyMerch
+   * **Comparator**: PageMenu, GetTop5Artists, GetTop5Albums, GetTop5Songs, GetTop5Playlists, EndProgram, Wrapped.
+   * **Iterator**: DeleteUser, RemoveAlbum.
+   * **Stream**: DeleteUser, Songs, BuyMerch.
+   * **Lambda Expressions**: AddAlbum, DeleteUser, Subject, EndProgram, BuyMerch.
 

@@ -1,4 +1,4 @@
-# Proiect GlobalWaves - Etapa 1
+# GlobalWaves Project - Stage 1
 
 ## Copyright 2023 Zaharia Nicusor-Alexandru 325CA
 
